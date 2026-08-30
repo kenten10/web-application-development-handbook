@@ -47,8 +47,9 @@ jobs:
           node -e "const m=require('./dist/site/release-manifest.json');console.log('version=%s pages=%d',m.version,m.outputs.length)"
           sha256sum dist/site/release-manifest.json
       # 配信はrepository variable PAGES_ENABLED=true のときだけ行う。
-      # 非公開リポジトリの無料プランではGitHub Pagesを利用できないため、
-      # 既定では生成と決定性検証だけを実行する。詳細はCI.md 第5節。
+      # Pagesを有効化していないリポジトリ（フォークや複製先）でdeploy-pagesが
+      # 失敗しないよう、配信は明示的なopt-inにしてある。正本のリポジトリでは
+      # PAGES_ENABLED=true を設定済みである。詳細はCI.md 第5節。
       - name: Upload Pages artifact
         if: github.event_name != 'pull_request' && vars.PAGES_ENABLED == 'true'
         # KEN-70: v3.0.1のtagが指すcommit SHAをGitHub上で確認済み

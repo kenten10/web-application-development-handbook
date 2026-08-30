@@ -87,14 +87,14 @@ pnpm run build:site:check  # 一時ディレクトリへ2回生成し、manifest
 
 正本のリポジトリは `kenten10/web-application-development-handbook` である。KEN-70で確定し、`config/release.json` の `site.repoLinkBase` へ反映した。サイトに含めないリポジトリ内パスへのリンクは、このURLを基点に書き換わる。
 
-**現在、配信は止めてある。** リポジトリが非公開であり、GitHub Pagesは無料プランの非公開リポジトリでは利用できないためである。有効化しないまま `actions/deploy-pages` を実行するとPages APIで失敗し、原稿の検証とは無関係な赤い実行履歴が `main` に残る。
+**配信は有効である。公開URLは <https://kenten10.github.io/web-application-development-handbook/> である。** v1.0.0の公開時点ではリポジトリが非公開であり、GitHub Pagesが無料プランの非公開リポジトリでは利用できなかったため配信を止めていた。その後リポジトリを公開し、Pages の Source を GitHub Actions に切り替えて配信を開始した。第7.4節のタグ付け手順7は、この作業をもって完了している。
 
-止め方は「配信ステップの実行条件」であって、検査の削除ではない。
+配信の有無は「配信ステップの実行条件」で切り替える。検査の削除ではない。
 
-- 静的サイトの生成と決定性検証（`build-site.mjs` と `--check`）はPull Requestと `main` の双方で常に実行する。
-- Pages artifactのアップロードと配信ジョブだけを、repository variable `PAGES_ENABLED` が `true` のときに限定する。
+- 静的サイトの生成と決定性検証（`build-site.mjs` と `--check`）はPull Requestと `main` の双方で常に実行する。配信を止めても、この2つは止まらない。
+- Pages artifactのアップロードと配信ジョブだけを、repository variable `PAGES_ENABLED` が `true` のときに限定する。正本のリポジトリではこの変数を `true` に設定してある。
 
-リポジトリを公開してPagesを有効化する手順は [`CI.md`](./CI.md) 第5.2節にある。公開URLが確定したら、本節と `README.md` へ記載する。第7.4節のタグ付け手順7は、この作業が完了するまで保留となる。
+Pagesを有効化していないリポジトリで `actions/deploy-pages` を実行するとPages APIで失敗し、原稿の検証とは無関係な赤い実行履歴が `main` に残る。フォークや移管先でそうならないよう、条件は明示的なopt-inのままにしてある。手順は [`CI.md`](./CI.md) 第5.2節にある。
 
 ### 1.5 v1.0で提供しない形式
 

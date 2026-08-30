@@ -21,11 +21,16 @@
 
 ### Added
 
+- リポジトリを **public** へ切り替え、静的サイトの公開配信を開始した。公開URLは <https://kenten10.github.io/web-application-development-handbook/> である。repository variable `PAGES_ENABLED` を `true` にし、Pages の Source を GitHub Actions に設定した。`.github/workflows/pages.yml` の定義は変更していない。
+- `main` に ruleset を適用した（id `21860256`、`enforcement: active`、対象 `~DEFAULT_BRANCH`）。`deletion`、`non_fast_forward`、`pull_request`（必要承認0）、`required_status_checks`（`Required CI gate`、strict）の4ルールで、正本は [`.github/rulesets/main-required-ci.json`](.github/rulesets/main-required-ci.json) である。定義は変更せず、そのまま適用した。
+- GitHub Actions 上での必須ゲートの成功証跡を取得した。`main` で `.github/workflows/ci.yml` の33ジョブ（`Manuscript and configuration`、`PostgreSQL and Redis service containers`、ch01〜ch30の30ジョブ、`Required CI gate`）がすべて success となり、`.github/workflows/extended-ci.yml` も success となった。v1.0.0の公開時点で取得できていなかった証跡が揃った。
 - `reports/` を新設し、その一覧と各レポートの内容を示す `reports/README.md` を追加した。`README.md` の「構成」と「正本」に `reports/` の位置づけ（記録であり正本ではない）を追記した。
 - `config/release.json` のライセンス判定規則に `reports/data/**`（コード）と `reports/**`（本文）を追加し、`LICENSING.md` の判定規則表を同じ内容へ更新した。移動したファイルが判定規則に一致しない状態を作らないための追加であり、判定対象からの除外はしていない。
 
 ### Changed
 
+- public化に伴い、運用文書のうち非公開を前提にしていた記述を現状へ更新した。`README.md` の公開形式表と公開URL・ruleset・CI証跡の記述、`CI.md` 第5.1節（配信の制御）・第5.2節・第5.3節・第8.1節（適用済みのruleset）・第9節（Actionsの実行枠）、`RELEASE_POLICY.md` 第1.4節、`.github/workflows/pages.yml` の配信条件のコメントが対象である。検査の内容と基準は変更していない。
+- `BACKLOG_V1_1.md` に第3.2節を追加し、B-11（静的サイトの公開配信）、B-12（GitHub Actions上のCI成功証跡）、B-13（`main` のruleset）、B-14（extended CIの実行結果）の解消を記録した。第3.1節のv1.0.0時点の判断はそのまま残している。`RELEASE_v1.0.0_EVIDENCE.md` はv1.0.0のタグ時点の判定記録であるため書き換えていない。
 - ルート直下に置いていたissue単位の作業レポート24本を `reports/` へ、検証結果データ9本を `reports/data/` へ移動した。本文の正本（`00-front-matter.md`〜`10-index.md`）、方針・運用文書、`config/`・`code/`・`scripts/` は移動していない。
 - 移動に伴い、`README.md`、`BACKLOG_V1_1.md`、`CLEAN_ENVIRONMENT.md`、`BETA_REVIEW_FINDINGS.md`、`RELEASE_v1.0.0_EVIDENCE.md`、`config/editorial-fixes.json`、`.verification/ken66/verify.mjs` と各レポート内の参照パスを新しい配置へ更新した。
 

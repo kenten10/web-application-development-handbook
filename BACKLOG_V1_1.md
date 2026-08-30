@@ -53,10 +53,10 @@ v1.0のリリースゲートに対する影響は全項目で「なし」であ�
 |---|---|---|---|---|---|
 | B-09 | 人間の読者によるベータレビュー | KEN-61 | v1.0のベータレビューは、本文を事前に読んでいない独立エージェント13体による代行実施である。実利用の文脈、学習動機と離脱、支援技術の実使用、長期的な定着、所要時間の実測は代行できていない | なし。RB-01〜RB-11はいずれも代行実施の結果で判定でき、成立しない | 本ファイル |
 | B-10 | starter契約の残り110演習への展開 | KEN-61 | starterからsolutionへの契約検査（`apply:starter-contracts`）を全演習へ広げる | なし。`validate:exercises` は全143演習で成功する | 本ファイル |
-| B-11 | 静的サイトの公開配信 | KEN-63 | リポジトリが非公開かつ無料プランのため、GitHub Pagesの配信を止めている。`dist/site/` の生成と決定性検証は実行している | なし。公開形式の正本はGitリポジトリであり、生成物の固定はタグとmanifestのsha256で行う | Linear **KEN-733** 手順8 |
-| B-12 | GitHub Actions上のCI成功証跡 | KEN-70 | アカウントの課金設定（支払い失敗／spending limit）によりジョブが起動せず、PR上・`main` 上ともに必須ジョブの成功証跡を取得できていない | **あり（下記）** | Linear **KEN-733** |
-| B-13 | `main` のbranch protection / ruleset | KEN-70 | 無料プランの非公開リポジトリではrulesetもclassic branch protectionも403で設定できない。適用する定義は [`.github/rulesets/main-required-ci.json`](.github/rulesets/main-required-ci.json) に固定済み | なし。必須チェックの定義自体は正本として存在し、`pnpm run validate:ci` が名称の実在を検査する | Linear **KEN-733** |
-| B-14 | extended CIのGitHub Actions上での実行結果 | KEN-70 | `workflow_dispatch` で起動したが、B-12と同じ理由でジョブが失敗した。同じ検査をローカルで実行して成功を確認している | なし | Linear **KEN-733** |
+| B-11 | 静的サイトの公開配信 | KEN-63 | v1.0.0時点ではリポジトリが非公開かつ無料プランのため、GitHub Pagesの配信を止めていた。**解消済み**（第3.2節） | なし。公開形式の正本はGitリポジトリであり、生成物の固定はタグとmanifestのsha256で行う | Linear **KEN-733** 手順8 |
+| B-12 | GitHub Actions上のCI成功証跡 | KEN-70 | v1.0.0時点ではアカウントの課金設定（支払い失敗／spending limit）によりジョブが起動せず、必須ジョブの成功証跡を取得できていなかった。**解消済み**（第3.2節） | **あり（第3.1節）** | Linear **KEN-733** |
+| B-13 | `main` のbranch protection / ruleset | KEN-70 | v1.0.0時点では無料プランの非公開リポジトリのためrulesetもclassic branch protectionも403で設定できなかった。適用する定義は [`.github/rulesets/main-required-ci.json`](.github/rulesets/main-required-ci.json) に固定済み。**解消済み**（第3.2節） | なし。必須チェックの定義自体は正本として存在し、`pnpm run validate:ci` が名称の実在を検査する | Linear **KEN-733** |
+| B-14 | extended CIのGitHub Actions上での実行結果 | KEN-70 | v1.0.0時点では `workflow_dispatch` で起動したものの、B-12と同じ理由でジョブが失敗していた。**解消済み**（第3.2節） | なし | Linear **KEN-733** |
 | B-15 | 推定所要時間の実測 | KEN-61 | 通読時間は実測ではなく分量からの換算値である。RB-08の停止条件（実測が推定の2倍を超える章が3章以上）には当たらない | なし | 本ファイル、B-09と同時に処理する |
 
 ### 3.1 B-12の扱い
@@ -71,6 +71,21 @@ v1.0の公開を止めない理由は次のとおりである。
 
 この扱いは [`CHANGELOG.md`](./CHANGELOG.md) と [`RELEASE_v1.0.0_EVIDENCE.md`](./RELEASE_v1.0.0_EVIDENCE.md) にも記載する。KEN-733の完了をもってB-12・B-13・B-14を閉じる。
 
+第3.1節は v1.0.0 を公開した時点の判断の記録であり、そのまま残す。以下の第3.2節が、その後に制約が解けた事実を記す。
+
+### 3.2 B-11〜B-14の解消
+
+2026-08-30、リポジトリを **public** へ切り替えた。これによりB-11・B-12・B-13・B-14の前提だった3つの制約（非公開リポジトリでのActions課金枠、無料プランでのruleset不可、無料プランの非公開リポジトリでのPages不可）がいずれも解消し、4項目とも実施できた。
+
+| ID | 解消の内容 |
+|---|---|
+| B-12 | `main` の必須ゲートが成功した。33ジョブ（`Manuscript and configuration`、`PostgreSQL and Redis service containers`、ch01〜ch30の30ジョブ、`Required CI gate`）がすべて success、所要 約3分13秒。run: <https://github.com/kenten10/web-application-development-handbook/actions/runs/33315058697> |
+| B-14 | extended CI が success（19秒）。run: <https://github.com/kenten10/web-application-development-handbook/actions/runs/33315062824> |
+| B-13 | `.github/rulesets/main-required-ci.json` を適用した。ruleset id `21860256`、`enforcement: active`、対象 `~DEFAULT_BRANCH`、ルール4件（`deletion` / `non_fast_forward` / `pull_request` / `required_status_checks`）。設定内容は [`CI.md`](./CI.md) 第8.1節にある |
+| B-11 | GitHub Pages の配信を開始した。公開URLは <https://kenten10.github.io/web-application-development-handbook/> である。run: <https://github.com/kenten10/web-application-development-handbook/actions/runs/33315090807> |
+
+これらは [`RELEASE_v1.0.0_EVIDENCE.md`](./RELEASE_v1.0.0_EVIDENCE.md) 第5節の未達項目 U1・U2・U3 に対応する。同ファイルは v1.0.0 のタグ時点の判定記録であるため書き換えず、解消の事実は本節と [`CHANGELOG.md`](./CHANGELOG.md) の `## [Unreleased]` に記録する。版番号は上げない。本文・演習・サンプルコード・検証基準はいずれも変わっていないためである。
+
 ## 4. KEN-733との対応
 
 Linear の **KEN-733**「[v1.1/ユーザー実行] GitHub Actions実行枠とbranch protectionを有効化する」が、本ファイルのB-11・B-12・B-13・B-14を担当する。
@@ -83,7 +98,9 @@ Linear の **KEN-733**「[v1.1/ユーザー実行] GitHub Actions実行枠とbra
 | B-13 | rulesetが適用され、`gh api` の読み出しで確認できる | 手順6・7 |
 | B-11 | （完了条件外の付帯作業） | 手順8 |
 
-KEN-733の前提にある「PR #1 がOPEN」はKEN-63で解消した。PR #1 のコミットは `main` へ取り込み済みであり、KEN-733の手順4は不要になる。手順2・5は、ブロッカー解消後に `main` へpushするか空コミットのPRを立てて確認する。
+KEN-733の前提にある「PR #1 がOPEN」はKEN-63で解消した。PR #1 のコミットは `main` へ取り込み済みであり、KEN-733の手順4は不要になった。
+
+上表の完了条件は、第3.2節のとおりすべて満たしている。`main` 上での `Required CI gate` の成功、extended CIの実行結果、rulesetの適用、Pagesの配信のいずれも確認済みである。残るのは、Pull Request上で必須ジョブが成功することの確認（手順2）だけである。
 
 B-01〜B-10とB-15はLinearへ未登録である。v1.1の計画時に、第2.2節の優先順位に従ってissueへ分割する。
 
