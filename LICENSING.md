@@ -36,24 +36,27 @@
 | 6 | `.github/**` | コード | GitHub Actionsとissueテンプレート |
 | 7 | `.devcontainer/**` | コード | 固定環境定義 |
 | 8 | `.verification/**` | コード | 検証用の実行成果物とログ |
-| 9 | `*.json` | コード | ルート直下の設定・データ |
-| 10 | `*.yaml` | コード | pnpm workspaceとlockfile |
-| 11 | `*.yml` | コード | ルート直下のYAML設定 |
-| 12 | `*.csv` | コード | 検証結果データ |
-| 13 | `*.txt` | コード | 検証ログ |
-| 14 | `.gitignore` | コード | リポジトリ設定 |
-| 15 | `.npmrc` | コード | パッケージマネージャ設定 |
-| 16 | `.node-version` | コード | Node.jsバージョン固定 |
-| 17 | `.nvmrc` | コード | Node.jsバージョン固定 |
-| 18 | `*.md` | 本文 | 本文と運用文書 |
+| 9 | `reports/data/**` | コード | 作業レポートの検証結果データとログ |
+| 10 | `reports/**` | 本文 | issue単位の作業レポート |
+| 11 | `*.json` | コード | ルート直下の設定・データ |
+| 12 | `*.yaml` | コード | pnpm workspaceとlockfile |
+| 13 | `*.yml` | コード | ルート直下のYAML設定 |
+| 14 | `*.csv` | コード | 検証結果データ |
+| 15 | `*.txt` | コード | 検証ログ |
+| 16 | `.gitignore` | コード | リポジトリ設定 |
+| 17 | `.npmrc` | コード | パッケージマネージャ設定 |
+| 18 | `.node-version` | コード | Node.jsバージョン固定 |
+| 19 | `.nvmrc` | コード | Node.jsバージョン固定 |
+| 20 | `*.md` | 本文 | 本文と運用文書 |
 
 区分「告知」はライセンス本文そのものを指す。告知ファイルは被許諾物ではないため、CC BY-NC-SA 4.0もMITも適用しない。
 
 判定順序から導かれる帰結を明示しておく。
 
-- `code/ch07/README.md` は規則3に一致するため **MIT** である。規則18（`*.md`）はリポジトリ直下のMarkdownにしか到達しない。
-- `README.md`、`CONTRIBUTING.md`、`RELEASE_POLICY.md` などルート直下のMarkdownは規則18に一致するため **CC BY-NC-SA 4.0** である。
-- `beta-review-scope.json` や `narrative-flow.json` などルート直下のJSONは規則9に一致するため **MIT** である。
+- `code/ch07/README.md` は規則3に一致するため **MIT** である。規則20（`*.md`）はリポジトリ直下のMarkdownにしか到達しない。
+- `README.md`、`CONTRIBUTING.md`、`RELEASE_POLICY.md` などルート直下のMarkdownは規則20に一致するため **CC BY-NC-SA 4.0** である。
+- `reports/` 配下の作業レポートは規則10に一致するため **CC BY-NC-SA 4.0** である。`reports/data/` の検証結果データとログは、より先に評価される規則9に一致するため **MIT** である。
+- `beta-review-scope.json` や `narrative-flow.json` などルート直下のJSONは規則11に一致するため **MIT** である。
 
 ## 3. 判定対象外
 

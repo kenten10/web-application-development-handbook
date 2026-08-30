@@ -85,4 +85,4 @@ KEN-61 のベータレビューで、17件の演習の `services` が `config/ex
 - 原稿・目次・索引・コード参照: エラー0件
 - localhost TLS 1.2 / 1.3: 接続成功
 
-固定版Node.js 24・pnpm 11、ブラウザ操作、Dockerおよび外部サービスの最終証跡は未取得です。詳細は `KEN56_CLEAN_ENVIRONMENT_FINAL_AUDIT_REPORT.md` を参照してください。
+固定版Node.js 24・pnpm 11、ブラウザ操作、Dockerおよび外部サービスの最終証跡は未取得です。詳細は `reports/KEN56_CLEAN_ENVIRONMENT_FINAL_AUDIT_REPORT.md` を参照してください。

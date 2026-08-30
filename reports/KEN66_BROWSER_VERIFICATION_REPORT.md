@@ -4,7 +4,7 @@
 
 KEN-56で「管理制限により実行できない」として保留になっていたブラウザ演習6件を、実 Google Chrome 152.0.7977.65 を DevTools Protocol で自動操作して全件確認した。**6演習すべて PASS**、Console 重大エラー0件、Network 失敗0件、CSP違反0件。Service Worker の install→installed→activating→activated とオフラインフォールバック、および LCP・INP・FID・CLS の実測値をすべて取得した。
 
-KEN-56 の `ken56-browser-smoke-results-final.json` で全件 `blocked` だった6演習は、本検証で `passed` に置き換わる。
+KEN-56 の `reports/data/ken56-browser-smoke-results-final.json` で全件 `blocked` だった6演習は、本検証で `passed` に置き換わる。
 
 実行方法はユーザーの手動 DevTools 操作ではなく、許可を得たうえでヘッドレス Chrome + CDP による自動代替検証とした。
 
@@ -116,7 +116,7 @@ CLS は入力に依らないプログラム起因のシフト (`.shift` の `mar
 
 | KEN-66 の完了条件 | 充足状況 | 根拠 |
 |---|---|---|
-| 6演習すべてで README の期待動作を確認 | 充足 | 6/6 PASS。各演習で README / solution.md 記載の操作 (Bad/Better/Best、追加・完了・フィルター・削除、Shadow DOM のボタン操作、オフライン再読込、Web Vitals 取得) を CDP の実入力イベントで実行。演習別チェック計66項目すべて PASS。`ken66-browser-verification-results.json` の `checks` 配列に個別記録 |
+| 6演習すべてで README の期待動作を確認 | 充足 | 6/6 PASS。各演習で README / solution.md 記載の操作 (Bad/Better/Best、追加・完了・フィルター・削除、Shadow DOM のボタン操作、オフライン再読込、Web Vitals 取得) を CDP の実入力イベントで実行。演習別チェック計66項目すべて PASS。`reports/data/ken66-browser-verification-results.json` の `checks` 配列に個別記録 |
 | 各演習についてスクリーンショットまたは短い画面録画を添付 | 充足 | PNG 7枚 (9.2 のみオンライン/オフラインの2枚)。`.verification/ken66/screenshots/` |
 | Console と Network の重大エラーが0件 | 充足 | 全6演習で `Runtime.consoleAPICalled(error/assert)` + `Runtime.exceptionThrown` + `Log.entryAdded(level=error)` = 0件、`Network.loadingFailed` = 0件。CSP (Report-Only) 違反も0件。9.2 のオフライン検証フェーズで発生しうる失敗は `phase` タグで分離して集計しており、実際には0件だった |
 | Service Worker の install・activate・offline fallback を確認 | 充足 | `installing → installed → activating → activated` をページ側フックと CDP `ServiceWorker.workerVersionUpdated` の2系統で確認。offline fallback は CDP エミュレーションとサーバ停止の2方式で `offline.html` の表示を確認 |
@@ -130,8 +130,8 @@ CLS は入力に依らないプログラム起因のシフト (`.shift` の `mar
 
 | パス | 内容 |
 |---|---|
-| `ken66-browser-verification-results.json` | 機械可読な検証結果 (`ken56-browser-smoke-results-final.json` の後継。演習ごとの verdict / port / elapsedSec / エラー件数 / metrics / checks / screenshot) |
-| `KEN66_BROWSER_VERIFICATION_REPORT.md` | 本レポート |
+| `reports/data/ken66-browser-verification-results.json` | 機械可読な検証結果 (`reports/data/ken56-browser-smoke-results-final.json` の後継。演習ごとの verdict / port / elapsedSec / エラー件数 / metrics / checks / screenshot) |
+| `reports/KEN66_BROWSER_VERIFICATION_REPORT.md` | 本レポート |
 | `.verification/ken66/run-ken66.sh` | 再実行用エントリポイント (tsc ビルド → 1.4 の HTTP 計測 → CDP 検証 → 後片付け) |
 | `.verification/ken66/verify.mjs` | 6演習のブラウザ検証本体 |
 | `.verification/ken66/lib/cdp.mjs` | 依存ゼロの CDP クライアント (Node グローバル WebSocket 使用) |

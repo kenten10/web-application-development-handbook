@@ -67,7 +67,7 @@ v1.0の公開を止めない理由は次のとおりである。
 
 1. 停止条件の正本はrelease blockerであり、RB-03・RB-04・RB-05・RB-09のいずれも「特定のコマンドが非ゼロ終了する」ことを条件としている。実行基盤をGitHub Actionsに限定していない。
 2. CIが実行するコマンドはすべてローカルで終了コード0を確認しており、クリーンなクローンでの `pnpm install --frozen-lockfile` から `pnpm run check:handbook` までを再現している。証跡は [`RELEASE_v1.0.0_EVIDENCE.md`](./RELEASE_v1.0.0_EVIDENCE.md) にある。
-3. 失敗の原因はworkflow定義でも原稿でもなく、GitHubアカウントの課金設定である。切り分けの根拠は [`KEN70_GITHUB_CI_REPORT.md`](./KEN70_GITHUB_CI_REPORT.md) 第3.2節にある。
+3. 失敗の原因はworkflow定義でも原稿でもなく、GitHubアカウントの課金設定である。切り分けの根拠は [`reports/KEN70_GITHUB_CI_REPORT.md`](./reports/KEN70_GITHUB_CI_REPORT.md) 第3.2節にある。
 
 この扱いは [`CHANGELOG.md`](./CHANGELOG.md) と [`RELEASE_v1.0.0_EVIDENCE.md`](./RELEASE_v1.0.0_EVIDENCE.md) にも記載する。KEN-733の完了をもってB-12・B-13・B-14を閉じる。
 

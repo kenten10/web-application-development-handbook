@@ -36,7 +36,7 @@ KEN-56は **In Progressを維持する**。
 | ブラウザ手動 | 6 | 静的検査・ビルド成功、Chromium起動 | 管理制限のないブラウザで操作確認 |
 | 外部サービス | 17 | ローカルシミュレータ・自動テスト成功 | PostgreSQL、Redis、Kafka、Docker、Kubernetes、AWSで実確認 |
 
-全演習の個別記録は `clean-environment-results-ken56-final.csv` と `config/clean-environment-plan.json` に保存した。
+全演習の個別記録は `reports/data/clean-environment-results-ken56-final.csv` と `config/clean-environment-plan.json` に保存した。
 
 ## 検出・修正した検証上の問題
 

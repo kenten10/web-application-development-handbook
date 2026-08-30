@@ -968,7 +968,7 @@ const summary = {
   })),
 };
 
-await fs.writeFile(path.join(ROOT, 'ken66-browser-verification-results.json'), JSON.stringify(summary, null, 2) + '\n');
+await fs.writeFile(path.join(ROOT, 'reports', 'data', 'ken66-browser-verification-results.json'), JSON.stringify(summary, null, 2) + '\n');
 console.log('\n================ SUMMARY ================');
 for (const r of summary.exercises) console.log(`${r.verdict.padEnd(4)} ${r.id.padEnd(5)} port=${r.port} ${r.elapsedSec}s  ${r.title}`);
 console.log(`PASS ${summary.totals.pass} / FAIL ${summary.totals.fail}`);

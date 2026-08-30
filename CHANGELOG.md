@@ -17,13 +17,17 @@
 
 ## [Unreleased]
 
+版番号は上げない。本文・演習・サンプルコード・検証基準はいずれも変更していないため、`config/release.json` の `version` は `1.0.0` のままである。
+
 ### Added
 
-- なし
+- `reports/` を新設し、その一覧と各レポートの内容を示す `reports/README.md` を追加した。`README.md` の「構成」と「正本」に `reports/` の位置づけ（記録であり正本ではない）を追記した。
+- `config/release.json` のライセンス判定規則に `reports/data/**`（コード）と `reports/**`（本文）を追加し、`LICENSING.md` の判定規則表を同じ内容へ更新した。移動したファイルが判定規則に一致しない状態を作らないための追加であり、判定対象からの除外はしていない。
 
 ### Changed
 
-- なし
+- ルート直下に置いていたissue単位の作業レポート24本を `reports/` へ、検証結果データ9本を `reports/data/` へ移動した。本文の正本（`00-front-matter.md`〜`10-index.md`）、方針・運用文書、`config/`・`code/`・`scripts/` は移動していない。
+- 移動に伴い、`README.md`、`BACKLOG_V1_1.md`、`CLEAN_ENVIRONMENT.md`、`BETA_REVIEW_FINDINGS.md`、`RELEASE_v1.0.0_EVIDENCE.md`、`config/editorial-fixes.json`、`.verification/ken66/verify.mjs` と各レポート内の参照パスを新しい配置へ更新した。
 
 ### Fixed
 

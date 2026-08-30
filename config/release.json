@@ -124,6 +124,8 @@
       { "pattern": ".github/**", "category": "code", "note": "GitHub Actionsとissueテンプレート" },
       { "pattern": ".devcontainer/**", "category": "code", "note": "固定環境定義" },
       { "pattern": ".verification/**", "category": "code", "note": "検証用の実行成果物とログ" },
+      { "pattern": "reports/data/**", "category": "code", "note": "作業レポートの検証結果データとログ" },
+      { "pattern": "reports/**", "category": "text", "note": "issue単位の作業レポート" },
       { "pattern": "*.json", "category": "code", "note": "ルート直下の設定・データ" },
       { "pattern": "*.yaml", "category": "code", "note": "pnpm workspaceとlockfile" },
       { "pattern": "*.yml", "category": "code", "note": "ルート直下のYAML設定" },

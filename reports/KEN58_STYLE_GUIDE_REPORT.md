@@ -254,7 +254,7 @@
 | `scripts/validate-style.test.mjs` | 検査・適用・生成の回帰テスト (33件) |
 | `scripts/apply-style-fixes.mjs` | 機械適用できるルールの一括適用 (冪等) |
 | `scripts/generate-glossary.mjs` | `GLOSSARY.md` の生成と `--check` |
-| `KEN58_STYLE_GUIDE_REPORT.md` | このレポート |
+| `reports/KEN58_STYLE_GUIDE_REPORT.md` | このレポート |
 
 ### 変更
 

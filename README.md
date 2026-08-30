@@ -42,6 +42,7 @@ Webアプリケーション開発を、基礎から設計・運用・品質・�
 - `config/clean-environment-plan.json` — 全143演習の環境区分、必要証跡、安全境界の正本
 - `config/release.json` — 公開形式、ライセンス判定規則、版管理、章別の見直し周期、サポート範囲の正本
 - `code/ch01/`〜`code/ch30/` — 章別サンプルコード
+- `reports/` — 制作過程のissue単位の作業レポートと、その根拠となる検証結果データ。一覧と各レポートの内容は [`reports/README.md`](./reports/README.md) を参照してください
 
 ## 正本
 
@@ -52,6 +53,7 @@ Webアプリケーション開発を、基礎から設計・運用・品質・�
 - 各章の学習ガイドの正本は `config/chapter-guides.json` です。
 - 公開形式、ライセンス、版番号、見直し周期、サポート範囲の正本は `config/release.json` です。
 - サンプルコードの正本はGitリポジトリです。
+- `reports/` 配下は制作過程の記録であり、正本ではありません。本文・方針・機械可読データと食い違う場合は、リポジトリ直下の正本が優先します。
 - Google Drive上のコードは閲覧・共有用の複製です。
 
 編集規約とファイル配置の詳細は [`CONTRIBUTING.md`](./CONTRIBUTING.md)、表記・用語・図表の規約は [`STYLE_GUIDE.md`](./STYLE_GUIDE.md) と [`GLOSSARY.md`](./GLOSSARY.md) を参照してください。
@@ -165,4 +167,4 @@ Pull Requestでは原稿検査、全30章の`lint`・`typecheck`・`test`・`bui
 
 依存関係のインストールは`pnpm install --frozen-lockfile`で行います。`main`を保護するrulesetの定義は[`.github/rulesets/main-required-ci.json`](.github/rulesets/main-required-ci.json)を正本とし、`Required CI gate`の成功を必須チェックに指定しています。
 
-ただしv1.0.0の時点では、この**rulesetは未適用**です。無料プランの非公開リポジトリではrulesetもclassic branch protectionもGitHubが403を返すためです。あわせて、アカウントの課金設定によりGitHub Actionsのジョブが起動せず、**GitHub Actions上での成功証跡も取得できていません**。CIが実行するコマンドはすべてローカルで終了コード0を確認しています。制約の切り分けは[`CI.md`](./CI.md)第8.1節と[`KEN70_GITHUB_CI_REPORT.md`](./KEN70_GITHUB_CI_REPORT.md)、解消後の手順はLinearのKEN-733にあります。
+ただしv1.0.0の時点では、この**rulesetは未適用**です。無料プランの非公開リポジトリではrulesetもclassic branch protectionもGitHubが403を返すためです。あわせて、アカウントの課金設定によりGitHub Actionsのジョブが起動せず、**GitHub Actions上での成功証跡も取得できていません**。CIが実行するコマンドはすべてローカルで終了コード0を確認しています。制約の切り分けは[`CI.md`](./CI.md)第8.1節と[`reports/KEN70_GITHUB_CI_REPORT.md`](./reports/KEN70_GITHUB_CI_REPORT.md)、解消後の手順はLinearのKEN-733にあります。
