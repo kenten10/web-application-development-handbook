@@ -1,0 +1,32 @@
+=== KEN-63 配布成果物の生成と決定性確認 ===
+date: 2026-08-30T13:16:37Z
+source: タグ v1.0.0 のクリーンクローン ($SCRATCH/tag-clone-v1.0.0)
+
+=== 生成コマンド ===
+find site -type f | LC_ALL=C sort > filelist.txt          # 33ファイル
+find site -print0 | xargs -0 touch -t 202608300000.00     # mtime を releaseDate へ正規化
+COPYFILE_DISABLE=1 tar --format=ustar --uid 0 --gid 0 --numeric-owner \
+  -cf handbook-v1.0.0-site.tar -T filelist.txt
+gzip -9 -n handbook-v1.0.0-site.tar
+COPYFILE_DISABLE=1 zip -q -X -9 handbook-v1.0.0-site.zip -@ < filelist.txt
+
+=== sha256 ===
+102ae02545363b015b6ce7f8e4aa51aa8cfc1e7bde1f70ba6d0445913fa70bcf  handbook-v1.0.0-site.tar.gz
+60593593f5b2c1fd7a1548dd00e5a58eac8c0d15a8cf7d5b33a3e6055f7ad205  handbook-v1.0.0-site.zip
+d16457a498341819be919c8629a6324b5f33c36e5220f11c5f3a1257c0db7aac  release-manifest.json
+286230749ba0c9b1d052a3b7c0cbd479a4bfcc9c91f78277088d37dbd5712822  RELEASE_v1.0.0_EVIDENCE.md
+dd8481c15b17d9d78239d0a2bdb7b50492de57831d523f7d291b30d98157cafd  BACKLOG_V1_1.md
+
+=== 決定性: tar.gz を同じ手順で再生成して比較 ===
+102ae02545363b015b6ce7f8e4aa51aa8cfc1e7bde1f70ba6d0445913fa70bcf  (初回)
+102ae02545363b015b6ce7f8e4aa51aa8cfc1e7bde1f70ba6d0445913fa70bcf  (再生成)
+→ 一致
+
+=== GitHub Release ===
+https://github.com/kenten10/web-application-development-handbook/releases/tag/v1.0.0
+BACKLOG_V1_1.md  10701 bytes
+handbook-v1.0.0-site.tar.gz  1023733 bytes
+handbook-v1.0.0-site.zip  1058922 bytes
+release-manifest.json  10175 bytes
+RELEASE_v1.0.0_EVIDENCE.md  33254 bytes
+SHA256SUMS.txt  448 bytes
