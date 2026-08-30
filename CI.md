@@ -159,6 +159,31 @@ ruleset定義の正本は [`.github/rulesets/main-required-ci.json`](.github/rul
 
 `config/ci-plan.json` の `policy.requiredStatusCheck` が正本であり、`scripts/validate-ci.mjs` は同名のジョブが `ci.yml` に存在することを検査する。ジョブ名を変えるとrulesetの必須チェックが永久に保留になるため、両者を必ず一致させる。
 
+### 8.1 無料プランの非公開リポジトリでは設定できない
+
+現在、rulesetもclassic branch protectionも適用できない。GitHubは両方のAPIに403を返す。
+
+```
+$ gh api --method POST repos/kenten10/web-application-development-handbook/rulesets \
+    --input .github/rulesets/main-required-ci.json
+{"message":"Upgrade to GitHub Pro or make this repository public to enable this feature.","status":"403"}
+
+$ gh api --method PUT repos/kenten10/web-application-development-handbook/branches/main/protection --input <payload>
+{"message":"Upgrade to GitHub Pro or make this repository public to enable this feature.","status":"403"}
+```
+
+無料プランでbranch protectionを使えるのは公開リポジトリだけである。適用できる条件は次のいずれかである。
+
+1. リポジトリを公開する。
+2. GitHub Proへ切り替える。
+
+どちらかを満たした時点で、上の `gh api --method POST` を1回実行すれば設定は完了する。定義は `.github/rulesets/main-required-ci.json` に固定してあるため、設定内容が人の手作業に依存することはない。設定後は次で読み出して確認する。
+
+```bash
+gh api repos/kenten10/web-application-development-handbook/rulesets --jq '.[] | {id, name, enforcement}'
+gh api repos/kenten10/web-application-development-handbook/rulesets/<id>
+```
+
 ## 9. Actionsの実行が課金設定で止まる場合
 
 非公開リポジトリでのGitHub Actionsの実行時間には課金枠が必要である。枠を使い切っているか支払い設定に問題があると、ジョブは開始されずに次のannotationを残して失敗する。

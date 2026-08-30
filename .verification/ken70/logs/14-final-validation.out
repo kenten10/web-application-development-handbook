@@ -1,0 +1,117 @@
+############################################################
+# KEN-70 最終検証
+# 日時: 2026-08-30T11:55:04Z
+# 注意: ローカルのNode.jsは v26.7.0 であり、
+#       保証対象の 24.18.0 と異なる。pnpmはengine不一致をWARNで報告する。
+#       CIは .node-version により 24.18.0 で実行される。
+############################################################
+
+======================================================
+$ pnpm run validate:ci
+======================================================
+$ node scripts/validate-ci.mjs
+CI chapters: 30
+Required tasks: lint, typecheck, test, build
+Service containers: postgres, redis
+Workflows: ci.yml, extended-ci.yml, pages.yml
+Frozen lockfile: yes
+Required status check: Required CI gate
+CI validation passed: 0 warning(s)
+exit=
+
+======================================================
+$ pnpm run validate:release-policy
+======================================================
+$ node scripts/validate-release-policy.mjs
+Release policy validation
+- version: 1.0.0 (2026-08-30, pending)
+- distribution formats: git-repository, static-site
+- site pages: 27 (+2 copies)
+- licensed files: code=824, text=55, notice=2
+- review cycles: 30/30 chapters
+- changelog releases: 1
+- errata entries: 0
+- errors: 0
+- warnings: 0
+Release policy validation passed: 0 warning(s)
+exit=
+
+======================================================
+$ pnpm run validate:handbook
+======================================================
+$ node scripts/validate-handbook.mjs
+Handbook validation
+- chapters: 30
+- numbered sections/subsections: 415
+- learning metadata: 415
+- chapter guides: 30
+- errors: 0
+- warnings: 0
+exit=
+
+======================================================
+$ pnpm run validate:style
+======================================================
+$ node scripts/validate-style.mjs
+Style validation
+- manuscript files: 8
+- glossary terms: 156
+- glossary variants: 128
+- index terms: 640
+- rules: 21
+- errors: 0
+- warnings: 0
+exit=
+
+======================================================
+$ pnpm run validate:links
+======================================================
+$ node scripts/validate-links.mjs
+Link validation
+- documents: 31
+- markdown links: 2282
+- internal file links: 1957
+- anchor links: 2154 (section anchors: 2112)
+- chapter references: 220
+- section references: 763
+- code path references: 644
+- code usage commands: 190
+- external urls: 107 (occurrences: 110)
+- errors: 0
+- warnings: 0
+exit=
+
+======================================================
+$ pnpm run test:ci
+======================================================
+$ node --test scripts/validate-ci.test.mjs
+✔ current CI plan is valid (136.609708ms)
+✔ missing chapter in matrix is detected (19498.90225ms)
+✔ unpinned action is detected (4760.06525ms)
+✔ unpinned cache action is detected (1194.759334ms)
+✔ noEmit build configuration is detected (1261.967583ms)
+✔ missing chapter task is detected (1178.839542ms)
+✔ unpinned pages action is detected (2107.691791ms)
+✔ missing pages workflow is detected (2180.999709ms)
+✔ ungated pages deployment is detected (1404.740125ms)
+✔ non-frozen lockfile install is detected (1097.479583ms)
+✔ missing lockfile is detected (972.700625ms)
+✔ missing required status check job is detected (1347.425333ms)
+ℹ tests 12
+ℹ suites 0
+ℹ pass 12
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 37266.535292
+exit=
+
+======================================================
+$ pnpm run check:handbook  (要約)
+======================================================
+exit=0
+ERROR行: 0
+WARN行 : 0
+   7 - errors: 0
+   7 - warnings: 0

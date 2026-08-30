@@ -1,0 +1,34 @@
+############################################################
+# KEN-70 ruleset / branch protection の設定試行
+# 日時: 2026-08-30T11:54:33Z
+# リポジトリ: kenten10/web-application-development-handbook (private)
+############################################################
+
+## 1. ruleset API
+$ gh api --method POST repos/kenten10/web-application-development-handbook/rulesets \
+    --input .github/rulesets/main-required-ci.json
+{"message":"Upgrade to GitHub Pro or make this repository public to enable this feature.","documentation_url":"https://docs.github.com/rest/repos/rules#create-a-repository-ruleset","status":"403"}gh: Upgrade to GitHub Pro or make this repository public to enable this feature. (HTTP 403)
+
+## 2. classic branch protection API
+$ gh api --method PUT repos/kenten10/web-application-development-handbook/branches/main/protection --input <payload>
+{"message":"Upgrade to GitHub Pro or make this repository public to enable this feature.","documentation_url":"https://docs.github.com/rest/branches/branch-protection#update-branch-protection","status":"403"}gh: Upgrade to GitHub Pro or make this repository public to enable this feature. (HTTP 403)
+
+## 3. 現在の設定を読み出す
+$ gh api repos/kenten10/web-application-development-handbook/rulesets
+{"message":"Upgrade to GitHub Pro or make this repository public to enable this feature.","documentation_url":"https://docs.github.com/rest/repos/rules#get-all-repository-rulesets","status":"403"}gh: Upgrade to GitHub Pro or make this repository public to enable this feature. (HTTP 403)
+
+$ gh api repos/kenten10/web-application-development-handbook/branches/main/protection
+{"message":"Upgrade to GitHub Pro or make this repository public to enable this feature.","documentation_url":"https://docs.github.com/rest/branches/branch-protection#get-branch-protection","status":"403"}gh: Upgrade to GitHub Pro or make this repository public to enable this feature. (HTTP 403)
+
+$ gh api repos/kenten10/web-application-development-handbook --jq '{private, visibility, plan: .owner.type}'
+{"owner_type":"User","private":true,"visibility":"private"}
+
+## 結論
+無料プランの非公開リポジトリでは、rulesetもclassic branch protectionも作成できない。
+GitHubは両APIに対して次を返す。
+  403 Upgrade to GitHub Pro or make this repository public to enable this feature.
+
+適用する定義は .github/rulesets/main-required-ci.json に固定してある。
+リポジトリを公開するか、GitHub Proへ切り替えたあと、次の1コマンドで適用できる。
+  gh api --method POST repos/kenten10/web-application-development-handbook/rulesets \
+    --input .github/rulesets/main-required-ci.json
