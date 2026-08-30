@@ -1,0 +1,50 @@
+=== 2026-08-30T10:24:32Z extended CI の手動実行 ===
+$ gh workflow run extended-ci.yml --ref main
+https://github.com/kenten10/web-application-development-handbook/actions/runs/33306404904
+
+$ gh run list --workflow extended-ci.yml
+completed	failure	Handbook Extended CI	Handbook Extended CI	main	workflow_dispatch	33306404904	6s	2026-08-30T10:24:34Z
+
+$ gh run view 33306404904
+{"conclusion":"failure","jobs":[{"conclusion":"failure","databaseId":99243630071,"name":"Linux, Docker and shell syntax"},{"conclusion":"failure","databaseId":99243630169,"name":"Manual and external-service inventory"}],"url":"https://github.com/kenten10/web-application-development-handbook/actions/runs/33306404904"}
+
+--- Linux, Docker and shell syntax (job 99243630071)
+failure: The job was not started because recent account payments have failed or your spending limit needs to be increased. Please check the 'Billing & plans' section in your settings
+--- Manual and external-service inventory (job 99243630169)
+failure: The job was not started because recent account payments have failed or your spending limit needs to be increased. Please check the 'Billing & plans' section in your settings
+
+=== 代替として同じ検査をローカルで実行する ===
+$ node scripts/ci-extended-checks.mjs inventory
+Manual/external-service exercises: 3
+- 2.4: OpenSSL/TLS — 課題2.4: HTTP/1.1 vs HTTP/2 の体感ベンチマーク (★★★)
+- 3.3: OpenSSL/TLS — 課題3.3: 自己署名証明書でHTTPSサーバを立てる (★★)
+- 3.4: OpenSSL/TLS — 課題3.4: TLS handshake を可視化 (★★★)
+exit=0
+
+$ node scripts/ci-extended-checks.mjs shell-syntax
+OK: code/ch10/bench.solution.sh
+OK: code/ch10/lang-comparison/solution/main.sh
+OK: code/ch10/lang-comparison/starter/main.sh
+OK: code/ch12/sse-push/solution/main.sh
+OK: code/ch12/sse-push/starter/main.sh
+OK: code/ch14/migration-runner/solution/main.sh
+OK: code/ch14/migration-runner/starter/main.sh
+OK: code/ch16/mini-search-engine/solution/main.sh
+OK: code/ch16/mini-search-engine/starter/main.sh
+OK: code/ch19/dockerfile-optimization/solution/main.sh
+OK: code/ch19/dockerfile-optimization/starter/main.sh
+OK: code/ch20/mini-terraform/solution/main.sh
+OK: code/ch20/mini-terraform/starter/main.sh
+OK: code/ch21/blue-green/solution/main.sh
+OK: code/ch21/blue-green/starter/main.sh
+OK: code/ch21/canary/solution/main.sh
+OK: code/ch21/canary/starter/main.sh
+OK: code/ch30/saas/solution/main.sh
+OK: code/ch30/saas/starter/main.sh
+Shell syntax passed: 34
+exit=0
+
+$ uname -a
+Darwin <local-host> 25.6.0 Darwin Kernel Version 25.6.0: Fri Jul 31 19:11:03 PDT 2026; root:xnu-12377.161.14~5/RELEASE_ARM64_T8132 arm64
+$ docker version --format '{{.Server.Version}}'
+29.7.2

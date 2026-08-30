@@ -1,0 +1,21 @@
+=== 2026-08-30T10:24:01Z PR #1 の実行結果 ===
+PR: https://github.com/kenten10/web-application-development-handbook/pull/1
+
+$ gh pr checks 1
+Build static site	fail	3s	https://github.com/kenten10/web-application-development-handbook/actions/runs/33306365936/job/99243524402	
+Manuscript and configuration	fail	3s	https://github.com/kenten10/web-application-development-handbook/actions/runs/33306365938/job/99243524481	
+Required CI gate	fail	3s	https://github.com/kenten10/web-application-development-handbook/actions/runs/33306365938/job/99243529559	
+${{ matrix.chapter }} / lint · typecheck · test · build	skipping	0	https://github.com/kenten10/web-application-development-handbook/actions/runs/33306365938/job/99243529788	
+Deploy to GitHub Pages	skipping	0	https://github.com/kenten10/web-application-development-handbook/actions/runs/33306365936/job/99243530253	
+PostgreSQL and Redis service containers	skipping	0	https://github.com/kenten10/web-application-development-handbook/actions/runs/33306365938/job/99243529845	
+
+$ gh run view 33306365938 (Handbook CI / pull_request)
+{"conclusion":"failure","jobs":[{"conclusion":"failure","databaseId":99243524481,"name":"Manuscript and configuration"},{"conclusion":"failure","databaseId":99243529559,"name":"Required CI gate"},{"conclusion":"skipped","databaseId":99243529788,"name":"${{ matrix.chapter }} / lint · typecheck · test · build"},{"conclusion":"skipped","databaseId":99243529845,"name":"PostgreSQL and Redis service containers"}]}
+
+=== 各ジョブのannotation ===
+--- Manuscript and configuration (job 99243524481)
+failure: The job was not started because recent account payments have failed or your spending limit needs to be increased. Please check the 'Billing & plans' section in your settings
+--- Required CI gate (job 99243529559)
+failure: The job was not started because recent account payments have failed or your spending limit needs to be increased. Please check the 'Billing & plans' section in your settings
+--- ${{ matrix.chapter }} / lint · typecheck · test · build (job 99243529788)
+--- PostgreSQL and Redis service containers (job 99243529845)

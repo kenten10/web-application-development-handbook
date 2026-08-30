@@ -1,0 +1,40 @@
+=== 2026-08-30T10:24:18Z workflow構文検査 ===
+GitHubがworkflowを解析できた場合にだけ、workflowは一覧へ現れる。
+
+$ gh workflow list --all
+Handbook CI	active	345821342
+Handbook Extended CI	active	345821343
+Handbook Pages	active	345821344
+
+--- gh workflow view ci.yml ---
+Handbook CI - ci.yml
+ID: 345821342
+
+Total runs 2
+Recent runs
+completed	failure	KEN-70: CIをlockfile固定にし、Pages配信の制御と必須チェックの正本を追加する	Handbook CI	ken-70/github-actions-gate	pull_request	8s	33306365938
+completed	failure	WEBアプリケーション開発者になれる解説書 v1.0.0 の全成果物を追加する	Handbook CI	main	push	19s	33305824229
+
+To see more runs for this workflow, try: gh run list --workflow ci.yml
+To see the YAML for this workflow, try: gh workflow view ci.yml --yaml
+
+--- gh workflow view extended-ci.yml ---
+Handbook Extended CI - extended-ci.yml
+ID: 345821343
+
+Total runs 0
+
+To see the YAML for this workflow, try: gh workflow view extended-ci.yml --yaml
+
+--- gh workflow view pages.yml ---
+Handbook Pages - pages.yml
+ID: 345821344
+
+Total runs 2
+Recent runs
+completed	failure	KEN-70: CIをlockfile固定にし、Pages配信の制御と必須チェックの正本を追加する	Handbook Pages	ken-70/github-actions-gate	pull_request	5s	33306365936
+completed	failure	WEBアプリケーション開発者になれる解説書 v1.0.0 の全成果物を追加する	Handbook Pages	main	push	4s	33305824248
+
+To see more runs for this workflow, try: gh run list --workflow pages.yml
+To see the YAML for this workflow, try: gh workflow view pages.yml --yaml
+
