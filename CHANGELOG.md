@@ -33,6 +33,8 @@
 
 初版。全7部・30章の本文、章別サンプルコード、演習と模範解答、学習ルート、検証基盤を公開する。
 
+公開時点の制約を2点記録する。第1に、`.github/workflows/ci.yml` の必須ジョブはGitHubアカウントの課金設定によって起動せず、**GitHub Actions上での成功証跡を取得できていない**。CIが実行するコマンドはすべて、クリーンなクローン上でNode.js 24.18.0とpnpm 11.15.1を用いてローカル実行し、終了コード0を確認している。第2に、非公開リポジトリかつ無料プランのため、`main` のrulesetによる保護とGitHub Pagesの配信を有効にできていない。いずれも [`RELEASE_v1.0.0_EVIDENCE.md`](./RELEASE_v1.0.0_EVIDENCE.md) に判定と根拠を残し、残作業を [`BACKLOG_V1_1.md`](./BACKLOG_V1_1.md) とLinearのKEN-733へ分離している。
+
 ### Added
 
 - 全7部・30章の本文Markdown（`02-part1-foundations.md`〜`08-part7-practice.md`）

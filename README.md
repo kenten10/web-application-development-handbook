@@ -32,6 +32,8 @@ Webアプリケーション開発を、基礎から設計・運用・品質・�
 - `BETA_REVIEW_PLAN.md` — ベータレビューのペルソナ、役割、重大度、release blocker、個人情報方針
 - `BETA_REVIEW_SCENARIOS.md` — 役割別の検証シナリオと、最低限検証すべき章・演習の確定リスト
 - `BETA_REVIEW_TEMPLATES.md` — ベータレビューの質問票、記録テンプレート、同意文面
+- `BACKLOG_V1_1.md` — v1.1以降へ分離した積み残しの一覧
+- `RELEASE_v1.0.0_EVIDENCE.md` — v1.0のリリースゲートとrelease blockerの判定証跡
 - `beta-review-scope.json` — 検証対象章・演習、役割、重大度、release blockerの機械可読な正本
 - `config/learning-levels.json` — 全415節の学習レベルと推定時間の正本
 - `config/learning-paths.json` — 学習ルートの順序、前提、途中参加チェックの正本
@@ -60,12 +62,13 @@ Webアプリケーション開発を、基礎から設計・運用・品質・�
 
 ### 公開形式
 
-| 形式 | 位置づけ | 入口 |
+| 形式 | 位置づけ | 現時点で参照できる入口 |
 |---|---|---|
-| GitHubリポジトリ | 正本（Markdown本文とサンプルコード） | `kenten10/web-application-development-handbook`（現在は非公開） |
-| 静的Webサイト（GitHub Pages） | 生成物（`pnpm run build:site` で `dist/site/` へ生成） | `dist/site/index.html` |
+| Gitリポジトリのタグ `v1.0.0` | 正本（Markdown本文とサンプルコード） | `git clone` 後に `git checkout v1.0.0`。リポジトリ `kenten10/web-application-development-handbook` は**非公開**であり、閲覧には招待が必要です |
+| GitHub Release `v1.0.0` | 固定成果物の配布 | 上記リポジトリのReleasesページ。`release-manifest.json` と静的サイト一式を添付しています（非公開リポジトリのため、閲覧には同じく招待が必要です） |
+| 静的Webサイト | 生成物 | ローカルで `pnpm run build:site` を実行し、`dist/site/index.html` を開きます |
 
-GitHub Pagesへの配信は、リポジトリを公開するまで止めています。理由と再開手順は [`CI.md`](./CI.md) 第5節にあります。生成と決定性検証自体は、Pull Requestと`main`の双方で常に実行しています。
+**公開URLはありません。** リポジトリが非公開であるため、GitHub Pagesの配信も行っていません。理由と再開手順は [`CI.md`](./CI.md) 第5節にあります。生成と決定性検証自体は、Pull Requestと`main`の双方で常に実行する定義になっています。
 
 PDFとEPUBはv1.0では提供しません。理由と将来の方針は [`RELEASE_POLICY.md`](./RELEASE_POLICY.md) 第1.5節にあります。
 
@@ -115,7 +118,9 @@ pnpm run validate:clean-environment
 
 ## 現在の状態
 
-正式版v1.0に向けて、本文・目次・索引・コード参照、全143演習の模範解答、全147課題の演習カード、CI定義まで整備済みです。固定ツールチェーンと外部サービスを使うクリーン環境検証を継続しています。
+**正式版 v1.0.0 を公開しました（2026-08-30）。** 固定点はGitタグ `v1.0.0` と `dist/site/release-manifest.json` のsha256の組です。本文・目次・索引・コード参照、全143演習の模範解答、全147課題の演習カード、CI定義、クリーン環境検証まで整備済みです。
+
+リリースゲートとrelease blocker（RB-01〜RB-11）の判定と根拠は [`RELEASE_v1.0.0_EVIDENCE.md`](./RELEASE_v1.0.0_EVIDENCE.md) にあります。未達の項目と、それがv1.0の公開を妨げないと判断した根拠も同じファイルに記載しています。v1.1以降へ送った積み残しは [`BACKLOG_V1_1.md`](./BACKLOG_V1_1.md) にあります。
 
 ## 原稿の整合性検証
 
@@ -158,4 +163,6 @@ pnpm run build:site:check  # 生成が決定的であることを検証する
 
 Pull Requestでは原稿検査、全30章の`lint`・`typecheck`・`test`・`build`、PostgreSQL・Redisのservice container確認を実行します。Linux/Docker、長時間ベンチマーク、外部クラウド・Kafka・Kubernetesを伴う演習は拡張workflowへ分離しています。詳細は[CI運用ガイド](CI.md)を参照してください。
 
-依存関係のインストールは`pnpm install --frozen-lockfile`で行います。`main`はrulesetで保護し、`Required CI gate`の成功を必須チェックにしています。ruleset定義は[`.github/rulesets/main-required-ci.json`](.github/rulesets/main-required-ci.json)にあります。
+依存関係のインストールは`pnpm install --frozen-lockfile`で行います。`main`を保護するrulesetの定義は[`.github/rulesets/main-required-ci.json`](.github/rulesets/main-required-ci.json)を正本とし、`Required CI gate`の成功を必須チェックに指定しています。
+
+ただしv1.0.0の時点では、この**rulesetは未適用**です。無料プランの非公開リポジトリではrulesetもclassic branch protectionもGitHubが403を返すためです。あわせて、アカウントの課金設定によりGitHub Actionsのジョブが起動せず、**GitHub Actions上での成功証跡も取得できていません**。CIが実行するコマンドはすべてローカルで終了コード0を確認しています。制約の切り分けは[`CI.md`](./CI.md)第8.1節と[`KEN70_GITHUB_CI_REPORT.md`](./KEN70_GITHUB_CI_REPORT.md)、解消後の手順はLinearのKEN-733にあります。

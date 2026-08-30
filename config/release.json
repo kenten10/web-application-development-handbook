@@ -7,7 +7,7 @@
   "authorAccount": "kenten10",
   "version": "1.0.0",
   "releaseDate": "2026-08-30",
-  "state": "pending",
+  "state": "released",
   "stateValues": {
     "pending": "リリースゲート判定前。KEN-63の完了と同時にreleasedへ切り替える",
     "released": "固定成果物とタグが公開済み"
@@ -82,7 +82,8 @@
       { "source": "CLEAN_ENVIRONMENT.md", "output": "CLEAN_ENVIRONMENT.html", "label": "クリーン環境", "group": "運用" },
       { "source": "CI.md", "output": "CI.html", "label": "CI運用", "group": "運用" },
       { "source": "BETA_REVIEW_PLAN.md", "output": "BETA_REVIEW_PLAN.html", "label": "ベータレビュー計画", "group": "運用" },
-      { "source": "NARRATIVE_EDITING_GUIDE.md", "output": "NARRATIVE_EDITING_GUIDE.html", "label": "本文編集基準", "group": "運用" }
+      { "source": "NARRATIVE_EDITING_GUIDE.md", "output": "NARRATIVE_EDITING_GUIDE.html", "label": "本文編集基準", "group": "運用" },
+      { "source": "BACKLOG_V1_1.md", "output": "BACKLOG_V1_1.html", "label": "v1.1以降のバックログ", "group": "運用" }
     ],
     "copies": [
       { "source": "LICENSE", "output": "LICENSE.txt", "label": "MIT License" },
