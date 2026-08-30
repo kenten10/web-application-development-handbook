@@ -1,0 +1,489 @@
+=== KEN-63 クリーンクローン再現確認 ===
+date: 2026-08-30T13:04:37Z
+source: $HOME/kenten-repos/web-application-development-handbook
+commit: 3ce613270c08a459249a65d889cde2b3449d7b5a
+
+=== 1. git clone ===
+clone ok
+cloned HEAD: 3ce613270c08a459249a65d889cde2b3449d7b5a
+worktree clean: 0 件の差分
+
+=== 2. toolchain ===
+node: v24.18.0
+Preparing pnpm@11.15.1 for immediate activation...
+pnpm: 11.15.1
+
+=== 3. pnpm install --frozen-lockfile ===
+✓ Lockfile passes supply-chain policies (verified 6h ago)
+Lockfile is up to date, resolution step is skipped
+Progress: resolved 1, reused 0, downloaded 0, added 0
+Packages: +8
+++++++++
+Progress: resolved 8, reused 8, downloaded 0, added 8, done
+
+devDependencies:
++ @types/node 24.12.1
++ typescript 6.0.3
+
+Done in 2.2s using pnpm v11.15.1
+INSTALL_EXIT=
+
+=== 4. pnpm run check:handbook ===
+$ pnpm run apply:learning-levels:check && pnpm run generate:learning-paths:check && pnpm run apply:chapter-guides:check && pnpm run apply:code-usage:check && pnpm run apply:exercise-totals:check && pnpm run apply:editorial-fixes:check && pnpm run apply:exercise-rubrics:check && pnpm run generate:exercise-catalog:check && pnpm run generate:glossary:check && pnpm run generate:handbook:check && pnpm run apply:starter-contracts:check && pnpm run test:handbook && pnpm run validate:clean-environment && pnpm run test:clean-environment && pnpm run validate:exercises && pnpm run validate:narrative-flow && pnpm run validate:beta-review && pnpm run validate:links && pnpm run validate:handbook && pnpm run validate:release-policy && pnpm run validate:style && pnpm run report:style-backlog:check && pnpm run clean:artifacts:check
+$ node scripts/apply-learning-levels.mjs --check
+Learning metadata is current for 415 numbered sections.
+$ node scripts/generate-learning-paths.mjs --check
+Learning paths are current: 6 routes.
+$ node scripts/apply-chapter-guides.mjs --check
+Chapter guides are current for 30 chapters.
+$ node scripts/apply-code-usage.mjs --check
+Code usage blocks
+- blocks: 27
+- changed files: 0
+$ node scripts/apply-exercise-totals.mjs --check
+Exercise totals
+- rewritten lead sentences: 0
+- changed files: 0
+$ node scripts/apply-editorial-fixes.mjs --check
+Editorial fixes
+- fixes in manifest: 492
+- applied: 0
+- already applied: 492
+- not found: 0
+- ambiguous: 0
+- changed files: 0
+$ node scripts/apply-exercise-rubrics.mjs --check
+Exercise cards check passed: 147 card(s) in 7 file(s)
+$ node scripts/generate-exercise-catalog.mjs --check
+Exercise catalog check passed: 31 file(s)
+$ node scripts/generate-glossary.mjs --check
+Glossary check passed: 156 term(s)
+$ node scripts/generate-handbook.mjs --check
+Generated files are up to date.
+$ node scripts/apply-starter-contracts.mjs --check
+Starter contracts
+- mandatory exercises: 37
+- starters updated: 0
+- exercises without a TypeScript contract: 14
+$ pnpm run test:learning-levels && pnpm run test:learning-paths && pnpm run test:chapter-guides && pnpm run test:handbook-generator && pnpm run test:handbook-validator && pnpm run test:exercises && pnpm run test:exercise-rubrics && pnpm run test:narrative-flow && pnpm run test:beta-review && pnpm run test:release-policy && pnpm run test:style && pnpm run test:links && pnpm run test:code-usage && pnpm run test:exercise-totals && pnpm run test:clean-artifacts && pnpm run test:starter-contracts
+$ node --test scripts/apply-learning-levels.test.mjs
+✔ learning metadata is current (115.848792ms)
+✔ all 415 numbered sections have generated metadata (15.864667ms)
+✔ manifest covers every numbered section exactly once (0.951583ms)
+✔ generated guide exposes a realistic first-reading route (1.740541ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 4
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 221.962333
+$ node --test scripts/generate-learning-paths.test.mjs
+✔ generated learning paths are current (113.675792ms)
+✔ six routes and the standard 24-hour route are exposed (5.450416ms)
+✔ front matter and generated TOC link to every route (1.078042ms)
+✔ unknown section references fail generation (352.016959ms)
+✔ check mode detects generated document drift (280.748667ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 5
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 877.690625
+$ node --test scripts/apply-chapter-guides.test.mjs
+✔ chapter guides are current (160.090834ms)
+✔ all 30 chapters have exactly one generated guide (34.030875ms)
+✔ every chapter guide contains the 11 required elements (18.892542ms)
+✔ manifest covers all chapters and key educational warnings (3.883583ms)
+✔ template document explains non-repetitive application (2.176584ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 5
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 316.937792
+$ node --test scripts/generate-handbook.test.mjs
+✔ generated files are current (327.080291ms)
+✔ TOC contains explicit links, levels, and time estimates (1.163959ms)
+✔ body contains explicit stable anchors and learning metadata (1.714333ms)
+✔ index is generated from body metadata (0.496416ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 4
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 428.219166
+$ node --test scripts/validate-handbook.test.mjs
+✔ 30章と415節を検出する (1.142209ms)
+✔ 全節の学習レベルメタデータを検出する (1.098291ms)
+✔ 目次と本文の既知タイトル不一致がない (0.139667ms)
+✔ コードブロックをMarkdownリンクとして誤検出しない (0.146125ms)
+✔ 本文のコード参照先がすべて配置されている (0.27525ms)
+✔ 全30章の共通教材ガイドを検出する (0.261459ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 6
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 944.707084
+$ node --test scripts/validate-exercises.test.mjs
+✔ all chapters have normalized starter, solution, and README artifacts (131.606667ms)
+✔ a single chapter can be validated (66.263875ms)
+✔ every 課題 heading in the manuscript has exactly one exercise card (138.464834ms)
+✔ observation exercises are registered with the same rubric fields (131.906416ms)
+✔ placeholder solution artifacts are rejected (6978.454708ms)
+✔ missing starter is rejected (2095.486083ms)
+✔ README format drift is rejected (1133.654917ms)
+✔ generated distribution artifacts are rejected (3594.455084ms)
+✔ installed node_modules are tolerated in a working copy (1537.052042ms)
+✔ node_modules are rejected in distribution audit mode (1434.067959ms)
+✔ a missing rubric field is rejected (1934.31ms)
+✔ too few completion criteria are rejected (1547.942083ms)
+✔ hints must have exactly three stages (4219.483791ms)
+✔ boilerplate rubric text is rejected (1472.820209ms)
+✔ verification without an executable command is rejected (1371.577459ms)
+✔ a production warning is required (850.613125ms)
+✔ the estimate breakdown is required (790.870292ms)
+✔ difficulty must match the star count in the title (723.130167ms)
+✔ an off-grid estimate is rejected (1365.308125ms)
+✔ a starter without its paired solution is rejected (2520.664833ms)
+✔ a manuscript exercise card removal is detected (825.517625ms)
+✔ an exercise title drift between manuscript and manifest is rejected (824.920042ms)
+✔ an outdated schema version is rejected (1449.136208ms)
+ℹ tests 23
+ℹ suites 0
+ℹ pass 23
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 37263.518333
+$ node --test scripts/apply-exercise-rubrics.test.mjs
+✔ exercise cards in the manuscript are current (106.300958ms)
+✔ every card renders the required rubric labels (17.793708ms)
+✔ applying the cards twice is idempotent (426.777542ms)
+✔ a hand-edited card is detected and restored (373.777666ms)
+✔ an unregistered 課題 heading is rejected (228.598417ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 5
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1230.242541
+$ node --test scripts/validate-narrative-flow.test.mjs
+✔ current narrative manifest is valid (112.729833ms)
+✔ completed chapter without bridges is rejected (3103.349667ms)
+✔ manifest must cover all 30 chapters (1225.033042ms)
+ℹ tests 3
+ℹ suites 0
+ℹ pass 3
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 4514.906959
+$ node --test scripts/validate-beta-review.test.mjs
+✔ current beta review scope is valid (90.157541ms)
+✔ scope must cover every chapter in the narrative manifest (814.589292ms)
+✔ a chapter with environment dependent exercises cannot be downgraded (572.276708ms)
+✔ dropping an environment dependent exercise is rejected (584.937667ms)
+✔ required section coverage must match the learning level manifest (467.198917ms)
+✔ a chapter whose required sections are trimmed is rejected (434.080084ms)
+✔ every mandatory exercise must be assigned to exactly one track (480.357125ms)
+✔ effort estimates must follow the declared formula (424.977ms)
+✔ a persona pointing at an unknown learning route is rejected (417.284375ms)
+✔ an Urgent severity must block the release (603.306292ms)
+✔ release blockers must be documented in the plan (1759.895584ms)
+✔ release blockers cannot be emptied (762.399625ms)
+✔ questionnaire question counts must match the template document (440.289417ms)
+✔ collecting a name is rejected by the privacy policy check (506.086083ms)
+✔ storing the anonymous id mapping in the repository is rejected (510.661917ms)
+✔ a mandatory exercise missing from the scenario document is detected (464.154334ms)
+✔ a missing planning document is detected (742.661625ms)
+ℹ tests 17
+ℹ suites 0
+ℹ pass 17
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 10161.704667
+$ node --test scripts/validate-release-policy.test.mjs
+✔ リポジトリ全体で公開方針の検証が成功する (132.593792ms)
+✔ 最小構成のfixtureでも検証が成功する (157.363208ms)
+✔ CHANGELOGの最新版が正本とずれると検出する (177.703ms)
+✔ CHANGELOGの日付が releaseDate とずれると検出する (199.251125ms)
+✔ package.jsonの版番号がずれると検出する (183.102542ms)
+✔ ライセンス判定規則に一致しないファイルを検出する (148.437ms)
+✔ LICENSING.mdの対応表が正本とずれると検出する (144.162667ms)
+✔ ライセンス全文からSPDX識別子が消えると検出する (224.327541ms)
+✔ 見直し周期が割り当てられていない章を検出する (158.789917ms)
+✔ RELEASE_POLICY.mdの周期表と正本の不一致を検出する (163.2325ms)
+✔ READMEから利用条件の記載が欠けると検出する (280.520291ms)
+✔ 前付けから公開・利用条件の見出しが消えると検出する (176.610667ms)
+✔ 正誤表の列が正本とずれると検出する (171.253334ms)
+✔ 未公開の版を参照する正誤行を検出する (255.082458ms)
+✔ Pages workflowのactionが固定SHAでないと検出する (245.670875ms)
+✔ Pages workflowの権限が広がると検出する (275.279458ms)
+✔ 正誤報告テンプレートから必須項目が消えると検出する (405.820167ms)
+✔ 全章に見直し周期と判断理由がある (0.351417ms)
+✔ 見直し周期の区分は月数の昇順に定義されている (0.75225ms)
+✔ SemVerの規則が本文とコードの両方について定義されている (0.111583ms)
+✔ 公開形式はGitHubリポジトリと静的サイトの2形式で、PDFとEPUBは理由付きで対象外である (0.105084ms)
+✔ 静的サイト生成は決定的である (2699.265375ms)
+✔ 生成したHTMLはライセンス表示と版番号を含む (612.553791ms)
+✔ 生成したHTMLは本文の章アンカーを保持する (523.748167ms)
+✔ 固定成果物の一覧と再現手順が定義されている (0.283458ms)
+ℹ tests 25
+ℹ suites 0
+ℹ pass 25
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 7477.081916
+$ node --test scripts/validate-style.test.mjs
+Style validation
+- manuscript files: 8
+- glossary terms: 156
+- glossary variants: 128
+- index terms: 640
+- rules: 21
+- errors: 0
+- warnings: 0
+GLOSSARY.md が config/glossary.json と一致しません。pnpm run generate:glossary を実行してください。
+✔ 規約に従う本文はエラーを出さない (138.284458ms)
+✔ S-JA-001 全角カンマ・ピリオドを検出する (150.100834ms)
+✔ S-JA-004 全角括弧を検出する (271.58975ms)
+✔ S-JA-006 和文と半角括弧の間の空白欠落を検出する (126.749041ms)
+✔ S-JA-007 敬体の文末を検出する (117.323667ms)
+✔ S-JA-007 かぎ括弧内のUI文言は敬体でも許容する (162.005625ms)
+✔ S-SYM-001 EM DASH を検出する (110.876917ms)
+✔ S-CODE-001 言語指定のないコードブロックを検出する (112.104458ms)
+✔ S-CODE-002 許可されていない言語指定を検出する (106.895792ms)
+✔ S-CODE-003 区切り行のない表を検出する (106.344584ms)
+✔ S-CODE-004 画像記法を検出する (107.138667ms)
+✔ S-CODE-005 非正規の注意ラベルを検出する (104.184917ms)
+✔ S-TERM-001 用語集の非正規表記を検出する (121.788209ms)
+✔ S-TERM-001 用語集の例外文字列は検出しない (124.357209ms)
+✔ S-TERM-001 インラインコードの中は検出しない (141.31ms)
+✔ S-TERM-002 非推奨表記はベースラインを超えたときだけ失敗する (253.2745ms)
+✔ S-VAGUE-001 根拠のない曖昧表現を検出し、時点を添えると通る (300.859792ms)
+✔ S-IDX-001 索引語の非正規表記を検出する (103.872209ms)
+✔ S-IDX-002 索引にない必須用語を検出する (115.374416ms)
+✔ S-META-001 未記載のルールIDを検出する (139.349166ms)
+✔ variantPattern は正表記の前方一致を除外する (0.175292ms)
+✔ maskProtected はインラインコードとリンク先を伏せる (0.167042ms)
+✔ apply-style-fixes は規約違反を修正し、二度目は変化しない (1.922292ms)
+✔ apply-style-fixes は言語指定のないコードブロックへ text を付ける (0.171375ms)
+✔ apply-style-fixes はコードブロックの中身を書き換えない (0.205584ms)
+✔ apply-style-fixes はパス文字列を書き換えない (0.306417ms)
+✔ apply-style-fixes は注意ラベルを整形する (0.077375ms)
+✔ generate-glossary は正本と一致する GLOSSARY.md を作る (13.383ms)
+✔ generate-glossary --check は差分を検出する (115.2775ms)
+✔ 用語集の別表記は正表記と重複しない (0.409791ms)
+✔ ルール定義は STYLE_GUIDE.md と1対1で対応する (2.019833ms)
+✔ ベースラインは baseline 分類のルールにだけ存在する (0.156709ms)
+✔ fixer と validator の変異形パターンが一致する (0.3825ms)
+ℹ tests 33
+ℹ suites 0
+ℹ pass 33
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 4722.45525
+$ node --test scripts/validate-links.test.mjs
+Link validation
+- documents: 32
+- markdown links: 2301
+- internal file links: 1976
+- anchor links: 2154 (section anchors: 2112)
+- chapter references: 220
+- section references: 763
+- code path references: 644
+- code usage commands: 190
+- external urls: 107 (occurrences: 110)
+- errors: 0
+- warnings: 0
+✔ githubSlug は GitHub と同じ規則でアンカー候補を作る (0.683625ms)
+✔ splitFences はフェンス内の行へ inFence を立てる (0.119375ms)
+✔ splitFences は入れ子に見えるチルダフェンスも閉じる (0.09175ms)
+ℹ tests 3
+ℹ suites 0
+ℹ pass 3
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 367.919875
+$ node --test scripts/apply-code-usage.test.mjs
+✔ priority はブラウザ課題の HTML を最優先にする (0.879291ms)
+✔ commandFor は拡張子ごとに実行コマンドを選ぶ (0.172ms)
+✔ buildBlock は章ごとに一意な見出しと pnpm 手順を出す (0.444666ms)
+✔ findBlock はマーカーが無い旧ブロックも見出しからフェンス終端まで拾う (0.795958ms)
+✔ findBlock はマーカー付きブロックをマーカーごと置き換え対象にする (0.126167ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 5
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 89.122292
+$ node --test scripts/apply-exercise-totals.test.mjs
+✔ formatMinutes は時間と分へ分ける (0.763625ms)
+✔ totalsByChapter は章キーが 0 埋めでも実装課題と観察課題を合算する (0.243375ms)
+ℹ tests 2
+ℹ suites 0
+ℹ pass 2
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 222.731375
+$ node --test scripts/clean-build-artifacts.test.mjs
+✔ finds dist and coverage under chapter directories only (43.221458ms)
+✔ returns nothing when the code directory is absent (0.614542ms)
+✔ is idempotent: a cleaned tree reports no artifacts (2.578166ms)
+ℹ tests 3
+ℹ suites 0
+ℹ pass 3
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 178.759125
+$ node --test scripts/apply-starter-contracts.test.mjs
+✔ exported functions, types, and classes become the contract (1.927958ms)
+✔ calls inside a method body are not mistaken for declarations (0.400375ms)
+✔ private and protected members stay out of the contract (0.29025ms)
+✔ applying the block twice produces the same file (0.325875ms)
+✔ regenerating replaces the previous block instead of stacking (0.130375ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 5
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 121.612333
+$ node scripts/validate-clean-environment.mjs
+Clean environment exercises: 143
+local-automated: 113
+local-tls: 7
+external-service: 17
+browser-manual: 6
+Mode: structure
+Clean environment validation passed.
+$ node --test scripts/validate-clean-environment.test.mjs
+✔ clean environment plan is structurally valid (73.074625ms)
+✔ all 143 exercises have evidence and safety records (1.8325ms)
+✔ manual and external exercises cannot silently pass as local automated (5.804584ms)
+ℹ tests 3
+ℹ suites 0
+ℹ pass 3
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 163.350084
+$ node scripts/validate-exercises.mjs
+Exercise chapters: 30
+Exercise units: 143
+Observation units: 4
+Starter artifacts: 151
+Solution artifacts: 179
+Manuscript references: 156
+Exercise cards: 147 / headings: 147
+Exercise validation passed
+$ node scripts/validate-narrative-flow.mjs
+Narrative flow: chapters=30, completed=30
+$ node scripts/validate-beta-review.mjs
+Beta review scope: chapters=30 (core=15, exercise-only=5, sampled=10), exercises=37 (4630分), personas=6, roles=3, questions=45, severities=4, releaseBlockers=11, requiredSections=199
+$ node scripts/validate-links.mjs
+Link validation
+- documents: 32
+- markdown links: 2301
+- internal file links: 1976
+- anchor links: 2154 (section anchors: 2112)
+- chapter references: 220
+- section references: 763
+- code path references: 644
+- code usage commands: 190
+- external urls: 107 (occurrences: 110)
+- errors: 0
+- warnings: 0
+$ node scripts/validate-handbook.mjs
+Handbook validation
+- chapters: 30
+- numbered sections/subsections: 415
+- learning metadata: 415
+- chapter guides: 30
+- errors: 0
+- warnings: 0
+$ node scripts/validate-release-policy.mjs
+Release policy validation
+- version: 1.0.0 (2026-08-30, released)
+- distribution formats: git-repository, static-site
+- site pages: 28 (+2 copies)
+- licensed files: code=814, text=58, notice=2
+- review cycles: 30/30 chapters
+- changelog releases: 1
+- errata entries: 0
+- errors: 0
+- warnings: 0
+Release policy validation passed: 0 warning(s)
+$ node scripts/validate-style.mjs
+Style validation
+- manuscript files: 8
+- glossary terms: 156
+- glossary variants: 128
+- index terms: 640
+- rules: 21
+- errors: 0
+- warnings: 0
+$ node scripts/validate-style.mjs --backlog --check
+STYLE_BACKLOG.md は最新である。
+Style validation
+- manuscript files: 8
+- glossary terms: 156
+- glossary variants: 128
+- index terms: 640
+- rules: 21
+- errors: 0
+- warnings: 0
+$ node scripts/clean-build-artifacts.mjs --check
+Build artifacts: 0
+CHECK_HANDBOOK_EXIT=0
+
+=== 5. pnpm run build:site && build:site:check ===
+$ node scripts/build-site.mjs
+Static site: dist/site
+Pages: 32
+Version: 1.0.0 (2026-08-30)
+Inputs: 31
+Site build completed.
+BUILD_SITE_EXIT=0
+$ node scripts/build-site.mjs --check
+Deterministic build: ok
+Existing artifacts match: dist/site
+Pages: 32
+Version: 1.0.0 (2026-08-30)
+Site build check passed.
+BUILD_SITE_CHECK_EXIT=0
+
+=== 6. release-manifest.json の sha256 ===
+d16457a498341819be919c8629a6324b5f33c36e5220f11c5f3a1257c0db7aac  dist/site/release-manifest.json
+warning/error 集計:

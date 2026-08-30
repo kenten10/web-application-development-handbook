@@ -201,7 +201,7 @@ Release policy validation
 - version: 1.0.0 (2026-08-30, released)
 - distribution formats: git-repository, static-site
 - site pages: 28 (+2 copies)
-- licensed files: code=825, text=58, notice=2
+- licensed files: code=826, text=58, notice=2
 - review cycles: 30/30 chapters
 - changelog releases: 1
 - errata entries: 0
@@ -215,7 +215,7 @@ Release policy validation passed: 0 warning(s)
 
 | # | 条件 | 確認結果 |
 |---|---|---|
-| 1 | `LICENSE` と `LICENSE-TEXT` が存在し、`LICENSING.md` の対応表が全ファイルを網羅する | `LICENSE`（MIT、1,436バイト）、`LICENSE-TEXT`（CC BY-NC-SA 4.0、6,736バイト）が存在。判定対象885ファイルすべてが分類済みで未分類0件 |
+| 1 | `LICENSE` と `LICENSE-TEXT` が存在し、`LICENSING.md` の対応表が全ファイルを網羅する | `LICENSE`（MIT、1,436バイト）、`LICENSE-TEXT`（CC BY-NC-SA 4.0、6,736バイト）が存在。判定対象886ファイル（コード826・本文58・告知2）すべてが分類済みで未分類0件 |
 | 2 | `config/release.json`、`package.json`、`CHANGELOG.md` の版番号が一致する | 3か所とも `1.0.0`。不一致は `validate:release-policy` が ERROR にする |
 | 3 | `CHANGELOG.md` の最新版見出しが公開する版と一致する | `## [1.0.0] - 2026-08-30` |
 | 4 | `ERRATA.md` と `.github/ISSUE_TEMPLATE/errata-report.yml` が存在し、`README.md` と `00-front-matter.md` から到達できる | いずれも存在し、両ファイルの「公開・利用条件」節から到達する。`DISCLOSURE_*` 検査が機械的に確認する |
@@ -264,7 +264,22 @@ pnpm install --frozen-lockfile
 pnpm run check:handbook
 ```
 
-<!-- CLEAN_CLONE_RESULT -->
+実行結果は次のとおりである。全文のログは [`.verification/ken63/logs/01-clean-clone-node24.out`](.verification/ken63/logs/01-clean-clone-node24.out)（489行）にある。
+
+| # | 手順 | 結果 |
+|---|---|---|
+| 1 | `git clone` | 成功。クローン後のワークツリーの差分は0件 |
+| 2 | ツールチェーン | `node v24.18.0`、`pnpm 11.15.1`。`Unsupported engine` の警告は**0件**（固定ツールチェーンと一致するため） |
+| 3 | `pnpm install --frozen-lockfile` | 成功。`Lockfile is up to date, resolution step is skipped`、`@types/node 24.12.1` と `typescript 6.0.3` を導入、2.2秒 |
+| 4 | `pnpm run check:handbook` | **終了コード 0**。チェーン内のテストは **151件中151件が pass、fail 0件**。`validate:handbook` / `validate:style` / `validate:links` / `validate:release-policy` はいずれも ERROR 0 / WARN 0 |
+| 5 | `pnpm run build:site` / `build:site:check` | いずれも**終了コード 0**。`Deterministic build: ok`、`Existing artifacts match: dist/site` |
+| 6 | `release-manifest.json` の sha256 | `d16457a498341819be919c8629a6324b5f33c36e5220f11c5f3a1257c0db7aac`。作業ディレクトリ（Node.js 26.7.0）で生成したものと**完全に一致**した |
+
+手順6は、生成が実行環境に依存しないことの直接の証拠である。Node.js のメジャーバージョンが違っても manifest が一致する。
+
+**クローンした commit について。** 再現に使ったのは `3ce6132`（`KEN-63: v1.0.0のリリースゲート判定証跡とv1.1バックログを追加する`）である。タグ `v1.0.0` を打つ commit は、これに本節の結果表と第6節のsha256表、および上記ログファイルを追加したものである。追加分はいずれも検査の入力ではないため、`check:handbook` の結果は変わらない。
+
+同じ手順をタグ `v1.0.0` に対して再実行し、結果が変わらないことを確認する。その記録は `KEN63_RELEASE_REPORT.md` と `.verification/ken63/logs/02-clean-clone-tag-v1.0.0.out` に残す（タグ付けの後に生成するため、タグの内容には含まれない）。
 
 ## 4. 秘密情報の混入確認
 
@@ -318,7 +333,61 @@ ruleset は「今後の変更が検査を経ずに `main` へ入ることを防�
 
 ## 6. 固定成果物
 
-<!-- ARTIFACT_HASHES -->
+固定成果物の一覧の正本は [`config/release.json`](./config/release.json) の `fixedArtifacts` である。下表は本作業で実際に生成・計測した値である。
+
+### 6.1 Markdown正本（`manuscript`）
+
+| ファイル | バイト数 | sha256 |
+|---|---:|---|
+| `00-front-matter.md` | 5,024 | `dac771199b2a9f7fa5847dd7a1c6b46ce6afae9824fdcb0a622815da1b1a31d2` |
+| `01-toc.md` | 50,759 | `7a6d843808d93ca71f859e3d4ea22d0591bfa5344b955923909effca19ed0557` |
+| `02-part1-foundations.md` | 206,276 | `1b41dbe7efed1d6e8432bf150aa2aefdc4d634b5e90755ba0059fdfd19d15de7` |
+| `03-part2-frontend.md` | 347,027 | `e372330d27ad5fd5a73dd3921717132e5d595e656d11e86f2028ec9eb7b12cca` |
+| `04-part3-backend.md` | 431,946 | `e5c889b9e5b98fef85e337dd2aab2ef35b62224cfed19e4c8556a30f882f7b74` |
+| `05-part4-data.md` | 474,904 | `3b8642ecb4949255e50d5d3c15dbe1f6ca941151e8d117156c6a5ffc995cf2c8` |
+| `06-part5-infrastructure.md` | 259,709 | `f6221cb325ff9a710f2712d790d994d711944cf593e8fa15d90fc462de17b1e0` |
+| `07-part6-quality.md` | 362,495 | `9ffe3a1c734ce0a12222f901d8f9aa3d15b50948ae0268fdfe8259c66f90c72a` |
+| `08-part7-practice.md` | 381,165 | `55fa0d2d42b943eab24f5edf32cc8dbe7e4652f4df26c3c7f3be6b8586de5849` |
+| `09-references.md` | 33,360 | `be08609ea4595311e132410dbb2bcc49b3c1077aa55abbc2a247536e4d6179ff` |
+| `10-index.md` | 20,360 | `3d73d86d1c99ee85c84c080c9a87a036cdb4d20e2851108e9a18cc004a5bb677` |
+
+### 6.2 方針文書（`policyDocuments`）
+
+| ファイル | バイト数 | sha256 |
+|---|---:|---|
+| `README.md` | 14,421 | `95c6c51a8d84314f88b63ea8f248cafc03aac059ffe15291206f202246fdf44d` |
+| `RELEASE_POLICY.md` | 32,164 | `d61299c6e8c86e40f5073bd52a6bc88dd21b9ee788103390db0378759b110e21` |
+| `LICENSING.md` | 6,089 | `3bfe960f5add52d9981614661c7d63c168e6c73c8bbb3603c7edb7ca9f6fc711` |
+| `LICENSE` | 1,436 | `60e082dd86438d5d44b846a8653d999aae049d63d5b2e918f3810cb27bae4b4f` |
+| `LICENSE-TEXT` | 6,736 | `534a0d17f3e5a337ec16ff6373d03940e562873bd9bc3daa40bf87804300711a` |
+| `CHANGELOG.md` | 5,066 | `da570c155b092acd922bfc27c3f9c435a8eecca60ebb3e2c0b0f130cd83cac89` |
+| `ERRATA.md` | 5,782 | `876b6660ae3d7d75e024be1753ebde7c600c678f7f0ef339202a94a7e8886cb4` |
+
+### 6.3 生成物（`generated`）
+
+| ファイル | バイト数 | sha256 |
+|---|---:|---|
+| `dist/site/index.html` | 5,480 | `5ef8011bff5d121019aadc1028cdc93df00eba04237d2254bcbcaa06dfad9be7` |
+| `dist/site/style.css` | 3,066 | `3f0ee34e27a45e6cc93a691e129fda19309330530c7a81ecb743ffa1c1c2d5ee` |
+| `dist/site/release-manifest.json` | 10,175 | `d16457a498341819be919c8629a6324b5f33c36e5220f11c5f3a1257c0db7aac` |
+
+`dist/site/release-manifest.json` は入力Markdown 31件と出力 32件のsha256、版番号、ツールチェーンの宣言値を含む。未解決のMarkdownリンクは 0件である。
+
+### 6.4 決定性の確認
+
+`pnpm run build:site:check` は、同じ入力から2回生成した結果が一致すること（`Deterministic build: ok`）と、既存の `dist/site/` が現在の入力と一致すること（`Existing artifacts match: dist/site`）の両方を検査する。終了コードは0である。
+
+さらに強い確認として、**実行環境をまたいだ一致**を取った。Node.js 26.7.0 の作業ディレクトリで生成した `release-manifest.json` と、Node.js 24.18.0 のクリーンクローンで生成した `release-manifest.json` の sha256 は完全に一致する。
+
+```
+作業ディレクトリ (Node.js 26.7.0):
+  d16457a498341819be919c8629a6324b5f33c36e5220f11c5f3a1257c0db7aac  dist/site/release-manifest.json
+クリーンクローン (Node.js 24.18.0):
+  d16457a498341819be919c8629a6324b5f33c36e5220f11c5f3a1257c0db7aac  dist/site/release-manifest.json
+```
+
+`dist/` は `.gitignore` の対象であり、リポジトリには入らない。[`RELEASE_POLICY.md`](./RELEASE_POLICY.md) 第7.2節が定めるとおり、固定は「タグ + manifest の sha256」の組で行う。生成物そのものは GitHub Release `v1.0.0` へ添付した。
+
 
 ## 7. 参照した issue とレポート
 
