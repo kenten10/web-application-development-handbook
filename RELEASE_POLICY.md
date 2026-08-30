@@ -85,7 +85,16 @@ pnpm run build:site:check  # 一時ディレクトリへ2回生成し、manifest
 - 使用するactionは完全なcommit SHAへ固定する。`.github/workflows/ci.yml` と同じ方針である。
 - `actions/checkout` では `persist-credentials: false` を指定する。
 
-実際にPagesを有効化し、必須チェックへ組み込む作業はKEN-70で行う。本タスクではworkflowの定義と、ローカルでの生成・検証までを担保する。
+正本のリポジトリは `kenten10/web-application-development-handbook` である。KEN-70で確定し、`config/release.json` の `site.repoLinkBase` へ反映した。サイトに含めないリポジトリ内パスへのリンクは、このURLを基点に書き換わる。
+
+**現在、配信は止めてある。** リポジトリが非公開であり、GitHub Pagesは無料プランの非公開リポジトリでは利用できないためである。有効化しないまま `actions/deploy-pages` を実行するとPages APIで失敗し、原稿の検証とは無関係な赤い実行履歴が `main` に残る。
+
+止め方は「配信ステップの実行条件」であって、検査の削除ではない。
+
+- 静的サイトの生成と決定性検証（`build-site.mjs` と `--check`）はPull Requestと `main` の双方で常に実行する。
+- Pages artifactのアップロードと配信ジョブだけを、repository variable `PAGES_ENABLED` が `true` のときに限定する。
+
+リポジトリを公開してPagesを有効化する手順は [`CI.md`](./CI.md) 第5.2節にある。公開URLが確定したら、本節と `README.md` へ記載する。第7.4節のタグ付け手順7は、この作業が完了するまで保留となる。
 
 ### 1.5 v1.0で提供しない形式
 

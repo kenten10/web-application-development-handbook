@@ -53,8 +53,8 @@
   },
   "site": {
     "baseTitle": "WEBアプリケーション開発者になれる解説書",
-    "repoLinkBase": "",
-    "repoLinkBaseNote": "公開先リポジトリのblob URL（例: https://github.com/<owner>/<repo>/blob/main）。KEN-70でリポジトリを確定したら設定する。空の場合、サイトに含めないMarkdownへのリンクは相対パスのまま残す。",
+    "repoLinkBase": "https://github.com/kenten10/web-application-development-handbook/blob/main",
+    "repoLinkBaseNote": "公開先リポジトリのblob URL。KEN-70で kenten10/web-application-development-handbook を確定して設定した。空の場合、サイトに含めないMarkdownへのリンクは相対パスのまま残る。",
     "pages": [
       { "source": "00-front-matter.md", "output": "00-front-matter.html", "label": "前付け", "group": "本文" },
       { "source": "01-toc.md", "output": "01-toc.html", "label": "目次", "group": "本文" },

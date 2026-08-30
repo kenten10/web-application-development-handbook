@@ -1,0 +1,125 @@
+############################################################
+# KEN-70 失敗時に章番号と失敗タスクが識別できることの確認
+# 日時: 2026-08-30T10:18:24Z
+# 実行環境: ローカル（GitHub Actionsは課金設定でジョブが起動しないため）
+# 実行するコマンドは ci.yml の chapter matrix と同一
+############################################################
+
+## 手順1: 変更前の ch07 は4タスクとも成功する
+$ node scripts/ci-chapter.mjs ch07
+::group::ch07 / lint
+[ch07] pnpm --filter @handbook/ch07 run lint
+$ node ../../scripts/validate-exercises.mjs --chapter ch07
+Exercise chapters: 1
+Exercise units: 4
+Observation units: 4
+Starter artifacts: 5
+Solution artifacts: 5
+Manuscript references: 6
+Exercise validation passed
+::endgroup::
+::group::ch07 / typecheck
+[ch07] pnpm --filter @handbook/ch07 run typecheck
+$ tsc --noEmit -p tsconfig.json
+::endgroup::
+::group::ch07 / test
+[ch07] pnpm --filter @handbook/ch07 run test
+$ tsx --test solutions.test.ts
+✔ Redux store notifies subscribers and unsubscribe works (3.684ms)
+✔ QueryCache deduplicates in-flight requests and respects staleTime (12.797ms)
+✔ OptimisticStore rolls back only failed operation (0.739458ms)
+ℹ tests 3
+ℹ suites 0
+ℹ pass 3
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 458.34875
+::endgroup::
+::group::ch07 / build
+[ch07] pnpm --filter @handbook/ch07 run build
+$ tsc -p tsconfig.json --outDir dist
+::endgroup::
+[ch07] 4 task(s) passed.
+exit=
+
+## 手順2: code/ch07/redux.solution.ts の末尾へ意図的な型エラーを1行加える
+$ tail -4 code/ch07/redux.solution.ts
+
+// KEN-70: 失敗時の識別を確認するための一時的な型エラー
+const ken70Deliberate: number = "KEN-70";
+void ken70Deliberate;
+
+## 手順3: 同じコマンドを実行する
+$ node scripts/ci-chapter.mjs ch07
+::group::ch07 / lint
+[ch07] pnpm --filter @handbook/ch07 run lint
+$ node ../../scripts/validate-exercises.mjs --chapter ch07
+Exercise chapters: 1
+Exercise units: 4
+Observation units: 4
+Starter artifacts: 5
+Solution artifacts: 5
+Manuscript references: 6
+Exercise validation passed
+::endgroup::
+::group::ch07 / typecheck
+[ch07] pnpm --filter @handbook/ch07 run typecheck
+$ tsc --noEmit -p tsconfig.json
+redux.solution.ts(52,7): error TS2322: Type 'string' is not assignable to type 'number'.
+<repo>/code/ch07:
+[ERR_PNPM_RECURSIVE_RUN_FIRST_FAIL] @handbook/ch07@1.0.0 typecheck: `tsc --noEmit -p tsconfig.json`
+Exit status 2
+::endgroup::
+::group::ch07 / test
+[ch07] pnpm --filter @handbook/ch07 run test
+$ tsx --test solutions.test.ts
+✔ Redux store notifies subscribers and unsubscribe works (4.020667ms)
+✔ QueryCache deduplicates in-flight requests and respects staleTime (14.561458ms)
+✔ OptimisticStore rolls back only failed operation (1.078375ms)
+ℹ tests 3
+ℹ suites 0
+ℹ pass 3
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 406.543792
+::endgroup::
+::group::ch07 / build
+[ch07] pnpm --filter @handbook/ch07 run build
+$ tsc -p tsconfig.json --outDir dist
+redux.solution.ts(52,7): error TS2322: Type 'string' is not assignable to type 'number'.
+<repo>/code/ch07:
+[ERR_PNPM_RECURSIVE_RUN_FIRST_FAIL] @handbook/ch07@1.0.0 build: `tsc -p tsconfig.json --outDir dist`
+Exit status 2
+::endgroup::
+::error title=ch07 / typecheck failed::exit=2
+::error title=ch07 / build failed::exit=2
+[ch07] 2 task(s) failed.
+exit=
+
+## 手順4: 一時的な型エラーを取り除いて元へ戻す
+$ git checkout -- code/ch07/redux.solution.ts && node scripts/clean-build-artifacts.mjs
+$ git status --short code/ch07
+(差分なし = 元の状態へ戻っている)
+$ node scripts/ci-chapter.mjs ch07
+::endgroup::
+::group::ch07 / build
+[ch07] pnpm --filter @handbook/ch07 run build
+$ tsc -p tsconfig.json --outDir dist
+::endgroup::
+[ch07] 4 task(s) passed.
+exit=
+removed code/ch07/dist
+Build artifacts: 1
+
+## 結論
+1. ジョブ名   : ci.yml のmatrixジョブ名は 'ch07 / lint · typecheck · test · build'。章番号が一覧に出る。
+2. group     : ::group::ch07 / typecheck でタスク単位に折りたためる。
+3. annotation: ::error title=ch07 / typecheck failed::exit=2 と ::error title=ch07 / build failed::exit=2 を出力し、
+               GitHubがPull Requestのチェック欄とジョブSummaryへ表示する。
+4. 集約      : [ch07] 2 task(s) failed. で失敗タスク数を出す。
+5. lint と test は失敗せず最後まで走る。章内でタスクを打ち切らないため、1回で全失敗タスクが分かる。
+6. fail-fast: false により、他の29章も最後まで走る。

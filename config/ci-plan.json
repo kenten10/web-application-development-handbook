@@ -30,8 +30,15 @@
   "policy": {
     "requiredWorkflow": ".github/workflows/ci.yml",
     "extendedWorkflow": ".github/workflows/extended-ci.yml",
+    "pagesWorkflow": ".github/workflows/pages.yml",
+    "pagesWorkflowRequired": false,
+    "pagesWorkflowNote": "公開の失敗が原稿検証の結果を巻き込まないよう、必須ゲートへは含めない。actionのcommit SHA固定とpermissionsはvalidate-ci.mjsとvalidate-release-policy.mjsの双方が検査する。",
     "actionsPinnedToCommit": true,
     "permissions": "contents: read",
-    "silentSkipAllowed": false
+    "silentSkipAllowed": false,
+    "frozenLockfile": true,
+    "repository": "kenten10/web-application-development-handbook",
+    "protectedBranch": "main",
+    "requiredStatusCheck": "Required CI gate"
   }
 }

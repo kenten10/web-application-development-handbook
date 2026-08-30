@@ -12,6 +12,13 @@ const exercises = JSON.parse(read('config/exercises.json'));
 const baseTsconfig = JSON.parse(read('tsconfig.base.json'));
 const requiredWorkflow = read(plan.policy.requiredWorkflow);
 const extendedWorkflow = read(plan.policy.extendedWorkflow);
+const pagesWorkflowPath = plan.policy.pagesWorkflow;
+const pagesWorkflow = pagesWorkflowPath && existsSync(join(root, pagesWorkflowPath))
+  ? read(pagesWorkflowPath)
+  : null;
+if (pagesWorkflowPath && pagesWorkflow === null) {
+  errors.push(`${pagesWorkflowPath}がありません。`);
+}
 
 
 if (baseTsconfig.compilerOptions?.noEmit === true) {
@@ -61,15 +68,22 @@ const actionPins = new Map([
   ['actions/checkout', '3d3c42e5aac5ba805825da76410c181273ba90b1'],
   ['actions/setup-node', '820762786026740c76f36085b0efc47a31fe5020'],
   ['actions/cache', '27d5ce7f107fe9357f9df03efb73ab90386fccae'],
+  ['actions/upload-pages-artifact', '56afc609e74202658d3ffba0e8f6dda462b719fa'],
+  ['actions/deploy-pages', 'd6db90164ac5ed86f2b6aed7e0febac5b3c0c03e'],
 ]);
-for (const [workflowPath, workflow] of [
-  [plan.policy.requiredWorkflow, requiredWorkflow],
-  [plan.policy.extendedWorkflow, extendedWorkflow],
-]) {
-  const uses = [...workflow.matchAll(/^\s*uses:\s*(actions\/(?:checkout|setup-node|cache))@([^\s#]+)/gm)];
-  const requiredActions = workflowPath === plan.policy.requiredWorkflow
-    ? ['actions/checkout', 'actions/setup-node', 'actions/cache']
-    : ['actions/checkout', 'actions/setup-node'];
+const workflowsToCheck = [
+  [plan.policy.requiredWorkflow, requiredWorkflow, ['actions/checkout', 'actions/setup-node', 'actions/cache']],
+  [plan.policy.extendedWorkflow, extendedWorkflow, ['actions/checkout', 'actions/setup-node']],
+];
+if (pagesWorkflow !== null) {
+  workflowsToCheck.push([
+    pagesWorkflowPath,
+    pagesWorkflow,
+    ['actions/checkout', 'actions/setup-node', 'actions/upload-pages-artifact', 'actions/deploy-pages'],
+  ]);
+}
+for (const [workflowPath, workflow, requiredActions] of workflowsToCheck) {
+  const uses = [...workflow.matchAll(/^\s*uses:\s*([\w.-]+\/[\w.-]+)@([^\s#]+)/gm)];
   for (const action of requiredActions) {
     if (!uses.some((match) => match[1] === action)) {
       errors.push(`${workflowPath}: ${action}がありません。`);
@@ -79,12 +93,51 @@ for (const [workflowPath, workflow] of [
     const action = match[1];
     const ref = match[2];
     const expectedRef = actionPins.get(action);
+    if (expectedRef === undefined) {
+      if (!/^[0-9a-f]{40}$/.test(ref)) {
+        errors.push(`${workflowPath}: ${action}@${ref}は完全なcommit SHAへ固定されていません。`);
+      }
+      continue;
+    }
     if (ref !== expectedRef) {
       errors.push(`${workflowPath}: ${action}@${ref}は固定SHA ${expectedRef}ではありません。`);
     }
   }
   if (!/^permissions:\n  contents: read/m.test(workflow)) {
     errors.push(`${workflowPath}: permissionsがcontents: readに限定されていません。`);
+  }
+}
+
+if (pagesWorkflow !== null && plan.policy.pagesWorkflowRequired !== true) {
+  if (requiredWorkflow.includes('build-site.mjs')) {
+    errors.push(`${plan.policy.requiredWorkflow}: pagesWorkflowRequired=falseのため、必須ゲートでサイト生成を実行しません。`);
+  }
+  if (!pagesWorkflow.includes("vars.PAGES_ENABLED == 'true'")) {
+    errors.push(`${pagesWorkflowPath}: 配信をrepository variable PAGES_ENABLEDで制御していません。`);
+  }
+}
+
+if (plan.policy.frozenLockfile === true) {
+  if (!existsSync(join(root, 'pnpm-lock.yaml'))) {
+    errors.push('pnpm-lock.yamlがありません。frozenLockfileを有効にできません。');
+  }
+  if (requiredWorkflow.includes('--no-frozen-lockfile')) {
+    errors.push(`${plan.policy.requiredWorkflow}: --no-frozen-lockfileが残っています。`);
+  }
+  const installs = [...requiredWorkflow.matchAll(/^\s*run:\s*pnpm install(.*)$/gm)];
+  if (installs.length === 0) {
+    errors.push(`${plan.policy.requiredWorkflow}: pnpm installを実行するstepがありません。`);
+  }
+  for (const install of installs) {
+    if (!install[1].includes('--frozen-lockfile')) {
+      errors.push(`${plan.policy.requiredWorkflow}: pnpm install${install[1]}に--frozen-lockfileがありません。`);
+    }
+  }
+}
+
+if (plan.policy.requiredStatusCheck) {
+  if (!requiredWorkflow.includes(`name: ${plan.policy.requiredStatusCheck}`)) {
+    errors.push(`${plan.policy.requiredWorkflow}: 必須チェック名 ${plan.policy.requiredStatusCheck} のジョブがありません。`);
   }
 }
 
@@ -110,6 +163,9 @@ for (const [chapter, detail] of Object.entries(exercises.chapters)) {
 console.log(`CI chapters: ${plan.required.chapters.length}`);
 console.log(`Required tasks: ${plan.required.tasks.join(', ')}`);
 console.log(`Service containers: ${Object.keys(plan.serviceContainers).join(', ')}`);
+console.log(`Workflows: ${workflowsToCheck.map(([path]) => path.replace('.github/workflows/', '')).join(', ')}`);
+console.log(`Frozen lockfile: ${plan.policy.frozenLockfile === true ? 'yes' : 'no'}`);
+console.log(`Required status check: ${plan.policy.requiredStatusCheck ?? '(未設定)'}`);
 for (const warning of warnings) console.warn(`WARN: ${warning}`);
 for (const error of errors) console.error(`ERROR: ${error}`);
 if (errors.length > 0) {

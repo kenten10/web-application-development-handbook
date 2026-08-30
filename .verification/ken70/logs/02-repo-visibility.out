@@ -1,0 +1,5 @@
+=== visibility check ===
+{"createdAt":"2026-08-30T10:09:19Z","defaultBranchRef":{"name":""},"isPrivate":true,"name":"web-application-development-handbook","url":"https://github.com/kenten10/web-application-development-handbook","visibility":"PRIVATE"}
+
+=== gh api /repos/... private field ===
+{"allow_forking":true,"default_branch":"main","full_name":"kenten10/web-application-development-handbook","has_pages":false,"private":true,"visibility":"private"}

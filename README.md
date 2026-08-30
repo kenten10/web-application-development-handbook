@@ -62,8 +62,10 @@ Webアプリケーション開発を、基礎から設計・運用・品質・�
 
 | 形式 | 位置づけ | 入口 |
 |---|---|---|
-| GitHubリポジトリ | 正本（Markdown本文とサンプルコード） | 本README |
+| GitHubリポジトリ | 正本（Markdown本文とサンプルコード） | `kenten10/web-application-development-handbook`（現在は非公開） |
 | 静的Webサイト（GitHub Pages） | 生成物（`pnpm run build:site` で `dist/site/` へ生成） | `dist/site/index.html` |
+
+GitHub Pagesへの配信は、リポジトリを公開するまで止めています。理由と再開手順は [`CI.md`](./CI.md) 第5節にあります。生成と決定性検証自体は、Pull Requestと`main`の双方で常に実行しています。
 
 PDFとEPUBはv1.0では提供しません。理由と将来の方針は [`RELEASE_POLICY.md`](./RELEASE_POLICY.md) 第1.5節にあります。
 
@@ -155,3 +157,5 @@ pnpm run build:site:check  # 生成が決定的であることを検証する
 ### CI
 
 Pull Requestでは原稿検査、全30章の`lint`・`typecheck`・`test`・`build`、PostgreSQL・Redisのservice container確認を実行します。Linux/Docker、長時間ベンチマーク、外部クラウド・Kafka・Kubernetesを伴う演習は拡張workflowへ分離しています。詳細は[CI運用ガイド](CI.md)を参照してください。
+
+依存関係のインストールは`pnpm install --frozen-lockfile`で行います。`main`はrulesetで保護し、`Required CI gate`の成功を必須チェックにしています。ruleset定義は[`.github/rulesets/main-required-ci.json`](.github/rulesets/main-required-ci.json)にあります。

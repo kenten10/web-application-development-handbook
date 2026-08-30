@@ -15,7 +15,13 @@ function fixture() {
   const dir = mkdtempSync(join(tmpdir(), 'handbook-ci-'));
   for (const path of ['scripts', 'config', 'code', '.github']) cpSync(join(root, path), join(dir, path), { recursive: true });
   copyFileSync(join(root, 'tsconfig.base.json'), join(dir, 'tsconfig.base.json'));
+  copyFileSync(join(root, 'pnpm-lock.yaml'), join(dir, 'pnpm-lock.yaml'));
   return dir;
+}
+
+function rewrite(dir, relativePath, replacer) {
+  const path = join(dir, relativePath);
+  writeFileSync(path, replacer(readFileSync(path, 'utf8')));
 }
 
 test('current CI plan is valid', () => {
@@ -88,6 +94,82 @@ test('missing chapter task is detected', () => {
     const result = run(dir);
     assert.notEqual(result.status, 0);
     assert.match(result.stderr, /buildがありません/);
+  } finally {
+    rmSync(dir, { recursive: true, force: true });
+  }
+});
+
+test('unpinned pages action is detected', () => {
+  const dir = fixture();
+  try {
+    rewrite(dir, '.github/workflows/pages.yml', (source) =>
+      source.replace('actions/deploy-pages@d6db90164ac5ed86f2b6aed7e0febac5b3c0c03e', 'actions/deploy-pages@v4'));
+    const result = run(dir);
+    assert.notEqual(result.status, 0);
+    assert.match(result.stderr, /actions\/deploy-pages@v4/);
+  } finally {
+    rmSync(dir, { recursive: true, force: true });
+  }
+});
+
+test('missing pages workflow is detected', () => {
+  const dir = fixture();
+  try {
+    rmSync(join(dir, '.github/workflows/pages.yml'));
+    const result = run(dir);
+    assert.notEqual(result.status, 0);
+    assert.match(result.stderr, /pages\.yml がありません|pages\.ymlがありません/);
+  } finally {
+    rmSync(dir, { recursive: true, force: true });
+  }
+});
+
+test('ungated pages deployment is detected', () => {
+  const dir = fixture();
+  try {
+    rewrite(dir, '.github/workflows/pages.yml', (source) =>
+      source.replaceAll(" && vars.PAGES_ENABLED == 'true'", ''));
+    const result = run(dir);
+    assert.notEqual(result.status, 0);
+    assert.match(result.stderr, /PAGES_ENABLED/);
+  } finally {
+    rmSync(dir, { recursive: true, force: true });
+  }
+});
+
+test('non-frozen lockfile install is detected', () => {
+  const dir = fixture();
+  try {
+    rewrite(dir, '.github/workflows/ci.yml', (source) =>
+      source.replaceAll('pnpm install --frozen-lockfile', 'pnpm install --no-frozen-lockfile'));
+    const result = run(dir);
+    assert.notEqual(result.status, 0);
+    assert.match(result.stderr, /--no-frozen-lockfile/);
+  } finally {
+    rmSync(dir, { recursive: true, force: true });
+  }
+});
+
+test('missing lockfile is detected', () => {
+  const dir = fixture();
+  try {
+    rmSync(join(dir, 'pnpm-lock.yaml'));
+    const result = run(dir);
+    assert.notEqual(result.status, 0);
+    assert.match(result.stderr, /pnpm-lock\.yaml/);
+  } finally {
+    rmSync(dir, { recursive: true, force: true });
+  }
+});
+
+test('missing required status check job is detected', () => {
+  const dir = fixture();
+  try {
+    rewrite(dir, '.github/workflows/ci.yml', (source) =>
+      source.replace('name: Required CI gate', 'name: CI gate'));
+    const result = run(dir);
+    assert.notEqual(result.status, 0);
+    assert.match(result.stderr, /Required CI gate/);
   } finally {
     rmSync(dir, { recursive: true, force: true });
   }

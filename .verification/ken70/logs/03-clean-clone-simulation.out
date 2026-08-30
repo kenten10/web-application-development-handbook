@@ -1,0 +1,41 @@
+=== frozen install ===
+devDependencies:
++ @types/node 24.12.1
++ typescript 6.0.3
+
+Done in 1.9s using pnpm v11.15.1
+INSTALL_EXIT=0
+=== check:handbook ===
+- review cycles: 30/30 chapters
+- changelog releases: 1
+- errata entries: 0
+- errors: 0
+- warnings: 0
+Release policy validation passed: 0 warning(s)
+[WARN] Unsupported engine: wanted: {"node":">=24.18.0 <25"} (current: {"node":"v26.7.0","pnpm":"11.15.1"})
+$ node scripts/validate-style.mjs
+Style validation
+- manuscript files: 8
+- glossary terms: 156
+- glossary variants: 128
+- index terms: 640
+- rules: 21
+- errors: 0
+- warnings: 0
+[WARN] Unsupported engine: wanted: {"node":">=24.18.0 <25"} (current: {"node":"v26.7.0","pnpm":"11.15.1"})
+$ node scripts/validate-style.mjs --backlog --check
+STYLE_BACKLOG.md は最新である。
+Style validation
+- manuscript files: 8
+- glossary terms: 156
+- glossary variants: 128
+- index terms: 640
+- rules: 21
+- errors: 0
+- warnings: 0
+[WARN] Unsupported engine: wanted: {"node":">=24.18.0 <25"} (current: {"node":"v26.7.0","pnpm":"11.15.1"})
+$ node scripts/clean-build-artifacts.mjs --check --config.engine-strict=false
+Build artifacts: 0
+CHECK_EXIT=0
+
+[exited with code 0]

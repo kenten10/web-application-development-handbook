@@ -1,0 +1,478 @@
+[WARN] Unsupported engine: wanted: {"node":">=24.18.0 <25"} (current: {"node":"v26.7.0","pnpm":"11.15.1"})
+$ pnpm run apply:learning-levels:check && pnpm run generate:learning-paths:check && pnpm run apply:chapter-guides:check && pnpm run apply:code-usage:check && pnpm run apply:exercise-totals:check && pnpm run apply:editorial-fixes:check && pnpm run apply:exercise-rubrics:check && pnpm run generate:exercise-catalog:check && pnpm run generate:glossary:check && pnpm run generate:handbook:check && pnpm run apply:starter-contracts:check && pnpm run test:handbook && pnpm run validate:clean-environment && pnpm run test:clean-environment && pnpm run validate:exercises && pnpm run validate:narrative-flow && pnpm run validate:beta-review && pnpm run validate:links && pnpm run validate:handbook && pnpm run validate:release-policy && pnpm run validate:style && pnpm run report:style-backlog:check && pnpm run clean:artifacts:check
+[WARN] Unsupported engine: wanted: {"node":">=24.18.0 <25"} (current: {"node":"v26.7.0","pnpm":"11.15.1"})
+$ node scripts/apply-learning-levels.mjs --check
+Learning metadata is current for 415 numbered sections.
+[WARN] Unsupported engine: wanted: {"node":">=24.18.0 <25"} (current: {"node":"v26.7.0","pnpm":"11.15.1"})
+$ node scripts/generate-learning-paths.mjs --check
+Learning paths are current: 6 routes.
+[WARN] Unsupported engine: wanted: {"node":">=24.18.0 <25"} (current: {"node":"v26.7.0","pnpm":"11.15.1"})
+$ node scripts/apply-chapter-guides.mjs --check
+Chapter guides are current for 30 chapters.
+[WARN] Unsupported engine: wanted: {"node":">=24.18.0 <25"} (current: {"node":"v26.7.0","pnpm":"11.15.1"})
+$ node scripts/apply-code-usage.mjs --check
+Code usage blocks
+- blocks: 27
+- changed files: 0
+[WARN] Unsupported engine: wanted: {"node":">=24.18.0 <25"} (current: {"node":"v26.7.0","pnpm":"11.15.1"})
+$ node scripts/apply-exercise-totals.mjs --check
+Exercise totals
+- rewritten lead sentences: 0
+- changed files: 0
+[WARN] Unsupported engine: wanted: {"node":">=24.18.0 <25"} (current: {"node":"v26.7.0","pnpm":"11.15.1"})
+$ node scripts/apply-editorial-fixes.mjs --check
+Editorial fixes
+- fixes in manifest: 492
+- applied: 0
+- already applied: 492
+- not found: 0
+- ambiguous: 0
+- changed files: 0
+[WARN] Unsupported engine: wanted: {"node":">=24.18.0 <25"} (current: {"node":"v26.7.0","pnpm":"11.15.1"})
+$ node scripts/apply-exercise-rubrics.mjs --check
+Exercise cards check passed: 147 card(s) in 7 file(s)
+[WARN] Unsupported engine: wanted: {"node":">=24.18.0 <25"} (current: {"node":"v26.7.0","pnpm":"11.15.1"})
+$ node scripts/generate-exercise-catalog.mjs --check
+Exercise catalog check passed: 31 file(s)
+[WARN] Unsupported engine: wanted: {"node":">=24.18.0 <25"} (current: {"node":"v26.7.0","pnpm":"11.15.1"})
+$ node scripts/generate-glossary.mjs --check
+Glossary check passed: 156 term(s)
+[WARN] Unsupported engine: wanted: {"node":">=24.18.0 <25"} (current: {"node":"v26.7.0","pnpm":"11.15.1"})
+$ node scripts/generate-handbook.mjs --check
+Generated files are up to date.
+[WARN] Unsupported engine: wanted: {"node":">=24.18.0 <25"} (current: {"node":"v26.7.0","pnpm":"11.15.1"})
+$ node scripts/apply-starter-contracts.mjs --check
+Starter contracts
+- mandatory exercises: 37
+- starters updated: 0
+- exercises without a TypeScript contract: 14
+[WARN] Unsupported engine: wanted: {"node":">=24.18.0 <25"} (current: {"node":"v26.7.0","pnpm":"11.15.1"})
+$ pnpm run test:learning-levels && pnpm run test:learning-paths && pnpm run test:chapter-guides && pnpm run test:handbook-generator && pnpm run test:handbook-validator && pnpm run test:exercises && pnpm run test:exercise-rubrics && pnpm run test:narrative-flow && pnpm run test:beta-review && pnpm run test:release-policy && pnpm run test:style && pnpm run test:links && pnpm run test:code-usage && pnpm run test:exercise-totals && pnpm run test:clean-artifacts && pnpm run test:starter-contracts
+[WARN] Unsupported engine: wanted: {"node":">=24.18.0 <25"} (current: {"node":"v26.7.0","pnpm":"11.15.1"})
+$ node --test scripts/apply-learning-levels.test.mjs
+✔ learning metadata is current (247.326375ms)
+✔ all 415 numbered sections have generated metadata (16.907417ms)
+✔ manifest covers every numbered section exactly once (1.265875ms)
+✔ generated guide exposes a realistic first-reading route (1.533042ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 4
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 555.088625
+[WARN] Unsupported engine: wanted: {"node":">=24.18.0 <25"} (current: {"node":"v26.7.0","pnpm":"11.15.1"})
+$ node --test scripts/generate-learning-paths.test.mjs
+✔ generated learning paths are current (344.587042ms)
+✔ six routes and the standard 24-hour route are exposed (3.359667ms)
+✔ front matter and generated TOC link to every route (2.162791ms)
+✔ unknown section references fail generation (465.541709ms)
+✔ check mode detects generated document drift (436.555208ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 5
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1611.598458
+[WARN] Unsupported engine: wanted: {"node":">=24.18.0 <25"} (current: {"node":"v26.7.0","pnpm":"11.15.1"})
+$ node --test scripts/apply-chapter-guides.test.mjs
+✔ chapter guides are current (290.278083ms)
+✔ all 30 chapters have exactly one generated guide (15.0545ms)
+✔ every chapter guide contains the 11 required elements (13.325959ms)
+✔ manifest covers all chapters and key educational warnings (1.5535ms)
+✔ template document explains non-repetitive application (1.878042ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 5
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 493.48675
+[WARN] Unsupported engine: wanted: {"node":">=24.18.0 <25"} (current: {"node":"v26.7.0","pnpm":"11.15.1"})
+$ node --test scripts/generate-handbook.test.mjs
+✔ generated files are current (658.132375ms)
+✔ TOC contains explicit links, levels, and time estimates (4.809917ms)
+✔ body contains explicit stable anchors and learning metadata (7.715459ms)
+✔ index is generated from body metadata (1.383333ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 4
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 860.459916
+[WARN] Unsupported engine: wanted: {"node":">=24.18.0 <25"} (current: {"node":"v26.7.0","pnpm":"11.15.1"})
+$ node --test scripts/validate-handbook.test.mjs
+✔ 30章と415節を検出する (4.3635ms)
+✔ 全節の学習レベルメタデータを検出する (0.396416ms)
+✔ 目次と本文の既知タイトル不一致がない (0.215458ms)
+✔ コードブロックをMarkdownリンクとして誤検出しない (0.291ms)
+✔ 本文のコード参照先がすべて配置されている (0.434792ms)
+✔ 全30章の共通教材ガイドを検出する (0.330583ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 6
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1813.195375
+[WARN] Unsupported engine: wanted: {"node":">=24.18.0 <25"} (current: {"node":"v26.7.0","pnpm":"11.15.1"})
+$ node --test scripts/validate-exercises.test.mjs
+✔ all chapters have normalized starter, solution, and README artifacts (193.961292ms)
+✔ a single chapter can be validated (127.549834ms)
+✔ every 課題 heading in the manuscript has exactly one exercise card (179.141166ms)
+✔ observation exercises are registered with the same rubric fields (206.826ms)
+✔ placeholder solution artifacts are rejected (3026.517791ms)
+✔ missing starter is rejected (1983.676125ms)
+✔ README format drift is rejected (1817.973667ms)
+✔ generated distribution artifacts are rejected (1882.207042ms)
+✔ installed node_modules are tolerated in a working copy (1830.005667ms)
+✔ node_modules are rejected in distribution audit mode (1827.434959ms)
+✔ a missing rubric field is rejected (1698.240834ms)
+✔ too few completion criteria are rejected (1686.95275ms)
+✔ hints must have exactly three stages (1997.831125ms)
+✔ boilerplate rubric text is rejected (2387.361417ms)
+✔ verification without an executable command is rejected (1444.266958ms)
+✔ a production warning is required (1347.837291ms)
+✔ the estimate breakdown is required (1299.066708ms)
+✔ difficulty must match the star count in the title (1590.306208ms)
+✔ an off-grid estimate is rejected (1320.380458ms)
+✔ a starter without its paired solution is rejected (1435.081458ms)
+✔ a manuscript exercise card removal is detected (1232.233375ms)
+✔ an exercise title drift between manuscript and manifest is rejected (1274.766ms)
+✔ an outdated schema version is rejected (1406.341417ms)
+ℹ tests 23
+ℹ suites 0
+ℹ pass 23
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 33431.2095
+[WARN] Unsupported engine: wanted: {"node":">=24.18.0 <25"} (current: {"node":"v26.7.0","pnpm":"11.15.1"})
+$ node --test scripts/apply-exercise-rubrics.test.mjs
+✔ exercise cards in the manuscript are current (169.295ms)
+✔ every card renders the required rubric labels (19.555333ms)
+✔ applying the cards twice is idempotent (720.921208ms)
+✔ a hand-edited card is detected and restored (449.913917ms)
+✔ an unregistered 課題 heading is rejected (337.186208ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 5
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1843.240459
+[WARN] Unsupported engine: wanted: {"node":">=24.18.0 <25"} (current: {"node":"v26.7.0","pnpm":"11.15.1"})
+$ node --test scripts/validate-narrative-flow.test.mjs
+✔ current narrative manifest is valid (185.895958ms)
+✔ completed chapter without bridges is rejected (6505.763ms)
+✔ manifest must cover all 30 chapters (3256.746959ms)
+ℹ tests 3
+ℹ suites 0
+ℹ pass 3
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 10099.0585
+[WARN] Unsupported engine: wanted: {"node":">=24.18.0 <25"} (current: {"node":"v26.7.0","pnpm":"11.15.1"})
+$ node --test scripts/validate-beta-review.test.mjs
+✔ current beta review scope is valid (223.773875ms)
+✔ scope must cover every chapter in the narrative manifest (1423.437083ms)
+✔ a chapter with environment dependent exercises cannot be downgraded (1573.893ms)
+✔ dropping an environment dependent exercise is rejected (1463.841625ms)
+✔ required section coverage must match the learning level manifest (1629.850709ms)
+✔ a chapter whose required sections are trimmed is rejected (1322.422417ms)
+✔ every mandatory exercise must be assigned to exactly one track (1183.681625ms)
+✔ effort estimates must follow the declared formula (1309.428ms)
+✔ a persona pointing at an unknown learning route is rejected (1474.646541ms)
+✔ an Urgent severity must block the release (1340.624833ms)
+✔ release blockers must be documented in the plan (1693.672459ms)
+✔ release blockers cannot be emptied (1516.707375ms)
+✔ questionnaire question counts must match the template document (1681.314459ms)
+✔ collecting a name is rejected by the privacy policy check (1471.6595ms)
+✔ storing the anonymous id mapping in the repository is rejected (3924.049917ms)
+✔ a mandatory exercise missing from the scenario document is detected (3639.992875ms)
+✔ a missing planning document is detected (1440.045875ms)
+ℹ tests 17
+ℹ suites 0
+ℹ pass 17
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 28517.114333
+[WARN] Unsupported engine: wanted: {"node":">=24.18.0 <25"} (current: {"node":"v26.7.0","pnpm":"11.15.1"})
+$ node --test scripts/validate-release-policy.test.mjs
+✔ リポジトリ全体で公開方針の検証が成功する (264.274584ms)
+✔ 最小構成のfixtureでも検証が成功する (438.408833ms)
+✔ CHANGELOGの最新版が正本とずれると検出する (342.851166ms)
+✔ CHANGELOGの日付が releaseDate とずれると検出する (274.810458ms)
+✔ package.jsonの版番号がずれると検出する (330.454375ms)
+✔ ライセンス判定規則に一致しないファイルを検出する (273.303125ms)
+✔ LICENSING.mdの対応表が正本とずれると検出する (296.063625ms)
+✔ ライセンス全文からSPDX識別子が消えると検出する (928.269375ms)
+✔ 見直し周期が割り当てられていない章を検出する (668.555042ms)
+✔ RELEASE_POLICY.mdの周期表と正本の不一致を検出する (243.140834ms)
+✔ READMEから利用条件の記載が欠けると検出する (280.471792ms)
+✔ 前付けから公開・利用条件の見出しが消えると検出する (244.887584ms)
+✔ 正誤表の列が正本とずれると検出する (385.180959ms)
+✔ 未公開の版を参照する正誤行を検出する (307.006666ms)
+✔ Pages workflowのactionが固定SHAでないと検出する (397.261042ms)
+✔ Pages workflowの権限が広がると検出する (461.810916ms)
+✔ 正誤報告テンプレートから必須項目が消えると検出する (370.846208ms)
+✔ 全章に見直し周期と判断理由がある (0.844375ms)
+✔ 見直し周期の区分は月数の昇順に定義されている (1.687375ms)
+✔ SemVerの規則が本文とコードの両方について定義されている (0.250625ms)
+✔ 公開形式はGitHubリポジトリと静的サイトの2形式で、PDFとEPUBは理由付きで対象外である (0.248375ms)
+✔ 静的サイト生成は決定的である (1771.777042ms)
+✔ 生成したHTMLはライセンス表示と版番号を含む (1189.958334ms)
+✔ 生成したHTMLは本文の章アンカーを保持する (988.70025ms)
+✔ 固定成果物の一覧と再現手順が定義されている (0.564791ms)
+ℹ tests 25
+ℹ suites 0
+ℹ pass 25
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 10648.514458
+[WARN] Unsupported engine: wanted: {"node":">=24.18.0 <25"} (current: {"node":"v26.7.0","pnpm":"11.15.1"})
+$ node --test scripts/validate-style.test.mjs
+Style validation
+- manuscript files: 8
+- glossary terms: 156
+- glossary variants: 128
+- index terms: 640
+- rules: 21
+- errors: 0
+- warnings: 0
+GLOSSARY.md が config/glossary.json と一致しません。pnpm run generate:glossary を実行してください。
+✔ 規約に従う本文はエラーを出さない (212.428333ms)
+✔ S-JA-001 全角カンマ・ピリオドを検出する (200.700708ms)
+✔ S-JA-004 全角括弧を検出する (240.332917ms)
+✔ S-JA-006 和文と半角括弧の間の空白欠落を検出する (298.186083ms)
+✔ S-JA-007 敬体の文末を検出する (192.871875ms)
+✔ S-JA-007 かぎ括弧内のUI文言は敬体でも許容する (246.077583ms)
+✔ S-SYM-001 EM DASH を検出する (511.0675ms)
+✔ S-CODE-001 言語指定のないコードブロックを検出する (208.588334ms)
+✔ S-CODE-002 許可されていない言語指定を検出する (233.719917ms)
+✔ S-CODE-003 区切り行のない表を検出する (249.25775ms)
+✔ S-CODE-004 画像記法を検出する (364.332417ms)
+✔ S-CODE-005 非正規の注意ラベルを検出する (323.216917ms)
+✔ S-TERM-001 用語集の非正規表記を検出する (197.402542ms)
+✔ S-TERM-001 用語集の例外文字列は検出しない (242.041708ms)
+✔ S-TERM-001 インラインコードの中は検出しない (229.844708ms)
+✔ S-TERM-002 非推奨表記はベースラインを超えたときだけ失敗する (477.301917ms)
+✔ S-VAGUE-001 根拠のない曖昧表現を検出し、時点を添えると通る (484.785583ms)
+✔ S-IDX-001 索引語の非正規表記を検出する (269.850917ms)
+✔ S-IDX-002 索引にない必須用語を検出する (443.207375ms)
+✔ S-META-001 未記載のルールIDを検出する (321.041417ms)
+✔ variantPattern は正表記の前方一致を除外する (0.322917ms)
+✔ maskProtected はインラインコードとリンク先を伏せる (0.278333ms)
+✔ apply-style-fixes は規約違反を修正し、二度目は変化しない (3.3465ms)
+✔ apply-style-fixes は言語指定のないコードブロックへ text を付ける (0.487666ms)
+✔ apply-style-fixes はコードブロックの中身を書き換えない (0.399583ms)
+✔ apply-style-fixes はパス文字列を書き換えない (0.699792ms)
+✔ apply-style-fixes は注意ラベルを整形する (0.252625ms)
+✔ generate-glossary は正本と一致する GLOSSARY.md を作る (27.024417ms)
+✔ generate-glossary --check は差分を検出する (223.823083ms)
+✔ 用語集の別表記は正表記と重複しない (0.769375ms)
+✔ ルール定義は STYLE_GUIDE.md と1対1で対応する (4.996875ms)
+✔ ベースラインは baseline 分類のルールにだけ存在する (0.257208ms)
+✔ fixer と validator の変異形パターンが一致する (6.421584ms)
+ℹ tests 33
+ℹ suites 0
+ℹ pass 33
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 9363.337792
+[WARN] Unsupported engine: wanted: {"node":">=24.18.0 <25"} (current: {"node":"v26.7.0","pnpm":"11.15.1"})
+$ node --test scripts/validate-links.test.mjs
+Link validation
+- documents: 31
+- markdown links: 2282
+- internal file links: 1957
+- anchor links: 2154 (section anchors: 2112)
+- chapter references: 220
+- section references: 763
+- code path references: 644
+- code usage commands: 190
+- external urls: 107 (occurrences: 110)
+- errors: 0
+- warnings: 0
+✔ githubSlug は GitHub と同じ規則でアンカー候補を作る (0.923667ms)
+✔ splitFences はフェンス内の行へ inFence を立てる (0.182167ms)
+✔ splitFences は入れ子に見えるチルダフェンスも閉じる (0.122792ms)
+ℹ tests 3
+ℹ suites 0
+ℹ pass 3
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 705.020791
+[WARN] Unsupported engine: wanted: {"node":">=24.18.0 <25"} (current: {"node":"v26.7.0","pnpm":"11.15.1"})
+$ node --test scripts/apply-code-usage.test.mjs
+✔ priority はブラウザ課題の HTML を最優先にする (1.403459ms)
+✔ commandFor は拡張子ごとに実行コマンドを選ぶ (0.419667ms)
+✔ buildBlock は章ごとに一意な見出しと pnpm 手順を出す (2.912542ms)
+✔ findBlock はマーカーが無い旧ブロックも見出しからフェンス終端まで拾う (2.270041ms)
+✔ findBlock はマーカー付きブロックをマーカーごと置き換え対象にする (0.598583ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 5
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 274.875541
+[WARN] Unsupported engine: wanted: {"node":">=24.18.0 <25"} (current: {"node":"v26.7.0","pnpm":"11.15.1"})
+$ node --test scripts/apply-exercise-totals.test.mjs
+✔ formatMinutes は時間と分へ分ける (2.055959ms)
+✔ totalsByChapter は章キーが 0 埋めでも実装課題と観察課題を合算する (0.756917ms)
+ℹ tests 2
+ℹ suites 0
+ℹ pass 2
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 252.91425
+[WARN] Unsupported engine: wanted: {"node":">=24.18.0 <25"} (current: {"node":"v26.7.0","pnpm":"11.15.1"})
+$ node --test scripts/clean-build-artifacts.test.mjs
+✔ finds dist and coverage under chapter directories only (19.340875ms)
+✔ returns nothing when the code directory is absent (3.02025ms)
+✔ is idempotent: a cleaned tree reports no artifacts (33.250291ms)
+ℹ tests 3
+ℹ suites 0
+ℹ pass 3
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 413.812916
+[WARN] Unsupported engine: wanted: {"node":">=24.18.0 <25"} (current: {"node":"v26.7.0","pnpm":"11.15.1"})
+$ node --test scripts/apply-starter-contracts.test.mjs
+✔ exported functions, types, and classes become the contract (4.422041ms)
+✔ calls inside a method body are not mistaken for declarations (0.495542ms)
+✔ private and protected members stay out of the contract (0.355375ms)
+✔ applying the block twice produces the same file (0.579541ms)
+✔ regenerating replaces the previous block instead of stacking (0.188292ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 5
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 613.319583
+[WARN] Unsupported engine: wanted: {"node":">=24.18.0 <25"} (current: {"node":"v26.7.0","pnpm":"11.15.1"})
+$ node scripts/validate-clean-environment.mjs
+Clean environment exercises: 143
+local-automated: 113
+local-tls: 7
+external-service: 17
+browser-manual: 6
+Mode: structure
+Clean environment validation passed.
+[WARN] Unsupported engine: wanted: {"node":">=24.18.0 <25"} (current: {"node":"v26.7.0","pnpm":"11.15.1"})
+$ node --test scripts/validate-clean-environment.test.mjs
+✔ clean environment plan is structurally valid (299.198375ms)
+✔ all 143 exercises have evidence and safety records (4.852ms)
+✔ manual and external exercises cannot silently pass as local automated (6.798792ms)
+ℹ tests 3
+ℹ suites 0
+ℹ pass 3
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 540.75725
+[WARN] Unsupported engine: wanted: {"node":">=24.18.0 <25"} (current: {"node":"v26.7.0","pnpm":"11.15.1"})
+$ node scripts/validate-exercises.mjs
+Exercise chapters: 30
+Exercise units: 143
+Observation units: 4
+Starter artifacts: 151
+Solution artifacts: 179
+Manuscript references: 156
+Exercise cards: 147 / headings: 147
+Exercise validation passed
+[WARN] Unsupported engine: wanted: {"node":">=24.18.0 <25"} (current: {"node":"v26.7.0","pnpm":"11.15.1"})
+$ node scripts/validate-narrative-flow.mjs
+Narrative flow: chapters=30, completed=30
+[WARN] Unsupported engine: wanted: {"node":">=24.18.0 <25"} (current: {"node":"v26.7.0","pnpm":"11.15.1"})
+$ node scripts/validate-beta-review.mjs
+Beta review scope: chapters=30 (core=15, exercise-only=5, sampled=10), exercises=37 (4630分), personas=6, roles=3, questions=45, severities=4, releaseBlockers=11, requiredSections=199
+[WARN] Unsupported engine: wanted: {"node":">=24.18.0 <25"} (current: {"node":"v26.7.0","pnpm":"11.15.1"})
+$ node scripts/validate-links.mjs
+Link validation
+- documents: 31
+- markdown links: 2282
+- internal file links: 1957
+- anchor links: 2154 (section anchors: 2112)
+- chapter references: 220
+- section references: 763
+- code path references: 644
+- code usage commands: 190
+- external urls: 107 (occurrences: 110)
+- errors: 0
+- warnings: 0
+[WARN] Unsupported engine: wanted: {"node":">=24.18.0 <25"} (current: {"node":"v26.7.0","pnpm":"11.15.1"})
+$ node scripts/validate-handbook.mjs
+Handbook validation
+- chapters: 30
+- numbered sections/subsections: 415
+- learning metadata: 415
+- chapter guides: 30
+- errors: 0
+- warnings: 0
+[WARN] Unsupported engine: wanted: {"node":">=24.18.0 <25"} (current: {"node":"v26.7.0","pnpm":"11.15.1"})
+$ node scripts/validate-release-policy.mjs
+Release policy validation
+- version: 1.0.0 (2026-08-30, pending)
+- distribution formats: git-repository, static-site
+- site pages: 27 (+2 copies)
+- licensed files: code=818, text=55, notice=2
+- review cycles: 30/30 chapters
+- changelog releases: 1
+- errata entries: 0
+- errors: 0
+- warnings: 0
+Release policy validation passed: 0 warning(s)
+[WARN] Unsupported engine: wanted: {"node":">=24.18.0 <25"} (current: {"node":"v26.7.0","pnpm":"11.15.1"})
+$ node scripts/validate-style.mjs
+Style validation
+- manuscript files: 8
+- glossary terms: 156
+- glossary variants: 128
+- index terms: 640
+- rules: 21
+- errors: 0
+- warnings: 0
+[WARN] Unsupported engine: wanted: {"node":">=24.18.0 <25"} (current: {"node":"v26.7.0","pnpm":"11.15.1"})
+$ node scripts/validate-style.mjs --backlog --check
+STYLE_BACKLOG.md は最新である。
+Style validation
+- manuscript files: 8
+- glossary terms: 156
+- glossary variants: 128
+- index terms: 640
+- rules: 21
+- errors: 0
+- warnings: 0
+[WARN] Unsupported engine: wanted: {"node":">=24.18.0 <25"} (current: {"node":"v26.7.0","pnpm":"11.15.1"})
+$ node scripts/clean-build-artifacts.mjs --check
+Build artifacts: 0
+EXIT=0

@@ -1,0 +1,10 @@
+=== Handbook CI run 33305824229 ===
+{"conclusion":"failure","jobs":[{"conclusion":"failure","databaseId":99242100147,"name":"Manuscript and configuration"},{"conclusion":"failure","databaseId":99242106833,"name":"Required CI gate"},{"conclusion":"skipped","databaseId":99242107176,"name":"${{ matrix.chapter }} / lint · typecheck · test · build"},{"conclusion":"skipped","databaseId":99242107441,"name":"PostgreSQL and Redis service containers"}]}
+
+=== annotations per job ===
+--- job 99242100147
+failure: The job was not started because recent account payments have failed or your spending limit needs to be increased. Please check the 'Billing & plans' section in your settings
+--- job 99242106833
+failure: The job was not started because recent account payments have failed or your spending limit needs to be increased. Please check the 'Billing & plans' section in your settings
+--- job 99242107176
+--- job 99242107441

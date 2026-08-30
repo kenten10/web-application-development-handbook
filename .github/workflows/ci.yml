@@ -47,7 +47,7 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-node24-pnpm-
       - name: Install workspace dependencies
-        run: pnpm install --no-frozen-lockfile --prefer-offline
+        run: pnpm install --frozen-lockfile --prefer-offline
       - name: Validate handbook and generated files
         run: pnpm run check:handbook
       - name: Validate workspace and CI configuration
@@ -120,7 +120,7 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-node24-pnpm-
       - name: Install workspace dependencies
-        run: pnpm install --no-frozen-lockfile --prefer-offline
+        run: pnpm install --frozen-lockfile --prefer-offline
       - name: Validate chapter
         run: node scripts/ci-chapter.mjs ${{ matrix.chapter }}
 

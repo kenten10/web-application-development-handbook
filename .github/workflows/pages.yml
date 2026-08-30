@@ -46,16 +46,19 @@ jobs:
         run: |
           node -e "const m=require('./dist/site/release-manifest.json');console.log('version=%s pages=%d',m.version,m.outputs.length)"
           sha256sum dist/site/release-manifest.json
+      # 配信はrepository variable PAGES_ENABLED=true のときだけ行う。
+      # 非公開リポジトリの無料プランではGitHub Pagesを利用できないため、
+      # 既定では生成と決定性検証だけを実行する。詳細はCI.md 第5節。
       - name: Upload Pages artifact
-        if: github.event_name != 'pull_request'
-        # KEN-70: Pages有効化時に最新版のcommit SHAを確認して再固定する
+        if: github.event_name != 'pull_request' && vars.PAGES_ENABLED == 'true'
+        # KEN-70: v3.0.1のtagが指すcommit SHAをGitHub上で確認済み
         uses: actions/upload-pages-artifact@56afc609e74202658d3ffba0e8f6dda462b719fa # v3.0.1
         with:
           path: dist/site
 
   deploy:
     name: Deploy to GitHub Pages
-    if: github.event_name != 'pull_request'
+    if: github.event_name != 'pull_request' && vars.PAGES_ENABLED == 'true'
     needs: build
     runs-on: ubuntu-24.04
     timeout-minutes: 10
@@ -69,5 +72,5 @@ jobs:
     steps:
       - name: Deploy
         id: deployment
-        # KEN-70: Pages有効化時に最新版のcommit SHAを確認して再固定する
+        # KEN-70: v4.0.5のtagが指すcommit SHAをGitHub上で確認済み
         uses: actions/deploy-pages@d6db90164ac5ed86f2b6aed7e0febac5b3c0c03e # v4.0.5
