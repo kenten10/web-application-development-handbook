@@ -522,7 +522,8 @@ GitHubがworkflowを解析できた場合にだけworkflowは一覧へ現れる�
 | `.verification/ken70/logs/10-workflow-syntax-check.out` | workflow構文検査 |
 | `.verification/ken70/logs/11-extended-ci-dispatch.out` | extended CIの手動実行とローカル代替 |
 | `.verification/ken70/logs/13-ruleset-attempt.out` | ruleset / branch protectionの設定試行 |
-| `.verification/ken70/logs/14-final-validation.out` | 最終検証 |
+| `.verification/ken70/logs/14-final-validation.out` | 最終検証（6コマンド） |
+| `.verification/ken70/logs/15-final-check-handbook.out` | レポート作成後の `check:handbook` 全出力 |
 
 ### 変更
 
