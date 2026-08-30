@@ -1,0 +1,54 @@
+{
+  "environment": "Chromium installed; local/file navigation restricted by administrator",
+  "attemptedAt": "2026-07-30T22:22:00+09:00",
+  "exercises": [
+    {
+      "id": "24.5",
+      "title": "課題24.5: Web Vitals 計測スクリプト(LCP/FID/CLS) (★★)",
+      "status": "blocked",
+      "staticValidation": "passed",
+      "browserRuntime": "not executed",
+      "reason": "Chromiumは起動できたが、file:および127.0.0.1への遷移がERR_BLOCKED_BY_ADMINISTRATORで遮断された。"
+    },
+    {
+      "id": "1.4",
+      "title": "課題1.4: 自分のWebの「使用履歴」を可視化 (★★)",
+      "status": "blocked",
+      "staticValidation": "passed",
+      "browserRuntime": "not executed",
+      "reason": "Chromiumは起動できたが、file:および127.0.0.1への遷移がERR_BLOCKED_BY_ADMINISTRATORで遮断された。"
+    },
+    {
+      "id": "4.1",
+      "title": "課題4.1: レンダリングパイプラインを計測する (★)",
+      "status": "blocked",
+      "staticValidation": "passed",
+      "browserRuntime": "not executed",
+      "reason": "Chromiumは起動できたが、file:および127.0.0.1への遷移がERR_BLOCKED_BY_ADMINISTRATORで遮断された。"
+    },
+    {
+      "id": "4.2",
+      "title": "課題4.2: 純粋なDOM APIでTodoアプリ (★★)",
+      "status": "blocked",
+      "staticValidation": "passed",
+      "browserRuntime": "not executed",
+      "reason": "Chromiumは起動できたが、file:および127.0.0.1への遷移がERR_BLOCKED_BY_ADMINISTRATORで遮断された。"
+    },
+    {
+      "id": "6.4",
+      "title": "課題6.4: Web Components で型安全な Counter (★★)",
+      "status": "blocked",
+      "staticValidation": "passed",
+      "browserRuntime": "not executed",
+      "reason": "Chromiumは起動できたが、file:および127.0.0.1への遷移がERR_BLOCKED_BY_ADMINISTRATORで遮断された。"
+    },
+    {
+      "id": "9.2",
+      "title": "課題9.2: Service Worker でオフライン対応 (★★)",
+      "status": "blocked",
+      "staticValidation": "passed",
+      "browserRuntime": "not executed",
+      "reason": "Chromiumは起動できたが、file:および127.0.0.1への遷移がERR_BLOCKED_BY_ADMINISTRATORで遮断された。"
+    }
+  ]
+}

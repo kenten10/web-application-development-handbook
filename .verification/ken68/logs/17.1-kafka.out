@@ -1,0 +1,31 @@
+== rpk version ==
+rpk version: v26.2.1
+Git ref:     8cd781be99c737c7d147d9dc239a0bbdd591a4d8
+Build date:  2026 Jul 24 10 09 46 Fri
+== topic作成 (2 partitions) ==
+TOPIC           STATUS
+handbook-topic  OK
+== produce 3件 ==
+Produced to partition 0 at offset 0 with timestamp 1787190903803.
+Produced to partition 0 at offset 1 with timestamp 1787190903803.
+Produced to partition 0 at offset 2 with timestamp 1787190903803.
+== consumer group g1 で consume ==
+0/0: msg-1
+0/1: msg-2
+0/2: msg-3
+== group offset確認 ==
+GROUP                  g1
+COORDINATOR-NODE       0
+COORDINATOR-PARTITION  __consumer_offsets/1
+STATE                  Empty
+BALANCER               
+MEMBERS                0
+TOTAL-LAG              0
+
+TOPIC           PARTITION  CURRENT-OFFSET  LOG-START-OFFSET  LOG-END-OFFSET  LAG   MEMBER-ID  CLIENT-ID  HOST
+handbook-topic  0          3               0                 3               0                           
+handbook-topic  1          -               0                 0               -                           
+== 再配信境界: offset 0 から再consume (同一メッセージが再取得できる) ==
+0/0: msg-1
+0/1: msg-2
+0/2: msg-3

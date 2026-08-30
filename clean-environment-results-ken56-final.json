@@ -1,0 +1,3526 @@
+{
+  "generatedAt": "2026-07-30T22:22:00+09:00",
+  "environment": {
+    "node": "22.16.0",
+    "typescript": "5.8.3",
+    "openssl": "3.5.5",
+    "pnpm": "unavailable",
+    "docker": "unavailable",
+    "browser": "Chromium installed; navigation blocked"
+  },
+  "summary": {
+    "local-automated": 102,
+    "local-tls": 7,
+    "external-service": 17,
+    "browser-manual": 6
+  },
+  "exercises": [
+    {
+      "id": "10.1",
+      "chapter": 10,
+      "title": "課題10.1: シンプル echo サーバのベンチマーク (★★)",
+      "category": "local-automated",
+      "minutes": 90,
+      "difficulty": 2,
+      "services": [
+        "localhost"
+      ],
+      "starter": [
+        "code/ch10/bench.sh",
+        "code/ch10/echo-server.ts"
+      ],
+      "solution": [
+        "code/ch10/bench.solution.sh",
+        "code/ch10/echo-server.solution.ts"
+      ],
+      "requiredEvidence": [
+        "章の自動テスト",
+        "README期待出力との照合"
+      ],
+      "safety": "localhostまたはローカルファイルに限定する。",
+      "compatibilityStatus": "passed",
+      "evidence": "strict solution validation; chapter typecheck/build; compiled solution test",
+      "remaining": "Node 24.18.0 + pnpm 11.15.1 fixed-environment rerun",
+      "fixedEnvironmentStatus": "pending"
+    },
+    {
+      "id": "10.2",
+      "chapter": 10,
+      "title": "課題10.2: スレッドプール vs イベントループ (★★★)",
+      "category": "local-automated",
+      "minutes": 150,
+      "difficulty": 3,
+      "services": [
+        "なし"
+      ],
+      "starter": [
+        "code/ch10/thread-vs-event/starter/README.md"
+      ],
+      "solution": [
+        "code/ch10/thread-vs-event/solution/main.mjs",
+        "code/ch10/thread-vs-event/solution/README.md"
+      ],
+      "requiredEvidence": [
+        "章の自動テスト",
+        "README期待出力との照合"
+      ],
+      "safety": "外部システムへ副作用を発生させない。",
+      "compatibilityStatus": "passed",
+      "evidence": "strict solution validation; chapter typecheck/build; compiled solution test",
+      "remaining": "Node 24.18.0 + pnpm 11.15.1 fixed-environment rerun",
+      "fixedEnvironmentStatus": "pending"
+    },
+    {
+      "id": "10.3",
+      "chapter": 10,
+      "title": "課題10.3: グリーンスレッド風スケジューラを自作 (★★★)",
+      "category": "local-automated",
+      "minutes": 150,
+      "difficulty": 3,
+      "services": [
+        "なし"
+      ],
+      "starter": [
+        "code/ch10/green-threads.ts"
+      ],
+      "solution": [
+        "code/ch10/green-threads.solution.ts"
+      ],
+      "requiredEvidence": [
+        "章の自動テスト",
+        "README期待出力との照合"
+      ],
+      "safety": "外部システムへ副作用を発生させない。",
+      "compatibilityStatus": "passed",
+      "evidence": "strict solution validation; chapter typecheck/build; compiled solution test",
+      "remaining": "Node 24.18.0 + pnpm 11.15.1 fixed-environment rerun",
+      "fixedEnvironmentStatus": "pending"
+    },
+    {
+      "id": "10.4",
+      "chapter": 10,
+      "title": "課題10.4: 言語間 HTTP サーバ性能比較 (★)",
+      "category": "local-automated",
+      "minutes": 45,
+      "difficulty": 1,
+      "services": [
+        "なし"
+      ],
+      "starter": [
+        "code/ch10/lang-comparison/starter/main.sh"
+      ],
+      "solution": [
+        "code/ch10/lang-comparison/solution/main.sh"
+      ],
+      "requiredEvidence": [
+        "章の自動テスト",
+        "README期待出力との照合"
+      ],
+      "safety": "外部システムへ副作用を発生させない。",
+      "compatibilityStatus": "passed",
+      "evidence": "strict solution validation; chapter typecheck/build; compiled solution test",
+      "remaining": "Node 24.18.0 + pnpm 11.15.1 fixed-environment rerun",
+      "fixedEnvironmentStatus": "pending"
+    },
+    {
+      "id": "11.1",
+      "chapter": 11,
+      "title": "課題11.1: Express風APIの最小サブセットを持つフレームワーク (★★★)",
+      "category": "local-automated",
+      "minutes": 150,
+      "difficulty": 3,
+      "services": [
+        "なし"
+      ],
+      "starter": [
+        "code/ch11/mini-express.ts"
+      ],
+      "solution": [
+        "code/ch11/mini-express.solution.ts"
+      ],
+      "requiredEvidence": [
+        "章の自動テスト",
+        "README期待出力との照合"
+      ],
+      "safety": "外部システムへ副作用を発生させない。",
+      "compatibilityStatus": "passed",
+      "evidence": "strict solution validation; chapter typecheck/build; compiled solution test",
+      "remaining": "Node 24.18.0 + pnpm 11.15.1 fixed-environment rerun",
+      "fixedEnvironmentStatus": "pending"
+    },
+    {
+      "id": "11.2",
+      "chapter": 11,
+      "title": "課題11.2: ミドルウェアパターンの比較実装 (★★)",
+      "category": "local-automated",
+      "minutes": 90,
+      "difficulty": 2,
+      "services": [
+        "なし"
+      ],
+      "starter": [
+        "code/ch11/middleware-patterns.ts"
+      ],
+      "solution": [
+        "code/ch11/middleware-patterns.solution.ts"
+      ],
+      "requiredEvidence": [
+        "章の自動テスト",
+        "README期待出力との照合"
+      ],
+      "safety": "外部システムへ副作用を発生させない。",
+      "compatibilityStatus": "passed",
+      "evidence": "strict solution validation; chapter typecheck/build; compiled solution test",
+      "remaining": "Node 24.18.0 + pnpm 11.15.1 fixed-environment rerun",
+      "fixedEnvironmentStatus": "pending"
+    },
+    {
+      "id": "11.3",
+      "chapter": 11,
+      "title": "課題11.3: DI コンテナを自作 (★★★)",
+      "category": "local-automated",
+      "minutes": 150,
+      "difficulty": 3,
+      "services": [
+        "なし"
+      ],
+      "starter": [
+        "code/ch11/di-container.ts"
+      ],
+      "solution": [
+        "code/ch11/di-container.solution.ts"
+      ],
+      "requiredEvidence": [
+        "章の自動テスト",
+        "README期待出力との照合"
+      ],
+      "safety": "外部システムへ副作用を発生させない。",
+      "compatibilityStatus": "passed",
+      "evidence": "strict solution validation; chapter typecheck/build; compiled solution test",
+      "remaining": "Node 24.18.0 + pnpm 11.15.1 fixed-environment rerun",
+      "fixedEnvironmentStatus": "pending"
+    },
+    {
+      "id": "11.4",
+      "chapter": 11,
+      "title": "課題11.4: ルーティングの Trie ベース実装 (★★)",
+      "category": "local-automated",
+      "minutes": 90,
+      "difficulty": 2,
+      "services": [
+        "なし"
+      ],
+      "starter": [
+        "code/ch11/trie-router.ts"
+      ],
+      "solution": [
+        "code/ch11/trie-router.solution.ts"
+      ],
+      "requiredEvidence": [
+        "章の自動テスト",
+        "README期待出力との照合"
+      ],
+      "safety": "外部システムへ副作用を発生させない。",
+      "compatibilityStatus": "passed",
+      "evidence": "strict solution validation; chapter typecheck/build; compiled solution test",
+      "remaining": "Node 24.18.0 + pnpm 11.15.1 fixed-environment rerun",
+      "fixedEnvironmentStatus": "pending"
+    },
+    {
+      "id": "12.1",
+      "chapter": 12,
+      "title": "課題12.1: OpenAPI からサーバスタブを生成 (★★)",
+      "category": "local-automated",
+      "minutes": 90,
+      "difficulty": 2,
+      "services": [
+        "なし"
+      ],
+      "starter": [
+        "code/ch12/openapi-codegen/starter/main.ts"
+      ],
+      "solution": [
+        "code/ch12/openapi-codegen/solution/main.ts"
+      ],
+      "requiredEvidence": [
+        "章の自動テスト",
+        "README期待出力との照合"
+      ],
+      "safety": "外部システムへ副作用を発生させない。",
+      "compatibilityStatus": "passed",
+      "evidence": "strict solution validation; chapter typecheck/build; compiled solution test",
+      "remaining": "Node 24.18.0 + pnpm 11.15.1 fixed-environment rerun",
+      "fixedEnvironmentStatus": "pending"
+    },
+    {
+      "id": "12.2",
+      "chapter": 12,
+      "title": "課題12.2: GraphQL Resolver の N+1 を解決 ― DataLoader 自作 (★★★)",
+      "category": "local-automated",
+      "minutes": 150,
+      "difficulty": 3,
+      "services": [
+        "なし"
+      ],
+      "starter": [
+        "code/ch12/dataloader.ts"
+      ],
+      "solution": [
+        "code/ch12/dataloader.solution.ts"
+      ],
+      "requiredEvidence": [
+        "章の自動テスト",
+        "README期待出力との照合"
+      ],
+      "safety": "外部システムへ副作用を発生させない。",
+      "compatibilityStatus": "passed",
+      "evidence": "strict solution validation; chapter typecheck/build; compiled solution test",
+      "remaining": "Node 24.18.0 + pnpm 11.15.1 fixed-environment rerun",
+      "fixedEnvironmentStatus": "pending"
+    },
+    {
+      "id": "12.3",
+      "chapter": 12,
+      "title": "課題12.3: 型安全 RPC (tRPC 風) を自作 (★★★)",
+      "category": "local-automated",
+      "minutes": 150,
+      "difficulty": 3,
+      "services": [
+        "localhost"
+      ],
+      "starter": [
+        "code/ch12/typed-rpc/starter/main.ts"
+      ],
+      "solution": [
+        "code/ch12/typed-rpc/solution/main.ts"
+      ],
+      "requiredEvidence": [
+        "章の自動テスト",
+        "README期待出力との照合"
+      ],
+      "safety": "localhostまたはローカルファイルに限定する。",
+      "compatibilityStatus": "passed",
+      "evidence": "strict solution validation; chapter typecheck/build; compiled solution test",
+      "remaining": "Node 24.18.0 + pnpm 11.15.1 fixed-environment rerun",
+      "fixedEnvironmentStatus": "pending"
+    },
+    {
+      "id": "12.4",
+      "chapter": 12,
+      "title": "課題12.4: WebSocket でリアルタイム pub/sub (★★)",
+      "category": "local-automated",
+      "minutes": 90,
+      "difficulty": 2,
+      "services": [
+        "なし"
+      ],
+      "starter": [
+        "code/ch12/websocket-chat/starter/main.ts"
+      ],
+      "solution": [
+        "code/ch12/websocket-chat/solution/main.ts"
+      ],
+      "requiredEvidence": [
+        "章の自動テスト",
+        "README期待出力との照合"
+      ],
+      "safety": "外部システムへ副作用を発生させない。",
+      "compatibilityStatus": "passed",
+      "evidence": "strict solution validation; chapter typecheck/build; compiled solution test",
+      "remaining": "Node 24.18.0 + pnpm 11.15.1 fixed-environment rerun",
+      "fixedEnvironmentStatus": "pending"
+    },
+    {
+      "id": "12.5",
+      "chapter": 12,
+      "title": "課題12.5: SSE でサーバプッシュ通知 (★)",
+      "category": "local-automated",
+      "minutes": 45,
+      "difficulty": 1,
+      "services": [
+        "なし"
+      ],
+      "starter": [
+        "code/ch12/sse-push/starter/main.sh"
+      ],
+      "solution": [
+        "code/ch12/sse-push/solution/main.sh",
+        "code/ch12/sse-push/solution/server.mjs"
+      ],
+      "requiredEvidence": [
+        "章の自動テスト",
+        "README期待出力との照合"
+      ],
+      "safety": "外部システムへ副作用を発生させない。",
+      "compatibilityStatus": "passed",
+      "evidence": "strict solution validation; chapter typecheck/build; compiled solution test",
+      "remaining": "Node 24.18.0 + pnpm 11.15.1 fixed-environment rerun",
+      "fixedEnvironmentStatus": "pending"
+    },
+    {
+      "id": "13.1",
+      "chapter": 13,
+      "title": "課題13.1: パスワードハッシュ ― ソルト + 反復 ハッシュ自作 (★★)",
+      "category": "local-automated",
+      "minutes": 90,
+      "difficulty": 2,
+      "services": [
+        "なし"
+      ],
+      "starter": [
+        "code/ch13/password-hash.ts"
+      ],
+      "solution": [
+        "code/ch13/password-hash.solution.ts"
+      ],
+      "requiredEvidence": [
+        "章の自動テスト",
+        "README期待出力との照合"
+      ],
+      "safety": "外部システムへ副作用を発生させない。",
+      "compatibilityStatus": "passed",
+      "evidence": "strict solution validation; chapter typecheck/build; compiled solution test",
+      "remaining": "Node 24.18.0 + pnpm 11.15.1 fixed-environment rerun",
+      "fixedEnvironmentStatus": "pending"
+    },
+    {
+      "id": "13.2",
+      "chapter": 13,
+      "title": "課題13.2: JWT 完全自作 ― HS256 と RS256 (★★★)",
+      "category": "local-automated",
+      "minutes": 150,
+      "difficulty": 3,
+      "services": [
+        "なし"
+      ],
+      "starter": [
+        "code/ch13/jwt.ts"
+      ],
+      "solution": [
+        "code/ch13/jwt.solution.ts"
+      ],
+      "requiredEvidence": [
+        "章の自動テスト",
+        "README期待出力との照合"
+      ],
+      "safety": "外部システムへ副作用を発生させない。",
+      "compatibilityStatus": "passed",
+      "evidence": "strict solution validation; chapter typecheck/build; compiled solution test",
+      "remaining": "Node 24.18.0 + pnpm 11.15.1 fixed-environment rerun",
+      "fixedEnvironmentStatus": "pending"
+    },
+    {
+      "id": "13.3",
+      "chapter": 13,
+      "title": "課題13.3: OAuth 2.0 Authorization Code + PKCE フロー自作 (★★★)",
+      "category": "local-automated",
+      "minutes": 150,
+      "difficulty": 3,
+      "services": [
+        "なし"
+      ],
+      "starter": [
+        "code/ch13/oauth-pkce/starter/README.md"
+      ],
+      "solution": [
+        "code/ch13/oauth-pkce/solution/pkce.ts",
+        "code/ch13/oauth-pkce/solution/README.md"
+      ],
+      "requiredEvidence": [
+        "章の自動テスト",
+        "README期待出力との照合"
+      ],
+      "safety": "外部システムへ副作用を発生させない。",
+      "compatibilityStatus": "passed",
+      "evidence": "strict solution validation; chapter typecheck/build; compiled solution test",
+      "remaining": "Node 24.18.0 + pnpm 11.15.1 fixed-environment rerun",
+      "fixedEnvironmentStatus": "pending"
+    },
+    {
+      "id": "13.4",
+      "chapter": 13,
+      "title": "課題13.4: HMAC-SHA256 Webhook 署名検証 (★★)",
+      "category": "local-automated",
+      "minutes": 90,
+      "difficulty": 2,
+      "services": [
+        "なし"
+      ],
+      "starter": [
+        "code/ch13/webhook-signing.ts"
+      ],
+      "solution": [
+        "code/ch13/webhook-signing.solution.ts"
+      ],
+      "requiredEvidence": [
+        "章の自動テスト",
+        "README期待出力との照合"
+      ],
+      "safety": "外部システムへ副作用を発生させない。",
+      "compatibilityStatus": "passed",
+      "evidence": "strict solution validation; chapter typecheck/build; compiled solution test",
+      "remaining": "Node 24.18.0 + pnpm 11.15.1 fixed-environment rerun",
+      "fixedEnvironmentStatus": "pending"
+    },
+    {
+      "id": "13.5",
+      "chapter": 13,
+      "title": "課題13.5: TOTP (Time-based OTP) 実装 (★★)",
+      "category": "local-automated",
+      "minutes": 90,
+      "difficulty": 2,
+      "services": [
+        "なし"
+      ],
+      "starter": [
+        "code/ch13/totp.ts"
+      ],
+      "solution": [
+        "code/ch13/totp.solution.ts"
+      ],
+      "requiredEvidence": [
+        "章の自動テスト",
+        "README期待出力との照合"
+      ],
+      "safety": "外部システムへ副作用を発生させない。",
+      "compatibilityStatus": "passed",
+      "evidence": "strict solution validation; chapter typecheck/build; compiled solution test",
+      "remaining": "Node 24.18.0 + pnpm 11.15.1 fixed-environment rerun",
+      "fixedEnvironmentStatus": "pending"
+    },
+    {
+      "id": "13.6",
+      "chapter": 13,
+      "title": "課題13.6: ポリシーエンジン ― 中央集権認可 (★★★)",
+      "category": "local-tls",
+      "minutes": 150,
+      "difficulty": 3,
+      "services": [
+        "OpenSSL/TLS",
+        "localhost"
+      ],
+      "starter": [
+        "code/ch13/policy-engine.ts"
+      ],
+      "solution": [
+        "code/ch13/policy-engine.solution.ts"
+      ],
+      "requiredEvidence": [
+        "章の自動テスト",
+        "localhost TLS接続ログ",
+        "証明書検証境界の記録"
+      ],
+      "safety": "localhostまたはローカルファイルに限定する。",
+      "compatibilityStatus": "passed-local-tls",
+      "evidence": "chapter tests; OpenSSL 3.5.5; localhost TLS 1.2/1.3 smoke",
+      "remaining": "fixed-environment rerun",
+      "fixedEnvironmentStatus": "pending"
+    },
+    {
+      "id": "14.1",
+      "chapter": 14,
+      "title": "課題14.1: B-Tree インデックスを自作 (★★★)",
+      "category": "local-automated",
+      "minutes": 150,
+      "difficulty": 3,
+      "services": [
+        "なし"
+      ],
+      "starter": [
+        "code/ch14/btree.ts"
+      ],
+      "solution": [
+        "code/ch14/btree.solution.ts"
+      ],
+      "requiredEvidence": [
+        "章の自動テスト",
+        "README期待出力との照合"
+      ],
+      "safety": "外部システムへ副作用を発生させない。",
+      "compatibilityStatus": "passed",
+      "evidence": "strict solution validation; chapter typecheck/build; compiled solution test",
+      "remaining": "Node 24.18.0 + pnpm 11.15.1 fixed-environment rerun",
+      "fixedEnvironmentStatus": "pending"
+    },
+    {
+      "id": "14.2",
+      "chapter": 14,
+      "title": "課題14.2: トランザクション分離レベル実験 (★★★)",
+      "category": "external-service",
+      "minutes": 150,
+      "difficulty": 3,
+      "services": [
+        "PostgreSQL",
+        "Docker"
+      ],
+      "starter": [
+        "code/ch14/transaction-isolation/starter/main.ts"
+      ],
+      "solution": [
+        "code/ch14/transaction-isolation/solution/main.ts"
+      ],
+      "requiredEvidence": [
+        "章の自動テスト",
+        "実サービス接続ログ",
+        "README期待出力との照合"
+      ],
+      "safety": "devcontainerまたは隔離された検証用サービスだけを使用する。",
+      "compatibilityStatus": "simulation-passed-service-pending",
+      "evidence": "chapter test or local simulator; typecheck/build",
+      "remaining": "isolated real service/container execution pending",
+      "fixedEnvironmentStatus": "pending"
+    },
+    {
+      "id": "14.3",
+      "chapter": 14,
+      "title": "課題14.3: N+1 問題の解決 ― EXPLAIN 比較 (★★)",
+      "category": "external-service",
+      "minutes": 90,
+      "difficulty": 2,
+      "services": [
+        "PostgreSQL",
+        "SQLite"
+      ],
+      "starter": [
+        "code/ch14/n-plus-one/starter/main.ts"
+      ],
+      "solution": [
+        "code/ch14/n-plus-one/solution/main.ts"
+      ],
+      "requiredEvidence": [
+        "章の自動テスト",
+        "実サービス接続ログ",
+        "README期待出力との照合"
+      ],
+      "safety": "devcontainerまたは隔離された検証用サービスだけを使用する。",
+      "compatibilityStatus": "simulation-passed-service-pending",
+      "evidence": "chapter test or local simulator; typecheck/build",
+      "remaining": "isolated real service/container execution pending",
+      "fixedEnvironmentStatus": "pending"
+    },
+    {
+      "id": "14.4",
+      "chapter": 14,
+      "title": "課題14.4: 軽量 ORM 自作 (★★★)",
+      "category": "local-automated",
+      "minutes": 150,
+      "difficulty": 3,
+      "services": [
+        "SQLite"
+      ],
+      "starter": [
+        "code/ch14/mini-orm/starter/main.ts"
+      ],
+      "solution": [
+        "code/ch14/mini-orm/solution/main.ts"
+      ],
+      "requiredEvidence": [
+        "章の自動テスト",
+        "README期待出力との照合"
+      ],
+      "safety": "外部システムへ副作用を発生させない。",
+      "compatibilityStatus": "passed",
+      "evidence": "strict solution validation; chapter typecheck/build; compiled solution test",
+      "remaining": "Node 24.18.0 + pnpm 11.15.1 fixed-environment rerun",
+      "fixedEnvironmentStatus": "pending"
+    },
+    {
+      "id": "14.5",
+      "chapter": 14,
+      "title": "課題14.5: マイグレーション Runner 自作 (★★)",
+      "category": "external-service",
+      "minutes": 90,
+      "difficulty": 2,
+      "services": [
+        "PostgreSQL",
+        "Docker"
+      ],
+      "starter": [
+        "code/ch14/migration-runner/starter/main.sh"
+      ],
+      "solution": [
+        "code/ch14/migration-runner/solution/main.sh"
+      ],
+      "requiredEvidence": [
+        "章の自動テスト",
+        "実サービス接続ログ",
+        "README期待出力との照合"
+      ],
+      "safety": "devcontainerまたは隔離された検証用サービスだけを使用する。",
+      "compatibilityStatus": "simulation-passed-service-pending",
+      "evidence": "chapter test or local simulator; typecheck/build",
+      "remaining": "isolated real service/container execution pending",
+      "fixedEnvironmentStatus": "pending"
+    },
+    {
+      "id": "15.1",
+      "chapter": 15,
+      "title": "課題15.1: Redis 風 KVS を自作 (★★)",
+      "category": "external-service",
+      "minutes": 90,
+      "difficulty": 2,
+      "services": [
+        "Redis"
+      ],
+      "starter": [
+        "code/ch15/kvs.ts"
+      ],
+      "solution": [
+        "code/ch15/kvs.solution.ts"
+      ],
+      "requiredEvidence": [
+        "章の自動テスト",
+        "実サービス接続ログ",
+        "README期待出力との照合"
+      ],
+      "safety": "devcontainerまたは隔離された検証用サービスだけを使用する。",
+      "compatibilityStatus": "simulation-passed-service-pending",
+      "evidence": "chapter test or local simulator; typecheck/build",
+      "remaining": "isolated real service/container execution pending",
+      "fixedEnvironmentStatus": "pending"
+    },
+    {
+      "id": "15.2",
+      "chapter": 15,
+      "title": "課題15.2: CRDT (G-Counter、LWW-Register、PN-Counter) (★★★)",
+      "category": "local-automated",
+      "minutes": 150,
+      "difficulty": 3,
+      "services": [
+        "なし"
+      ],
+      "starter": [
+        "code/ch15/crdt.ts"
+      ],
+      "solution": [
+        "code/ch15/crdt.solution.ts"
+      ],
+      "requiredEvidence": [
+        "章の自動テスト",
+        "README期待出力との照合"
+      ],
+      "safety": "外部システムへ副作用を発生させない。",
+      "compatibilityStatus": "passed",
+      "evidence": "strict solution validation; chapter typecheck/build; compiled solution test",
+      "remaining": "Node 24.18.0 + pnpm 11.15.1 fixed-environment rerun",
+      "fixedEnvironmentStatus": "pending"
+    },
+    {
+      "id": "15.3",
+      "chapter": 15,
+      "title": "課題15.3: Bloom Filter 自作 (★★)",
+      "category": "local-automated",
+      "minutes": 90,
+      "difficulty": 2,
+      "services": [
+        "なし"
+      ],
+      "starter": [
+        "code/ch15/bloom-filter.ts"
+      ],
+      "solution": [
+        "code/ch15/bloom-filter.solution.ts"
+      ],
+      "requiredEvidence": [
+        "章の自動テスト",
+        "README期待出力との照合"
+      ],
+      "safety": "外部システムへ副作用を発生させない。",
+      "compatibilityStatus": "passed",
+      "evidence": "strict solution validation; chapter typecheck/build; compiled solution test",
+      "remaining": "Node 24.18.0 + pnpm 11.15.1 fixed-environment rerun",
+      "fixedEnvironmentStatus": "pending"
+    },
+    {
+      "id": "15.4",
+      "chapter": 15,
+      "title": "課題15.4: Consistent Hashing リング (★★)",
+      "category": "local-automated",
+      "minutes": 90,
+      "difficulty": 2,
+      "services": [
+        "なし"
+      ],
+      "starter": [
+        "code/ch15/consistent-hash.ts"
+      ],
+      "solution": [
+        "code/ch15/consistent-hash.solution.ts"
+      ],
+      "requiredEvidence": [
+        "章の自動テスト",
+        "README期待出力との照合"
+      ],
+      "safety": "外部システムへ副作用を発生させない。",
+      "compatibilityStatus": "passed",
+      "evidence": "strict solution validation; chapter typecheck/build; compiled solution test",
+      "remaining": "Node 24.18.0 + pnpm 11.15.1 fixed-environment rerun",
+      "fixedEnvironmentStatus": "pending"
+    },
+    {
+      "id": "15.5",
+      "chapter": 15,
+      "title": "課題15.5: CAP 定理シミュレーション (★★)",
+      "category": "local-automated",
+      "minutes": 90,
+      "difficulty": 2,
+      "services": [
+        "なし"
+      ],
+      "starter": [
+        "code/ch15/cap-simulation.ts"
+      ],
+      "solution": [
+        "code/ch15/cap-simulation.solution.ts"
+      ],
+      "requiredEvidence": [
+        "章の自動テスト",
+        "README期待出力との照合"
+      ],
+      "safety": "外部システムへ副作用を発生させない。",
+      "compatibilityStatus": "passed",
+      "evidence": "strict solution validation; chapter typecheck/build; compiled solution test",
+      "remaining": "Node 24.18.0 + pnpm 11.15.1 fixed-environment rerun",
+      "fixedEnvironmentStatus": "pending"
+    },
+    {
+      "id": "16.1",
+      "chapter": 16,
+      "title": "課題16.1: 転置インデックスを自作 (★★★)",
+      "category": "local-automated",
+      "minutes": 150,
+      "difficulty": 3,
+      "services": [
+        "なし"
+      ],
+      "starter": [
+        "code/ch16/inverted-index.ts"
+      ],
+      "solution": [
+        "code/ch16/inverted-index.solution.ts"
+      ],
+      "requiredEvidence": [
+        "章の自動テスト",
+        "README期待出力との照合"
+      ],
+      "safety": "外部システムへ副作用を発生させない。",
+      "compatibilityStatus": "passed",
+      "evidence": "strict solution validation; chapter typecheck/build; compiled solution test",
+      "remaining": "Node 24.18.0 + pnpm 11.15.1 fixed-environment rerun",
+      "fixedEnvironmentStatus": "pending"
+    },
+    {
+      "id": "16.2",
+      "chapter": 16,
+      "title": "課題16.2: TF-IDF と BM25 スコアリング (★★★)",
+      "category": "local-automated",
+      "minutes": 150,
+      "difficulty": 3,
+      "services": [
+        "なし"
+      ],
+      "starter": [
+        "code/ch16/bm25.ts"
+      ],
+      "solution": [
+        "code/ch16/bm25.solution.ts"
+      ],
+      "requiredEvidence": [
+        "章の自動テスト",
+        "README期待出力との照合"
+      ],
+      "safety": "外部システムへ副作用を発生させない。",
+      "compatibilityStatus": "passed",
+      "evidence": "strict solution validation; chapter typecheck/build; compiled solution test",
+      "remaining": "Node 24.18.0 + pnpm 11.15.1 fixed-environment rerun",
+      "fixedEnvironmentStatus": "pending"
+    },
+    {
+      "id": "16.3",
+      "chapter": 16,
+      "title": "課題16.3: トライ木でオートコンプリート (★★)",
+      "category": "local-automated",
+      "minutes": 90,
+      "difficulty": 2,
+      "services": [
+        "なし"
+      ],
+      "starter": [
+        "code/ch16/trie-autocomplete.ts"
+      ],
+      "solution": [
+        "code/ch16/trie-autocomplete.solution.ts"
+      ],
+      "requiredEvidence": [
+        "章の自動テスト",
+        "README期待出力との照合"
+      ],
+      "safety": "外部システムへ副作用を発生させない。",
+      "compatibilityStatus": "passed",
+      "evidence": "strict solution validation; chapter typecheck/build; compiled solution test",
+      "remaining": "Node 24.18.0 + pnpm 11.15.1 fixed-environment rerun",
+      "fixedEnvironmentStatus": "pending"
+    },
+    {
+      "id": "16.4",
+      "chapter": 16,
+      "title": "課題16.4: ベクトル検索 ― Cosine Similarity (★★)",
+      "category": "local-automated",
+      "minutes": 90,
+      "difficulty": 2,
+      "services": [
+        "なし"
+      ],
+      "starter": [
+        "code/ch16/vector-search.ts"
+      ],
+      "solution": [
+        "code/ch16/vector-search.solution.ts"
+      ],
+      "requiredEvidence": [
+        "章の自動テスト",
+        "README期待出力との照合"
+      ],
+      "safety": "外部システムへ副作用を発生させない。",
+      "compatibilityStatus": "passed",
+      "evidence": "strict solution validation; chapter typecheck/build; compiled solution test",
+      "remaining": "Node 24.18.0 + pnpm 11.15.1 fixed-environment rerun",
+      "fixedEnvironmentStatus": "pending"
+    },
+    {
+      "id": "16.5",
+      "chapter": 16,
+      "title": "課題16.5: 統合検索エンジン (★★★)",
+      "category": "local-automated",
+      "minutes": 150,
+      "difficulty": 3,
+      "services": [
+        "localhost"
+      ],
+      "starter": [
+        "code/ch16/mini-search-engine/starter/main.sh"
+      ],
+      "solution": [
+        "code/ch16/mini-search-engine/solution/main.sh"
+      ],
+      "requiredEvidence": [
+        "章の自動テスト",
+        "README期待出力との照合"
+      ],
+      "safety": "localhostまたはローカルファイルに限定する。",
+      "compatibilityStatus": "passed",
+      "evidence": "strict solution validation; chapter typecheck/build; compiled solution test",
+      "remaining": "Node 24.18.0 + pnpm 11.15.1 fixed-environment rerun",
+      "fixedEnvironmentStatus": "pending"
+    },
+    {
+      "id": "17.1",
+      "chapter": 17,
+      "title": "課題17.1: ミニ Kafka 風キュー (★★★)",
+      "category": "external-service",
+      "minutes": 150,
+      "difficulty": 3,
+      "services": [
+        "Kafka"
+      ],
+      "starter": [
+        "code/ch17/mini-kafka.ts"
+      ],
+      "solution": [
+        "code/ch17/mini-kafka.solution.ts"
+      ],
+      "requiredEvidence": [
+        "章の自動テスト",
+        "実サービス接続ログ",
+        "README期待出力との照合"
+      ],
+      "safety": "devcontainerまたは隔離された検証用サービスだけを使用する。",
+      "compatibilityStatus": "simulation-passed-service-pending",
+      "evidence": "chapter test or local simulator; typecheck/build",
+      "remaining": "isolated real service/container execution pending",
+      "fixedEnvironmentStatus": "pending"
+    },
+    {
+      "id": "17.2",
+      "chapter": 17,
+      "title": "課題17.2: Outbox パターン実装 (★★★)",
+      "category": "local-automated",
+      "minutes": 150,
+      "difficulty": 3,
+      "services": [
+        "なし"
+      ],
+      "starter": [
+        "code/ch17/outbox/starter/main.ts"
+      ],
+      "solution": [
+        "code/ch17/outbox/solution/main.ts"
+      ],
+      "requiredEvidence": [
+        "章の自動テスト",
+        "README期待出力との照合"
+      ],
+      "safety": "外部システムへ副作用を発生させない。",
+      "compatibilityStatus": "passed",
+      "evidence": "strict solution validation; chapter typecheck/build; compiled solution test",
+      "remaining": "Node 24.18.0 + pnpm 11.15.1 fixed-environment rerun",
+      "fixedEnvironmentStatus": "pending"
+    },
+    {
+      "id": "17.3",
+      "chapter": 17,
+      "title": "課題17.3: Dead Letter Queue + 指数バックオフ (★★)",
+      "category": "local-automated",
+      "minutes": 90,
+      "difficulty": 2,
+      "services": [
+        "なし"
+      ],
+      "starter": [
+        "code/ch17/dlq.ts"
+      ],
+      "solution": [
+        "code/ch17/dlq.solution.ts"
+      ],
+      "requiredEvidence": [
+        "章の自動テスト",
+        "README期待出力との照合"
+      ],
+      "safety": "外部システムへ副作用を発生させない。",
+      "compatibilityStatus": "passed",
+      "evidence": "strict solution validation; chapter typecheck/build; compiled solution test",
+      "remaining": "Node 24.18.0 + pnpm 11.15.1 fixed-environment rerun",
+      "fixedEnvironmentStatus": "pending"
+    },
+    {
+      "id": "17.4",
+      "chapter": 17,
+      "title": "課題17.4: Saga パターン (補償トランザクション) (★★★)",
+      "category": "external-service",
+      "minutes": 150,
+      "difficulty": 3,
+      "services": [
+        "PostgreSQL",
+        "Kubernetes",
+        "Kafka"
+      ],
+      "starter": [
+        "code/ch17/saga.ts"
+      ],
+      "solution": [
+        "code/ch17/saga.solution.ts"
+      ],
+      "requiredEvidence": [
+        "章の自動テスト",
+        "実サービス接続ログ",
+        "README期待出力との照合"
+      ],
+      "safety": "devcontainerまたは隔離された検証用サービスだけを使用する。",
+      "compatibilityStatus": "simulation-passed-service-pending",
+      "evidence": "chapter test or local simulator; typecheck/build",
+      "remaining": "isolated real service/container execution pending",
+      "fixedEnvironmentStatus": "pending"
+    },
+    {
+      "id": "18.1",
+      "chapter": 18,
+      "title": "課題18.1: 高並行 TCP サーバ(epoll 風)を自作 (★★★)",
+      "category": "local-automated",
+      "minutes": 150,
+      "difficulty": 3,
+      "services": [
+        "なし"
+      ],
+      "starter": [
+        "code/ch18/epoll-style-server.ts"
+      ],
+      "solution": [
+        "code/ch18/epoll-style-server.solution.ts"
+      ],
+      "requiredEvidence": [
+        "章の自動テスト",
+        "README期待出力との照合"
+      ],
+      "safety": "外部システムへ副作用を発生させない。",
+      "compatibilityStatus": "passed",
+      "evidence": "strict solution validation; chapter typecheck/build; compiled solution test",
+      "remaining": "Node 24.18.0 + pnpm 11.15.1 fixed-environment rerun",
+      "fixedEnvironmentStatus": "pending"
+    },
+    {
+      "id": "18.2",
+      "chapter": 18,
+      "title": "課題18.2: ファイルディスクリプタとリーク検出 (★★)",
+      "category": "local-automated",
+      "minutes": 90,
+      "difficulty": 2,
+      "services": [
+        "なし"
+      ],
+      "starter": [
+        "code/ch18/fd-leak.ts"
+      ],
+      "solution": [
+        "code/ch18/fd-leak.solution.ts"
+      ],
+      "requiredEvidence": [
+        "章の自動テスト",
+        "README期待出力との照合"
+      ],
+      "safety": "外部システムへ副作用を発生させない。",
+      "compatibilityStatus": "passed",
+      "evidence": "strict solution validation; chapter typecheck/build; compiled solution test",
+      "remaining": "Node 24.18.0 + pnpm 11.15.1 fixed-environment rerun",
+      "fixedEnvironmentStatus": "pending"
+    },
+    {
+      "id": "18.3",
+      "chapter": 18,
+      "title": "課題18.3: シグナルハンドリングとグレースフルシャットダウン (★★)",
+      "category": "external-service",
+      "minutes": 90,
+      "difficulty": 2,
+      "services": [
+        "Kubernetes"
+      ],
+      "starter": [
+        "code/ch18/graceful-shutdown.ts"
+      ],
+      "solution": [
+        "code/ch18/graceful-shutdown.solution.ts"
+      ],
+      "requiredEvidence": [
+        "章の自動テスト",
+        "実サービス接続ログ",
+        "README期待出力との照合"
+      ],
+      "safety": "devcontainerまたは隔離された検証用サービスだけを使用する。",
+      "compatibilityStatus": "simulation-passed-service-pending",
+      "evidence": "chapter test or local simulator; typecheck/build",
+      "remaining": "isolated real service/container execution pending",
+      "fixedEnvironmentStatus": "pending"
+    },
+    {
+      "id": "18.4",
+      "chapter": 18,
+      "title": "課題18.4: 自作 L7 ロードバランサ (★★★)",
+      "category": "local-automated",
+      "minutes": 150,
+      "difficulty": 3,
+      "services": [
+        "localhost"
+      ],
+      "starter": [
+        "code/ch18/load-balancer.ts"
+      ],
+      "solution": [
+        "code/ch18/load-balancer.solution.ts"
+      ],
+      "requiredEvidence": [
+        "章の自動テスト",
+        "README期待出力との照合"
+      ],
+      "safety": "localhostまたはローカルファイルに限定する。",
+      "compatibilityStatus": "passed",
+      "evidence": "strict solution validation; chapter typecheck/build; compiled solution test",
+      "remaining": "Node 24.18.0 + pnpm 11.15.1 fixed-environment rerun",
+      "fixedEnvironmentStatus": "pending"
+    },
+    {
+      "id": "18.5",
+      "chapter": 18,
+      "title": "課題18.5: ネットワークデバッグツール(mini-tcpdump) (★)",
+      "category": "local-automated",
+      "minutes": 45,
+      "difficulty": 1,
+      "services": [
+        "なし"
+      ],
+      "starter": [
+        "code/ch18/mini-tcpdump.ts"
+      ],
+      "solution": [
+        "code/ch18/mini-tcpdump.solution.ts"
+      ],
+      "requiredEvidence": [
+        "章の自動テスト",
+        "README期待出力との照合"
+      ],
+      "safety": "外部システムへ副作用を発生させない。",
+      "compatibilityStatus": "passed",
+      "evidence": "strict solution validation; chapter typecheck/build; compiled solution test",
+      "remaining": "Node 24.18.0 + pnpm 11.15.1 fixed-environment rerun",
+      "fixedEnvironmentStatus": "pending"
+    },
+    {
+      "id": "19.1",
+      "chapter": 19,
+      "title": "課題19.1: Dockerfile 最適化を計測 (★★)",
+      "category": "external-service",
+      "minutes": 90,
+      "difficulty": 2,
+      "services": [
+        "Docker"
+      ],
+      "starter": [
+        "code/ch19/dockerfile-optimization/starter/main.sh"
+      ],
+      "solution": [
+        "code/ch19/dockerfile-optimization/solution/main.sh"
+      ],
+      "requiredEvidence": [
+        "章の自動テスト",
+        "実サービス接続ログ",
+        "README期待出力との照合"
+      ],
+      "safety": "devcontainerまたは隔離された検証用サービスだけを使用する。",
+      "compatibilityStatus": "simulation-passed-service-pending",
+      "evidence": "chapter test or local simulator; typecheck/build",
+      "remaining": "isolated real service/container execution pending",
+      "fixedEnvironmentStatus": "pending"
+    },
+    {
+      "id": "19.2",
+      "chapter": 19,
+      "title": "課題19.2: k8s manifest 検証ツール (★★★)",
+      "category": "external-service",
+      "minutes": 150,
+      "difficulty": 3,
+      "services": [
+        "Kubernetes"
+      ],
+      "starter": [
+        "code/ch19/manifest-validator/starter/main.ts"
+      ],
+      "solution": [
+        "code/ch19/manifest-validator/solution/main.ts"
+      ],
+      "requiredEvidence": [
+        "章の自動テスト",
+        "実サービス接続ログ",
+        "README期待出力との照合"
+      ],
+      "safety": "devcontainerまたは隔離された検証用サービスだけを使用する。",
+      "compatibilityStatus": "simulation-passed-service-pending",
+      "evidence": "chapter test or local simulator; typecheck/build",
+      "remaining": "isolated real service/container execution pending",
+      "fixedEnvironmentStatus": "pending"
+    },
+    {
+      "id": "19.3",
+      "chapter": 19,
+      "title": "課題19.3: ローリングアップデート シミュレーション (★★)",
+      "category": "external-service",
+      "minutes": 90,
+      "difficulty": 2,
+      "services": [
+        "Kubernetes"
+      ],
+      "starter": [
+        "code/ch19/rollout-simulator.ts"
+      ],
+      "solution": [
+        "code/ch19/rollout-simulator.solution.ts"
+      ],
+      "requiredEvidence": [
+        "章の自動テスト",
+        "実サービス接続ログ",
+        "README期待出力との照合"
+      ],
+      "safety": "devcontainerまたは隔離された検証用サービスだけを使用する。",
+      "compatibilityStatus": "simulation-passed-service-pending",
+      "evidence": "chapter test or local simulator; typecheck/build",
+      "remaining": "isolated real service/container execution pending",
+      "fixedEnvironmentStatus": "pending"
+    },
+    {
+      "id": "19.4",
+      "chapter": 19,
+      "title": "課題19.4: 簡易 PID 1 init プロセス (★★)",
+      "category": "external-service",
+      "minutes": 90,
+      "difficulty": 2,
+      "services": [
+        "Docker"
+      ],
+      "starter": [
+        "code/ch19/mini-init.ts"
+      ],
+      "solution": [
+        "code/ch19/mini-init.solution.ts"
+      ],
+      "requiredEvidence": [
+        "章の自動テスト",
+        "実サービス接続ログ",
+        "README期待出力との照合"
+      ],
+      "safety": "devcontainerまたは隔離された検証用サービスだけを使用する。",
+      "compatibilityStatus": "simulation-passed-service-pending",
+      "evidence": "chapter test or local simulator; typecheck/build",
+      "remaining": "isolated real service/container execution pending",
+      "fixedEnvironmentStatus": "pending"
+    },
+    {
+      "id": "20.1",
+      "chapter": 20,
+      "title": "課題20.1: ミニ Terraform(状態管理 + plan/apply) (★★★)",
+      "category": "local-automated",
+      "minutes": 150,
+      "difficulty": 3,
+      "services": [
+        "なし"
+      ],
+      "starter": [
+        "code/ch20/mini-terraform/starter/main.sh"
+      ],
+      "solution": [
+        "code/ch20/mini-terraform/solution/main.sh"
+      ],
+      "requiredEvidence": [
+        "章の自動テスト",
+        "README期待出力との照合"
+      ],
+      "safety": "外部システムへ副作用を発生させない。",
+      "compatibilityStatus": "passed",
+      "evidence": "strict solution validation; chapter typecheck/build; compiled solution test",
+      "remaining": "Node 24.18.0 + pnpm 11.15.1 fixed-environment rerun",
+      "fixedEnvironmentStatus": "pending"
+    },
+    {
+      "id": "20.2",
+      "chapter": 20,
+      "title": "課題20.2: IaC ドリフト検出ツール (★★)",
+      "category": "local-automated",
+      "minutes": 90,
+      "difficulty": 2,
+      "services": [
+        "なし"
+      ],
+      "starter": [
+        "code/ch20/mini-terraform/drift.ts"
+      ],
+      "solution": [
+        "code/ch20/mini-terraform/drift.solution.ts"
+      ],
+      "requiredEvidence": [
+        "章の自動テスト",
+        "README期待出力との照合"
+      ],
+      "safety": "外部システムへ副作用を発生させない。",
+      "compatibilityStatus": "passed",
+      "evidence": "strict solution validation; chapter typecheck/build; compiled solution test",
+      "remaining": "Node 24.18.0 + pnpm 11.15.1 fixed-environment rerun",
+      "fixedEnvironmentStatus": "pending"
+    },
+    {
+      "id": "20.3",
+      "chapter": 20,
+      "title": "課題20.3: Cost estimator(リソース→月額推定) (★★)",
+      "category": "external-service",
+      "minutes": 90,
+      "difficulty": 2,
+      "services": [
+        "AWS"
+      ],
+      "starter": [
+        "code/ch20/cost-estimator.ts"
+      ],
+      "solution": [
+        "code/ch20/cost-estimator.solution.ts"
+      ],
+      "requiredEvidence": [
+        "章の自動テスト",
+        "実サービス接続ログ",
+        "README期待出力との照合"
+      ],
+      "safety": "devcontainerまたは隔離された検証用サービスだけを使用する。",
+      "compatibilityStatus": "simulation-passed-service-pending",
+      "evidence": "chapter test or local simulator; typecheck/build",
+      "remaining": "isolated real service/container execution pending",
+      "fixedEnvironmentStatus": "pending"
+    },
+    {
+      "id": "20.4",
+      "chapter": 20,
+      "title": "課題20.4: Secrets ローテーション スクリプト (★★)",
+      "category": "external-service",
+      "minutes": 90,
+      "difficulty": 2,
+      "services": [
+        "AWS"
+      ],
+      "starter": [
+        "code/ch20/secrets-rotator.ts"
+      ],
+      "solution": [
+        "code/ch20/secrets-rotator.solution.ts"
+      ],
+      "requiredEvidence": [
+        "章の自動テスト",
+        "実サービス接続ログ",
+        "README期待出力との照合"
+      ],
+      "safety": "devcontainerまたは隔離された検証用サービスだけを使用する。",
+      "compatibilityStatus": "simulation-passed-service-pending",
+      "evidence": "chapter test or local simulator; typecheck/build",
+      "remaining": "isolated real service/container execution pending",
+      "fixedEnvironmentStatus": "pending"
+    },
+    {
+      "id": "21.1",
+      "chapter": 21,
+      "title": "課題21.1: Blue-Green デプロイ実装 (★★★)",
+      "category": "local-automated",
+      "minutes": 150,
+      "difficulty": 3,
+      "services": [
+        "なし"
+      ],
+      "starter": [
+        "code/ch21/blue-green/starter/main.sh"
+      ],
+      "solution": [
+        "code/ch21/blue-green/solution/main.sh"
+      ],
+      "requiredEvidence": [
+        "章の自動テスト",
+        "README期待出力との照合"
+      ],
+      "safety": "外部システムへ副作用を発生させない。",
+      "compatibilityStatus": "passed",
+      "evidence": "strict solution validation; chapter typecheck/build; compiled solution test",
+      "remaining": "Node 24.18.0 + pnpm 11.15.1 fixed-environment rerun",
+      "fixedEnvironmentStatus": "pending"
+    },
+    {
+      "id": "21.2",
+      "chapter": 21,
+      "title": "課題21.2: Canary デプロイ実装 (★★★)",
+      "category": "local-automated",
+      "minutes": 150,
+      "difficulty": 3,
+      "services": [
+        "なし"
+      ],
+      "starter": [
+        "code/ch21/canary/starter/main.sh"
+      ],
+      "solution": [
+        "code/ch21/canary/solution/main.sh"
+      ],
+      "requiredEvidence": [
+        "章の自動テスト",
+        "README期待出力との照合"
+      ],
+      "safety": "外部システムへ副作用を発生させない。",
+      "compatibilityStatus": "passed",
+      "evidence": "strict solution validation; chapter typecheck/build; compiled solution test",
+      "remaining": "Node 24.18.0 + pnpm 11.15.1 fixed-environment rerun",
+      "fixedEnvironmentStatus": "pending"
+    },
+    {
+      "id": "21.3",
+      "chapter": 21,
+      "title": "課題21.3: GitHub Actions ワークフロー生成器 (★★)",
+      "category": "local-automated",
+      "minutes": 90,
+      "difficulty": 2,
+      "services": [
+        "なし"
+      ],
+      "starter": [
+        "code/ch21/workflow-generator.ts"
+      ],
+      "solution": [
+        "code/ch21/workflow-generator.solution.ts"
+      ],
+      "requiredEvidence": [
+        "章の自動テスト",
+        "README期待出力との照合"
+      ],
+      "safety": "外部システムへ副作用を発生させない。",
+      "compatibilityStatus": "passed",
+      "evidence": "strict solution validation; chapter typecheck/build; compiled solution test",
+      "remaining": "Node 24.18.0 + pnpm 11.15.1 fixed-environment rerun",
+      "fixedEnvironmentStatus": "pending"
+    },
+    {
+      "id": "21.4",
+      "chapter": 21,
+      "title": "課題21.4: 自動ロールバック付きパイプライン (★★★)",
+      "category": "local-automated",
+      "minutes": 150,
+      "difficulty": 3,
+      "services": [
+        "なし"
+      ],
+      "starter": [
+        "code/ch21/auto-rollback.ts"
+      ],
+      "solution": [
+        "code/ch21/auto-rollback.solution.ts"
+      ],
+      "requiredEvidence": [
+        "章の自動テスト",
+        "README期待出力との照合"
+      ],
+      "safety": "外部システムへ副作用を発生させない。",
+      "compatibilityStatus": "passed",
+      "evidence": "strict solution validation; chapter typecheck/build; compiled solution test",
+      "remaining": "Node 24.18.0 + pnpm 11.15.1 fixed-environment rerun",
+      "fixedEnvironmentStatus": "pending"
+    },
+    {
+      "id": "22.1",
+      "chapter": 22,
+      "title": "課題22.1: 構造化ログライブラリ自作 (★★)",
+      "category": "local-automated",
+      "minutes": 90,
+      "difficulty": 2,
+      "services": [
+        "なし"
+      ],
+      "starter": [
+        "code/ch22/logger.ts"
+      ],
+      "solution": [
+        "code/ch22/logger.solution.ts"
+      ],
+      "requiredEvidence": [
+        "章の自動テスト",
+        "README期待出力との照合"
+      ],
+      "safety": "外部システムへ副作用を発生させない。",
+      "compatibilityStatus": "passed",
+      "evidence": "strict solution validation; chapter typecheck/build; compiled solution test",
+      "remaining": "Node 24.18.0 + pnpm 11.15.1 fixed-environment rerun",
+      "fixedEnvironmentStatus": "pending"
+    },
+    {
+      "id": "22.2",
+      "chapter": 22,
+      "title": "課題22.2: Prometheus 風メトリクスサーバ (★★★)",
+      "category": "local-automated",
+      "minutes": 150,
+      "difficulty": 3,
+      "services": [
+        "なし"
+      ],
+      "starter": [
+        "code/ch22/metrics.ts"
+      ],
+      "solution": [
+        "code/ch22/metrics.solution.ts"
+      ],
+      "requiredEvidence": [
+        "章の自動テスト",
+        "README期待出力との照合"
+      ],
+      "safety": "外部システムへ副作用を発生させない。",
+      "compatibilityStatus": "passed",
+      "evidence": "strict solution validation; chapter typecheck/build; compiled solution test",
+      "remaining": "Node 24.18.0 + pnpm 11.15.1 fixed-environment rerun",
+      "fixedEnvironmentStatus": "pending"
+    },
+    {
+      "id": "22.3",
+      "chapter": 22,
+      "title": "課題22.3: OpenTelemetry 風 分散トレース (★★★)",
+      "category": "local-automated",
+      "minutes": 150,
+      "difficulty": 3,
+      "services": [
+        "なし"
+      ],
+      "starter": [
+        "code/ch22/tracer.ts"
+      ],
+      "solution": [
+        "code/ch22/tracer.solution.ts"
+      ],
+      "requiredEvidence": [
+        "章の自動テスト",
+        "README期待出力との照合"
+      ],
+      "safety": "外部システムへ副作用を発生させない。",
+      "compatibilityStatus": "passed",
+      "evidence": "strict solution validation; chapter typecheck/build; compiled solution test",
+      "remaining": "Node 24.18.0 + pnpm 11.15.1 fixed-environment rerun",
+      "fixedEnvironmentStatus": "pending"
+    },
+    {
+      "id": "22.4",
+      "chapter": 22,
+      "title": "課題22.4: SLO Burn Rate アラート計算 (★★)",
+      "category": "external-service",
+      "minutes": 90,
+      "difficulty": 2,
+      "services": [
+        "Docker",
+        "Kubernetes",
+        "AWS",
+        "localhost"
+      ],
+      "starter": [
+        "code/ch22/slo-burn-rate.ts"
+      ],
+      "solution": [
+        "code/ch22/slo-burn-rate.solution.ts"
+      ],
+      "requiredEvidence": [
+        "章の自動テスト",
+        "実サービス接続ログ",
+        "README期待出力との照合"
+      ],
+      "safety": "localhostまたはローカルファイルに限定する。",
+      "compatibilityStatus": "simulation-passed-service-pending",
+      "evidence": "chapter test or local simulator; typecheck/build",
+      "remaining": "isolated real service/container execution pending",
+      "fixedEnvironmentStatus": "pending"
+    },
+    {
+      "id": "23.1",
+      "chapter": 23,
+      "title": "課題23.1: SQL インジェクション ― 実演と防御 (★★)",
+      "category": "local-automated",
+      "minutes": 90,
+      "difficulty": 2,
+      "services": [
+        "なし"
+      ],
+      "starter": [
+        "code/ch23/sqli/starter/README.md",
+        "code/ch23/sqli/starter/demo.ts"
+      ],
+      "solution": [
+        "code/ch23/sqli/solution/README.md",
+        "code/ch23/sqli/solution/demo.ts"
+      ],
+      "requiredEvidence": [
+        "章の自動テスト",
+        "README期待出力との照合"
+      ],
+      "safety": "外部システムへ副作用を発生させない。",
+      "compatibilityStatus": "passed",
+      "evidence": "strict solution validation; chapter typecheck/build; compiled solution test",
+      "remaining": "Node 24.18.0 + pnpm 11.15.1 fixed-environment rerun",
+      "fixedEnvironmentStatus": "pending"
+    },
+    {
+      "id": "23.2",
+      "chapter": 23,
+      "title": "課題23.2: XSS 防御 ― エスケープとサニタイズ (★★)",
+      "category": "local-automated",
+      "minutes": 90,
+      "difficulty": 2,
+      "services": [
+        "なし"
+      ],
+      "starter": [
+        "code/ch23/xss/starter/main.ts"
+      ],
+      "solution": [
+        "code/ch23/xss/solution/main.ts"
+      ],
+      "requiredEvidence": [
+        "章の自動テスト",
+        "README期待出力との照合"
+      ],
+      "safety": "外部システムへ副作用を発生させない。",
+      "compatibilityStatus": "passed",
+      "evidence": "strict solution validation; chapter typecheck/build; compiled solution test",
+      "remaining": "Node 24.18.0 + pnpm 11.15.1 fixed-environment rerun",
+      "fixedEnvironmentStatus": "pending"
+    },
+    {
+      "id": "23.3",
+      "chapter": 23,
+      "title": "課題23.3: CSRF 防御 ― トークン + SameSite (★★)",
+      "category": "local-automated",
+      "minutes": 90,
+      "difficulty": 2,
+      "services": [
+        "なし"
+      ],
+      "starter": [
+        "code/ch23/csrf.ts"
+      ],
+      "solution": [
+        "code/ch23/csrf.solution.ts"
+      ],
+      "requiredEvidence": [
+        "章の自動テスト",
+        "README期待出力との照合"
+      ],
+      "safety": "外部システムへ副作用を発生させない。",
+      "compatibilityStatus": "passed",
+      "evidence": "strict solution validation; chapter typecheck/build; compiled solution test",
+      "remaining": "Node 24.18.0 + pnpm 11.15.1 fixed-environment rerun",
+      "fixedEnvironmentStatus": "pending"
+    },
+    {
+      "id": "23.4",
+      "chapter": 23,
+      "title": "課題23.4: SSRF 防御 ― URL バリデータ (★★)",
+      "category": "external-service",
+      "minutes": 90,
+      "difficulty": 2,
+      "services": [
+        "AWS",
+        "localhost"
+      ],
+      "starter": [
+        "code/ch23/ssrf-guard.ts"
+      ],
+      "solution": [
+        "code/ch23/ssrf-guard.solution.ts"
+      ],
+      "requiredEvidence": [
+        "章の自動テスト",
+        "実サービス接続ログ",
+        "README期待出力との照合"
+      ],
+      "safety": "localhostまたはローカルファイルに限定する。",
+      "compatibilityStatus": "simulation-passed-service-pending",
+      "evidence": "chapter test or local simulator; typecheck/build",
+      "remaining": "isolated real service/container execution pending",
+      "fixedEnvironmentStatus": "pending"
+    },
+    {
+      "id": "23.5",
+      "chapter": 23,
+      "title": "課題23.5: レート制限 (★★★)",
+      "category": "local-automated",
+      "minutes": 150,
+      "difficulty": 3,
+      "services": [
+        "なし"
+      ],
+      "starter": [
+        "code/ch23/rate-limit.ts"
+      ],
+      "solution": [
+        "code/ch23/rate-limit.solution.ts"
+      ],
+      "requiredEvidence": [
+        "章の自動テスト",
+        "README期待出力との照合"
+      ],
+      "safety": "外部システムへ副作用を発生させない。",
+      "compatibilityStatus": "passed",
+      "evidence": "strict solution validation; chapter typecheck/build; compiled solution test",
+      "remaining": "Node 24.18.0 + pnpm 11.15.1 fixed-environment rerun",
+      "fixedEnvironmentStatus": "pending"
+    },
+    {
+      "id": "23.6",
+      "chapter": 23,
+      "title": "課題23.6: セキュアヘッダ middleware (★★)",
+      "category": "local-automated",
+      "minutes": 90,
+      "difficulty": 2,
+      "services": [
+        "なし"
+      ],
+      "starter": [
+        "code/ch23/secure-headers.ts"
+      ],
+      "solution": [
+        "code/ch23/secure-headers.solution.ts"
+      ],
+      "requiredEvidence": [
+        "章の自動テスト",
+        "README期待出力との照合"
+      ],
+      "safety": "外部システムへ副作用を発生させない。",
+      "compatibilityStatus": "passed",
+      "evidence": "strict solution validation; chapter typecheck/build; compiled solution test",
+      "remaining": "Node 24.18.0 + pnpm 11.15.1 fixed-environment rerun",
+      "fixedEnvironmentStatus": "pending"
+    },
+    {
+      "id": "23.7",
+      "chapter": 23,
+      "title": "課題23.7: 依存パッケージ脆弱性スキャナ (★★)",
+      "category": "local-automated",
+      "minutes": 90,
+      "difficulty": 2,
+      "services": [
+        "なし"
+      ],
+      "starter": [
+        "code/ch23/dep-scanner.ts"
+      ],
+      "solution": [
+        "code/ch23/dep-scanner.solution.ts"
+      ],
+      "requiredEvidence": [
+        "章の自動テスト",
+        "README期待出力との照合"
+      ],
+      "safety": "外部システムへ副作用を発生させない。",
+      "compatibilityStatus": "passed",
+      "evidence": "strict solution validation; chapter typecheck/build; compiled solution test",
+      "remaining": "Node 24.18.0 + pnpm 11.15.1 fixed-environment rerun",
+      "fixedEnvironmentStatus": "pending"
+    },
+    {
+      "id": "23.8",
+      "chapter": 23,
+      "title": "課題23.8: Merkle Tree(23.14 の応用) (★★★)",
+      "category": "local-automated",
+      "minutes": 150,
+      "difficulty": 3,
+      "services": [
+        "なし"
+      ],
+      "starter": [
+        "code/ch23/merkle-tree.ts"
+      ],
+      "solution": [
+        "code/ch23/merkle-tree.solution.ts"
+      ],
+      "requiredEvidence": [
+        "章の自動テスト",
+        "README期待出力との照合"
+      ],
+      "safety": "外部システムへ副作用を発生させない。",
+      "compatibilityStatus": "passed",
+      "evidence": "strict solution validation; chapter typecheck/build; compiled solution test",
+      "remaining": "Node 24.18.0 + pnpm 11.15.1 fixed-environment rerun",
+      "fixedEnvironmentStatus": "pending"
+    },
+    {
+      "id": "24.1",
+      "chapter": 24,
+      "title": "課題24.1: 負荷テストツール自作 (★★★)",
+      "category": "local-automated",
+      "minutes": 150,
+      "difficulty": 3,
+      "services": [
+        "localhost"
+      ],
+      "starter": [
+        "code/ch24/mini-loadtest.ts"
+      ],
+      "solution": [
+        "code/ch24/mini-loadtest.solution.ts"
+      ],
+      "requiredEvidence": [
+        "章の自動テスト",
+        "README期待出力との照合"
+      ],
+      "safety": "localhostまたはローカルファイルに限定する。",
+      "compatibilityStatus": "passed",
+      "evidence": "strict solution validation; chapter typecheck/build; compiled solution test",
+      "remaining": "Node 24.18.0 + pnpm 11.15.1 fixed-environment rerun",
+      "fixedEnvironmentStatus": "pending"
+    },
+    {
+      "id": "24.2",
+      "chapter": 24,
+      "title": "課題24.2: CPU プロファイラ(サンプリング型) (★★★)",
+      "category": "local-automated",
+      "minutes": 150,
+      "difficulty": 3,
+      "services": [
+        "なし"
+      ],
+      "starter": [
+        "code/ch24/profiler.ts"
+      ],
+      "solution": [
+        "code/ch24/profiler.solution.ts"
+      ],
+      "requiredEvidence": [
+        "章の自動テスト",
+        "README期待出力との照合"
+      ],
+      "safety": "外部システムへ副作用を発生させない。",
+      "compatibilityStatus": "passed",
+      "evidence": "strict solution validation; chapter typecheck/build; compiled solution test",
+      "remaining": "Node 24.18.0 + pnpm 11.15.1 fixed-environment rerun",
+      "fixedEnvironmentStatus": "pending"
+    },
+    {
+      "id": "24.3",
+      "chapter": 24,
+      "title": "課題24.3: LRU / LFU キャッシュ実装 (★★)",
+      "category": "local-automated",
+      "minutes": 90,
+      "difficulty": 2,
+      "services": [
+        "なし"
+      ],
+      "starter": [
+        "code/ch24/cache.ts"
+      ],
+      "solution": [
+        "code/ch24/cache.solution.ts"
+      ],
+      "requiredEvidence": [
+        "章の自動テスト",
+        "README期待出力との照合"
+      ],
+      "safety": "外部システムへ副作用を発生させない。",
+      "compatibilityStatus": "passed",
+      "evidence": "strict solution validation; chapter typecheck/build; compiled solution test",
+      "remaining": "Node 24.18.0 + pnpm 11.15.1 fixed-environment rerun",
+      "fixedEnvironmentStatus": "pending"
+    },
+    {
+      "id": "24.4",
+      "chapter": 24,
+      "title": "課題24.4: N+1 自動検出 + DataLoader 比較 (★★)",
+      "category": "local-automated",
+      "minutes": 90,
+      "difficulty": 2,
+      "services": [
+        "なし"
+      ],
+      "starter": [
+        "code/ch24/n1-monitor.ts"
+      ],
+      "solution": [
+        "code/ch24/n1-monitor.solution.ts"
+      ],
+      "requiredEvidence": [
+        "章の自動テスト",
+        "README期待出力との照合"
+      ],
+      "safety": "外部システムへ副作用を発生させない。",
+      "compatibilityStatus": "passed",
+      "evidence": "strict solution validation; chapter typecheck/build; compiled solution test",
+      "remaining": "Node 24.18.0 + pnpm 11.15.1 fixed-environment rerun",
+      "fixedEnvironmentStatus": "pending"
+    },
+    {
+      "id": "24.5",
+      "chapter": 24,
+      "title": "課題24.5: Web Vitals 計測スクリプト(LCP/FID/CLS) (★★)",
+      "category": "browser-manual",
+      "minutes": 90,
+      "difficulty": 2,
+      "services": [
+        "Chrome",
+        "localhost"
+      ],
+      "starter": [
+        "code/ch24/web-vitals.html"
+      ],
+      "solution": [
+        "code/ch24/web-vitals.solution.html"
+      ],
+      "requiredEvidence": [
+        "章の自動テスト",
+        "実ブラウザ操作記録",
+        "README期待出力との照合"
+      ],
+      "safety": "localhostまたはローカルファイルに限定する。",
+      "compatibilityStatus": "static-passed-browser-blocked",
+      "evidence": "typecheck/build/static solution validation; Chromium launch attempted",
+      "remaining": "browser navigation blocked by environment administrator; manual interaction pending",
+      "fixedEnvironmentStatus": "pending"
+    },
+    {
+      "id": "25.1",
+      "chapter": 25,
+      "title": "課題25.1: ミニテストランナー自作 (★★)",
+      "category": "local-automated",
+      "minutes": 90,
+      "difficulty": 2,
+      "services": [
+        "なし"
+      ],
+      "starter": [
+        "code/ch25/mini-test.ts"
+      ],
+      "solution": [
+        "code/ch25/mini-test.solution.ts"
+      ],
+      "requiredEvidence": [
+        "章の自動テスト",
+        "README期待出力との照合"
+      ],
+      "safety": "外部システムへ副作用を発生させない。",
+      "compatibilityStatus": "passed",
+      "evidence": "strict solution validation; chapter typecheck/build; compiled solution test",
+      "remaining": "Node 24.18.0 + pnpm 11.15.1 fixed-environment rerun",
+      "fixedEnvironmentStatus": "pending"
+    },
+    {
+      "id": "25.2",
+      "chapter": 25,
+      "title": "課題25.2: Mock / Stub / Spy 実装 (★★)",
+      "category": "local-automated",
+      "minutes": 90,
+      "difficulty": 2,
+      "services": [
+        "なし"
+      ],
+      "starter": [
+        "code/ch25/mock-stub-spy.ts"
+      ],
+      "solution": [
+        "code/ch25/mock-stub-spy.solution.ts"
+      ],
+      "requiredEvidence": [
+        "章の自動テスト",
+        "README期待出力との照合"
+      ],
+      "safety": "外部システムへ副作用を発生させない。",
+      "compatibilityStatus": "passed",
+      "evidence": "strict solution validation; chapter typecheck/build; compiled solution test",
+      "remaining": "Node 24.18.0 + pnpm 11.15.1 fixed-environment rerun",
+      "fixedEnvironmentStatus": "pending"
+    },
+    {
+      "id": "25.3",
+      "chapter": 25,
+      "title": "課題25.3: Property-Based Testing フレームワーク (★★★)",
+      "category": "local-automated",
+      "minutes": 150,
+      "difficulty": 3,
+      "services": [
+        "なし"
+      ],
+      "starter": [
+        "code/ch25/property-test.ts"
+      ],
+      "solution": [
+        "code/ch25/property-test.solution.ts"
+      ],
+      "requiredEvidence": [
+        "章の自動テスト",
+        "README期待出力との照合"
+      ],
+      "safety": "外部システムへ副作用を発生させない。",
+      "compatibilityStatus": "passed",
+      "evidence": "strict solution validation; chapter typecheck/build; compiled solution test",
+      "remaining": "Node 24.18.0 + pnpm 11.15.1 fixed-environment rerun",
+      "fixedEnvironmentStatus": "pending"
+    },
+    {
+      "id": "25.4",
+      "chapter": 25,
+      "title": "課題25.4: Mutation Testing ツール (★★★)",
+      "category": "local-automated",
+      "minutes": 150,
+      "difficulty": 3,
+      "services": [
+        "なし"
+      ],
+      "starter": [
+        "code/ch25/mutation-test.ts"
+      ],
+      "solution": [
+        "code/ch25/mutation-test.solution.ts"
+      ],
+      "requiredEvidence": [
+        "章の自動テスト",
+        "README期待出力との照合"
+      ],
+      "safety": "外部システムへ副作用を発生させない。",
+      "compatibilityStatus": "passed",
+      "evidence": "strict solution validation; chapter typecheck/build; compiled solution test",
+      "remaining": "Node 24.18.0 + pnpm 11.15.1 fixed-environment rerun",
+      "fixedEnvironmentStatus": "pending"
+    },
+    {
+      "id": "26.1",
+      "chapter": 26,
+      "title": "課題26.1: サーキットブレーカ実装 (★★★)",
+      "category": "local-automated",
+      "minutes": 150,
+      "difficulty": 3,
+      "services": [
+        "なし"
+      ],
+      "starter": [
+        "code/ch26/circuit-breaker.ts"
+      ],
+      "solution": [
+        "code/ch26/circuit-breaker.solution.ts"
+      ],
+      "requiredEvidence": [
+        "章の自動テスト",
+        "README期待出力との照合"
+      ],
+      "safety": "外部システムへ副作用を発生させない。",
+      "compatibilityStatus": "passed",
+      "evidence": "strict solution validation; chapter typecheck/build; compiled solution test",
+      "remaining": "Node 24.18.0 + pnpm 11.15.1 fixed-environment rerun",
+      "fixedEnvironmentStatus": "pending"
+    },
+    {
+      "id": "26.2",
+      "chapter": 26,
+      "title": "課題26.2: リトライ + 指数バックオフ + jitter (★★)",
+      "category": "local-automated",
+      "minutes": 90,
+      "difficulty": 2,
+      "services": [
+        "なし"
+      ],
+      "starter": [
+        "code/ch26/retry-jitter.ts"
+      ],
+      "solution": [
+        "code/ch26/retry-jitter.solution.ts"
+      ],
+      "requiredEvidence": [
+        "章の自動テスト",
+        "README期待出力との照合"
+      ],
+      "safety": "外部システムへ副作用を発生させない。",
+      "compatibilityStatus": "passed",
+      "evidence": "strict solution validation; chapter typecheck/build; compiled solution test",
+      "remaining": "Node 24.18.0 + pnpm 11.15.1 fixed-environment rerun",
+      "fixedEnvironmentStatus": "pending"
+    },
+    {
+      "id": "26.3",
+      "chapter": 26,
+      "title": "課題26.3: Bulkhead パターン (★★)",
+      "category": "local-automated",
+      "minutes": 90,
+      "difficulty": 2,
+      "services": [
+        "なし"
+      ],
+      "starter": [
+        "code/ch26/bulkhead.ts"
+      ],
+      "solution": [
+        "code/ch26/bulkhead.solution.ts"
+      ],
+      "requiredEvidence": [
+        "章の自動テスト",
+        "README期待出力との照合"
+      ],
+      "safety": "外部システムへ副作用を発生させない。",
+      "compatibilityStatus": "passed",
+      "evidence": "strict solution validation; chapter typecheck/build; compiled solution test",
+      "remaining": "Node 24.18.0 + pnpm 11.15.1 fixed-environment rerun",
+      "fixedEnvironmentStatus": "pending"
+    },
+    {
+      "id": "26.4",
+      "chapter": 26,
+      "title": "課題26.4: 冪等性キー実装 (★★)",
+      "category": "local-tls",
+      "minutes": 90,
+      "difficulty": 2,
+      "services": [
+        "OpenSSL/TLS"
+      ],
+      "starter": [
+        "code/ch26/idempotency.ts"
+      ],
+      "solution": [
+        "code/ch26/idempotency.solution.ts"
+      ],
+      "requiredEvidence": [
+        "章の自動テスト",
+        "localhost TLS接続ログ",
+        "証明書検証境界の記録"
+      ],
+      "safety": "localhostまたはローカルファイルに限定する。",
+      "compatibilityStatus": "passed-local-tls",
+      "evidence": "chapter tests; OpenSSL 3.5.5; localhost TLS 1.2/1.3 smoke",
+      "remaining": "fixed-environment rerun",
+      "fixedEnvironmentStatus": "pending"
+    },
+    {
+      "id": "26.5",
+      "chapter": 26,
+      "title": "課題26.5: バックプレッシャー (★★★)",
+      "category": "local-automated",
+      "minutes": 150,
+      "difficulty": 3,
+      "services": [
+        "なし"
+      ],
+      "starter": [
+        "code/ch26/backpressure.ts"
+      ],
+      "solution": [
+        "code/ch26/backpressure.solution.ts"
+      ],
+      "requiredEvidence": [
+        "章の自動テスト",
+        "README期待出力との照合"
+      ],
+      "safety": "外部システムへ副作用を発生させない。",
+      "compatibilityStatus": "passed",
+      "evidence": "strict solution validation; chapter typecheck/build; compiled solution test",
+      "remaining": "Node 24.18.0 + pnpm 11.15.1 fixed-environment rerun",
+      "fixedEnvironmentStatus": "pending"
+    },
+    {
+      "id": "26.6",
+      "chapter": 26,
+      "title": "課題26.6: Chaos Engineering ライブラリ (★★)",
+      "category": "local-automated",
+      "minutes": 90,
+      "difficulty": 2,
+      "services": [
+        "なし"
+      ],
+      "starter": [
+        "code/ch26/chaos-engine.ts"
+      ],
+      "solution": [
+        "code/ch26/chaos-engine.solution.ts"
+      ],
+      "requiredEvidence": [
+        "章の自動テスト",
+        "README期待出力との照合"
+      ],
+      "safety": "外部システムへ副作用を発生させない。",
+      "compatibilityStatus": "passed",
+      "evidence": "strict solution validation; chapter typecheck/build; compiled solution test",
+      "remaining": "Node 24.18.0 + pnpm 11.15.1 fixed-environment rerun",
+      "fixedEnvironmentStatus": "pending"
+    },
+    {
+      "id": "27.1",
+      "chapter": 27,
+      "title": "課題27.1: Value Object と不変条件 (★★)",
+      "category": "local-automated",
+      "minutes": 90,
+      "difficulty": 2,
+      "services": [
+        "なし"
+      ],
+      "starter": [
+        "code/ch27/value-objects.ts"
+      ],
+      "solution": [
+        "code/ch27/value-objects.solution.ts"
+      ],
+      "requiredEvidence": [
+        "章の自動テスト",
+        "README期待出力との照合"
+      ],
+      "safety": "外部システムへ副作用を発生させない。",
+      "compatibilityStatus": "passed",
+      "evidence": "strict solution validation; chapter typecheck/build; compiled solution test",
+      "remaining": "Node 24.18.0 + pnpm 11.15.1 fixed-environment rerun",
+      "fixedEnvironmentStatus": "pending"
+    },
+    {
+      "id": "27.2",
+      "chapter": 27,
+      "title": "課題27.2: Repository パターン(in-memory + interface) (★★)",
+      "category": "local-automated",
+      "minutes": 90,
+      "difficulty": 2,
+      "services": [
+        "なし"
+      ],
+      "starter": [
+        "code/ch27/repository.ts"
+      ],
+      "solution": [
+        "code/ch27/repository.solution.ts"
+      ],
+      "requiredEvidence": [
+        "章の自動テスト",
+        "README期待出力との照合"
+      ],
+      "safety": "外部システムへ副作用を発生させない。",
+      "compatibilityStatus": "passed",
+      "evidence": "strict solution validation; chapter typecheck/build; compiled solution test",
+      "remaining": "Node 24.18.0 + pnpm 11.15.1 fixed-environment rerun",
+      "fixedEnvironmentStatus": "pending"
+    },
+    {
+      "id": "27.3",
+      "chapter": 27,
+      "title": "課題27.3: Aggregate と Domain Event (★★★)",
+      "category": "local-automated",
+      "minutes": 150,
+      "difficulty": 3,
+      "services": [
+        "なし"
+      ],
+      "starter": [
+        "code/ch27/aggregate.ts"
+      ],
+      "solution": [
+        "code/ch27/aggregate.solution.ts"
+      ],
+      "requiredEvidence": [
+        "章の自動テスト",
+        "README期待出力との照合"
+      ],
+      "safety": "外部システムへ副作用を発生させない。",
+      "compatibilityStatus": "passed",
+      "evidence": "strict solution validation; chapter typecheck/build; compiled solution test",
+      "remaining": "Node 24.18.0 + pnpm 11.15.1 fixed-environment rerun",
+      "fixedEnvironmentStatus": "pending"
+    },
+    {
+      "id": "27.4",
+      "chapter": 27,
+      "title": "課題27.4: Clean Architecture (Use Case 中心) (★★★)",
+      "category": "local-automated",
+      "minutes": 150,
+      "difficulty": 3,
+      "services": [
+        "なし"
+      ],
+      "starter": [
+        "code/ch27/clean-arch/starter/main.ts"
+      ],
+      "solution": [
+        "code/ch27/clean-arch/solution/main.ts"
+      ],
+      "requiredEvidence": [
+        "章の自動テスト",
+        "README期待出力との照合"
+      ],
+      "safety": "外部システムへ副作用を発生させない。",
+      "compatibilityStatus": "passed",
+      "evidence": "strict solution validation; chapter typecheck/build; compiled solution test",
+      "remaining": "Node 24.18.0 + pnpm 11.15.1 fixed-environment rerun",
+      "fixedEnvironmentStatus": "pending"
+    },
+    {
+      "id": "28.1",
+      "chapter": 28,
+      "title": "課題28.1: Characterization Test 自動生成 (★★★)",
+      "category": "local-automated",
+      "minutes": 150,
+      "difficulty": 3,
+      "services": [
+        "なし"
+      ],
+      "starter": [
+        "code/ch28/characterization-test.ts"
+      ],
+      "solution": [
+        "code/ch28/characterization-test.solution.ts"
+      ],
+      "requiredEvidence": [
+        "章の自動テスト",
+        "README期待出力との照合"
+      ],
+      "safety": "外部システムへ副作用を発生させない。",
+      "compatibilityStatus": "passed",
+      "evidence": "strict solution validation; chapter typecheck/build; compiled solution test",
+      "remaining": "Node 24.18.0 + pnpm 11.15.1 fixed-environment rerun",
+      "fixedEnvironmentStatus": "pending"
+    },
+    {
+      "id": "28.2",
+      "chapter": 28,
+      "title": "課題28.2: Strangler Fig パターン実装 (★★★)",
+      "category": "local-automated",
+      "minutes": 150,
+      "difficulty": 3,
+      "services": [
+        "なし"
+      ],
+      "starter": [
+        "code/ch28/strangler-fig.ts"
+      ],
+      "solution": [
+        "code/ch28/strangler-fig.solution.ts"
+      ],
+      "requiredEvidence": [
+        "章の自動テスト",
+        "README期待出力との照合"
+      ],
+      "safety": "外部システムへ副作用を発生させない。",
+      "compatibilityStatus": "passed",
+      "evidence": "strict solution validation; chapter typecheck/build; compiled solution test",
+      "remaining": "Node 24.18.0 + pnpm 11.15.1 fixed-environment rerun",
+      "fixedEnvironmentStatus": "pending"
+    },
+    {
+      "id": "28.3",
+      "chapter": 28,
+      "title": "課題28.3: ADR ジェネレータ (★★)",
+      "category": "external-service",
+      "minutes": 90,
+      "difficulty": 2,
+      "services": [
+        "PostgreSQL"
+      ],
+      "starter": [
+        "code/ch28/adr-gen.ts"
+      ],
+      "solution": [
+        "code/ch28/adr-gen.solution.ts"
+      ],
+      "requiredEvidence": [
+        "章の自動テスト",
+        "実サービス接続ログ",
+        "README期待出力との照合"
+      ],
+      "safety": "devcontainerまたは隔離された検証用サービスだけを使用する。",
+      "compatibilityStatus": "simulation-passed-service-pending",
+      "evidence": "chapter test or local simulator; typecheck/build",
+      "remaining": "isolated real service/container execution pending",
+      "fixedEnvironmentStatus": "pending"
+    },
+    {
+      "id": "28.4",
+      "chapter": 28,
+      "title": "課題28.4: PII スキャナ + 削除キット (★★)",
+      "category": "local-automated",
+      "minutes": 90,
+      "difficulty": 2,
+      "services": [
+        "なし"
+      ],
+      "starter": [
+        "code/ch28/pii-scanner.ts"
+      ],
+      "solution": [
+        "code/ch28/pii-scanner.solution.ts"
+      ],
+      "requiredEvidence": [
+        "章の自動テスト",
+        "README期待出力との照合"
+      ],
+      "safety": "外部システムへ副作用を発生させない。",
+      "compatibilityStatus": "passed",
+      "evidence": "strict solution validation; chapter typecheck/build; compiled solution test",
+      "remaining": "Node 24.18.0 + pnpm 11.15.1 fixed-environment rerun",
+      "fixedEnvironmentStatus": "pending"
+    },
+    {
+      "id": "29.1",
+      "chapter": 29,
+      "title": "課題29.1: ミニ RAG パイプライン (★★★)",
+      "category": "local-automated",
+      "minutes": 150,
+      "difficulty": 3,
+      "services": [
+        "なし"
+      ],
+      "starter": [
+        "code/ch29/rag-pipeline.ts"
+      ],
+      "solution": [
+        "code/ch29/rag-pipeline.solution.ts"
+      ],
+      "requiredEvidence": [
+        "章の自動テスト",
+        "README期待出力との照合"
+      ],
+      "safety": "外部システムへ副作用を発生させない。",
+      "compatibilityStatus": "passed",
+      "evidence": "strict solution validation; chapter typecheck/build; compiled solution test",
+      "remaining": "Node 24.18.0 + pnpm 11.15.1 fixed-environment rerun",
+      "fixedEnvironmentStatus": "pending"
+    },
+    {
+      "id": "29.2",
+      "chapter": 29,
+      "title": "課題29.2: Function Calling 自作 (★★★)",
+      "category": "local-automated",
+      "minutes": 150,
+      "difficulty": 3,
+      "services": [
+        "なし"
+      ],
+      "starter": [
+        "code/ch29/function-calling.ts"
+      ],
+      "solution": [
+        "code/ch29/function-calling.solution.ts"
+      ],
+      "requiredEvidence": [
+        "章の自動テスト",
+        "README期待出力との照合"
+      ],
+      "safety": "外部システムへ副作用を発生させない。",
+      "compatibilityStatus": "passed",
+      "evidence": "strict solution validation; chapter typecheck/build; compiled solution test",
+      "remaining": "Node 24.18.0 + pnpm 11.15.1 fixed-environment rerun",
+      "fixedEnvironmentStatus": "pending"
+    },
+    {
+      "id": "29.3",
+      "chapter": 29,
+      "title": "課題29.3: プロンプトインジェクション検出 (★★)",
+      "category": "local-automated",
+      "minutes": 90,
+      "difficulty": 2,
+      "services": [
+        "なし"
+      ],
+      "starter": [
+        "code/ch29/prompt-injection.ts"
+      ],
+      "solution": [
+        "code/ch29/prompt-injection.solution.ts"
+      ],
+      "requiredEvidence": [
+        "章の自動テスト",
+        "README期待出力との照合"
+      ],
+      "safety": "外部システムへ副作用を発生させない。",
+      "compatibilityStatus": "passed",
+      "evidence": "strict solution validation; chapter typecheck/build; compiled solution test",
+      "remaining": "Node 24.18.0 + pnpm 11.15.1 fixed-environment rerun",
+      "fixedEnvironmentStatus": "pending"
+    },
+    {
+      "id": "29.4",
+      "chapter": 29,
+      "title": "課題29.4: Structured Output (JSON schema 強制) (★★)",
+      "category": "local-automated",
+      "minutes": 90,
+      "difficulty": 2,
+      "services": [
+        "なし"
+      ],
+      "starter": [
+        "code/ch29/structured-output.ts"
+      ],
+      "solution": [
+        "code/ch29/structured-output.solution.ts"
+      ],
+      "requiredEvidence": [
+        "章の自動テスト",
+        "README期待出力との照合"
+      ],
+      "safety": "外部システムへ副作用を発生させない。",
+      "compatibilityStatus": "passed",
+      "evidence": "strict solution validation; chapter typecheck/build; compiled solution test",
+      "remaining": "Node 24.18.0 + pnpm 11.15.1 fixed-environment rerun",
+      "fixedEnvironmentStatus": "pending"
+    },
+    {
+      "id": "29.5",
+      "chapter": 29,
+      "title": "課題29.5: ミニ MCP サーバ (★★)",
+      "category": "local-automated",
+      "minutes": 90,
+      "difficulty": 2,
+      "services": [
+        "なし"
+      ],
+      "starter": [
+        "code/ch29/mini-mcp-server.ts"
+      ],
+      "solution": [
+        "code/ch29/mini-mcp-server.solution.ts"
+      ],
+      "requiredEvidence": [
+        "章の自動テスト",
+        "README期待出力との照合"
+      ],
+      "safety": "外部システムへ副作用を発生させない。",
+      "compatibilityStatus": "passed",
+      "evidence": "strict solution validation; chapter typecheck/build; compiled solution test",
+      "remaining": "Node 24.18.0 + pnpm 11.15.1 fixed-environment rerun",
+      "fixedEnvironmentStatus": "pending"
+    },
+    {
+      "id": "30.1",
+      "chapter": 30,
+      "title": "課題30.1: マルチテナント Task SaaS バックエンド (★★★)",
+      "category": "external-service",
+      "minutes": 150,
+      "difficulty": 3,
+      "services": [
+        "PostgreSQL",
+        "Kubernetes"
+      ],
+      "starter": [
+        "code/ch30/saas/starter/main.sh"
+      ],
+      "solution": [
+        "code/ch30/saas/solution/main.sh"
+      ],
+      "requiredEvidence": [
+        "章の自動テスト",
+        "実サービス接続ログ",
+        "README期待出力との照合"
+      ],
+      "safety": "devcontainerまたは隔離された検証用サービスだけを使用する。",
+      "compatibilityStatus": "simulation-passed-service-pending",
+      "evidence": "chapter test or local simulator; typecheck/build",
+      "remaining": "isolated real service/container execution pending",
+      "fixedEnvironmentStatus": "pending"
+    },
+    {
+      "id": "1.4",
+      "chapter": 1,
+      "title": "課題1.4: 自分のWebの「使用履歴」を可視化 (★★)",
+      "category": "browser-manual",
+      "minutes": 90,
+      "difficulty": 2,
+      "services": [
+        "Chrome"
+      ],
+      "starter": [
+        "code/ch01/measure-http.sh",
+        "code/ch01/starter.md"
+      ],
+      "solution": [
+        "code/ch01/measure-http.solution.sh",
+        "code/ch01/solution.md"
+      ],
+      "requiredEvidence": [
+        "章の自動テスト",
+        "実ブラウザ操作記録",
+        "README期待出力との照合"
+      ],
+      "safety": "localhostまたはローカルファイルに限定する。",
+      "compatibilityStatus": "static-passed-browser-blocked",
+      "evidence": "typecheck/build/static solution validation; Chromium launch attempted",
+      "remaining": "browser navigation blocked by environment administrator; manual interaction pending",
+      "fixedEnvironmentStatus": "pending"
+    },
+    {
+      "id": "2.1",
+      "chapter": 2,
+      "title": "課題2.1: 生のソケットでHTTPリクエストを送る (★★)",
+      "category": "local-automated",
+      "minutes": 90,
+      "difficulty": 2,
+      "services": [
+        "なし"
+      ],
+      "starter": [
+        "code/ch02/raw-http-client.ts"
+      ],
+      "solution": [
+        "code/ch02/raw-http-client.solution.ts"
+      ],
+      "requiredEvidence": [
+        "章の自動テスト",
+        "README期待出力との照合"
+      ],
+      "safety": "外部システムへ副作用を発生させない。",
+      "compatibilityStatus": "passed",
+      "evidence": "strict solution validation; chapter typecheck/build; compiled solution test",
+      "remaining": "Node 24.18.0 + pnpm 11.15.1 fixed-environment rerun",
+      "fixedEnvironmentStatus": "pending"
+    },
+    {
+      "id": "2.2",
+      "chapter": 2,
+      "title": "課題2.2: 最小HTTPサーバを自作 (★★)",
+      "category": "local-automated",
+      "minutes": 90,
+      "difficulty": 2,
+      "services": [
+        "localhost"
+      ],
+      "starter": [
+        "code/ch02/raw-http-server.ts"
+      ],
+      "solution": [
+        "code/ch02/raw-http-server.solution.ts"
+      ],
+      "requiredEvidence": [
+        "章の自動テスト",
+        "README期待出力との照合"
+      ],
+      "safety": "localhostまたはローカルファイルに限定する。",
+      "compatibilityStatus": "passed",
+      "evidence": "strict solution validation; chapter typecheck/build; compiled solution test",
+      "remaining": "Node 24.18.0 + pnpm 11.15.1 fixed-environment rerun",
+      "fixedEnvironmentStatus": "pending"
+    },
+    {
+      "id": "2.3",
+      "chapter": 2,
+      "title": "課題2.3: HTTP のメソッドとステータスコードを正しく使う (★)",
+      "category": "local-automated",
+      "minutes": 45,
+      "difficulty": 1,
+      "services": [
+        "なし"
+      ],
+      "starter": [
+        "code/ch02/blog-api/starter/README.md"
+      ],
+      "solution": [
+        "code/ch02/blog-api/solution.ts",
+        "code/ch02/blog-api/solution/README.md"
+      ],
+      "requiredEvidence": [
+        "章の自動テスト",
+        "README期待出力との照合"
+      ],
+      "safety": "外部システムへ副作用を発生させない。",
+      "compatibilityStatus": "passed",
+      "evidence": "strict solution validation; chapter typecheck/build; compiled solution test",
+      "remaining": "Node 24.18.0 + pnpm 11.15.1 fixed-environment rerun",
+      "fixedEnvironmentStatus": "pending"
+    },
+    {
+      "id": "2.4",
+      "chapter": 2,
+      "title": "課題2.4: HTTP/1.1 vs HTTP/2 の体感ベンチマーク (★★★)",
+      "category": "local-tls",
+      "minutes": 150,
+      "difficulty": 3,
+      "services": [
+        "OpenSSL/TLS"
+      ],
+      "starter": [
+        "code/ch02/benchmark/starter/README.md"
+      ],
+      "solution": [
+        "code/ch02/benchmark/solution/server.ts",
+        "code/ch02/benchmark/solution/client.ts",
+        "code/ch02/benchmark/solution/README.md"
+      ],
+      "requiredEvidence": [
+        "章の自動テスト",
+        "localhost TLS接続ログ",
+        "証明書検証境界の記録"
+      ],
+      "safety": "localhostまたはローカルファイルに限定する。",
+      "compatibilityStatus": "passed-local-tls",
+      "evidence": "chapter tests; OpenSSL 3.5.5; localhost TLS 1.2/1.3 smoke",
+      "remaining": "fixed-environment rerun",
+      "fixedEnvironmentStatus": "pending"
+    },
+    {
+      "id": "2.5",
+      "chapter": 2,
+      "title": "課題2.5: パフォーマンスのアンチパターンを再現する (★★)",
+      "category": "local-automated",
+      "minutes": 90,
+      "difficulty": 2,
+      "services": [
+        "なし"
+      ],
+      "starter": [
+        "code/ch02/antipatterns/starter/main.sh"
+      ],
+      "solution": [
+        "code/ch02/antipatterns/solution/main.sh",
+        "code/ch02/antipatterns/solution/benchmark.mjs"
+      ],
+      "requiredEvidence": [
+        "章の自動テスト",
+        "README期待出力との照合"
+      ],
+      "safety": "外部システムへ副作用を発生させない。",
+      "compatibilityStatus": "passed",
+      "evidence": "strict solution validation; chapter typecheck/build; compiled solution test",
+      "remaining": "Node 24.18.0 + pnpm 11.15.1 fixed-environment rerun",
+      "fixedEnvironmentStatus": "pending"
+    },
+    {
+      "id": "3.1",
+      "chapter": 3,
+      "title": "課題3.1: URLパーサを自作 (★)",
+      "category": "local-automated",
+      "minutes": 45,
+      "difficulty": 1,
+      "services": [
+        "なし"
+      ],
+      "starter": [
+        "code/ch03/url-parser.ts"
+      ],
+      "solution": [
+        "code/ch03/url-parser.solution.ts"
+      ],
+      "requiredEvidence": [
+        "章の自動テスト",
+        "README期待出力との照合"
+      ],
+      "safety": "外部システムへ副作用を発生させない。",
+      "compatibilityStatus": "passed",
+      "evidence": "strict solution validation; chapter typecheck/build; compiled solution test",
+      "remaining": "Node 24.18.0 + pnpm 11.15.1 fixed-environment rerun",
+      "fixedEnvironmentStatus": "pending"
+    },
+    {
+      "id": "3.2",
+      "chapter": 3,
+      "title": "課題3.2: DNS リゾルバの観察ツール (★★)",
+      "category": "local-automated",
+      "minutes": 90,
+      "difficulty": 2,
+      "services": [
+        "なし"
+      ],
+      "starter": [
+        "code/ch03/dns-resolver.ts"
+      ],
+      "solution": [
+        "code/ch03/dns-resolver.solution.ts"
+      ],
+      "requiredEvidence": [
+        "章の自動テスト",
+        "README期待出力との照合"
+      ],
+      "safety": "外部システムへ副作用を発生させない。",
+      "compatibilityStatus": "passed",
+      "evidence": "strict solution validation; chapter typecheck/build; compiled solution test",
+      "remaining": "Node 24.18.0 + pnpm 11.15.1 fixed-environment rerun",
+      "fixedEnvironmentStatus": "pending"
+    },
+    {
+      "id": "3.3",
+      "chapter": 3,
+      "title": "課題3.3: 自己署名証明書でHTTPSサーバを立てる (★★)",
+      "category": "local-tls",
+      "minutes": 90,
+      "difficulty": 2,
+      "services": [
+        "OpenSSL/TLS"
+      ],
+      "starter": [
+        "code/ch03/cert-gen.sh",
+        "code/ch03/starter.md"
+      ],
+      "solution": [
+        "code/ch03/cert-gen.solution.sh",
+        "code/ch03/https-server.solution.ts",
+        "code/ch03/solution.md"
+      ],
+      "requiredEvidence": [
+        "章の自動テスト",
+        "localhost TLS接続ログ",
+        "証明書検証境界の記録"
+      ],
+      "safety": "localhostまたはローカルファイルに限定する。",
+      "compatibilityStatus": "passed-local-tls",
+      "evidence": "chapter tests; OpenSSL 3.5.5; localhost TLS 1.2/1.3 smoke",
+      "remaining": "fixed-environment rerun",
+      "fixedEnvironmentStatus": "pending"
+    },
+    {
+      "id": "3.4",
+      "chapter": 3,
+      "title": "課題3.4: TLS handshake を可視化 (★★★)",
+      "category": "local-tls",
+      "minutes": 150,
+      "difficulty": 3,
+      "services": [
+        "OpenSSL/TLS"
+      ],
+      "starter": [
+        "code/ch03/tls-trace.md"
+      ],
+      "solution": [
+        "code/ch03/tls-trace.solution.md"
+      ],
+      "requiredEvidence": [
+        "章の自動テスト",
+        "localhost TLS接続ログ",
+        "証明書検証境界の記録"
+      ],
+      "safety": "localhostまたはローカルファイルに限定する。",
+      "compatibilityStatus": "passed-local-tls",
+      "evidence": "chapter tests; OpenSSL 3.5.5; localhost TLS 1.2/1.3 smoke",
+      "remaining": "fixed-environment rerun",
+      "fixedEnvironmentStatus": "pending"
+    },
+    {
+      "id": "3.5",
+      "chapter": 3,
+      "title": "課題3.5: 「URLを入力してから画面表示まで」のすべてを観察 (★★★)",
+      "category": "local-tls",
+      "minutes": 150,
+      "difficulty": 3,
+      "services": [
+        "OpenSSL/TLS"
+      ],
+      "starter": [
+        "code/ch03/url-trace.ts"
+      ],
+      "solution": [
+        "code/ch03/url-trace.solution.ts"
+      ],
+      "requiredEvidence": [
+        "章の自動テスト",
+        "localhost TLS接続ログ",
+        "証明書検証境界の記録"
+      ],
+      "safety": "localhostまたはローカルファイルに限定する。",
+      "compatibilityStatus": "passed-local-tls",
+      "evidence": "chapter tests; OpenSSL 3.5.5; localhost TLS 1.2/1.3 smoke",
+      "remaining": "fixed-environment rerun",
+      "fixedEnvironmentStatus": "pending"
+    },
+    {
+      "id": "4.1",
+      "chapter": 4,
+      "title": "課題4.1: レンダリングパイプラインを計測する (★)",
+      "category": "browser-manual",
+      "minutes": 45,
+      "difficulty": 1,
+      "services": [
+        "Chrome"
+      ],
+      "starter": [
+        "code/ch04/render-bench/starter/README.md",
+        "code/ch04/starter.md"
+      ],
+      "solution": [
+        "code/ch04/render-bench/index.solution.html",
+        "code/ch04/render-bench/solution/README.md",
+        "code/ch04/solution.md"
+      ],
+      "requiredEvidence": [
+        "章の自動テスト",
+        "実ブラウザ操作記録",
+        "README期待出力との照合"
+      ],
+      "safety": "localhostまたはローカルファイルに限定する。",
+      "compatibilityStatus": "static-passed-browser-blocked",
+      "evidence": "typecheck/build/static solution validation; Chromium launch attempted",
+      "remaining": "browser navigation blocked by environment administrator; manual interaction pending",
+      "fixedEnvironmentStatus": "pending"
+    },
+    {
+      "id": "4.2",
+      "chapter": 4,
+      "title": "課題4.2: 純粋なDOM APIでTodoアプリ (★★)",
+      "category": "browser-manual",
+      "minutes": 90,
+      "difficulty": 2,
+      "services": [
+        "なし"
+      ],
+      "starter": [
+        "code/ch04/todo-vanilla/starter/index.html",
+        "code/ch04/todo-vanilla/starter/app.ts",
+        "code/ch04/todo-vanilla/starter/README.md"
+      ],
+      "solution": [
+        "code/ch04/todo-vanilla/solution/index.html",
+        "code/ch04/todo-vanilla/solution/app.ts",
+        "code/ch04/todo-vanilla/solution/README.md"
+      ],
+      "requiredEvidence": [
+        "章の自動テスト",
+        "実ブラウザ操作記録",
+        "README期待出力との照合"
+      ],
+      "safety": "localhostまたはローカルファイルに限定する。",
+      "compatibilityStatus": "static-passed-browser-blocked",
+      "evidence": "typecheck/build/static solution validation; Chromium launch attempted",
+      "remaining": "browser navigation blocked by environment administrator; manual interaction pending",
+      "fixedEnvironmentStatus": "pending"
+    },
+    {
+      "id": "4.3",
+      "chapter": 4,
+      "title": "課題4.3: 最小限のイベントループを自作 (★★★)",
+      "category": "local-automated",
+      "minutes": 150,
+      "difficulty": 3,
+      "services": [
+        "なし"
+      ],
+      "starter": [
+        "code/ch04/event-loop/event-loop.ts"
+      ],
+      "solution": [
+        "code/ch04/event-loop/event-loop.solution.ts"
+      ],
+      "requiredEvidence": [
+        "章の自動テスト",
+        "README期待出力との照合"
+      ],
+      "safety": "外部システムへ副作用を発生させない。",
+      "compatibilityStatus": "passed",
+      "evidence": "strict solution validation; chapter typecheck/build; compiled solution test",
+      "remaining": "Node 24.18.0 + pnpm 11.15.1 fixed-environment rerun",
+      "fixedEnvironmentStatus": "pending"
+    },
+    {
+      "id": "4.4",
+      "chapter": 4,
+      "title": "課題4.4: CSS の Cascade を解析するツール (★★)",
+      "category": "local-automated",
+      "minutes": 90,
+      "difficulty": 2,
+      "services": [
+        "なし"
+      ],
+      "starter": [
+        "code/ch04/css-specificity.ts"
+      ],
+      "solution": [
+        "code/ch04/css-specificity.solution.ts"
+      ],
+      "requiredEvidence": [
+        "章の自動テスト",
+        "README期待出力との照合"
+      ],
+      "safety": "外部システムへ副作用を発生させない。",
+      "compatibilityStatus": "passed",
+      "evidence": "strict solution validation; chapter typecheck/build; compiled solution test",
+      "remaining": "Node 24.18.0 + pnpm 11.15.1 fixed-environment rerun",
+      "fixedEnvironmentStatus": "pending"
+    },
+    {
+      "id": "4.5",
+      "chapter": 4,
+      "title": "課題4.5: ESM と CommonJS の混在問題を再現 (★)",
+      "category": "local-tls",
+      "minutes": 45,
+      "difficulty": 1,
+      "services": [
+        "OpenSSL/TLS"
+      ],
+      "starter": [
+        "code/ch04/esm-vs-cjs/starter/main.sh"
+      ],
+      "solution": [
+        "code/ch04/esm-vs-cjs/solution/main.sh",
+        "code/ch04/esm-vs-cjs/solution.md"
+      ],
+      "requiredEvidence": [
+        "章の自動テスト",
+        "localhost TLS接続ログ",
+        "証明書検証境界の記録"
+      ],
+      "safety": "localhostまたはローカルファイルに限定する。",
+      "compatibilityStatus": "passed-local-tls",
+      "evidence": "chapter tests; OpenSSL 3.5.5; localhost TLS 1.2/1.3 smoke",
+      "remaining": "fixed-environment rerun",
+      "fixedEnvironmentStatus": "pending"
+    },
+    {
+      "id": "5.1",
+      "chapter": 5,
+      "title": "課題5.1: Promise を自作する (★★★)",
+      "category": "local-automated",
+      "minutes": 150,
+      "difficulty": 3,
+      "services": [
+        "なし"
+      ],
+      "starter": [
+        "code/ch05/my-promise.ts"
+      ],
+      "solution": [
+        "code/ch05/my-promise.solution.ts"
+      ],
+      "requiredEvidence": [
+        "章の自動テスト",
+        "README期待出力との照合"
+      ],
+      "safety": "外部システムへ副作用を発生させない。",
+      "compatibilityStatus": "passed",
+      "evidence": "strict solution validation; chapter typecheck/build; compiled solution test",
+      "remaining": "Node 24.18.0 + pnpm 11.15.1 fixed-environment rerun",
+      "fixedEnvironmentStatus": "pending"
+    },
+    {
+      "id": "5.2",
+      "chapter": 5,
+      "title": "課題5.2: Generator から async/await を再発明 (★★★)",
+      "category": "local-automated",
+      "minutes": 150,
+      "difficulty": 3,
+      "services": [
+        "なし"
+      ],
+      "starter": [
+        "code/ch05/run-async.ts"
+      ],
+      "solution": [
+        "code/ch05/run-async.solution.ts"
+      ],
+      "requiredEvidence": [
+        "章の自動テスト",
+        "README期待出力との照合"
+      ],
+      "safety": "外部システムへ副作用を発生させない。",
+      "compatibilityStatus": "passed",
+      "evidence": "strict solution validation; chapter typecheck/build; compiled solution test",
+      "remaining": "Node 24.18.0 + pnpm 11.15.1 fixed-environment rerun",
+      "fixedEnvironmentStatus": "pending"
+    },
+    {
+      "id": "5.3",
+      "chapter": 5,
+      "title": "課題5.3: TypeScript 型レベルプログラミング (★★★)",
+      "category": "local-automated",
+      "minutes": 150,
+      "difficulty": 3,
+      "services": [
+        "なし"
+      ],
+      "starter": [
+        "code/ch05/type-gymnastics.ts"
+      ],
+      "solution": [
+        "code/ch05/type-gymnastics.solution.ts"
+      ],
+      "requiredEvidence": [
+        "章の自動テスト",
+        "README期待出力との照合"
+      ],
+      "safety": "外部システムへ副作用を発生させない。",
+      "compatibilityStatus": "passed",
+      "evidence": "strict solution validation; chapter typecheck/build; compiled solution test",
+      "remaining": "Node 24.18.0 + pnpm 11.15.1 fixed-environment rerun",
+      "fixedEnvironmentStatus": "pending"
+    },
+    {
+      "id": "5.4",
+      "chapter": 5,
+      "title": "課題5.4: イベントエミッタを型安全に (★★)",
+      "category": "local-automated",
+      "minutes": 90,
+      "difficulty": 2,
+      "services": [
+        "なし"
+      ],
+      "starter": [
+        "code/ch05/typed-emitter.ts"
+      ],
+      "solution": [
+        "code/ch05/typed-emitter.solution.ts"
+      ],
+      "requiredEvidence": [
+        "章の自動テスト",
+        "README期待出力との照合"
+      ],
+      "safety": "外部システムへ副作用を発生させない。",
+      "compatibilityStatus": "passed",
+      "evidence": "strict solution validation; chapter typecheck/build; compiled solution test",
+      "remaining": "Node 24.18.0 + pnpm 11.15.1 fixed-environment rerun",
+      "fixedEnvironmentStatus": "pending"
+    },
+    {
+      "id": "5.5",
+      "chapter": 5,
+      "title": "課題5.5: Intl API で実用的な国際化ユーティリティ (★★)",
+      "category": "local-automated",
+      "minutes": 90,
+      "difficulty": 2,
+      "services": [
+        "なし"
+      ],
+      "starter": [
+        "code/ch05/i18n-utils.ts"
+      ],
+      "solution": [
+        "code/ch05/i18n-utils.solution.ts"
+      ],
+      "requiredEvidence": [
+        "章の自動テスト",
+        "README期待出力との照合"
+      ],
+      "safety": "外部システムへ副作用を発生させない。",
+      "compatibilityStatus": "passed",
+      "evidence": "strict solution validation; chapter typecheck/build; compiled solution test",
+      "remaining": "Node 24.18.0 + pnpm 11.15.1 fixed-environment rerun",
+      "fixedEnvironmentStatus": "pending"
+    },
+    {
+      "id": "6.1",
+      "chapter": 6,
+      "title": "課題6.1: 100行ミニReact + Hooks (★★★)",
+      "category": "local-automated",
+      "minutes": 150,
+      "difficulty": 3,
+      "services": [
+        "なし"
+      ],
+      "starter": [
+        "code/ch06/mini-react/mini-react.ts"
+      ],
+      "solution": [
+        "code/ch06/mini-react/mini-react.solution.ts"
+      ],
+      "requiredEvidence": [
+        "章の自動テスト",
+        "README期待出力との照合"
+      ],
+      "safety": "外部システムへ副作用を発生させない。",
+      "compatibilityStatus": "passed",
+      "evidence": "strict solution validation; chapter typecheck/build; compiled solution test",
+      "remaining": "Node 24.18.0 + pnpm 11.15.1 fixed-environment rerun",
+      "fixedEnvironmentStatus": "pending"
+    },
+    {
+      "id": "6.2",
+      "chapter": 6,
+      "title": "課題6.2: Signals ベースのリアクティブシステム (★★★)",
+      "category": "local-automated",
+      "minutes": 150,
+      "difficulty": 3,
+      "services": [
+        "なし"
+      ],
+      "starter": [
+        "code/ch06/signals.ts"
+      ],
+      "solution": [
+        "code/ch06/signals.solution.ts"
+      ],
+      "requiredEvidence": [
+        "章の自動テスト",
+        "README期待出力との照合"
+      ],
+      "safety": "外部システムへ副作用を発生させない。",
+      "compatibilityStatus": "passed",
+      "evidence": "strict solution validation; chapter typecheck/build; compiled solution test",
+      "remaining": "Node 24.18.0 + pnpm 11.15.1 fixed-environment rerun",
+      "fixedEnvironmentStatus": "pending"
+    },
+    {
+      "id": "6.3",
+      "chapter": 6,
+      "title": "課題6.3: Diff アルゴリズム(VDOM Reconciler)(★★★)",
+      "category": "local-automated",
+      "minutes": 150,
+      "difficulty": 3,
+      "services": [
+        "なし"
+      ],
+      "starter": [
+        "code/ch06/vdom-diff.ts"
+      ],
+      "solution": [
+        "code/ch06/vdom-diff.solution.ts"
+      ],
+      "requiredEvidence": [
+        "章の自動テスト",
+        "README期待出力との照合"
+      ],
+      "safety": "外部システムへ副作用を発生させない。",
+      "compatibilityStatus": "passed",
+      "evidence": "strict solution validation; chapter typecheck/build; compiled solution test",
+      "remaining": "Node 24.18.0 + pnpm 11.15.1 fixed-environment rerun",
+      "fixedEnvironmentStatus": "pending"
+    },
+    {
+      "id": "6.4",
+      "chapter": 6,
+      "title": "課題6.4: Web Components で型安全な Counter (★★)",
+      "category": "browser-manual",
+      "minutes": 90,
+      "difficulty": 2,
+      "services": [
+        "なし"
+      ],
+      "starter": [
+        "code/ch06/web-component-counter/starter/main.html"
+      ],
+      "solution": [
+        "code/ch06/web-component-counter/solution/main.html"
+      ],
+      "requiredEvidence": [
+        "章の自動テスト",
+        "実ブラウザ操作記録",
+        "README期待出力との照合"
+      ],
+      "safety": "localhostまたはローカルファイルに限定する。",
+      "compatibilityStatus": "static-passed-browser-blocked",
+      "evidence": "typecheck/build/static solution validation; Chromium launch attempted",
+      "remaining": "browser navigation blocked by environment administrator; manual interaction pending",
+      "fixedEnvironmentStatus": "pending"
+    },
+    {
+      "id": "6.5",
+      "chapter": 6,
+      "title": "課題6.5: フレームワーク比較ベンチマーク (★)",
+      "category": "local-automated",
+      "minutes": 45,
+      "difficulty": 1,
+      "services": [
+        "localhost"
+      ],
+      "starter": [
+        "code/ch06/benchmark/starter/main.sh"
+      ],
+      "solution": [
+        "code/ch06/benchmark/solution/main.sh"
+      ],
+      "requiredEvidence": [
+        "章の自動テスト",
+        "README期待出力との照合"
+      ],
+      "safety": "localhostまたはローカルファイルに限定する。",
+      "compatibilityStatus": "passed",
+      "evidence": "strict solution validation; chapter typecheck/build; compiled solution test",
+      "remaining": "Node 24.18.0 + pnpm 11.15.1 fixed-environment rerun",
+      "fixedEnvironmentStatus": "pending"
+    },
+    {
+      "id": "7.1",
+      "chapter": 7,
+      "title": "課題7.1: Redux を自作する (★★)",
+      "category": "local-automated",
+      "minutes": 90,
+      "difficulty": 2,
+      "services": [
+        "なし"
+      ],
+      "starter": [
+        "code/ch07/redux.ts"
+      ],
+      "solution": [
+        "code/ch07/redux.solution.ts"
+      ],
+      "requiredEvidence": [
+        "章の自動テスト",
+        "README期待出力との照合"
+      ],
+      "safety": "外部システムへ副作用を発生させない。",
+      "compatibilityStatus": "passed",
+      "evidence": "strict solution validation; chapter typecheck/build; compiled solution test",
+      "remaining": "Node 24.18.0 + pnpm 11.15.1 fixed-environment rerun",
+      "fixedEnvironmentStatus": "pending"
+    },
+    {
+      "id": "7.2",
+      "chapter": 7,
+      "title": "課題7.2: TanStack Query 風キャッシュ (★★★)",
+      "category": "local-automated",
+      "minutes": 150,
+      "difficulty": 3,
+      "services": [
+        "なし"
+      ],
+      "starter": [
+        "code/ch07/query-cache.ts"
+      ],
+      "solution": [
+        "code/ch07/query-cache.solution.ts"
+      ],
+      "requiredEvidence": [
+        "章の自動テスト",
+        "README期待出力との照合"
+      ],
+      "safety": "外部システムへ副作用を発生させない。",
+      "compatibilityStatus": "passed",
+      "evidence": "strict solution validation; chapter typecheck/build; compiled solution test",
+      "remaining": "Node 24.18.0 + pnpm 11.15.1 fixed-environment rerun",
+      "fixedEnvironmentStatus": "pending"
+    },
+    {
+      "id": "7.3",
+      "chapter": 7,
+      "title": "課題7.3: 楽観的更新の実装 (★★)",
+      "category": "local-automated",
+      "minutes": 90,
+      "difficulty": 2,
+      "services": [
+        "なし"
+      ],
+      "starter": [
+        "code/ch07/optimistic/starter/README.md",
+        "code/ch07/optimistic/starter/optimistic-update.ts"
+      ],
+      "solution": [
+        "code/ch07/optimistic/solution/README.md",
+        "code/ch07/optimistic/solution/optimistic-update.ts"
+      ],
+      "requiredEvidence": [
+        "章の自動テスト",
+        "README期待出力との照合"
+      ],
+      "safety": "外部システムへ副作用を発生させない。",
+      "compatibilityStatus": "passed",
+      "evidence": "strict solution validation; chapter typecheck/build; compiled solution test",
+      "remaining": "Node 24.18.0 + pnpm 11.15.1 fixed-environment rerun",
+      "fixedEnvironmentStatus": "pending"
+    },
+    {
+      "id": "7.4",
+      "chapter": 7,
+      "title": "課題7.4: フォームの reactive validation (★★)",
+      "category": "local-automated",
+      "minutes": 90,
+      "difficulty": 2,
+      "services": [
+        "なし"
+      ],
+      "starter": [
+        "code/ch07/form-validation.ts"
+      ],
+      "solution": [
+        "code/ch07/form-validation.solution.ts"
+      ],
+      "requiredEvidence": [
+        "章の自動テスト",
+        "README期待出力との照合"
+      ],
+      "safety": "外部システムへ副作用を発生させない。",
+      "compatibilityStatus": "passed",
+      "evidence": "strict solution validation; chapter typecheck/build; compiled solution test",
+      "remaining": "Node 24.18.0 + pnpm 11.15.1 fixed-environment rerun",
+      "fixedEnvironmentStatus": "pending"
+    },
+    {
+      "id": "8.1",
+      "chapter": 8,
+      "title": "課題8.1: 最小バンドラを書く (★★★)",
+      "category": "local-automated",
+      "minutes": 150,
+      "difficulty": 3,
+      "services": [
+        "なし"
+      ],
+      "starter": [
+        "code/ch08/my-bundler/starter/main.sh"
+      ],
+      "solution": [
+        "code/ch08/my-bundler/solution/main.sh"
+      ],
+      "requiredEvidence": [
+        "章の自動テスト",
+        "README期待出力との照合"
+      ],
+      "safety": "外部システムへ副作用を発生させない。",
+      "compatibilityStatus": "passed",
+      "evidence": "strict solution validation; chapter typecheck/build; compiled solution test",
+      "remaining": "Node 24.18.0 + pnpm 11.15.1 fixed-environment rerun",
+      "fixedEnvironmentStatus": "pending"
+    },
+    {
+      "id": "8.2",
+      "chapter": 8,
+      "title": "課題8.2: ツリーシェイキングを観察する (★★)",
+      "category": "local-automated",
+      "minutes": 90,
+      "difficulty": 2,
+      "services": [
+        "なし"
+      ],
+      "starter": [
+        "code/ch08/tree-shaking/starter/main.sh"
+      ],
+      "solution": [
+        "code/ch08/tree-shaking/solution/main.sh"
+      ],
+      "requiredEvidence": [
+        "章の自動テスト",
+        "README期待出力との照合"
+      ],
+      "safety": "外部システムへ副作用を発生させない。",
+      "compatibilityStatus": "passed",
+      "evidence": "strict solution validation; chapter typecheck/build; compiled solution test",
+      "remaining": "Node 24.18.0 + pnpm 11.15.1 fixed-environment rerun",
+      "fixedEnvironmentStatus": "pending"
+    },
+    {
+      "id": "8.3",
+      "chapter": 8,
+      "title": "課題8.3: 簡易 HMR を実装 (★★★)",
+      "category": "local-automated",
+      "minutes": 150,
+      "difficulty": 3,
+      "services": [
+        "なし"
+      ],
+      "starter": [
+        "code/ch08/mini-hmr/starter/main.ts"
+      ],
+      "solution": [
+        "code/ch08/mini-hmr/solution/main.ts"
+      ],
+      "requiredEvidence": [
+        "章の自動テスト",
+        "README期待出力との照合"
+      ],
+      "safety": "外部システムへ副作用を発生させない。",
+      "compatibilityStatus": "passed",
+      "evidence": "strict solution validation; chapter typecheck/build; compiled solution test",
+      "remaining": "Node 24.18.0 + pnpm 11.15.1 fixed-environment rerun",
+      "fixedEnvironmentStatus": "pending"
+    },
+    {
+      "id": "8.4",
+      "chapter": 8,
+      "title": "課題8.4: コード分割を実装 (★★)",
+      "category": "local-automated",
+      "minutes": 90,
+      "difficulty": 2,
+      "services": [
+        "なし"
+      ],
+      "starter": [
+        "code/ch08/code-splitting/starter/main.ts"
+      ],
+      "solution": [
+        "code/ch08/code-splitting/solution/main.ts"
+      ],
+      "requiredEvidence": [
+        "章の自動テスト",
+        "README期待出力との照合"
+      ],
+      "safety": "外部システムへ副作用を発生させない。",
+      "compatibilityStatus": "passed",
+      "evidence": "strict solution validation; chapter typecheck/build; compiled solution test",
+      "remaining": "Node 24.18.0 + pnpm 11.15.1 fixed-environment rerun",
+      "fixedEnvironmentStatus": "pending"
+    },
+    {
+      "id": "9.2",
+      "chapter": 9,
+      "title": "課題9.2: Service Worker でオフライン対応 (★★)",
+      "category": "browser-manual",
+      "minutes": 90,
+      "difficulty": 2,
+      "services": [
+        "なし"
+      ],
+      "starter": [
+        "code/ch09/pwa-service-worker/starter/main.js"
+      ],
+      "solution": [
+        "code/ch09/pwa-service-worker/solution/main.js",
+        "code/ch09/pwa-service-worker/solution/index.html",
+        "code/ch09/pwa-service-worker/solution/app.js",
+        "code/ch09/pwa-service-worker/solution/style.css",
+        "code/ch09/pwa-service-worker/solution/offline.html",
+        "code/ch09/pwa-service-worker/solution/manifest.webmanifest"
+      ],
+      "requiredEvidence": [
+        "章の自動テスト",
+        "実ブラウザ操作記録",
+        "README期待出力との照合"
+      ],
+      "safety": "localhostまたはローカルファイルに限定する。",
+      "compatibilityStatus": "static-passed-browser-blocked",
+      "evidence": "typecheck/build/static solution validation; Chromium launch attempted",
+      "remaining": "browser navigation blocked by environment administrator; manual interaction pending",
+      "fixedEnvironmentStatus": "pending"
+    },
+    {
+      "id": "9.3",
+      "chapter": 9,
+      "title": "課題9.3: 簡易 SSR フレームワークを書く (★★★)",
+      "category": "local-automated",
+      "minutes": 150,
+      "difficulty": 3,
+      "services": [
+        "localhost"
+      ],
+      "starter": [
+        "code/ch09/mini-ssr/starter/main.ts"
+      ],
+      "solution": [
+        "code/ch09/mini-ssr/solution/main.ts",
+        "code/ch09/mini-ssr/solution/pages/index.ts",
+        "code/ch09/mini-ssr/solution/pages/about.ts"
+      ],
+      "requiredEvidence": [
+        "章の自動テスト",
+        "README期待出力との照合"
+      ],
+      "safety": "localhostまたはローカルファイルに限定する。",
+      "compatibilityStatus": "passed",
+      "evidence": "strict solution validation; chapter typecheck/build; compiled solution test",
+      "remaining": "Node 24.18.0 + pnpm 11.15.1 fixed-environment rerun",
+      "fixedEnvironmentStatus": "pending"
+    }
+  ]
+}

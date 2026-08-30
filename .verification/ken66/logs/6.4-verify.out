@@ -1,0 +1,24 @@
+=== 課題6.4 Web Components で型安全な Counter ===
+開始: 2026-08-29T16:41:42.823Z
+localhost サーバ起動: http://localhost:8644 (root=code/ch06/web-component-counter/solution)
+  [http:8644] GET /main.html -> 200
+  [http:8644] GET /favicon.ico -> 204 (harness stub)
+定義=true shadowRoot=true(open) 初期値=10 value=10
++2 +2 -2 後: 表示=12 value=12 <output>=12 change イベント=[12,14,12]
+initial=100 属性変更後: 表示=100 value=100
+value=7 設定後: 表示=7 <output>=7
+スタイル隔離: shadow内 button min-width=32px / light DOM の button=0個 / :host display=inline-flex
+--- チェック結果 ---
+  PASS: custom element が定義される
+  PASS: Shadow DOM (open) が生成される
+  PASS: initial=10 が初期値に反映される (shown=10 value=10)
+  PASS: step=2 で +2/+2/-2 が 12→14→12 になる ([12,14,12])
+  PASS: change イベントが light DOM の <output> へ反映される (12)
+  PASS: attributeChangedCallback で initial 変更が反映される
+  PASS: value プロパティ書き込みが反映される
+  PASS: :host のスタイルが Shadow DOM 内に隔離される (32px/inline-flex)
+  PASS: Console 重大エラー0件
+  PASS: Network 失敗0件
+  PASS: CSP 違反0件
+所要時間: 0.88 秒
+判定: PASS

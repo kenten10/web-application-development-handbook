@@ -1,0 +1,12 @@
+== up ==
+applied 001_create_users.sql
+applied 002_add_index.sql
+== up(再実行) ==
+== status ==
+up	001_create_users.sql
+up	002_add_index.sql
+== down ==
+rolled back 002_add_index.sql
+== status ==
+up	001_create_users.sql
+pending	002_add_index.sql

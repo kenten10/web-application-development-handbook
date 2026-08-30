@@ -1,0 +1,14 @@
+{
+  "note": "KEN-66 検証専用のダミーデータ。実ブラウザ履歴・個人情報は一切含まない。",
+  "generatedFor": "verification-only",
+  "entries": [
+    { "site": "dummy-docs.localhost", "category": "static", "visits": 42, "minutes": 55 },
+    { "site": "dummy-shop.localhost", "category": "hybrid", "visits": 31, "minutes": 80 },
+    { "site": "dummy-mail.localhost", "category": "spa", "visits": 64, "minutes": 210 },
+    { "site": "dummy-news.localhost", "category": "ssr", "visits": 18, "minutes": 35 },
+    { "site": "dummy-chat.localhost", "category": "spa", "visits": 77, "minutes": 160 },
+    { "site": "dummy-wiki.localhost", "category": "static", "visits": 12, "minutes": 22 },
+    { "site": "dummy-admin.localhost", "category": "hybrid", "visits": 9, "minutes": 48 },
+    { "site": "dummy-video.localhost", "category": "spa", "visits": 25, "minutes": 130 }
+  ]
+}

@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8"><title>SPAページ (ダミー)</title></head>
+<body>
+<h1>SPA ページ</h1>
+<nav>
+  <button type="button" data-route="/spa.html?view=home">Home</button>
+  <button type="button" data-route="/spa.html?view=reports">Reports</button>
+  <button type="button" data-route="/spa.html?view=settings">Settings</button>
+</nav>
+<section id="view">home</section>
+<a href="./index.html">戻る</a>
+<script>
+window.__pageKind = 'spa';
+window.__navCount = 0;
+const view = document.querySelector('#view');
+for (const button of document.querySelectorAll('[data-route]')) {
+  button.addEventListener('click', () => {
+    history.pushState({}, '', button.dataset.route);
+    view.textContent = new URL(location.href).searchParams.get('view') ?? 'home';
+    window.__navCount += 1;
+  });
+}
+</script>
+</body></html>

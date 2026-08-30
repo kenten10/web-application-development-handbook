@@ -1,0 +1,3 @@
+current is new: true
+previous (grace中はrollback可能): dummy-v1
+audit log: [{"at":"<ts>","action":"set","name":"db-password"},{"at":"<ts>","action":"rotate","name":"db-password"},{"at":"<ts>","action":"get:current","name":"db-password"},{"at":"<ts>","action":"get:previous","name":"db-password"}]

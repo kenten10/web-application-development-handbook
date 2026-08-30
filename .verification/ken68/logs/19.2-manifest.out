@@ -1,0 +1,10 @@
+== 演習バリデータ(solution)による検証 ==
+/tmp/ken68/bad-deploy.yaml → ["warning:no-latest-tag","warning:require-resources","warning:require-readiness-probe","error:no-privileged"]
+/tmp/ken68/good-deploy.yaml → no issues
+== kind上のserver-side dry-runによる検証 ==
+namespace/handbook-validation created
+-- 構文不正(replicas: "two")は拒否される --
+Error from server (BadRequest): error when creating "/tmp/ken68/invalid-field.yaml": Deployment in version "v1" cannot be handled as a Deployment: json: cannot unmarshal string into Go struct field DeploymentSpec.spec.replicas of type int32
+REJECTED_AS_EXPECTED
+-- 良性manifestはdry-run通過 --
+deployment.apps/good-app created (server dry run)

@@ -1,0 +1,20 @@
+{
+  "name": "@handbook/ch22",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=24.18.0 <25"
+  },
+  "scripts": {
+    "lint": "node ../../scripts/validate-exercises.mjs --chapter ch22",
+    "typecheck": "tsc --noEmit -p tsconfig.json",
+    "test": "node ../../scripts/validate-exercises.mjs --chapter ch22 && tsx --test solutions.test.ts",
+    "build": "tsc -p tsconfig.json --outDir dist"
+  },
+  "devDependencies": {
+    "@types/node": "catalog:",
+    "typescript": "catalog:",
+    "tsx": "catalog:"
+  }
+}

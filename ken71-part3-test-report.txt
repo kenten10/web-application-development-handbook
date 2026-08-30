@@ -1,0 +1,405 @@
+\n### node scripts/validate-narrative-flow.mjs
+Narrative flow: chapters=30, completed=13
+exit=0
+\n### node --test scripts/validate-narrative-flow.test.mjs
+TAP version 13
+# Subtest: current narrative manifest is valid
+ok 1 - current narrative manifest is valid
+  ---
+  duration_ms: 46.914408
+  type: 'test'
+  ...
+# Subtest: completed chapter without bridges is rejected
+ok 2 - completed chapter without bridges is rejected
+  ---
+  duration_ms: 99.828556
+  type: 'test'
+  ...
+# Subtest: manifest must cover all 30 chapters
+ok 3 - manifest must cover all 30 chapters
+  ---
+  duration_ms: 97.284877
+  type: 'test'
+  ...
+1..3
+# tests 3
+# suites 0
+# pass 3
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 287.745644
+exit=0
+\n### node scripts/apply-learning-levels.mjs --check
+Learning metadata is current for 385 numbered sections.
+exit=0
+\n### node scripts/generate-learning-paths.mjs --check
+Learning paths are current: 6 routes.
+exit=0
+\n### node scripts/apply-chapter-guides.mjs --check
+Chapter guides are current for 30 chapters.
+exit=0
+\n### node scripts/generate-exercise-catalog.mjs --check
+Exercise catalog check passed: 31 file(s)
+exit=0
+\n### node scripts/generate-handbook.mjs --check
+Generated files are up to date.
+exit=0
+\n### node scripts/validate-exercises.mjs
+Exercise chapters: 30
+Exercise units: 132
+Starter artifacts: 140
+Solution artifacts: 157
+Manuscript references: 145
+Exercise validation passed
+exit=0
+\n### node scripts/validate-workspace.mjs --structure-only
+Workspace packages: 30
+Mode: structure-only
+Node.js: v22.16.0
+pnpm: not checked
+Workspace validation passed: 0 warning(s)
+exit=0
+\n### node scripts/validate-ci.mjs
+CI chapters: 30
+Required tasks: lint, typecheck, test, build
+Service containers: postgres, redis
+CI validation passed: 0 warning(s)
+exit=0
+\n### node scripts/validate-clean-environment.mjs
+Clean environment exercises: 132
+local-automated: 102
+local-tls: 7
+external-service: 17
+browser-manual: 6
+Mode: structure
+Clean environment validation passed.
+exit=0
+\n### node scripts/validate-handbook.mjs
+Handbook validation
+- chapters: 30
+- numbered sections/subsections: 385
+- learning metadata: 385
+- chapter guides: 30
+- errors: 0
+- warnings: 27
+
+Warnings
+- [ANCHOR_DUPLICATE] 同じ自動アンカー候補 #コード集の使い方 が複数あります (02-part1-foundations.md:1988)
+- [ANCHOR_DUPLICATE] 同じ自動アンカー候補 #コード集の使い方 が複数あります (03-part2-frontend.md:2052)
+- [ANCHOR_DUPLICATE] 同じ自動アンカー候補 #コード集の使い方 が複数あります (03-part2-frontend.md:2763)
+- [ANCHOR_DUPLICATE] 同じ自動アンカー候補 #コード集の使い方 が複数あります (03-part2-frontend.md:3308)
+- [ANCHOR_DUPLICATE] 同じ自動アンカー候補 #コード集の使い方 が複数あります (03-part2-frontend.md:4413)
+- [ANCHOR_DUPLICATE] 同じ自動アンカー候補 #コード集の使い方 が複数あります (04-part3-backend.md:1187)
+- [ANCHOR_DUPLICATE] 同じ自動アンカー候補 #コード集の使い方 が複数あります (04-part3-backend.md:1988)
+- [ANCHOR_DUPLICATE] 同じ自動アンカー候補 #コード集の使い方 が複数あります (04-part3-backend.md:5433)
+- [ANCHOR_DUPLICATE] 同じ自動アンカー候補 #採用判断 が複数あります (05-part4-data.md:2238)
+- [ANCHOR_DUPLICATE] 同じ自動アンカー候補 #コード集の使い方 が複数あります (05-part4-data.md:2401)
+- [ANCHOR_DUPLICATE] 同じ自動アンカー候補 #採用判断 が複数あります (05-part4-data.md:2939)
+- [ANCHOR_DUPLICATE] 同じ自動アンカー候補 #コード集の使い方 が複数あります (05-part4-data.md:3109)
+- [ANCHOR_DUPLICATE] 同じ自動アンカー候補 #コード集の使い方 が複数あります (05-part4-data.md:3967)
+- [ANCHOR_DUPLICATE] 同じ自動アンカー候補 #コード集の使い方 が複数あります (06-part5-infrastructure.md:1481)
+- [ANCHOR_DUPLICATE] 同じ自動アンカー候補 #コード集の使い方 が複数あります (06-part5-infrastructure.md:2232)
+- [ANCHOR_DUPLICATE] 同じ自動アンカー候補 #コード集の使い方 が複数あります (06-part5-infrastructure.md:2810)
+- [ANCHOR_DUPLICATE] 同じ自動アンカー候補 #コード集の使い方 が複数あります (06-part5-infrastructure.md:3320)
+- [ANCHOR_DUPLICATE] 同じ自動アンカー候補 #仕組み が複数あります (07-part6-quality.md:1263)
+- [ANCHOR_DUPLICATE] 同じ自動アンカー候補 #コード集の使い方 が複数あります (07-part6-quality.md:2210)
+- [ANCHOR_DUPLICATE] 同じ自動アンカー候補 #コード集の使い方 が複数あります (07-part6-quality.md:2724)
+- [ANCHOR_DUPLICATE] 同じ自動アンカー候補 #コード集の使い方 が複数あります (07-part6-quality.md:3699)
+- [ANCHOR_DUPLICATE] 同じ自動アンカー候補 #context が複数あります (08-part7-practice.md:1596)
+- [ANCHOR_DUPLICATE] 同じ自動アンカー候補 #decision が複数あります (08-part7-practice.md:1597)
+- [ANCHOR_DUPLICATE] 同じ自動アンカー候補 #consequences が複数あります (08-part7-practice.md:1598)
+- [ANCHOR_DUPLICATE] 同じ自動アンカー候補 #alternatives-considered が複数あります (08-part7-practice.md:1599)
+- [ANCHOR_DUPLICATE] 同じ自動アンカー候補 #コード集の使い方 が複数あります (08-part7-practice.md:1633)
+- [ANCHOR_DUPLICATE] 同じ自動アンカー候補 #コード集の使い方 が複数あります (08-part7-practice.md:2507)
+exit=0
+\n### node --test scripts/apply-chapter-guides.test.mjs scripts/apply-learning-levels.test.mjs scripts/generate-handbook.test.mjs scripts/generate-learning-paths.test.mjs scripts/validate-ci.test.mjs scripts/validate-clean-environment.test.mjs scripts/validate-exercises.test.mjs scripts/validate-handbook.test.mjs scripts/validate-narrative-flow.test.mjs scripts/validate-workspace.test.mjs
+TAP version 13
+# Subtest: chapter guides are current
+ok 1 - chapter guides are current
+  ---
+  duration_ms: 55.299131
+  type: 'test'
+  ...
+# Subtest: all 30 chapters have exactly one generated guide
+ok 2 - all 30 chapters have exactly one generated guide
+  ---
+  duration_ms: 8.786488
+  type: 'test'
+  ...
+# Subtest: every chapter guide contains the 11 required elements
+ok 3 - every chapter guide contains the 11 required elements
+  ---
+  duration_ms: 6.385721
+  type: 'test'
+  ...
+# Subtest: manifest covers all chapters and key educational warnings
+ok 4 - manifest covers all chapters and key educational warnings
+  ---
+  duration_ms: 0.545558
+  type: 'test'
+  ...
+# Subtest: template document explains non-repetitive application
+ok 5 - template document explains non-repetitive application
+  ---
+  duration_ms: 0.170993
+  type: 'test'
+  ...
+# Subtest: learning metadata is current
+ok 6 - learning metadata is current
+  ---
+  duration_ms: 57.34989
+  type: 'test'
+  ...
+# Subtest: all 385 numbered sections have generated metadata
+ok 7 - all 385 numbered sections have generated metadata
+  ---
+  duration_ms: 5.977566
+  type: 'test'
+  ...
+# Subtest: manifest covers every numbered section exactly once
+ok 8 - manifest covers every numbered section exactly once
+  ---
+  duration_ms: 0.669763
+  type: 'test'
+  ...
+# Subtest: generated guide exposes a realistic first-reading route
+ok 9 - generated guide exposes a realistic first-reading route
+  ---
+  duration_ms: 2.986195
+  type: 'test'
+  ...
+# Subtest: generated files are current
+ok 10 - generated files are current
+  ---
+  duration_ms: 90.148915
+  type: 'test'
+  ...
+# Subtest: TOC contains explicit links, levels, and time estimates
+ok 11 - TOC contains explicit links, levels, and time estimates
+  ---
+  duration_ms: 0.48597
+  type: 'test'
+  ...
+# Subtest: body contains explicit stable anchors and learning metadata
+ok 12 - body contains explicit stable anchors and learning metadata
+  ---
+  duration_ms: 0.596694
+  type: 'test'
+  ...
+# Subtest: index is generated from body metadata
+ok 13 - index is generated from body metadata
+  ---
+  duration_ms: 0.268468
+  type: 'test'
+  ...
+# Subtest: generated learning paths are current
+ok 14 - generated learning paths are current
+  ---
+  duration_ms: 51.735111
+  type: 'test'
+  ...
+# Subtest: six routes and the standard 24-hour route are exposed
+ok 15 - six routes and the standard 24-hour route are exposed
+  ---
+  duration_ms: 1.826677
+  type: 'test'
+  ...
+# Subtest: front matter and generated TOC link to every route
+ok 16 - front matter and generated TOC link to every route
+  ---
+  duration_ms: 0.647859
+  type: 'test'
+  ...
+# Subtest: unknown section references fail generation
+ok 17 - unknown section references fail generation
+  ---
+  duration_ms: 43.498477
+  type: 'test'
+  ...
+# Subtest: check mode detects generated document drift
+ok 18 - check mode detects generated document drift
+  ---
+  duration_ms: 46.538647
+  type: 'test'
+  ...
+# Subtest: current CI plan is valid
+ok 19 - current CI plan is valid
+  ---
+  duration_ms: 29.918176
+  type: 'test'
+  ...
+# Subtest: missing chapter in matrix is detected
+ok 20 - missing chapter in matrix is detected
+  ---
+  duration_ms: 99.863458
+  type: 'test'
+  ...
+# Subtest: unpinned action is detected
+ok 21 - unpinned action is detected
+  ---
+  duration_ms: 92.956104
+  type: 'test'
+  ...
+# Subtest: unpinned cache action is detected
+ok 22 - unpinned cache action is detected
+  ---
+  duration_ms: 114.508485
+  type: 'test'
+  ...
+# Subtest: noEmit build configuration is detected
+ok 23 - noEmit build configuration is detected
+  ---
+  duration_ms: 99.972018
+  type: 'test'
+  ...
+# Subtest: missing chapter task is detected
+ok 24 - missing chapter task is detected
+  ---
+  duration_ms: 105.840674
+  type: 'test'
+  ...
+# Subtest: clean environment plan is structurally valid
+ok 25 - clean environment plan is structurally valid
+  ---
+  duration_ms: 33.154581
+  type: 'test'
+  ...
+# Subtest: all 132 exercises have evidence and safety records
+ok 26 - all 132 exercises have evidence and safety records
+  ---
+  duration_ms: 0.835037
+  type: 'test'
+  ...
+# Subtest: manual and external exercises cannot silently pass as local automated
+ok 27 - manual and external exercises cannot silently pass as local automated
+  ---
+  duration_ms: 0.571196
+  type: 'test'
+  ...
+# Subtest: all chapters have normalized starter, solution, and README artifacts
+ok 28 - all chapters have normalized starter, solution, and README artifacts
+  ---
+  duration_ms: 37.488263
+  type: 'test'
+  ...
+# Subtest: a single chapter can be validated
+ok 29 - a single chapter can be validated
+  ---
+  duration_ms: 40.211588
+  type: 'test'
+  ...
+# Subtest: placeholder solution artifacts are rejected
+ok 30 - placeholder solution artifacts are rejected
+  ---
+  duration_ms: 124.101579
+  type: 'test'
+  ...
+# Subtest: missing starter is rejected
+ok 31 - missing starter is rejected
+  ---
+  duration_ms: 96.261847
+  type: 'test'
+  ...
+# Subtest: README format drift is rejected
+ok 32 - README format drift is rejected
+  ---
+  duration_ms: 90.775968
+  type: 'test'
+  ...
+# Subtest: generated distribution artifacts are rejected
+ok 33 - generated distribution artifacts are rejected
+  ---
+  duration_ms: 90.783525
+  type: 'test'
+  ...
+# Subtest: 30章と385節を検出する
+ok 34 - 30章と385節を検出する
+  ---
+  duration_ms: 2.652981
+  type: 'test'
+  ...
+# Subtest: 全節の学習レベルメタデータを検出する
+ok 35 - 全節の学習レベルメタデータを検出する
+  ---
+  duration_ms: 0.176962
+  type: 'test'
+  ...
+# Subtest: 目次と本文の既知タイトル不一致がない
+ok 36 - 目次と本文の既知タイトル不一致がない
+  ---
+  duration_ms: 0.086668
+  type: 'test'
+  ...
+# Subtest: コードブロックをMarkdownリンクとして誤検出しない
+ok 37 - コードブロックをMarkdownリンクとして誤検出しない
+  ---
+  duration_ms: 0.089522
+  type: 'test'
+  ...
+# Subtest: 本文のコード参照先がすべて配置されている
+ok 38 - 本文のコード参照先がすべて配置されている
+  ---
+  duration_ms: 0.119557
+  type: 'test'
+  ...
+# Subtest: 全30章の共通教材ガイドを検出する
+ok 39 - 全30章の共通教材ガイドを検出する
+  ---
+  duration_ms: 0.171855
+  type: 'test'
+  ...
+# Subtest: current narrative manifest is valid
+ok 40 - current narrative manifest is valid
+  ---
+  duration_ms: 71.195018
+  type: 'test'
+  ...
+# Subtest: completed chapter without bridges is rejected
+ok 41 - completed chapter without bridges is rejected
+  ---
+  duration_ms: 104.603731
+  type: 'test'
+  ...
+# Subtest: manifest must cover all 30 chapters
+ok 42 - manifest must cover all 30 chapters
+  ---
+  duration_ms: 104.633345
+  type: 'test'
+  ...
+# Subtest: workspace structure and pinned versions are valid
+ok 43 - workspace structure and pinned versions are valid
+  ---
+  duration_ms: 30.718763
+  type: 'test'
+  ...
+# Subtest: lint is scheduled for all chapter packages
+ok 44 - lint is scheduled for all chapter packages
+  ---
+  duration_ms: 35.353159
+  type: 'test'
+  ...
+# Subtest: typecheck is scheduled for the chapter package
+ok 45 - typecheck is scheduled for the chapter package
+  ---
+  duration_ms: 30.127317
+  type: 'test'
+  ...
+# Subtest: unknown workspace tasks are rejected
+ok 46 - unknown workspace tasks are rejected
+  ---
+  duration_ms: 25.424509
+  type: 'test'
+  ...
+1..46
+# tests 46
+# suites 0
+# pass 46
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 960.840612
+exit=0
+overall=0

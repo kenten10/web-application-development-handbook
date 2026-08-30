@@ -1,0 +1,2231 @@
+{
+  "schemaVersion": 1,
+  "updated": "2026-08-30",
+  "description": "本書の用語の正表記・別表記・定義の正本。STYLE_GUIDE.md の S-TERM 系ルールと GLOSSARY.md はこのファイルから導く。",
+  "source": "STYLE_GUIDE.md",
+  "generated": [
+    "GLOSSARY.md"
+  ],
+  "categories": {
+    "japanese": {
+      "label": "日本語表記",
+      "note": "外来語の日本語表記。語ごとに正表記を固定する。"
+    },
+    "product": {
+      "label": "製品名・プロジェクト名",
+      "note": "提供元の公式表記に従う。"
+    },
+    "abbreviation": {
+      "label": "略語",
+      "note": "初出時に英語正式名称を併記する。"
+    },
+    "translation": {
+      "label": "訳語の選択",
+      "note": "同義の訳語が併存する語。正表記へ寄せる。"
+    }
+  },
+  "severities": {
+    "error": "非正規表記。使用しない。",
+    "warn": "非推奨表記。既存箇所はKEN-59で整理する。新規追加はしない。"
+  },
+  "terms": [
+    {
+      "id": "サーバ",
+      "canonical": "サーバ",
+      "category": "japanese",
+      "reading": "さーば",
+      "definition": "要求を受けて応答を返す側のプログラムまたは計算機。",
+      "variants": [
+        {
+          "text": "サーバー",
+          "severity": "error"
+        }
+      ],
+      "exceptions": [
+        "サーバーレス",
+        "サーバーサイド"
+      ]
+    },
+    {
+      "id": "ヘッダ",
+      "canonical": "ヘッダ",
+      "category": "japanese",
+      "reading": "へっだ",
+      "definition": "メッセージ本体の前に置かれるメタデータ。HTTPヘッダ、ファイルヘッダなど。",
+      "variants": [
+        {
+          "text": "ヘッダー",
+          "severity": "error"
+        }
+      ],
+      "exceptions": []
+    },
+    {
+      "id": "ルータ",
+      "canonical": "ルータ",
+      "category": "japanese",
+      "reading": "るーた",
+      "definition": "経路情報に基づいてパケットまたは要求を転送する装置・機構。",
+      "variants": [
+        {
+          "text": "ルーター",
+          "severity": "error"
+        }
+      ],
+      "exceptions": []
+    },
+    {
+      "id": "インタフェース",
+      "canonical": "インタフェース",
+      "category": "japanese",
+      "reading": "いんたふぇーす",
+      "definition": "異なる構成要素の間で守られる接続規約。",
+      "variants": [
+        {
+          "text": "インターフェース",
+          "severity": "error"
+        },
+        {
+          "text": "インターフェイス",
+          "severity": "error"
+        }
+      ],
+      "exceptions": []
+    },
+    {
+      "id": "ブラウザ",
+      "canonical": "ブラウザ",
+      "category": "japanese",
+      "reading": "ぶらうざ",
+      "definition": "HTML・CSS・JavaScriptを解釈して画面と操作へ変換するクライアント。",
+      "variants": [
+        {
+          "text": "ブラウザー",
+          "severity": "error"
+        }
+      ],
+      "exceptions": []
+    },
+    {
+      "id": "コンピュータ",
+      "canonical": "コンピュータ",
+      "category": "japanese",
+      "reading": "こんぴゅーた",
+      "definition": "プログラムを実行する計算機。",
+      "variants": [
+        {
+          "text": "コンピューター",
+          "severity": "error"
+        }
+      ],
+      "exceptions": []
+    },
+    {
+      "id": "メモリ",
+      "canonical": "メモリ",
+      "category": "japanese",
+      "reading": "めもり",
+      "definition": "実行中のデータを保持する主記憶。",
+      "variants": [
+        {
+          "text": "メモリー",
+          "severity": "error"
+        }
+      ],
+      "exceptions": []
+    },
+    {
+      "id": "クエリ",
+      "canonical": "クエリ",
+      "category": "japanese",
+      "reading": "くえり",
+      "definition": "データベースや検索系へ渡す問い合わせ。",
+      "variants": [
+        {
+          "text": "クエリー",
+          "severity": "error"
+        }
+      ],
+      "exceptions": []
+    },
+    {
+      "id": "エントリ",
+      "canonical": "エントリ",
+      "category": "japanese",
+      "reading": "えんとり",
+      "definition": "一覧・表・索引などに登録された1件の項目。",
+      "variants": [
+        {
+          "text": "エントリー",
+          "severity": "error"
+        }
+      ],
+      "exceptions": []
+    },
+    {
+      "id": "ディレクトリ",
+      "canonical": "ディレクトリ",
+      "category": "japanese",
+      "reading": "でぃれくとり",
+      "definition": "ファイルを階層的にまとめる入れ物。",
+      "variants": [
+        {
+          "text": "ディレクトリー",
+          "severity": "error"
+        }
+      ],
+      "exceptions": []
+    },
+    {
+      "id": "プロキシ",
+      "canonical": "プロキシ",
+      "category": "japanese",
+      "reading": "ぷろきし",
+      "definition": "クライアントとサーバの間に立って要求を中継する仕組み。",
+      "variants": [
+        {
+          "text": "プロキシー",
+          "severity": "error"
+        }
+      ],
+      "exceptions": []
+    },
+    {
+      "id": "レジストリ",
+      "canonical": "レジストリ",
+      "category": "japanese",
+      "reading": "れじすとり",
+      "definition": "パッケージやコンテナイメージを登録・配布する保管庫。",
+      "variants": [
+        {
+          "text": "レジストリー",
+          "severity": "error"
+        }
+      ],
+      "exceptions": []
+    },
+    {
+      "id": "ライブラリ",
+      "canonical": "ライブラリ",
+      "category": "japanese",
+      "reading": "らいぶらり",
+      "definition": "アプリケーションから呼び出して使う再利用可能なコードの集合。",
+      "variants": [
+        {
+          "text": "ライブラリー",
+          "severity": "error"
+        }
+      ],
+      "exceptions": []
+    },
+    {
+      "id": "カテゴリ",
+      "canonical": "カテゴリ",
+      "category": "japanese",
+      "reading": "かてごり",
+      "definition": "分類の単位。",
+      "variants": [
+        {
+          "text": "カテゴリー",
+          "severity": "error"
+        }
+      ],
+      "exceptions": []
+    },
+    {
+      "id": "セキュリティ",
+      "canonical": "セキュリティ",
+      "category": "japanese",
+      "reading": "せきゅりてぃ",
+      "definition": "資産を脅威から守るための性質と手段の総称。",
+      "variants": [
+        {
+          "text": "セキュリティー",
+          "severity": "error"
+        }
+      ],
+      "exceptions": []
+    },
+    {
+      "id": "アクティビティ",
+      "canonical": "アクティビティ",
+      "category": "japanese",
+      "reading": "あくてぃびてぃ",
+      "definition": "利用者やシステムの活動記録・活動単位。",
+      "variants": [
+        {
+          "text": "アクティビティー",
+          "severity": "error"
+        }
+      ],
+      "exceptions": []
+    },
+    {
+      "id": "コンテナ",
+      "canonical": "コンテナ",
+      "category": "japanese",
+      "reading": "こんてな",
+      "definition": "名前空間とcgroupsでプロセスを隔離した実行単位。",
+      "variants": [
+        {
+          "text": "コンテナー",
+          "severity": "error"
+        }
+      ],
+      "exceptions": [],
+      "indexTerm": true
+    },
+    {
+      "id": "クラスタ",
+      "canonical": "クラスタ",
+      "category": "japanese",
+      "reading": "くらすた",
+      "definition": "協調して1つのサービスを構成する複数ノードの集合。",
+      "variants": [
+        {
+          "text": "クラスター",
+          "severity": "error"
+        }
+      ],
+      "exceptions": []
+    },
+    {
+      "id": "フィルタ",
+      "canonical": "フィルタ",
+      "category": "japanese",
+      "reading": "ふぃるた",
+      "definition": "条件に合う要素だけを通す処理。",
+      "variants": [
+        {
+          "text": "フィルター",
+          "severity": "error"
+        }
+      ],
+      "exceptions": []
+    },
+    {
+      "id": "フッタ",
+      "canonical": "フッタ",
+      "category": "japanese",
+      "reading": "ふった",
+      "definition": "文書・画面・メッセージの末尾に置く領域。",
+      "variants": [
+        {
+          "text": "フッター",
+          "severity": "error"
+        }
+      ],
+      "exceptions": []
+    },
+    {
+      "id": "ポインタ",
+      "canonical": "ポインタ",
+      "category": "japanese",
+      "reading": "ぽいんた",
+      "definition": "記憶域の位置を指す値。",
+      "variants": [
+        {
+          "text": "ポインター",
+          "severity": "error"
+        }
+      ],
+      "exceptions": []
+    },
+    {
+      "id": "ベクタ",
+      "canonical": "ベクタ",
+      "category": "japanese",
+      "reading": "べくた",
+      "definition": "数値の並びで表す量。埋め込み表現の格納単位としても使う。",
+      "variants": [
+        {
+          "text": "ベクター",
+          "severity": "error"
+        }
+      ],
+      "exceptions": []
+    },
+    {
+      "id": "パラメータ",
+      "canonical": "パラメータ",
+      "category": "japanese",
+      "reading": "ぱらめーた",
+      "definition": "関数・クエリ・設定へ外から与える値。",
+      "variants": [
+        {
+          "text": "パラメーター",
+          "severity": "error"
+        }
+      ],
+      "exceptions": []
+    },
+    {
+      "id": "オペレータ",
+      "canonical": "オペレータ",
+      "category": "japanese",
+      "reading": "おぺれーた",
+      "definition": "演算子。またはKubernetesで運用手順をコード化した制御機構。",
+      "variants": [
+        {
+          "text": "オペレーター",
+          "severity": "error"
+        }
+      ],
+      "exceptions": []
+    },
+    {
+      "id": "モニタ",
+      "canonical": "モニタ",
+      "category": "japanese",
+      "reading": "もにた",
+      "definition": "状態を継続的に観測する仕組み。",
+      "variants": [
+        {
+          "text": "モニター",
+          "severity": "error"
+        }
+      ],
+      "exceptions": []
+    },
+    {
+      "id": "スケジューラ",
+      "canonical": "スケジューラ",
+      "category": "japanese",
+      "reading": "すけじゅーら",
+      "definition": "実行対象と実行時刻を決めて割り当てる機構。",
+      "variants": [
+        {
+          "text": "スケジューラー",
+          "severity": "error"
+        }
+      ],
+      "exceptions": []
+    },
+    {
+      "id": "コントローラ",
+      "canonical": "コントローラ",
+      "category": "japanese",
+      "reading": "こんとろーら",
+      "definition": "入力を受けて処理を振り分ける制御責務。",
+      "variants": [
+        {
+          "text": "コントローラー",
+          "severity": "error"
+        }
+      ],
+      "exceptions": []
+    },
+    {
+      "id": "ハンドラ",
+      "canonical": "ハンドラ",
+      "category": "japanese",
+      "reading": "はんどら",
+      "definition": "特定の事象を受け取って処理する関数。",
+      "variants": [
+        {
+          "text": "ハンドラー",
+          "severity": "error"
+        }
+      ],
+      "exceptions": []
+    },
+    {
+      "id": "レンダラ",
+      "canonical": "レンダラ",
+      "category": "japanese",
+      "reading": "れんだら",
+      "definition": "データを表示可能な形へ変換する処理系。",
+      "variants": [
+        {
+          "text": "レンダラー",
+          "severity": "error"
+        }
+      ],
+      "exceptions": []
+    },
+    {
+      "id": "コンパイラ",
+      "canonical": "コンパイラ",
+      "category": "japanese",
+      "reading": "こんぱいら",
+      "definition": "ソースコードを別の形式へ変換するプログラム。",
+      "variants": [
+        {
+          "text": "コンパイラー",
+          "severity": "error"
+        }
+      ],
+      "exceptions": []
+    },
+    {
+      "id": "バリデータ",
+      "canonical": "バリデータ",
+      "category": "japanese",
+      "reading": "ばりでーた",
+      "definition": "入力が規約を満たすかを判定する処理。",
+      "variants": [
+        {
+          "text": "バリデーター",
+          "severity": "error"
+        }
+      ],
+      "exceptions": []
+    },
+    {
+      "id": "イテレータ",
+      "canonical": "イテレータ",
+      "category": "japanese",
+      "reading": "いてれーた",
+      "definition": "要素を順に取り出す規約を実装した対象。",
+      "variants": [
+        {
+          "text": "イテレーター",
+          "severity": "error"
+        }
+      ],
+      "exceptions": []
+    },
+    {
+      "id": "デコレータ",
+      "canonical": "デコレータ",
+      "category": "japanese",
+      "reading": "でこれーた",
+      "definition": "対象の定義を包んで振る舞いを追加する記法。",
+      "variants": [
+        {
+          "text": "デコレーター",
+          "severity": "error"
+        }
+      ],
+      "exceptions": []
+    },
+    {
+      "id": "プロパティ",
+      "canonical": "プロパティ",
+      "category": "japanese",
+      "reading": "ぷろぱてぃ",
+      "definition": "オブジェクトが持つ名前付きの値。",
+      "variants": [
+        {
+          "text": "プロパティー",
+          "severity": "error"
+        }
+      ],
+      "exceptions": []
+    },
+    {
+      "id": "アーキテクチャ",
+      "canonical": "アーキテクチャ",
+      "category": "japanese",
+      "reading": "あーきてくちゃ",
+      "definition": "構成要素とその関係、変更しにくい決定の集合。",
+      "variants": [
+        {
+          "text": "アーキテクチャー",
+          "severity": "error"
+        }
+      ],
+      "exceptions": [],
+      "indexTerm": true
+    },
+    {
+      "id": "スキーマ",
+      "canonical": "スキーマ",
+      "category": "japanese",
+      "reading": "すきーま",
+      "definition": "データの構造と制約の定義。",
+      "variants": [
+        {
+          "text": "スキーマー",
+          "severity": "error"
+        }
+      ],
+      "exceptions": []
+    },
+    {
+      "id": "レイテンシ",
+      "canonical": "レイテンシ",
+      "category": "japanese",
+      "reading": "れいてんし",
+      "definition": "要求から応答までに要する時間。",
+      "variants": [
+        {
+          "text": "レイテンシー",
+          "severity": "error"
+        }
+      ],
+      "exceptions": []
+    },
+    {
+      "id": "プライバシー",
+      "canonical": "プライバシー",
+      "category": "japanese",
+      "reading": "ぷらいばしー",
+      "definition": "個人に関する情報を本人の期待の範囲で扱う要求。",
+      "variants": [
+        {
+          "text": "プライバシ",
+          "severity": "error"
+        }
+      ],
+      "exceptions": []
+    },
+    {
+      "id": "ユーザー",
+      "canonical": "ユーザー",
+      "category": "japanese",
+      "reading": "ゆーざー",
+      "definition": "システムを利用する人。",
+      "variants": [
+        {
+          "text": "ユーザ",
+          "severity": "error"
+        }
+      ],
+      "exceptions": [
+        "ユーザビリティ",
+        "ユーザエージェント"
+      ]
+    },
+    {
+      "id": "トリガー",
+      "canonical": "トリガー",
+      "category": "japanese",
+      "reading": "とりがー",
+      "definition": "ある事象を検知して処理を起動する仕組み。",
+      "variants": [
+        {
+          "text": "トリガ",
+          "severity": "error"
+        }
+      ],
+      "exceptions": []
+    },
+    {
+      "id": "ミドルウェア",
+      "canonical": "ミドルウェア",
+      "category": "japanese",
+      "reading": "みどるうぇあ",
+      "definition": "要求と応答の経路に挟んで共通処理を担う層。",
+      "variants": [
+        {
+          "text": "ミドルウエア",
+          "severity": "error"
+        }
+      ],
+      "exceptions": [],
+      "indexTerm": true
+    },
+    {
+      "id": "ソフトウェア",
+      "canonical": "ソフトウェア",
+      "category": "japanese",
+      "reading": "そふとうぇあ",
+      "definition": "計算機上で動作するプログラムと関連資産。",
+      "variants": [
+        {
+          "text": "ソフトウエア",
+          "severity": "error"
+        }
+      ],
+      "exceptions": []
+    },
+    {
+      "id": "ハードウェア",
+      "canonical": "ハードウェア",
+      "category": "japanese",
+      "reading": "はーどうぇあ",
+      "definition": "計算機を構成する物理装置。",
+      "variants": [
+        {
+          "text": "ハードウエア",
+          "severity": "error"
+        }
+      ],
+      "exceptions": []
+    },
+    {
+      "id": "ウィンドウ",
+      "canonical": "ウィンドウ",
+      "category": "japanese",
+      "reading": "うぃんどう",
+      "definition": "画面上の表示単位。またはブラウザのグローバルオブジェクト。",
+      "variants": [
+        {
+          "text": "ウインドウ",
+          "severity": "error"
+        }
+      ],
+      "exceptions": []
+    },
+    {
+      "id": "ウィジェット",
+      "canonical": "ウィジェット",
+      "category": "japanese",
+      "reading": "うぃじぇっと",
+      "definition": "再利用可能なUI部品。",
+      "variants": [
+        {
+          "text": "ウイジェット",
+          "severity": "error"
+        }
+      ],
+      "exceptions": []
+    },
+    {
+      "id": "シミュレーション",
+      "canonical": "シミュレーション",
+      "category": "japanese",
+      "reading": "しみゅれーしょん",
+      "definition": "対象の振る舞いを模して観察する方法。",
+      "variants": [
+        {
+          "text": "シュミレーション",
+          "severity": "error"
+        }
+      ],
+      "exceptions": []
+    },
+    {
+      "id": "ファイアウォール",
+      "canonical": "ファイアウォール",
+      "category": "japanese",
+      "reading": "ふぁいあうぉーる",
+      "definition": "通信を規則に従って通過・遮断する境界防御。",
+      "variants": [
+        {
+          "text": "ファイヤウォール",
+          "severity": "error"
+        },
+        {
+          "text": "ファイアーウォール",
+          "severity": "error"
+        }
+      ],
+      "exceptions": []
+    },
+    {
+      "id": "冪等",
+      "canonical": "冪等",
+      "category": "japanese",
+      "reading": "べきとう",
+      "definition": "同じ操作を何度適用しても結果が変わらない性質。",
+      "variants": [
+        {
+          "text": "べき等",
+          "severity": "error"
+        },
+        {
+          "text": "ベき等",
+          "severity": "error"
+        }
+      ],
+      "exceptions": []
+    },
+    {
+      "id": "PostgreSQL",
+      "canonical": "PostgreSQL",
+      "category": "product",
+      "definition": "オープンソースのリレーショナルデータベース管理システム。",
+      "variants": [
+        {
+          "text": "Postgres",
+          "severity": "error"
+        },
+        {
+          "text": "Postgresql",
+          "severity": "error"
+        },
+        {
+          "text": "postgreSQL",
+          "severity": "error"
+        }
+      ],
+      "exceptions": [
+        "postgres://",
+        "postgres:",
+        "postgres_",
+        "postgres-",
+        "user postgres"
+      ],
+      "indexTerm": true
+    },
+    {
+      "id": "MySQL",
+      "canonical": "MySQL",
+      "category": "product",
+      "definition": "オープンソースのリレーショナルデータベース管理システム。",
+      "variants": [
+        {
+          "text": "MySql",
+          "severity": "error"
+        },
+        {
+          "text": "Mysql",
+          "severity": "error"
+        }
+      ],
+      "exceptions": []
+    },
+    {
+      "id": "SQLite",
+      "canonical": "SQLite",
+      "category": "product",
+      "definition": "単一ファイルで動作する組み込み型のリレーショナルデータベース。",
+      "variants": [
+        {
+          "text": "Sqlite",
+          "severity": "error"
+        },
+        {
+          "text": "SQLLite",
+          "severity": "error"
+        }
+      ],
+      "exceptions": []
+    },
+    {
+      "id": "MongoDB",
+      "canonical": "MongoDB",
+      "category": "product",
+      "definition": "ドキュメント指向のデータベース。",
+      "variants": [
+        {
+          "text": "Mongodb",
+          "severity": "error"
+        },
+        {
+          "text": "MongoDb",
+          "severity": "error"
+        }
+      ],
+      "exceptions": [],
+      "indexTerm": true
+    },
+    {
+      "id": "Redis",
+      "canonical": "Redis",
+      "category": "product",
+      "definition": "インメモリのキー・バリューストア。",
+      "variants": [
+        {
+          "text": "REDIS",
+          "severity": "error"
+        }
+      ],
+      "exceptions": [
+        "REdis Serialization Protocol"
+      ],
+      "indexTerm": true
+    },
+    {
+      "id": "nginx",
+      "canonical": "nginx",
+      "category": "product",
+      "definition": "リバースプロキシ・Webサーバとして広く使われるオープンソース実装。",
+      "variants": [
+        {
+          "text": "Nginx",
+          "severity": "error"
+        },
+        {
+          "text": "NGINX",
+          "severity": "error"
+        }
+      ],
+      "exceptions": [
+        "NGINX Ingress",
+        "NGINX Plus",
+        "nginx.conf",
+        "nginx.org"
+      ],
+      "indexTerm": true
+    },
+    {
+      "id": "Docker",
+      "canonical": "Docker",
+      "category": "product",
+      "definition": "コンテナの構築と実行を提供する製品。",
+      "variants": [
+        {
+          "text": "docker",
+          "severity": "error"
+        }
+      ],
+      "exceptions": [
+        "docker compose",
+        "docker-compose",
+        "docker run",
+        "docker build",
+        "docker --",
+        "docker exec",
+        "docker ps",
+        "docker logs",
+        "docker_",
+        "docker-init",
+        "dockerfile-optimization",
+        "docker.io",
+        "docker.sock"
+      ],
+      "indexTerm": true
+    },
+    {
+      "id": "Kubernetes",
+      "canonical": "Kubernetes",
+      "category": "product",
+      "definition": "コンテナ化されたアプリケーションの配置と回復を宣言的に扱うオーケストレータ。",
+      "variants": [
+        {
+          "text": "kubernetes",
+          "severity": "error"
+        }
+      ],
+      "exceptions": [
+        "K8s",
+        "k8s"
+      ],
+      "indexTerm": true
+    },
+    {
+      "id": "K8s",
+      "canonical": "K8s",
+      "category": "abbreviation",
+      "definition": "Kubernetes の公式な略記。初出時は Kubernetes を先に示す。",
+      "variants": [
+        {
+          "text": "k8s",
+          "severity": "error"
+        },
+        {
+          "text": "K8S",
+          "severity": "error"
+        }
+      ],
+      "exceptions": []
+    },
+    {
+      "id": "Node.js",
+      "canonical": "Node.js",
+      "category": "product",
+      "definition": "V8上で動作するサーバサイドJavaScriptランタイム。",
+      "variants": [
+        {
+          "text": "NodeJS",
+          "severity": "error"
+        },
+        {
+          "text": "NodeJs",
+          "severity": "error"
+        },
+        {
+          "text": "Node.JS",
+          "severity": "error"
+        },
+        {
+          "text": "nodejs",
+          "severity": "error"
+        }
+      ],
+      "exceptions": [
+        "node_modules",
+        "node:",
+        ".node-version",
+        "node "
+      ],
+      "indexTerm": true
+    },
+    {
+      "id": "JavaScript",
+      "canonical": "JavaScript",
+      "category": "product",
+      "definition": "ECMAScript仕様に基づくWebの標準スクリプト言語。",
+      "variants": [
+        {
+          "text": "javascript",
+          "severity": "error"
+        },
+        {
+          "text": "Javascript",
+          "severity": "error"
+        },
+        {
+          "text": "JavaScipt",
+          "severity": "error"
+        },
+        {
+          "text": "JS",
+          "severity": "warn"
+        }
+      ],
+      "exceptions": [
+        "javascript:",
+        "javascript-",
+        "CSS-in-JS"
+      ]
+    },
+    {
+      "id": "TypeScript",
+      "canonical": "TypeScript",
+      "category": "product",
+      "definition": "JavaScriptへ静的型を加えた言語。",
+      "variants": [
+        {
+          "text": "Typescript",
+          "severity": "error"
+        },
+        {
+          "text": "typescript",
+          "severity": "error"
+        },
+        {
+          "text": "TS",
+          "severity": "warn"
+        }
+      ],
+      "exceptions": [
+        "typescript-",
+        "TSX",
+        "TS 4.9"
+      ],
+      "indexTerm": true
+    },
+    {
+      "id": "GitHub",
+      "canonical": "GitHub",
+      "category": "product",
+      "definition": "Gitホスティングと開発ワークフローを提供するサービス。",
+      "variants": [
+        {
+          "text": "Github",
+          "severity": "error"
+        },
+        {
+          "text": "GITHUB",
+          "severity": "error"
+        }
+      ],
+      "exceptions": [
+        "github.com",
+        ".github/",
+        ".github ",
+        "GITHUB_TOKEN",
+        "github-"
+      ]
+    },
+    {
+      "id": "GitLab",
+      "canonical": "GitLab",
+      "category": "product",
+      "definition": "Gitホスティングとパイプラインを提供するサービス。",
+      "variants": [
+        {
+          "text": "Gitlab",
+          "severity": "error"
+        },
+        {
+          "text": "GITLAB",
+          "severity": "error"
+        }
+      ],
+      "exceptions": []
+    },
+    {
+      "id": "GraphQL",
+      "canonical": "GraphQL",
+      "category": "product",
+      "definition": "クライアントが必要な項目を指定して取得するAPIクエリ言語。",
+      "variants": [
+        {
+          "text": "Graphql",
+          "severity": "error"
+        },
+        {
+          "text": "graphQL",
+          "severity": "error"
+        }
+      ],
+      "exceptions": [],
+      "indexTerm": true
+    },
+    {
+      "id": "WebSocket",
+      "canonical": "WebSocket",
+      "category": "product",
+      "definition": "単一のTCP接続上で双方向通信を行うプロトコル。",
+      "variants": [
+        {
+          "text": "Websocket",
+          "severity": "error"
+        },
+        {
+          "text": "websocket",
+          "severity": "error"
+        }
+      ],
+      "exceptions": [],
+      "indexTerm": true
+    },
+    {
+      "id": "WebAssembly",
+      "canonical": "WebAssembly",
+      "category": "product",
+      "definition": "ブラウザなどで動作する可搬なバイナリ命令形式。",
+      "variants": [
+        {
+          "text": "Webassembly",
+          "severity": "error"
+        },
+        {
+          "text": "webassembly",
+          "severity": "error"
+        }
+      ],
+      "exceptions": []
+    },
+    {
+      "id": "React",
+      "canonical": "React",
+      "category": "product",
+      "definition": "宣言的にUIを構築するJavaScriptライブラリ。",
+      "variants": [
+        {
+          "text": "react",
+          "severity": "error"
+        }
+      ],
+      "exceptions": [
+        "react-intl",
+        "react-dom",
+        "vite-plugin-react",
+        "react-hook-form",
+        "react-query",
+        "react-router",
+        "@types/react"
+      ],
+      "indexTerm": true
+    },
+    {
+      "id": "Vue.js",
+      "canonical": "Vue.js",
+      "category": "product",
+      "definition": "宣言的にUIを構築するJavaScriptフレームワーク。",
+      "variants": [
+        {
+          "text": "VueJS",
+          "severity": "error"
+        },
+        {
+          "text": "vue.js",
+          "severity": "error"
+        }
+      ],
+      "exceptions": [
+        "Vue 3",
+        "Vue 2",
+        "Vue Router",
+        "Vue "
+      ]
+    },
+    {
+      "id": "Svelte",
+      "canonical": "Svelte",
+      "category": "product",
+      "definition": "コンパイル時にUI更新コードを生成するフレームワーク。",
+      "variants": [
+        {
+          "text": "svelte",
+          "severity": "error"
+        }
+      ],
+      "exceptions": [
+        "svelte-",
+        ".svelte"
+      ],
+      "indexTerm": true
+    },
+    {
+      "id": "Next.js",
+      "canonical": "Next.js",
+      "category": "product",
+      "definition": "Reactを用いたアプリケーションフレームワーク。",
+      "variants": [
+        {
+          "text": "NextJS",
+          "severity": "error"
+        },
+        {
+          "text": "NextJs",
+          "severity": "error"
+        },
+        {
+          "text": "next.js",
+          "severity": "error"
+        }
+      ],
+      "exceptions": []
+    },
+    {
+      "id": "Vite",
+      "canonical": "Vite",
+      "category": "product",
+      "definition": "ESMを前提とした開発サーバとビルドツール。",
+      "variants": [
+        {
+          "text": "VITE",
+          "severity": "error"
+        }
+      ],
+      "exceptions": [
+        "vite-plugin",
+        "vite.config"
+      ],
+      "indexTerm": true
+    },
+    {
+      "id": "Webpack",
+      "canonical": "Webpack",
+      "category": "product",
+      "definition": "依存グラフを解析して資産をまとめるバンドラ。",
+      "variants": [
+        {
+          "text": "WebPack",
+          "severity": "error"
+        },
+        {
+          "text": "webPack",
+          "severity": "error"
+        }
+      ],
+      "exceptions": [
+        "webpack.config",
+        "webpack-"
+      ]
+    },
+    {
+      "id": "Terraform",
+      "canonical": "Terraform",
+      "category": "product",
+      "definition": "宣言的にインフラを構成管理するツール。",
+      "variants": [
+        {
+          "text": "terraform",
+          "severity": "error"
+        }
+      ],
+      "exceptions": [
+        ".terraform",
+        "terraform.state",
+        "terraform.tfstate",
+        "terraform-",
+        "terraform "
+      ],
+      "indexTerm": true
+    },
+    {
+      "id": "Prometheus",
+      "canonical": "Prometheus",
+      "category": "product",
+      "definition": "時系列メトリクスの収集と問い合わせを行う監視システム。",
+      "variants": [
+        {
+          "text": "prometheus",
+          "severity": "error"
+        }
+      ],
+      "exceptions": [],
+      "indexTerm": true
+    },
+    {
+      "id": "Grafana",
+      "canonical": "Grafana",
+      "category": "product",
+      "definition": "メトリクスとログの可視化ダッシュボード。",
+      "variants": [
+        {
+          "text": "grafana",
+          "severity": "error"
+        }
+      ],
+      "exceptions": []
+    },
+    {
+      "id": "OpenTelemetry",
+      "canonical": "OpenTelemetry",
+      "category": "product",
+      "definition": "トレース・メトリクス・ログの計装と送信を標準化する枠組み。",
+      "variants": [
+        {
+          "text": "Opentelemetry",
+          "severity": "error"
+        },
+        {
+          "text": "openTelemetry",
+          "severity": "error"
+        }
+      ],
+      "exceptions": [],
+      "indexTerm": true
+    },
+    {
+      "id": "OpenAPI",
+      "canonical": "OpenAPI",
+      "category": "product",
+      "definition": "HTTP APIの契約を記述する仕様。旧称Swagger。",
+      "variants": [
+        {
+          "text": "Open API",
+          "severity": "error"
+        },
+        {
+          "text": "OpenApi",
+          "severity": "error"
+        }
+      ],
+      "exceptions": [],
+      "indexTerm": true
+    },
+    {
+      "id": "Kafka",
+      "canonical": "Kafka",
+      "category": "product",
+      "definition": "分散ログを基盤とするイベントストリーミング基盤。",
+      "variants": [
+        {
+          "text": "kafka",
+          "severity": "error"
+        }
+      ],
+      "exceptions": [],
+      "indexTerm": true
+    },
+    {
+      "id": "Elasticsearch",
+      "canonical": "Elasticsearch",
+      "category": "product",
+      "definition": "転置索引を用いた分散全文検索エンジン。",
+      "variants": [
+        {
+          "text": "ElasticSearch",
+          "severity": "error"
+        },
+        {
+          "text": "elasticsearch",
+          "severity": "error"
+        }
+      ],
+      "exceptions": [],
+      "indexTerm": true
+    },
+    {
+      "id": "Cloudflare",
+      "canonical": "Cloudflare",
+      "category": "product",
+      "definition": "CDNとエッジ実行環境を提供するサービス。",
+      "variants": [
+        {
+          "text": "CloudFlare",
+          "severity": "error"
+        },
+        {
+          "text": "cloudflare",
+          "severity": "error"
+        }
+      ],
+      "exceptions": []
+    },
+    {
+      "id": "Stripe",
+      "canonical": "Stripe",
+      "category": "product",
+      "definition": "決済APIを提供するサービス。",
+      "variants": [
+        {
+          "text": "stripe",
+          "severity": "error"
+        }
+      ],
+      "exceptions": [
+        "stripe-"
+      ],
+      "indexTerm": true
+    },
+    {
+      "id": "Express",
+      "canonical": "Express",
+      "category": "product",
+      "definition": "Node.js向けの最小構成のHTTPフレームワーク。",
+      "variants": [
+        {
+          "text": "express",
+          "severity": "error"
+        }
+      ],
+      "exceptions": [
+        "express-",
+        "eXpress Data Path"
+      ]
+    },
+    {
+      "id": "Prisma",
+      "canonical": "Prisma",
+      "category": "product",
+      "definition": "型生成とマイグレーションを備えるNode.js向けORM。",
+      "variants": [
+        {
+          "text": "prisma",
+          "severity": "error"
+        }
+      ],
+      "exceptions": [
+        "prisma-",
+        "schema.prisma"
+      ]
+    },
+    {
+      "id": "Playwright",
+      "canonical": "Playwright",
+      "category": "product",
+      "definition": "ブラウザ自動操作によるE2Eテストの実行基盤。",
+      "variants": [
+        {
+          "text": "PlayWright",
+          "severity": "error"
+        },
+        {
+          "text": "playwright",
+          "severity": "error"
+        }
+      ],
+      "exceptions": [
+        "playwright-",
+        "@playwright"
+      ]
+    },
+    {
+      "id": "Storybook",
+      "canonical": "Storybook",
+      "category": "product",
+      "definition": "UIコンポーネントを独立して開発・確認する環境。",
+      "variants": [
+        {
+          "text": "StoryBook",
+          "severity": "error"
+        },
+        {
+          "text": "storybook",
+          "severity": "error"
+        }
+      ],
+      "exceptions": [
+        "storybook-",
+        "@storybook"
+      ],
+      "indexTerm": true
+    },
+    {
+      "id": "Cookie",
+      "canonical": "Cookie",
+      "category": "product",
+      "definition": "サーバがブラウザへ保存させる小さな名前付きの値。",
+      "variants": [
+        {
+          "text": "クッキー",
+          "severity": "error"
+        },
+        {
+          "text": "cookie",
+          "severity": "error"
+        }
+      ],
+      "exceptions": [
+        "document.cookie",
+        "Set-Cookie",
+        "cookie-",
+        "cookie:",
+        "Cookie:"
+      ]
+    },
+    {
+      "id": "Web",
+      "canonical": "Web",
+      "category": "product",
+      "definition": "URI・HTTP・HTMLを基盤とする分散ハイパーテキストシステム。",
+      "variants": [
+        {
+          "text": "ウェブ",
+          "severity": "error"
+        },
+        {
+          "text": "ウエブ",
+          "severity": "error"
+        },
+        {
+          "text": "WEB",
+          "severity": "error"
+        }
+      ],
+      "exceptions": [
+        "WEBアプリケーション開発者になれる解説書",
+        "WEBアプリケーション",
+        "web-vitals",
+        "web.dev",
+        "webhook",
+        "WebSocket",
+        "WebAssembly"
+      ]
+    },
+    {
+      "id": "HTTP",
+      "canonical": "HTTP",
+      "category": "abbreviation",
+      "definition": "HyperText Transfer Protocol。Web上でメッセージを交換するプロトコル。",
+      "expansion": "HyperText Transfer Protocol",
+      "expandOnFirstUse": true,
+      "variants": [],
+      "exceptions": []
+    },
+    {
+      "id": "URI",
+      "canonical": "URI",
+      "category": "abbreviation",
+      "definition": "Uniform Resource Identifier。リソースを一意に識別する文字列。",
+      "expansion": "Uniform Resource Identifier",
+      "expandOnFirstUse": true,
+      "variants": [],
+      "exceptions": []
+    },
+    {
+      "id": "URL",
+      "canonical": "URL",
+      "category": "abbreviation",
+      "definition": "Uniform Resource Locator。所在を含めてリソースを指す識別子。",
+      "expansion": "Uniform Resource Locator",
+      "expandOnFirstUse": true,
+      "variants": [],
+      "exceptions": []
+    },
+    {
+      "id": "HTML",
+      "canonical": "HTML",
+      "category": "abbreviation",
+      "definition": "HyperText Markup Language。文書構造を表すマークアップ言語。",
+      "expansion": "HyperText Markup Language",
+      "expandOnFirstUse": true,
+      "variants": [],
+      "exceptions": []
+    },
+    {
+      "id": "CSS",
+      "canonical": "CSS",
+      "category": "abbreviation",
+      "definition": "Cascading Style Sheets。表示の指定を記述する言語。",
+      "expansion": "Cascading Style Sheets",
+      "expandOnFirstUse": true,
+      "variants": [],
+      "exceptions": []
+    },
+    {
+      "id": "DNS",
+      "canonical": "DNS",
+      "category": "abbreviation",
+      "definition": "Domain Name System。名前をアドレスへ解決する分散データベース。",
+      "expansion": "Domain Name System",
+      "expandOnFirstUse": true,
+      "variants": [],
+      "exceptions": [],
+      "indexTerm": true
+    },
+    {
+      "id": "TLS",
+      "canonical": "TLS",
+      "category": "abbreviation",
+      "definition": "Transport Layer Security。通信の機密性と相手認証を提供するプロトコル。",
+      "expansion": "Transport Layer Security",
+      "expandOnFirstUse": true,
+      "variants": [],
+      "exceptions": []
+    },
+    {
+      "id": "API",
+      "canonical": "API",
+      "category": "abbreviation",
+      "definition": "Application Programming Interface。プログラムから呼び出せる契約。",
+      "expansion": "Application Programming Interface",
+      "expandOnFirstUse": true,
+      "variants": [],
+      "exceptions": []
+    },
+    {
+      "id": "CDN",
+      "canonical": "CDN",
+      "category": "abbreviation",
+      "definition": "Content Delivery Network。配信元に代わって資産を地理的に分散配信する仕組み。",
+      "expansion": "Content Delivery Network",
+      "expandOnFirstUse": true,
+      "variants": [],
+      "exceptions": [],
+      "indexTerm": true
+    },
+    {
+      "id": "SPA",
+      "canonical": "SPA",
+      "category": "abbreviation",
+      "definition": "Single Page Application。単一文書上で画面遷移を行う構成。",
+      "expansion": "Single Page Application",
+      "expandOnFirstUse": true,
+      "variants": [],
+      "exceptions": []
+    },
+    {
+      "id": "CSR",
+      "canonical": "CSR",
+      "category": "abbreviation",
+      "definition": "Client-Side Rendering。ブラウザ側でHTMLを生成する方式。",
+      "expansion": "Client-Side Rendering",
+      "expandOnFirstUse": true,
+      "variants": [],
+      "exceptions": []
+    },
+    {
+      "id": "SSR",
+      "canonical": "SSR",
+      "category": "abbreviation",
+      "definition": "Server-Side Rendering。サーバ側でHTMLを生成する方式。",
+      "expansion": "Server-Side Rendering",
+      "expandOnFirstUse": true,
+      "variants": [],
+      "exceptions": [],
+      "indexTerm": true
+    },
+    {
+      "id": "SSG",
+      "canonical": "SSG",
+      "category": "abbreviation",
+      "definition": "Static Site Generation。ビルド時にHTMLを生成する方式。",
+      "expansion": "Static Site Generation",
+      "expandOnFirstUse": true,
+      "variants": [],
+      "exceptions": [],
+      "indexTerm": true
+    },
+    {
+      "id": "CORS",
+      "canonical": "CORS",
+      "category": "abbreviation",
+      "definition": "Cross-Origin Resource Sharing。異なるオリジンへの要求を許可する仕組み。",
+      "expansion": "Cross-Origin Resource Sharing",
+      "expandOnFirstUse": true,
+      "variants": [],
+      "exceptions": [],
+      "indexTerm": true
+    },
+    {
+      "id": "CSRF",
+      "canonical": "CSRF",
+      "category": "abbreviation",
+      "definition": "Cross-Site Request Forgery。利用者の資格情報を悪用させる攻撃。",
+      "expansion": "Cross-Site Request Forgery",
+      "expandOnFirstUse": true,
+      "variants": [],
+      "exceptions": [],
+      "indexTerm": true
+    },
+    {
+      "id": "XSS",
+      "canonical": "XSS",
+      "category": "abbreviation",
+      "definition": "Cross-Site Scripting。攻撃者のスクリプトを利用者の文脈で実行させる脆弱性。",
+      "expansion": "Cross-Site Scripting",
+      "expandOnFirstUse": true,
+      "variants": [],
+      "exceptions": []
+    },
+    {
+      "id": "SSRF",
+      "canonical": "SSRF",
+      "category": "abbreviation",
+      "definition": "Server-Side Request Forgery。サーバに任意の宛先へ要求させる脆弱性。",
+      "expansion": "Server-Side Request Forgery",
+      "expandOnFirstUse": true,
+      "variants": [],
+      "exceptions": [],
+      "indexTerm": true
+    },
+    {
+      "id": "JWT",
+      "canonical": "JWT",
+      "category": "abbreviation",
+      "definition": "JSON Web Token。署名付きの主張をJSONで表すトークン形式。",
+      "expansion": "JSON Web Token",
+      "expandOnFirstUse": true,
+      "variants": [],
+      "exceptions": []
+    },
+    {
+      "id": "OIDC",
+      "canonical": "OIDC",
+      "category": "abbreviation",
+      "definition": "OpenID Connect。OAuth 2.0上に構築された認証プロトコル。",
+      "expansion": "OpenID Connect",
+      "expandOnFirstUse": true,
+      "variants": [],
+      "exceptions": []
+    },
+    {
+      "id": "RBAC",
+      "canonical": "RBAC",
+      "category": "abbreviation",
+      "definition": "Role-Based Access Control。役割に権限を割り当てる認可方式。",
+      "expansion": "Role-Based Access Control",
+      "expandOnFirstUse": true,
+      "variants": [],
+      "exceptions": [],
+      "indexTerm": true
+    },
+    {
+      "id": "ABAC",
+      "canonical": "ABAC",
+      "category": "abbreviation",
+      "definition": "Attribute-Based Access Control。属性の評価で判断する認可方式。",
+      "expansion": "Attribute-Based Access Control",
+      "expandOnFirstUse": true,
+      "variants": [],
+      "exceptions": []
+    },
+    {
+      "id": "MFA",
+      "canonical": "MFA",
+      "category": "abbreviation",
+      "definition": "Multi-Factor Authentication。複数要素で本人性を確認する認証。",
+      "expansion": "Multi-Factor Authentication",
+      "expandOnFirstUse": true,
+      "variants": [],
+      "exceptions": []
+    },
+    {
+      "id": "SSO",
+      "canonical": "SSO",
+      "category": "abbreviation",
+      "definition": "Single Sign-On。一度の認証で複数サービスを利用できる仕組み。",
+      "expansion": "Single Sign-On",
+      "expandOnFirstUse": true,
+      "variants": [],
+      "exceptions": []
+    },
+    {
+      "id": "SAML",
+      "canonical": "SAML",
+      "category": "abbreviation",
+      "definition": "Security Assertion Markup Language。XMLで認証情報を交換する規格。",
+      "expansion": "Security Assertion Markup Language",
+      "expandOnFirstUse": true,
+      "variants": [],
+      "exceptions": []
+    },
+    {
+      "id": "SCIM",
+      "canonical": "SCIM",
+      "category": "abbreviation",
+      "definition": "System for Cross-domain Identity Management。利用者情報を同期する規格。",
+      "expansion": "System for Cross-domain Identity Management",
+      "expandOnFirstUse": true,
+      "variants": [],
+      "exceptions": []
+    },
+    {
+      "id": "PKCE",
+      "canonical": "PKCE",
+      "category": "abbreviation",
+      "definition": "Proof Key for Code Exchange。認可コード横取りを防ぐ拡張。",
+      "expansion": "Proof Key for Code Exchange",
+      "expandOnFirstUse": true,
+      "variants": [],
+      "exceptions": [],
+      "indexTerm": true
+    },
+    {
+      "id": "CSP",
+      "canonical": "CSP",
+      "category": "abbreviation",
+      "definition": "Content Security Policy。読み込み元と実行を制限するブラウザ機構。",
+      "expansion": "Content Security Policy",
+      "expandOnFirstUse": true,
+      "variants": [],
+      "exceptions": []
+    },
+    {
+      "id": "ORM",
+      "canonical": "ORM",
+      "category": "abbreviation",
+      "definition": "Object-Relational Mapping。オブジェクトと関係モデルを対応付ける層。",
+      "expansion": "Object-Relational Mapping",
+      "expandOnFirstUse": true,
+      "variants": [],
+      "exceptions": [],
+      "indexTerm": true
+    },
+    {
+      "id": "OLTP",
+      "canonical": "OLTP",
+      "category": "abbreviation",
+      "definition": "Online Transaction Processing。短い更新処理を大量に扱う用途。",
+      "expansion": "Online Transaction Processing",
+      "expandOnFirstUse": true,
+      "variants": [],
+      "exceptions": [],
+      "indexTerm": true
+    },
+    {
+      "id": "OLAP",
+      "canonical": "OLAP",
+      "category": "abbreviation",
+      "definition": "Online Analytical Processing。大量データの集計・分析を扱う用途。",
+      "expansion": "Online Analytical Processing",
+      "expandOnFirstUse": true,
+      "variants": [],
+      "exceptions": [],
+      "indexTerm": true
+    },
+    {
+      "id": "MVCC",
+      "canonical": "MVCC",
+      "category": "abbreviation",
+      "definition": "Multi-Version Concurrency Control。版を保持して読み書きの競合を避ける方式。",
+      "expansion": "Multi-Version Concurrency Control",
+      "expandOnFirstUse": true,
+      "variants": [],
+      "exceptions": [],
+      "indexTerm": true
+    },
+    {
+      "id": "WAL",
+      "canonical": "WAL",
+      "category": "abbreviation",
+      "definition": "Write-Ahead Logging。変更を先にログへ書いて耐障害性を確保する方式。",
+      "expansion": "Write-Ahead Logging",
+      "expandOnFirstUse": true,
+      "variants": [],
+      "exceptions": []
+    },
+    {
+      "id": "RLS",
+      "canonical": "RLS",
+      "category": "abbreviation",
+      "definition": "Row Level Security。行単位で参照・更新を制限するデータベース機能。",
+      "expansion": "Row-Level Security",
+      "expandOnFirstUse": true,
+      "variants": [],
+      "exceptions": []
+    },
+    {
+      "id": "CQRS",
+      "canonical": "CQRS",
+      "category": "abbreviation",
+      "definition": "Command Query Responsibility Segregation。更新系と参照系を分離する構成。",
+      "expansion": "Command Query Responsibility Segregation",
+      "expandOnFirstUse": true,
+      "variants": [],
+      "exceptions": [],
+      "indexTerm": true
+    },
+    {
+      "id": "CRDT",
+      "canonical": "CRDT",
+      "category": "abbreviation",
+      "definition": "Conflict-free Replicated Data Type。収束が保証される複製データ型。",
+      "expansion": "Conflict-free Replicated Data Type",
+      "expandOnFirstUse": true,
+      "variants": [],
+      "exceptions": []
+    },
+    {
+      "id": "DDD",
+      "canonical": "DDD",
+      "category": "abbreviation",
+      "definition": "Domain-Driven Design。業務領域のモデルを中心に据える設計手法。",
+      "expansion": "Domain-Driven Design",
+      "expandOnFirstUse": true,
+      "variants": [],
+      "exceptions": []
+    },
+    {
+      "id": "ADR",
+      "canonical": "ADR",
+      "category": "abbreviation",
+      "definition": "Architecture Decision Record。設計判断と背景を記録する文書。",
+      "expansion": "Architecture Decision Record",
+      "expandOnFirstUse": true,
+      "variants": [],
+      "exceptions": []
+    },
+    {
+      "id": "TDD",
+      "canonical": "TDD",
+      "category": "abbreviation",
+      "definition": "Test-Driven Development。テストを先に書いて実装を導く進め方。",
+      "expansion": "Test-Driven Development",
+      "expandOnFirstUse": true,
+      "variants": [],
+      "exceptions": []
+    },
+    {
+      "id": "BDD",
+      "canonical": "BDD",
+      "category": "abbreviation",
+      "definition": "Behavior-Driven Development。振る舞いの記述を起点にする進め方。",
+      "expansion": "Behavior-Driven Development",
+      "expandOnFirstUse": true,
+      "variants": [],
+      "exceptions": []
+    },
+    {
+      "id": "IaC",
+      "canonical": "IaC",
+      "category": "abbreviation",
+      "definition": "Infrastructure as Code。インフラ構成をコードで宣言し再現する方法。",
+      "expansion": "Infrastructure as Code",
+      "expandOnFirstUse": true,
+      "variants": [
+        {
+          "text": "IAC",
+          "severity": "error"
+        }
+      ],
+      "exceptions": []
+    },
+    {
+      "id": "SLI",
+      "canonical": "SLI",
+      "category": "abbreviation",
+      "definition": "Service Level Indicator。サービス品質を表す測定値。",
+      "expansion": "Service Level Indicator",
+      "expandOnFirstUse": true,
+      "variants": [],
+      "exceptions": []
+    },
+    {
+      "id": "SLO",
+      "canonical": "SLO",
+      "category": "abbreviation",
+      "definition": "Service Level Objective。SLIに対して定める目標値。",
+      "expansion": "Service Level Objective",
+      "expandOnFirstUse": true,
+      "variants": [],
+      "exceptions": []
+    },
+    {
+      "id": "SLA",
+      "canonical": "SLA",
+      "category": "abbreviation",
+      "definition": "Service Level Agreement。顧客と合意する品質水準と補償。",
+      "expansion": "Service Level Agreement",
+      "expandOnFirstUse": true,
+      "variants": [],
+      "exceptions": []
+    },
+    {
+      "id": "RTO",
+      "canonical": "RTO",
+      "category": "abbreviation",
+      "definition": "Recovery Time Objective。障害からの復旧までに許容する時間。",
+      "expansion": "Recovery Time Objective",
+      "expandOnFirstUse": true,
+      "variants": [],
+      "exceptions": []
+    },
+    {
+      "id": "RPO",
+      "canonical": "RPO",
+      "category": "abbreviation",
+      "definition": "Recovery Point Objective。障害時に許容するデータ損失の範囲。",
+      "expansion": "Recovery Point Objective",
+      "expandOnFirstUse": true,
+      "variants": [],
+      "exceptions": []
+    },
+    {
+      "id": "MTTR",
+      "canonical": "MTTR",
+      "category": "abbreviation",
+      "definition": "Mean Time To Recovery。復旧までに要した時間の平均。",
+      "expansion": "Mean Time To Recovery",
+      "expandOnFirstUse": true,
+      "variants": [],
+      "exceptions": []
+    },
+    {
+      "id": "WAF",
+      "canonical": "WAF",
+      "category": "abbreviation",
+      "definition": "Web Application Firewall。HTTP層で攻撃通信を遮断する仕組み。",
+      "expansion": "Web Application Firewall",
+      "expandOnFirstUse": true,
+      "variants": [],
+      "exceptions": []
+    },
+    {
+      "id": "SBOM",
+      "canonical": "SBOM",
+      "category": "abbreviation",
+      "definition": "Software Bill of Materials。構成部品の一覧。",
+      "expansion": "Software Bill of Materials",
+      "expandOnFirstUse": true,
+      "variants": [],
+      "exceptions": []
+    },
+    {
+      "id": "WCAG",
+      "canonical": "WCAG",
+      "category": "abbreviation",
+      "definition": "Web Content Accessibility Guidelines。Webコンテンツのアクセシビリティ指針。",
+      "expansion": "Web Content Accessibility Guidelines",
+      "expandOnFirstUse": true,
+      "variants": [],
+      "exceptions": [],
+      "indexTerm": true
+    },
+    {
+      "id": "ARIA",
+      "canonical": "ARIA",
+      "category": "abbreviation",
+      "definition": "Accessible Rich Internet Applications。支援技術へ意味を伝える属性群。",
+      "expansion": "Accessible Rich Internet Applications",
+      "expandOnFirstUse": true,
+      "variants": [],
+      "exceptions": []
+    },
+    {
+      "id": "GDPR",
+      "canonical": "GDPR",
+      "category": "abbreviation",
+      "definition": "General Data Protection Regulation。EUの個人データ保護規則。",
+      "expansion": "General Data Protection Regulation",
+      "expandOnFirstUse": true,
+      "variants": [],
+      "exceptions": [],
+      "indexTerm": true
+    },
+    {
+      "id": "PII",
+      "canonical": "PII",
+      "category": "abbreviation",
+      "definition": "Personally Identifiable Information。個人を特定できる情報。",
+      "expansion": "Personally Identifiable Information",
+      "expandOnFirstUse": true,
+      "variants": [],
+      "exceptions": []
+    },
+    {
+      "id": "KMS",
+      "canonical": "KMS",
+      "category": "abbreviation",
+      "definition": "Key Management Service。暗号鍵の生成・保管・利用を担うサービス。",
+      "expansion": "Key Management Service",
+      "expandOnFirstUse": true,
+      "variants": [],
+      "exceptions": []
+    },
+    {
+      "id": "PWA",
+      "canonical": "PWA",
+      "category": "abbreviation",
+      "definition": "Progressive Web App。オフライン動作やインストールに対応するWebアプリ。",
+      "expansion": "Progressive Web App",
+      "expandOnFirstUse": true,
+      "variants": [],
+      "exceptions": [],
+      "indexTerm": true
+    },
+    {
+      "id": "HMR",
+      "canonical": "HMR",
+      "category": "abbreviation",
+      "definition": "Hot Module Replacement。実行状態を保ったままモジュールを差し替える開発機能。",
+      "expansion": "Hot Module Replacement",
+      "expandOnFirstUse": true,
+      "variants": [],
+      "exceptions": []
+    },
+    {
+      "id": "RSC",
+      "canonical": "RSC",
+      "category": "abbreviation",
+      "definition": "React Server Components。サーバ側で実行されるReactコンポーネント。",
+      "expansion": "React Server Components",
+      "expandOnFirstUse": true,
+      "variants": [],
+      "exceptions": []
+    },
+    {
+      "id": "SSE",
+      "canonical": "SSE",
+      "category": "abbreviation",
+      "definition": "Server-Sent Events。サーバからクライアントへの単方向ストリーム。",
+      "expansion": "Server-Sent Events",
+      "expandOnFirstUse": true,
+      "variants": [],
+      "exceptions": []
+    },
+    {
+      "id": "DOM",
+      "canonical": "DOM",
+      "category": "abbreviation",
+      "definition": "Document Object Model。文書をオブジェクトの木として扱うAPI。",
+      "expansion": "Document Object Model",
+      "expandOnFirstUse": true,
+      "variants": [],
+      "exceptions": [],
+      "indexTerm": true
+    },
+    {
+      "id": "JSON",
+      "canonical": "JSON",
+      "category": "abbreviation",
+      "definition": "JavaScript Object Notation。テキストベースのデータ交換形式。",
+      "expansion": "JavaScript Object Notation",
+      "expandOnFirstUse": true,
+      "variants": [],
+      "exceptions": []
+    },
+    {
+      "id": "SQL",
+      "canonical": "SQL",
+      "category": "abbreviation",
+      "definition": "Structured Query Language。関係データベースへの問い合わせ言語。",
+      "expansion": "Structured Query Language",
+      "expandOnFirstUse": true,
+      "variants": [],
+      "exceptions": []
+    },
+    {
+      "id": "REST",
+      "canonical": "REST",
+      "category": "abbreviation",
+      "definition": "Representational State Transfer。Webの制約を明文化したアーキテクチャスタイル。",
+      "expansion": "Representational State Transfer",
+      "expandOnFirstUse": true,
+      "variants": [],
+      "exceptions": [],
+      "indexTerm": true
+    },
+    {
+      "id": "RPC",
+      "canonical": "RPC",
+      "category": "abbreviation",
+      "definition": "Remote Procedure Call。遠隔の手続きを呼び出す通信様式。",
+      "expansion": "Remote Procedure Call",
+      "expandOnFirstUse": true,
+      "variants": [],
+      "exceptions": []
+    },
+    {
+      "id": "TTL",
+      "canonical": "TTL",
+      "category": "abbreviation",
+      "definition": "Time To Live。キャッシュやレコードの有効期間。",
+      "expansion": "Time To Live",
+      "expandOnFirstUse": true,
+      "variants": [],
+      "exceptions": []
+    },
+    {
+      "id": "DST",
+      "canonical": "DST",
+      "category": "abbreviation",
+      "definition": "Daylight Saving Time。夏時間。地域と年によって切り替え規則が変わる。",
+      "expansion": "Daylight Saving Time",
+      "expandOnFirstUse": true,
+      "variants": [],
+      "exceptions": []
+    },
+    {
+      "id": "ACID",
+      "canonical": "ACID",
+      "category": "abbreviation",
+      "definition": "Atomicity・Consistency・Isolation・Durability。トランザクションが満たす4性質。",
+      "expansion": "Atomicity, Consistency, Isolation, Durability",
+      "expandOnFirstUse": true,
+      "variants": [],
+      "exceptions": [],
+      "indexTerm": true
+    },
+    {
+      "id": "デフォルト",
+      "canonical": "デフォルト",
+      "category": "translation",
+      "reading": "でふぉると",
+      "definition": "明示指定がないときに適用される値や動作。",
+      "variants": [
+        {
+          "text": "既定",
+          "severity": "warn"
+        }
+      ],
+      "exceptions": []
+    },
+    {
+      "id": "リトライ",
+      "canonical": "リトライ",
+      "category": "translation",
+      "reading": "りとらい",
+      "definition": "失敗した操作を条件付きでやり直すこと。",
+      "variants": [
+        {
+          "text": "再試行",
+          "severity": "warn"
+        }
+      ],
+      "exceptions": [],
+      "indexTerm": true
+    },
+    {
+      "id": "シリアライズ",
+      "canonical": "シリアライズ",
+      "category": "translation",
+      "reading": "しりあらいず",
+      "definition": "構造を持つ値をバイト列や文字列へ変換すること。",
+      "variants": [
+        {
+          "text": "直列化",
+          "severity": "warn"
+        }
+      ],
+      "exceptions": [
+        "直列化異常",
+        "直列化失敗",
+        "直列化可能"
+      ]
+    },
+    {
+      "id": "エラー処理",
+      "canonical": "エラー処理",
+      "category": "translation",
+      "reading": "えらーしょり",
+      "definition": "失敗を検出し、回復または通知する処理。",
+      "variants": [
+        {
+          "text": "エラーハンドリング",
+          "severity": "warn"
+        }
+      ],
+      "exceptions": []
+    },
+    {
+      "id": "可観測性",
+      "canonical": "可観測性",
+      "category": "translation",
+      "reading": "かかんそくせい",
+      "definition": "外部から得られる出力だけで内部状態を説明できる度合い。",
+      "variants": [
+        {
+          "text": "オブザーバビリティ",
+          "severity": "warn"
+        }
+      ],
+      "exceptions": [
+        "Monitoring と Observability",
+        "Observability"
+      ]
+    }
+  ]
+}

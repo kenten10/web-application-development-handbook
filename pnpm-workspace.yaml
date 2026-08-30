@@ -1,0 +1,12 @@
+packages:
+  - 'code/ch*'
+
+catalog:
+  typescript: 6.0.3
+  '@types/node': 24.12.1
+  tsx: 4.23.1
+
+sharedWorkspaceLockfile: true
+linkWorkspacePackages: true
+allowBuilds:
+  esbuild: true

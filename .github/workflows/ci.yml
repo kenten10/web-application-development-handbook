@@ -1,0 +1,187 @@
+name: Handbook CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: handbook-ci-${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+env:
+  CI: 'true'
+  PNPM_VERSION: 11.15.1
+
+jobs:
+  handbook:
+    name: Manuscript and configuration
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - name: Setup Node.js
+        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version-file: .node-version
+      - name: Enable pinned pnpm
+        run: |
+          corepack enable
+          corepack prepare pnpm@${PNPM_VERSION} --activate
+          pnpm --version
+      - name: Resolve pnpm store path
+        id: pnpm-store
+        run: echo "path=$(pnpm store path --silent)" >> "$GITHUB_OUTPUT"
+      - name: Cache pnpm store
+        uses: actions/cache@27d5ce7f107fe9357f9df03efb73ab90386fccae # v5.0.5
+        with:
+          path: ${{ steps.pnpm-store.outputs.path }}
+          key: ${{ runner.os }}-node24-pnpm-${{ hashFiles('package.json', 'pnpm-workspace.yaml', 'code/*/package.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node24-pnpm-
+      - name: Install workspace dependencies
+        run: pnpm install --no-frozen-lockfile --prefer-offline
+      - name: Validate handbook and generated files
+        run: pnpm run check:handbook
+      - name: Validate workspace and CI configuration
+        run: |
+          pnpm run validate:workspace
+          pnpm run validate:ci
+          pnpm run test:ci
+
+  chapter:
+    name: ${{ matrix.chapter }} / lint · typecheck · test · build
+    needs: handbook
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    strategy:
+      fail-fast: false
+      max-parallel: 6
+      matrix:
+        chapter:
+          - ch01
+          - ch02
+          - ch03
+          - ch04
+          - ch05
+          - ch06
+          - ch07
+          - ch08
+          - ch09
+          - ch10
+          - ch11
+          - ch12
+          - ch13
+          - ch14
+          - ch15
+          - ch16
+          - ch17
+          - ch18
+          - ch19
+          - ch20
+          - ch21
+          - ch22
+          - ch23
+          - ch24
+          - ch25
+          - ch26
+          - ch27
+          - ch28
+          - ch29
+          - ch30
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - name: Setup Node.js
+        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version-file: .node-version
+      - name: Enable pinned pnpm
+        run: |
+          corepack enable
+          corepack prepare pnpm@${PNPM_VERSION} --activate
+      - name: Resolve pnpm store path
+        id: pnpm-store
+        run: echo "path=$(pnpm store path --silent)" >> "$GITHUB_OUTPUT"
+      - name: Cache pnpm store
+        uses: actions/cache@27d5ce7f107fe9357f9df03efb73ab90386fccae # v5.0.5
+        with:
+          path: ${{ steps.pnpm-store.outputs.path }}
+          key: ${{ runner.os }}-node24-pnpm-${{ hashFiles('package.json', 'pnpm-workspace.yaml', 'code/*/package.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node24-pnpm-
+      - name: Install workspace dependencies
+        run: pnpm install --no-frozen-lockfile --prefer-offline
+      - name: Validate chapter
+        run: node scripts/ci-chapter.mjs ${{ matrix.chapter }}
+
+  service-containers:
+    name: PostgreSQL and Redis service containers
+    needs: handbook
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    services:
+      postgres:
+        image: postgres:18-alpine
+        env:
+          POSTGRES_DB: handbook
+          POSTGRES_USER: handbook
+          POSTGRES_PASSWORD: handbook
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U handbook -d handbook"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+      redis:
+        image: redis:8-alpine
+        ports:
+          - 6379:6379
+        options: >-
+          --health-cmd "redis-cli ping"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - name: Setup Node.js
+        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version-file: .node-version
+      - name: Verify service readiness
+        run: node scripts/ci-service-smoke.mjs
+        env:
+          POSTGRES_HOST: 127.0.0.1
+          POSTGRES_PORT: '5432'
+          REDIS_HOST: 127.0.0.1
+          REDIS_PORT: '6379'
+
+  required:
+    name: Required CI gate
+    if: always()
+    needs: [handbook, chapter, service-containers]
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Check required jobs
+        env:
+          HANDBOOK_RESULT: ${{ needs.handbook.result }}
+          CHAPTER_RESULT: ${{ needs.chapter.result }}
+          SERVICE_RESULT: ${{ needs.service-containers.result }}
+        run: |
+          printf 'handbook=%s\nchapter=%s\nservices=%s\n' "$HANDBOOK_RESULT" "$CHAPTER_RESULT" "$SERVICE_RESULT"
+          test "$HANDBOOK_RESULT" = success
+          test "$CHAPTER_RESULT" = success
+          test "$SERVICE_RESULT" = success

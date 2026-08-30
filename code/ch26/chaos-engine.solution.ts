@@ -1,0 +1,4 @@
+export type ChaosRule={name:string;probability:number;action:'delay'|'throw';delayMs?:[number,number];error?:string;operation?:RegExp};
+export class ChaosEngine{constructor(private readonly options:{enabled:boolean;rules:ChaosRule[];random?:()=>number;sleep?:(ms:number)=>Promise<void>}){}
+ async wrap<T>(name:string,operation:()=>Promise<T>):Promise<T>{if(this.options.enabled){for(const rule of this.options.rules){if(rule.operation&&!rule.operation.test(name))continue;if((this.options.random??Math.random)()<rule.probability){if(rule.action==='throw')throw new Error(rule.error??'Chaos induced');const [min,max]=rule.delayMs??[1,1];const r=this.options.random??Math.random;await(this.options.sleep??(ms=>new Promise(x=>setTimeout(x,ms))))(min+r()*(max-min));}}}return operation();}}
+export const exerciseId='26.6';

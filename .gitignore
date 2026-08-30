@@ -1,0 +1,21 @@
+node_modules/
+.pnpm-store/
+dist/
+build/
+coverage/
+*.tsbuildinfo
+.env
+.env.*
+!.env.example
+.DS_Store
+*.log
+*.sqlite
+*.db
+tmp/
+
+# 検証で生成する自己署名証明書。秘密鍵をリポジトリへ入れない。
+# scripts/bootstrap-clean-environment.sh が実行時に再生成する。
+.verification/certs/
+
+# 検証ログは証跡として残すため、上の *.log の除外対象から戻す。
+!.verification/**/*.log

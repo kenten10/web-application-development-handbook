@@ -1,0 +1,11 @@
+== 平常時リクエスト ==
+ok
+== in-flight送信 → 0.02s後にSIGTERM ==
+SIGTERM sent
+== SIGTERM後の新規リクエスト ==
+new-request → |HTTP_000connection_refused
+in-flight → ok
+server exit code → 0
+== サーバーログ ==
+graceful server ready
+drained

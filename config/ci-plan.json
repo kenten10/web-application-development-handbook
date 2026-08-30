@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "required": {
+    "tasks": ["lint", "typecheck", "test", "build"],
+    "chapters": [
+      "ch01", "ch02", "ch03", "ch04", "ch05", "ch06", "ch07", "ch08", "ch09", "ch10",
+      "ch11", "ch12", "ch13", "ch14", "ch15", "ch16", "ch17", "ch18", "ch19", "ch20",
+      "ch21", "ch22", "ch23", "ch24", "ch25", "ch26", "ch27", "ch28", "ch29", "ch30"
+    ],
+    "maxParallel": 6
+  },
+  "serviceContainers": {
+    "postgres": {
+      "image": "postgres:18-alpine",
+      "port": 5432,
+      "chapters": ["ch14", "ch17", "ch28", "ch30"]
+    },
+    "redis": {
+      "image": "redis:8-alpine",
+      "port": 6379,
+      "chapters": ["ch15"]
+    }
+  },
+  "extended": {
+    "linuxAndDockerChapters": ["ch18", "ch19", "ch22"],
+    "benchmarkChapters": ["ch02", "ch06", "ch10", "ch19", "ch23"],
+    "manualServices": ["AWS", "Kafka", "Kubernetes", "OpenSSL/TLS"],
+    "schedule": "17 19 * * 0"
+  },
+  "policy": {
+    "requiredWorkflow": ".github/workflows/ci.yml",
+    "extendedWorkflow": ".github/workflows/extended-ci.yml",
+    "actionsPinnedToCommit": true,
+    "permissions": "contents: read",
+    "silentSkipAllowed": false
+  }
+}

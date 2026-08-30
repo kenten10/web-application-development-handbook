@@ -1,0 +1,8 @@
+date: 2026-08-29T16:41:35.512Z
+node: v26.7.0
+platform: darwin 25.6.0 arm64
+chrome: Chrome/152.0.7977.65
+protocol: 1.3
+userAgent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/152.0.0.0 Safari/537.36
+headless: true
+devtoolsPort: 54927

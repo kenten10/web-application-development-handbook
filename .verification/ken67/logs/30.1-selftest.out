@@ -1,0 +1,6 @@
+{"method":"POST","path":"/tasks","status":201,"durationMs":3}
+{"method":"POST","path":"/tasks","status":200,"durationMs":0}
+{"method":"GET","path":"/tasks","status":200,"durationMs":0}
+{"method":"PATCH","path":"/tasks/02887d45-11f3-4426-aad4-00375eb6cb81","status":200,"durationMs":0}
+{"method":"DELETE","path":"/tasks/02887d45-11f3-4426-aad4-00375eb6cb81","status":204,"durationMs":0}
+{"ok":true,"tenantIsolation":true,"idempotency":true,"crud":true}

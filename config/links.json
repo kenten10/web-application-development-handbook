@@ -1,0 +1,162 @@
+{
+  "schemaVersion": 1,
+  "updated": "2026-08-30",
+  "description": "リンク検査 (scripts/validate-links.mjs) の正本。検査対象、リンク種別ごとの規則、到達性検査の扱いを定める。KEN-59 で新設した。",
+  "scope": {
+    "documents": [
+      "00-front-matter.md",
+      "01-toc.md",
+      "02-part1-foundations.md",
+      "03-part2-frontend.md",
+      "04-part3-backend.md",
+      "05-part4-data.md",
+      "06-part5-infrastructure.md",
+      "07-part6-quality.md",
+      "08-part7-practice.md",
+      "09-references.md",
+      "10-index.md",
+      "README.md",
+      "CONTRIBUTING.md",
+      "STYLE_GUIDE.md",
+      "GLOSSARY.md",
+      "CODE_EXERCISES.md",
+      "LEARNING_LEVELS.md",
+      "LEARNING_PATHS.md",
+      "CHAPTER_TEMPLATE.md",
+      "CLEAN_ENVIRONMENT.md",
+      "CODE_TOOLCHAIN.md",
+      "NARRATIVE_ARCHITECTURE.md",
+      "NARRATIVE_EDITING_GUIDE.md",
+      "CI.md",
+      "RELEASE_POLICY.md",
+      "LICENSING.md",
+      "CHANGELOG.md",
+      "ERRATA.md",
+      "BETA_REVIEW_PLAN.md",
+      "BETA_REVIEW_SCENARIOS.md",
+      "BETA_REVIEW_TEMPLATES.md"
+    ],
+    "manuscript": [
+      "00-front-matter.md",
+      "02-part1-foundations.md",
+      "03-part2-frontend.md",
+      "04-part3-backend.md",
+      "05-part4-data.md",
+      "06-part5-infrastructure.md",
+      "07-part6-quality.md",
+      "08-part7-practice.md"
+    ],
+    "note": "documents は Markdown リンクとアンカーの検査対象。manuscript は本文であり、コード集の使い方ブロックのコマンド検査を追加で行う。"
+  },
+  "rules": [
+    {
+      "id": "L-INT-001",
+      "title": "内部Markdownリンクの参照先ファイルが実在する",
+      "enforcement": "error"
+    },
+    {
+      "id": "L-ANC-001",
+      "title": "リンクのアンカーが参照先に実在する",
+      "enforcement": "error"
+    },
+    {
+      "id": "L-SEC-001",
+      "title": "節アンカー #section-X-Y は実在する節を指す",
+      "enforcement": "error"
+    },
+    {
+      "id": "L-XREF-001",
+      "title": "本文の「第N章」「N.M」参照が実在する章節を指す",
+      "enforcement": "error"
+    },
+    {
+      "id": "L-CODE-001",
+      "title": "本文が参照する code/ のパスが実在する",
+      "enforcement": "error"
+    },
+    {
+      "id": "L-CODE-002",
+      "title": "コード集の使い方のコマンドが実在するファイル・スクリプトを指す",
+      "enforcement": "error"
+    },
+    {
+      "id": "L-CITE-001",
+      "title": "本文の引用キーが 09-references.md に登録されている",
+      "enforcement": "error"
+    },
+    {
+      "id": "L-URL-001",
+      "title": "外部URLの形式が妥当である",
+      "enforcement": "error"
+    },
+    {
+      "id": "L-URL-002",
+      "title": "同一URLの表記が揺れていない",
+      "enforcement": "warning"
+    },
+    {
+      "id": "L-REACH-001",
+      "title": "外部URLが到達可能である",
+      "enforcement": "optional"
+    }
+  ],
+  "external": {
+    "allowedSchemes": [
+      "https",
+      "http"
+    ],
+    "requireHttps": true,
+    "httpAllowlist": [
+      "http://localhost",
+      "http://127.0.0.1",
+      "http://example.com",
+      "http://example.org",
+      "http://www.w3.org",
+      "http://schema.org",
+      "http://purl.org",
+      "http://xmlns.com",
+      "http://ns.adobe.com",
+      "http://tempuri.org"
+    ],
+    "reachability": {
+      "enabled": false,
+      "note": "到達性検査は --check-external で明示的に有効化する。ネットワーク制約のある環境では失敗しうるため check:handbook のチェーンには入れない。失敗は警告として報告し、終了コードを変えない。",
+      "timeoutMs": 8000,
+      "concurrency": 4
+    }
+  },
+  "codeCommands": {
+    "blockHeadingPattern": "^#{2,4}\\s+(?:第\\d+章の)?コード集の使い方\\s*$",
+    "runners": [
+      "tsx",
+      "node",
+      "bash",
+      "sh",
+      "open",
+      "ts-node",
+      "deno"
+    ],
+    "ignoredCommands": [
+      "npm",
+      "npx",
+      "yarn",
+      "docker",
+      "curl",
+      "cd",
+      "export",
+      "echo",
+      "kubectl",
+      "terraform",
+      "psql",
+      "redis-cli"
+    ],
+    "note": "runners は第1引数をファイルパスとして実在検査する。pnpm --filter @handbook/chNN run <script> は code/chNN/package.json の scripts と、exec <runner> <file> は code/chNN 配下の実在と突き合わせる。"
+  },
+  "ignoredAnchorPrefixes": [
+    "http://",
+    "https://",
+    "mailto:",
+    "tel:"
+  ],
+  "externalUrlAllowlist": []
+}

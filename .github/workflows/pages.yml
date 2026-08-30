@@ -1,0 +1,73 @@
+name: Handbook Pages
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: handbook-pages-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+env:
+  CI: 'true'
+  PNPM_VERSION: 11.15.1
+
+jobs:
+  build:
+    name: Build static site
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - name: Setup Node.js
+        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version-file: .node-version
+      - name: Enable pinned pnpm
+        run: |
+          corepack enable
+          corepack prepare pnpm@${PNPM_VERSION} --activate
+          pnpm --version
+      - name: Validate release policy
+        run: node scripts/validate-release-policy.mjs
+      - name: Build static site
+        run: node scripts/build-site.mjs
+      - name: Verify deterministic build
+        run: node scripts/build-site.mjs --check
+      - name: Report release manifest
+        run: |
+          node -e "const m=require('./dist/site/release-manifest.json');console.log('version=%s pages=%d',m.version,m.outputs.length)"
+          sha256sum dist/site/release-manifest.json
+      - name: Upload Pages artifact
+        if: github.event_name != 'pull_request'
+        # KEN-70: Pages有効化時に最新版のcommit SHAを確認して再固定する
+        uses: actions/upload-pages-artifact@56afc609e74202658d3ffba0e8f6dda462b719fa # v3.0.1
+        with:
+          path: dist/site
+
+  deploy:
+    name: Deploy to GitHub Pages
+    if: github.event_name != 'pull_request'
+    needs: build
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy
+        id: deployment
+        # KEN-70: Pages有効化時に最新版のcommit SHAを確認して再固定する
+        uses: actions/deploy-pages@d6db90164ac5ed86f2b6aed7e0febac5b3c0c03e # v4.0.5

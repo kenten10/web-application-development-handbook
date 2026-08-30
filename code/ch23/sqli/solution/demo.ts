@@ -1,0 +1,4 @@
+export const exerciseId='23.1';export function unsafeQuery(input:string){return `SELECT id, name FROM users WHERE name = '${input}'`}
+export function safeQuery(input:string):{sql:string;params:string[]}{return {sql:'SELECT id, name FROM users WHERE name = ?',params:[input]}}
+export function simulateUnsafe(sql:string,users:Array<{id:number;name:string}>){if(/\bor\s+1\s*=\s*1\b/i.test(sql))return users;if(/drop\s+table/i.test(sql))throw new Error('users table dropped by injected statement');const m=/name = '([^']*)'/.exec(sql);return users.filter(u=>u.name===m?.[1])}
+export function demonstrateAttack(input:string,users=[{id:1,name:'alice'},{id:2,name:'bob'}]){let badResult:unknown;try{badResult=simulateUnsafe(unsafeQuery(input),users)}catch(e){badResult=(e as Error).message}const good=safeQuery(input);const goodResult=users.filter(u=>u.name===good.params[0]);return {unsafeSql:unsafeQuery(input),badResult,safe:good,goodResult}}

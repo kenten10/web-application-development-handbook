@@ -1,0 +1,7 @@
+=== Action SHA verification (KEN-70) ===
+2026-08-30T10:07:08Z
+actions/checkout                 pinned=3d3c42e5aac5ba805825da76410c181273ba90b1 tag=v7.0.1 actual=3d3c42e5aac5ba805825da76410c181273ba90b1 -> OK (latest release: v7.0.1)
+actions/setup-node               pinned=820762786026740c76f36085b0efc47a31fe5020 tag=v7.0.0 actual=820762786026740c76f36085b0efc47a31fe5020 -> OK (latest release: v7.0.0)
+actions/cache                    pinned=27d5ce7f107fe9357f9df03efb73ab90386fccae tag=v5.0.5 actual=27d5ce7f107fe9357f9df03efb73ab90386fccae -> OK (latest release: v6.1.0)
+actions/upload-pages-artifact    pinned=56afc609e74202658d3ffba0e8f6dda462b719fa tag=v3.0.1 actual=56afc609e74202658d3ffba0e8f6dda462b719fa -> OK (latest release: v5.0.0)
+actions/deploy-pages             pinned=d6db90164ac5ed86f2b6aed7e0febac5b3c0c03e tag=v4.0.5 actual=d6db90164ac5ed86f2b6aed7e0febac5b3c0c03e -> OK (latest release: v5.0.0)

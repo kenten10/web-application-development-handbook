@@ -1,0 +1,14 @@
+== 使用バージョン ==
+aws-cli/2.36.8 Python/3.14.6 Darwin/25.5.0 source/arm64
+LocalStack edition: community version: 4.14.0
+region: ap-northeast-1 (LocalStack, credentialsはダミーのため値は記録対象外)
+== リソース削除 2026-08-20T02:12:48Z ==
+handbook/db-password
+alarm deleted
+topic deleted
+== 削除確認 ==
+secrets: 0
+alarms: 0
+topics: 0
+== LocalStackコンテナ削除 ==
+handbook-localstack

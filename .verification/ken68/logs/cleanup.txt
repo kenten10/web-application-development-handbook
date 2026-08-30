@@ -1,0 +1,15 @@
+== 使用バージョン ==
+kind v0.32.0 go1.26.3 darwin/arm64
+Client Version: v1.36.1
+Docker version 29.6.2, build dfc4efb1e2
+rpk version: v26.2.1
+Git ref:     8cd781be99c737c7d147d9dc239a0bbdd591a4d8
+== クリーンアップ 2026-08-20T02:00:59Z ==
+namespace "handbook-validation" deleted
+Deleting cluster "handbook-validation" ...
+Deleted nodes: ["handbook-validation-control-plane"]
+handbook-redpanda
+bench images removed
+== 残存確認 ==
+No kind clusters found.
+0

@@ -1,0 +1,2099 @@
+{
+  "version": 1,
+  "updated": "2026-08-30",
+  "levels": {
+    "required": {
+      "label": "必修",
+      "description": "経験1〜3年のWeb開発者が初回通読で優先して学ぶ中核内容"
+    },
+    "practical": {
+      "label": "実務選択",
+      "description": "担当領域やプロジェクト条件に応じて選択する実務内容"
+    },
+    "advanced": {
+      "label": "発展",
+      "description": "内部実装、専門領域、高度な設計判断を扱う内容"
+    },
+    "outlook": {
+      "label": "展望",
+      "description": "変化が速い技術、将来性、標準化途上を含む内容"
+    }
+  },
+  "sections": {
+    "1.1": {
+      "title": "Webの誕生と設計思想",
+      "level": "required",
+      "minutes": 5
+    },
+    "1.2": {
+      "title": "静的Webから動的Webへ ― 4つの時代",
+      "level": "required",
+      "minutes": 5
+    },
+    "1.3": {
+      "title": "クライアント/サーバモデルとステートレス性",
+      "level": "required",
+      "minutes": 5
+    },
+    "1.4": {
+      "title": "「Webアプリケーション」とは何か",
+      "level": "required",
+      "minutes": 5
+    },
+    "1.5": {
+      "title": "本書の使い方",
+      "level": "required",
+      "minutes": 5
+    },
+    "1.6": {
+      "title": "本書が扱う読者層",
+      "level": "required",
+      "minutes": 5
+    },
+    "1.7": {
+      "title": "本書が扱う範囲と扱わない範囲",
+      "level": "required",
+      "minutes": 5
+    },
+    "1.8": {
+      "title": "コード例について",
+      "level": "required",
+      "minutes": 5
+    },
+    "1.9": {
+      "title": "読み始める前に",
+      "level": "required",
+      "minutes": 5
+    },
+    "1.10": {
+      "title": "実装課題 ― Webを「観察する」",
+      "level": "practical",
+      "minutes": 140
+    },
+    "2.1": {
+      "title": "HTTPメッセージの構造",
+      "level": "required",
+      "minutes": 5
+    },
+    "2.2": {
+      "title": "メソッドの意味論",
+      "level": "required",
+      "minutes": 5
+    },
+    "2.3": {
+      "title": "ステータスコード",
+      "level": "required",
+      "minutes": 10
+    },
+    "2.4": {
+      "title": "ヘッダ ― HTTPの真の主役",
+      "level": "required",
+      "minutes": 5
+    },
+    "2.5": {
+      "title": "Keep-Aliveとコネクション再利用",
+      "level": "required",
+      "minutes": 5
+    },
+    "2.6": {
+      "title": "HTTP/2 ― バイナリ多重化",
+      "level": "practical",
+      "minutes": 5
+    },
+    "2.7": {
+      "title": "HTTP/3 ― QUICによる革命",
+      "level": "practical",
+      "minutes": 5
+    },
+    "2.8": {
+      "title": "実装例: Node.jsで生のHTTPサーバを書く",
+      "level": "practical",
+      "minutes": 30
+    },
+    "2.9": {
+      "title": "デバッグの実践技法",
+      "level": "required",
+      "minutes": 5
+    },
+    "2.10": {
+      "title": "実装課題 ― HTTPを「手で組み立てる」",
+      "level": "practical",
+      "minutes": 240
+    },
+    "3.1": {
+      "title": "URI/URL/URN",
+      "level": "required",
+      "minutes": 10
+    },
+    "3.2": {
+      "title": "DNS ― 名前を住所に変える",
+      "level": "required",
+      "minutes": 10
+    },
+    "3.3": {
+      "title": "TLS/SSL ― 通信を暗号化する",
+      "level": "required",
+      "minutes": 15
+    },
+    "3.4": {
+      "title": "実装例: 自己署名証明書でHTTPSサーバを立てる",
+      "level": "practical",
+      "minutes": 30
+    },
+    "3.5": {
+      "title": "ブラウザがURLを叩いてからHTMLを受け取るまで (まとめ)",
+      "level": "required",
+      "minutes": 5
+    },
+    "3.6": {
+      "title": "実装課題 ― URL・DNS・TLS を「見る」",
+      "level": "practical",
+      "minutes": 270
+    },
+    "4.1": {
+      "title": "ブラウザのレンダリングパイプライン",
+      "level": "required",
+      "minutes": 10
+    },
+    "4.2": {
+      "title": "リフローとリペイントを抑える",
+      "level": "required",
+      "minutes": 5
+    },
+    "4.3": {
+      "title": "DOMの中身",
+      "level": "required",
+      "minutes": 10
+    },
+    "4.4": {
+      "title": "CSSの仕組み",
+      "level": "required",
+      "minutes": 10
+    },
+    "4.5": {
+      "title": "JavaScriptランタイムとイベントループ",
+      "level": "required",
+      "minutes": 10
+    },
+    "4.6": {
+      "title": "モジュールシステムの進化",
+      "level": "required",
+      "minutes": 10
+    },
+    "4.7": {
+      "title": "実装例: 純粋なDOM APIでTodoアプリを作る",
+      "level": "practical",
+      "minutes": 30
+    },
+    "4.8": {
+      "title": "Web標準APIの広がり",
+      "level": "practical",
+      "minutes": 5
+    },
+    "4.9": {
+      "title": "実装課題 ― ブラウザの内側を覗く",
+      "level": "practical",
+      "minutes": 215
+    },
+    "5.1": {
+      "title": "変数とスコープ ― `var`、`let`、`const`",
+      "level": "required",
+      "minutes": 5
+    },
+    "5.2": {
+      "title": "値型と参照型、等価性",
+      "level": "required",
+      "minutes": 10
+    },
+    "5.3": {
+      "title": "関数 ― First-class Citizen",
+      "level": "required",
+      "minutes": 10
+    },
+    "5.4": {
+      "title": "非同期処理の進化",
+      "level": "required",
+      "minutes": 10
+    },
+    "5.5": {
+      "title": "自作 Promise の実装",
+      "level": "advanced",
+      "minutes": 15
+    },
+    "5.6": {
+      "title": "イテレータとジェネレータ",
+      "level": "advanced",
+      "minutes": 10
+    },
+    "5.7": {
+      "title": "TypeScript ― 型システムの設計思想",
+      "level": "required",
+      "minutes": 20
+    },
+    "5.8": {
+      "title": "Proxy と Reflect ― メタプログラミング",
+      "level": "advanced",
+      "minutes": 5
+    },
+    "5.9": {
+      "title": "エラー処理の設計",
+      "level": "required",
+      "minutes": 10
+    },
+    "5.10": {
+      "title": "メモリとガベージコレクション",
+      "level": "practical",
+      "minutes": 5
+    },
+    "5.11": {
+      "title": "国際化 (i18n) ― 多言語対応の現実",
+      "level": "practical",
+      "minutes": 20
+    },
+    "5.12": {
+      "title": "実装課題 ― JavaScript と TypeScript の深奥",
+      "level": "practical",
+      "minutes": 300
+    },
+    "6.1": {
+      "title": "Reactの登場と「単方向データフロー」",
+      "level": "required",
+      "minutes": 5
+    },
+    "6.2": {
+      "title": "仮想DOMの正体",
+      "level": "required",
+      "minutes": 5
+    },
+    "6.3": {
+      "title": "100行で作るミニReact",
+      "level": "advanced",
+      "minutes": 25
+    },
+    "6.4": {
+      "title": "Hooks の仕組み ― なぜ呼び出し順序が重要なのか",
+      "level": "required",
+      "minutes": 5
+    },
+    "6.5": {
+      "title": "Vue ― リアクティビティを中核に",
+      "level": "practical",
+      "minutes": 5
+    },
+    "6.6": {
+      "title": "Svelte ― コンパイル時の最適化",
+      "level": "practical",
+      "minutes": 5
+    },
+    "6.7": {
+      "title": "Signals ― リアクティビティの新潮流",
+      "level": "outlook",
+      "minutes": 5
+    },
+    "6.8": {
+      "title": "フレームワーク選択の現実的な指針",
+      "level": "required",
+      "minutes": 5
+    },
+    "6.9": {
+      "title": "アクセシビリティ (a11y) ― 全ての人に届けるUI",
+      "level": "required",
+      "minutes": 25
+    },
+    "6.10": {
+      "title": "Web Components ― フレームワーク非依存の標準",
+      "level": "practical",
+      "minutes": 25
+    },
+    "6.11": {
+      "title": "フォーカス管理 ― モーダル、動的更新、ルート遷移",
+      "level": "practical",
+      "minutes": 25
+    },
+    "6.12": {
+      "title": "実装課題 ― フロントエンドフレームワークの内側を作る",
+      "level": "practical",
+      "minutes": 450
+    },
+    "7.1": {
+      "title": "状態の3分類",
+      "level": "required",
+      "minutes": 5
+    },
+    "7.2": {
+      "title": "Flux と Redux ― 単方向データフローの徹底",
+      "level": "practical",
+      "minutes": 5
+    },
+    "7.3": {
+      "title": "軽量状態管理 ― Zustand と Jotai",
+      "level": "practical",
+      "minutes": 10
+    },
+    "7.4": {
+      "title": "サーバ状態の特殊性",
+      "level": "required",
+      "minutes": 5
+    },
+    "7.5": {
+      "title": "TanStack Query (React Query) ― サーバ状態管理の代表例",
+      "level": "required",
+      "minutes": 10
+    },
+    "7.6": {
+      "title": "楽観的更新 (Optimistic Update)",
+      "level": "required",
+      "minutes": 10
+    },
+    "7.7": {
+      "title": "リアクティブな状態とフォーム",
+      "level": "required",
+      "minutes": 10
+    },
+    "7.8": {
+      "title": "スタイリング戦略 ― CSS の設計思想の変遷",
+      "level": "practical",
+      "minutes": 25
+    },
+    "7.9": {
+      "title": "フォームのアクセシビリティ ― 名前、エラー通知、送信の結果",
+      "level": "practical",
+      "minutes": 25
+    },
+    "7.10": {
+      "title": "実装課題 ― 状態管理の核を作る",
+      "level": "practical",
+      "minutes": 220
+    },
+    "8.1": {
+      "title": "バンドラの基本原理",
+      "level": "required",
+      "minutes": 5
+    },
+    "8.2": {
+      "title": "Webpack ― 成熟した汎用バンドラ",
+      "level": "practical",
+      "minutes": 5
+    },
+    "8.3": {
+      "title": "esbuild と SWC ― ネイティブ実装の衝撃",
+      "level": "practical",
+      "minutes": 5
+    },
+    "8.4": {
+      "title": "Vite ― 開発体験の革新",
+      "level": "required",
+      "minutes": 10
+    },
+    "8.5": {
+      "title": "ツリーシェイキング",
+      "level": "required",
+      "minutes": 5
+    },
+    "8.6": {
+      "title": "コード分割 (Code Splitting)",
+      "level": "required",
+      "minutes": 5
+    },
+    "8.7": {
+      "title": "HMR (Hot Module Replacement)",
+      "level": "practical",
+      "minutes": 5
+    },
+    "8.8": {
+      "title": "WebAssembly (Wasm) ― ブラウザに「JavaScript以外」を持ち込む",
+      "level": "advanced",
+      "minutes": 20
+    },
+    "8.9": {
+      "title": "実装課題 ― ビルドツールの内側",
+      "level": "practical",
+      "minutes": 250
+    },
+    "9.1": {
+      "title": "CSR (Client-Side Rendering)",
+      "level": "required",
+      "minutes": 5
+    },
+    "9.2": {
+      "title": "SSR (Server-Side Rendering)",
+      "level": "required",
+      "minutes": 5
+    },
+    "9.3": {
+      "title": "SSG (Static Site Generation)",
+      "level": "required",
+      "minutes": 5
+    },
+    "9.4": {
+      "title": "ISR (Incremental Static Regeneration)",
+      "level": "practical",
+      "minutes": 5
+    },
+    "9.5": {
+      "title": "Streaming SSR",
+      "level": "practical",
+      "minutes": 5
+    },
+    "9.6": {
+      "title": "RSC (React Server Components)",
+      "level": "advanced",
+      "minutes": 10
+    },
+    "9.7": {
+      "title": "戦略の選択基準",
+      "level": "required",
+      "minutes": 5
+    },
+    "9.8": {
+      "title": "同じ Todo アプリを CSR / SSR / SSG で実装比較",
+      "level": "practical",
+      "minutes": 10
+    },
+    "9.9": {
+      "title": "Astro ― コンテンツ中心のWebに最適化",
+      "level": "practical",
+      "minutes": 5
+    },
+    "9.10": {
+      "title": "PWA (Progressive Web Apps) ― Webをアプリ化する",
+      "level": "practical",
+      "minutes": 40
+    },
+    "9.11": {
+      "title": "React の Concurrent Features ― Suspense と useTransition",
+      "level": "advanced",
+      "minutes": 30
+    },
+    "9.12": {
+      "title": "Storybook ― コンポーネント駆動開発の中核",
+      "level": "practical",
+      "minutes": 20
+    },
+    "9.13": {
+      "title": "実装課題 ― レンダリング戦略を実装で比較",
+      "level": "practical",
+      "minutes": 205
+    },
+    "10.1": {
+      "title": "並行性モデルの3パターン",
+      "level": "required",
+      "minutes": 10
+    },
+    "10.2": {
+      "title": "Node.js ― イベントループの代表",
+      "level": "required",
+      "minutes": 5
+    },
+    "10.3": {
+      "title": "Deno と Bun ― Node.js への挑戦",
+      "level": "practical",
+      "minutes": 10
+    },
+    "10.4": {
+      "title": "Go ― シンプルで速い",
+      "level": "practical",
+      "minutes": 10
+    },
+    "10.5": {
+      "title": "Rust ― ゼロコスト抽象とメモリ安全",
+      "level": "practical",
+      "minutes": 10
+    },
+    "10.6": {
+      "title": "Python ― データとAIの覇者",
+      "level": "practical",
+      "minutes": 10
+    },
+    "10.7": {
+      "title": "Ruby ― 表現力と Rails",
+      "level": "practical",
+      "minutes": 5
+    },
+    "10.8": {
+      "title": "ベンチマーク比較 ― 1万コネクション echo サーバ",
+      "level": "advanced",
+      "minutes": 5
+    },
+    "10.9": {
+      "title": "ランタイム選択の判断軸 (まとめ)",
+      "level": "required",
+      "minutes": 5
+    },
+    "10.10": {
+      "title": "実装課題 ― 並行性モデルを実測で理解",
+      "level": "advanced",
+      "minutes": 225
+    },
+    "11.1": {
+      "title": "「ミドルウェア」というアイディア",
+      "level": "required",
+      "minutes": 5
+    },
+    "11.2": {
+      "title": "100行で作る Express 風フレームワーク",
+      "level": "advanced",
+      "minutes": 25
+    },
+    "11.3": {
+      "title": "Fastify ― パフォーマンス志向の現代版",
+      "level": "practical",
+      "minutes": 10
+    },
+    "11.4": {
+      "title": "Hono ― エッジとマルチランタイム",
+      "level": "practical",
+      "minutes": 5
+    },
+    "11.5": {
+      "title": "NestJS ― エンタープライズ志向",
+      "level": "practical",
+      "minutes": 10
+    },
+    "11.6": {
+      "title": "ミドルウェアの仕組み ― Onion vs Chain",
+      "level": "required",
+      "minutes": 10
+    },
+    "11.7": {
+      "title": "依存性注入 (DI) とテスタビリティ",
+      "level": "required",
+      "minutes": 10
+    },
+    "11.8": {
+      "title": "フレームワーク選択の指針",
+      "level": "required",
+      "minutes": 5
+    },
+    "11.9": {
+      "title": "実装課題 ― フレームワークの中核を作る",
+      "level": "practical",
+      "minutes": 250
+    },
+    "12.1": {
+      "title": "RESTの設計思想 ― Roy Fielding の博士論文を読み返す",
+      "level": "required",
+      "minutes": 5
+    },
+    "12.2": {
+      "title": "Richardson Maturity Model",
+      "level": "practical",
+      "minutes": 5
+    },
+    "12.3": {
+      "title": "リソース指向設計の実践",
+      "level": "required",
+      "minutes": 5
+    },
+    "12.4": {
+      "title": "ページネーション、フィルタ、ソート",
+      "level": "required",
+      "minutes": 5
+    },
+    "12.5": {
+      "title": "エラーレスポンスの設計",
+      "level": "required",
+      "minutes": 5
+    },
+    "12.6": {
+      "title": "OpenAPI ― API設計の標準仕様",
+      "level": "required",
+      "minutes": 10
+    },
+    "12.7": {
+      "title": "GraphQL ― クライアント主導のクエリ",
+      "level": "practical",
+      "minutes": 15
+    },
+    "12.8": {
+      "title": "gRPC ― バイナリ高速通信",
+      "level": "practical",
+      "minutes": 5
+    },
+    "12.9": {
+      "title": "tRPC ― TypeScript ネイティブ",
+      "level": "practical",
+      "minutes": 10
+    },
+    "12.10": {
+      "title": "WebSocket ― 全二重リアルタイム通信",
+      "level": "practical",
+      "minutes": 10
+    },
+    "12.11": {
+      "title": "SSE (Server-Sent Events) ― シンプルな単方向プッシュ",
+      "level": "practical",
+      "minutes": 10
+    },
+    "12.12": {
+      "title": "API方式選択の指針",
+      "level": "required",
+      "minutes": 5
+    },
+    "12.13": {
+      "title": "ファイルアップロードの転送方式 ― multipart と presigned URL",
+      "level": "practical",
+      "minutes": 25
+    },
+    "12.14": {
+      "title": "大容量アップロードと再開可能プロトコル",
+      "level": "practical",
+      "minutes": 25
+    },
+    "12.15": {
+      "title": "Webhook の設計 ― イベント契約と署名",
+      "level": "practical",
+      "minutes": 25
+    },
+    "12.16": {
+      "title": "実装課題 ― API設計の核を実装する",
+      "level": "practical",
+      "minutes": 420
+    },
+    "13.1": {
+      "title": "パスワード認証の基礎",
+      "level": "required",
+      "minutes": 10
+    },
+    "13.2": {
+      "title": "セッション vs トークン ― 状態管理の対立",
+      "level": "required",
+      "minutes": 5
+    },
+    "13.3": {
+      "title": "セッション認証の実装",
+      "level": "required",
+      "minutes": 10
+    },
+    "13.4": {
+      "title": "JWT (JSON Web Token) の構造と注意点",
+      "level": "required",
+      "minutes": 10
+    },
+    "13.5": {
+      "title": "リフレッシュトークン",
+      "level": "required",
+      "minutes": 5
+    },
+    "13.6": {
+      "title": "CSRF 対策",
+      "level": "required",
+      "minutes": 10
+    },
+    "13.7": {
+      "title": "OAuth 2.0 ― 第三者認可",
+      "level": "required",
+      "minutes": 10
+    },
+    "13.8": {
+      "title": "OIDC (OpenID Connect) ― OAuth の上に立つ認証",
+      "level": "required",
+      "minutes": 10
+    },
+    "13.9": {
+      "title": "パスキー (WebAuthn) ― パスワードレスの未来",
+      "level": "practical",
+      "minutes": 10
+    },
+    "13.10": {
+      "title": "認可モデル ― RBAC、ABAC、ReBAC",
+      "level": "required",
+      "minutes": 10
+    },
+    "13.11": {
+      "title": "認可ロジックを「中央集権」にする",
+      "level": "required",
+      "minutes": 10
+    },
+    "13.12": {
+      "title": "セキュリティの基本原則 (まとめ)",
+      "level": "required",
+      "minutes": 5
+    },
+    "13.13": {
+      "title": "OIDC 風の最小認証サーバ自作",
+      "level": "advanced",
+      "minutes": 15
+    },
+    "13.14": {
+      "title": "HMAC-SHA256 ― 共有秘密鍵による署名",
+      "level": "advanced",
+      "minutes": 30
+    },
+    "13.15": {
+      "title": "公開鍵暗号による電子署名 ― Ed25519 / ECDSA",
+      "level": "advanced",
+      "minutes": 30
+    },
+    "13.16": {
+      "title": "OAuth 1.0 ― 署名ベース認可の祖先",
+      "level": "advanced",
+      "minutes": 35
+    },
+    "13.17": {
+      "title": "Shared Signals Framework (SSF) ― 継続的セキュリティ評価",
+      "level": "outlook",
+      "minutes": 45
+    },
+    "13.18": {
+      "title": "SAML ― エンタープライズSSOの実質標準",
+      "level": "practical",
+      "minutes": 65
+    },
+    "13.19": {
+      "title": "IAM の全体像 ― CIAM と EIAM の使い分け",
+      "level": "practical",
+      "minutes": 40
+    },
+    "13.20": {
+      "title": "PKCE ― OAuth/OIDC のクライアント側保護",
+      "level": "required",
+      "minutes": 30
+    },
+    "13.21": {
+      "title": "MFA と TOTP ― 多要素認証の実装",
+      "level": "practical",
+      "minutes": 30
+    },
+    "13.22": {
+      "title": "DPoP と mTLS ― 送信者制約トークン",
+      "level": "advanced",
+      "minutes": 35
+    },
+    "13.23": {
+      "title": "JWS / JWE / JWA ― JWT の構成要素",
+      "level": "advanced",
+      "minutes": 25
+    },
+    "13.24": {
+      "title": "マルチテナントの認可とテナント境界",
+      "level": "practical",
+      "minutes": 25
+    },
+    "13.25": {
+      "title": "認証エンドポイントの濫用 ― Credential Stuffing とアカウント列挙",
+      "level": "practical",
+      "minutes": 25
+    },
+    "13.26": {
+      "title": "実装課題 ― 認証と認可の核を実装する",
+      "level": "practical",
+      "minutes": 870
+    },
+    "14.1": {
+      "title": "リレーショナルモデルの考え方",
+      "level": "required",
+      "minutes": 5
+    },
+    "14.2": {
+      "title": "正規化と非正規化の判断",
+      "level": "required",
+      "minutes": 10
+    },
+    "14.3": {
+      "title": "インデックスの内部構造",
+      "level": "required",
+      "minutes": 10
+    },
+    "14.4": {
+      "title": "実行計画 (EXPLAIN) の読み方",
+      "level": "required",
+      "minutes": 10
+    },
+    "14.5": {
+      "title": "N+1 問題",
+      "level": "required",
+      "minutes": 10
+    },
+    "14.6": {
+      "title": "ACIDとトランザクション",
+      "level": "required",
+      "minutes": 5
+    },
+    "14.7": {
+      "title": "トランザクション分離レベル",
+      "level": "required",
+      "minutes": 10
+    },
+    "14.8": {
+      "title": "MVCC ― スナップショットによる並行制御",
+      "level": "required",
+      "minutes": 10
+    },
+    "14.9": {
+      "title": "ロック ― 楽観 vs 悲観",
+      "level": "required",
+      "minutes": 10
+    },
+    "14.10": {
+      "title": "デッドロック",
+      "level": "required",
+      "minutes": 5
+    },
+    "14.11": {
+      "title": "ORM の光と影",
+      "level": "required",
+      "minutes": 10
+    },
+    "14.12": {
+      "title": "マイグレーション戦略",
+      "level": "required",
+      "minutes": 5
+    },
+    "14.13": {
+      "title": "スロークエリを10倍速くする実演",
+      "level": "practical",
+      "minutes": 10
+    },
+    "14.14": {
+      "title": "OLTP と OLAP ― 役割の異なる2つのデータベース",
+      "level": "practical",
+      "minutes": 10
+    },
+    "14.15": {
+      "title": "Schema Evolution ― データ契約をどう進化させるか",
+      "level": "practical",
+      "minutes": 15
+    },
+    "14.16": {
+      "title": "データレイクと列指向フォーマット ― Parquet、Iceberg、Delta Lake",
+      "level": "advanced",
+      "minutes": 20
+    },
+    "14.17": {
+      "title": "Materialized View ― 高速集計の事前計算",
+      "level": "practical",
+      "minutes": 15
+    },
+    "14.18": {
+      "title": "VACUUM の詳細 ― PostgreSQL 運用の死活問題",
+      "level": "practical",
+      "minutes": 20
+    },
+    "14.19": {
+      "title": "Connection Pooler ― DB接続管理の必須インフラ",
+      "level": "practical",
+      "minutes": 15
+    },
+    "14.20": {
+      "title": "テナント分離モデルと Row-Level Security",
+      "level": "practical",
+      "minutes": 25
+    },
+    "14.21": {
+      "title": "テナント別設定・暗号鍵・データ移行",
+      "level": "practical",
+      "minutes": 20
+    },
+    "14.22": {
+      "title": "noisy neighbor とリソース分離",
+      "level": "practical",
+      "minutes": 20
+    },
+    "14.23": {
+      "title": "UTC、タイムゾーン、DST、カレンダー日",
+      "level": "practical",
+      "minutes": 25
+    },
+    "14.24": {
+      "title": "DB日時型、定期実行、ユーザー表示",
+      "level": "practical",
+      "minutes": 25
+    },
+    "14.25": {
+      "title": "個人データの収集と保存 ― 何を持ち、どこに置き、どこへ漏れるか",
+      "level": "practical",
+      "minutes": 25
+    },
+    "14.26": {
+      "title": "保持期間、削除、エクスポート ― 個人データの終わり方",
+      "level": "practical",
+      "minutes": 25
+    },
+    "14.27": {
+      "title": "実装課題 ― RDB の内側を実装する",
+      "level": "advanced",
+      "minutes": 930
+    },
+    "15.1": {
+      "title": "NoSQL の4分類",
+      "level": "required",
+      "minutes": 5
+    },
+    "15.2": {
+      "title": "Redis ― 最も使われるKVS",
+      "level": "required",
+      "minutes": 15
+    },
+    "15.3": {
+      "title": "MongoDB ― ドキュメント DB",
+      "level": "practical",
+      "minutes": 10
+    },
+    "15.4": {
+      "title": "DynamoDB ― クラウドネイティブ KV",
+      "level": "practical",
+      "minutes": 10
+    },
+    "15.5": {
+      "title": "CAP 定理と PACELC",
+      "level": "required",
+      "minutes": 5
+    },
+    "15.6": {
+      "title": "結果整合性 (Eventual Consistency)",
+      "level": "required",
+      "minutes": 5
+    },
+    "15.7": {
+      "title": "Neo4j ― グラフDB",
+      "level": "practical",
+      "minutes": 5
+    },
+    "15.8": {
+      "title": "PostgreSQL でどこまで戦えるか",
+      "level": "required",
+      "minutes": 5
+    },
+    "15.9": {
+      "title": "時系列データベース ― メトリクスとイベントの定石",
+      "level": "practical",
+      "minutes": 15
+    },
+    "15.10": {
+      "title": "地理空間データと PostGIS",
+      "level": "practical",
+      "minutes": 15
+    },
+    "15.11": {
+      "title": "CRDT ― 衝突なしの分散データ構造",
+      "level": "advanced",
+      "minutes": 25
+    },
+    "15.12": {
+      "title": "実装課題 ― NoSQL の核を実装する",
+      "level": "practical",
+      "minutes": 265
+    },
+    "16.1": {
+      "title": "転置インデックスの原理",
+      "level": "required",
+      "minutes": 5
+    },
+    "16.2": {
+      "title": "アナライザとトークン化",
+      "level": "required",
+      "minutes": 5
+    },
+    "16.3": {
+      "title": "関連度スコアリング ― TF-IDF と BM25",
+      "level": "required",
+      "minutes": 5
+    },
+    "16.4": {
+      "title": "Elasticsearch / OpenSearch",
+      "level": "practical",
+      "minutes": 10
+    },
+    "16.5": {
+      "title": "ファセット検索",
+      "level": "practical",
+      "minutes": 5
+    },
+    "16.6": {
+      "title": "Meilisearch / Typesense ― 軽量・高速",
+      "level": "practical",
+      "minutes": 5
+    },
+    "16.7": {
+      "title": "PostgreSQL の全文検索",
+      "level": "required",
+      "minutes": 5
+    },
+    "16.8": {
+      "title": "ベクトル検索 ― LLM時代の検索",
+      "level": "practical",
+      "minutes": 10
+    },
+    "16.9": {
+      "title": "検索エンジン選択の指針",
+      "level": "required",
+      "minutes": 5
+    },
+    "16.10": {
+      "title": "Embedding モデルの選択基準",
+      "level": "advanced",
+      "minutes": 15
+    },
+    "16.11": {
+      "title": "ベクトルインデックスのアルゴリズム ― HNSW vs IVF vs DiskANN",
+      "level": "advanced",
+      "minutes": 15
+    },
+    "16.12": {
+      "title": "実装課題 ― 検索エンジンを自作する",
+      "level": "advanced",
+      "minutes": 300
+    },
+    "17.1": {
+      "title": "同期 vs 非同期 ― いつ非同期にすべきか",
+      "level": "required",
+      "minutes": 5
+    },
+    "17.2": {
+      "title": "メッセージキューの基本",
+      "level": "required",
+      "minutes": 10
+    },
+    "17.3": {
+      "title": "RabbitMQ ― 伝統的メッセージブローカー",
+      "level": "practical",
+      "minutes": 5
+    },
+    "17.4": {
+      "title": "Kafka ― 高スループット分散ストリーミング",
+      "level": "practical",
+      "minutes": 10
+    },
+    "17.5": {
+      "title": "AWS SQS / SNS ― マネージドの安心感",
+      "level": "practical",
+      "minutes": 5
+    },
+    "17.6": {
+      "title": "ジョブキュー ― Web アプリでの定番",
+      "level": "required",
+      "minutes": 5
+    },
+    "17.7": {
+      "title": "Pub/Sub パターンと Fan-out",
+      "level": "required",
+      "minutes": 5
+    },
+    "17.8": {
+      "title": "イベントソーシング (Event Sourcing)",
+      "level": "advanced",
+      "minutes": 5
+    },
+    "17.9": {
+      "title": "CQRS (Command Query Responsibility Segregation)",
+      "level": "advanced",
+      "minutes": 5
+    },
+    "17.10": {
+      "title": "Saga パターン ― 分散トランザクション",
+      "level": "practical",
+      "minutes": 25
+    },
+    "17.11": {
+      "title": "Outbox パターン ― 信頼性の高いイベント発行",
+      "level": "required",
+      "minutes": 10
+    },
+    "17.12": {
+      "title": "CDC (Change Data Capture) ― DBの変更をイベント化する",
+      "level": "practical",
+      "minutes": 20
+    },
+    "17.13": {
+      "title": "Webhook 受信の実務 ― 再送、順序逆転、冪等性",
+      "level": "practical",
+      "minutes": 25
+    },
+    "17.14": {
+      "title": "メール送信の実務 ― 配送経路、バウンス、DKIM/SPF/DMARC",
+      "level": "practical",
+      "minutes": 25
+    },
+    "17.15": {
+      "title": "外部API連携の実務 ― 時間予算、リトライ、Circuit Breaker",
+      "level": "practical",
+      "minutes": 25
+    },
+    "17.16": {
+      "title": "決済連携の実務 ― 二重課金、返金、突合",
+      "level": "practical",
+      "minutes": 25
+    },
+    "17.17": {
+      "title": "実装課題 ― メッセージング基盤を自作する",
+      "level": "advanced",
+      "minutes": 990
+    },
+    "18.1": {
+      "title": "プロセスとスレッド",
+      "level": "required",
+      "minutes": 5
+    },
+    "18.2": {
+      "title": "ファイルディスクリプタ ― 全ては「ファイル」",
+      "level": "required",
+      "minutes": 5
+    },
+    "18.3": {
+      "title": "シグナル ― プロセス間通信の基礎",
+      "level": "practical",
+      "minutes": 5
+    },
+    "18.4": {
+      "title": "cgroups と namespace ― コンテナの正体",
+      "level": "practical",
+      "minutes": 5
+    },
+    "18.5": {
+      "title": "ネットワークスタック",
+      "level": "required",
+      "minutes": 5
+    },
+    "18.6": {
+      "title": "TCP のフロー制御と輻輳制御",
+      "level": "required",
+      "minutes": 5
+    },
+    "18.7": {
+      "title": "ロードバランサ ― L4 vs L7",
+      "level": "required",
+      "minutes": 5
+    },
+    "18.8": {
+      "title": "リバースプロキシとしての nginx",
+      "level": "required",
+      "minutes": 10
+    },
+    "18.9": {
+      "title": "トラブルシュート用コマンド集",
+      "level": "required",
+      "minutes": 10
+    },
+    "18.10": {
+      "title": "WebRTC と WebTransport ― ブラウザの新しい通信プロトコル",
+      "level": "outlook",
+      "minutes": 15
+    },
+    "18.11": {
+      "title": "eBPF ― Linux カーネルを動的に拡張する革命",
+      "level": "advanced",
+      "minutes": 10
+    },
+    "18.12": {
+      "title": "実装課題 ― Linux の仕組みを実装する",
+      "level": "advanced",
+      "minutes": 270
+    },
+    "19.1": {
+      "title": "コンテナの仕組み",
+      "level": "required",
+      "minutes": 5
+    },
+    "19.2": {
+      "title": "Dockerfile のベストプラクティス",
+      "level": "required",
+      "minutes": 10
+    },
+    "19.3": {
+      "title": ".dockerignore の重要性",
+      "level": "required",
+      "minutes": 5
+    },
+    "19.4": {
+      "title": "docker-compose ― ローカル開発",
+      "level": "required",
+      "minutes": 10
+    },
+    "19.5": {
+      "title": "Kubernetes ― 大規模なオーケストレーション",
+      "level": "practical",
+      "minutes": 5
+    },
+    "19.6": {
+      "title": "Kubernetes の YAML",
+      "level": "practical",
+      "minutes": 20
+    },
+    "19.7": {
+      "title": "Probes ― Liveness と Readiness",
+      "level": "practical",
+      "minutes": 5
+    },
+    "19.8": {
+      "title": "ConfigMap と Secret",
+      "level": "practical",
+      "minutes": 5
+    },
+    "19.9": {
+      "title": "マネージド Kubernetes と代替",
+      "level": "practical",
+      "minutes": 5
+    },
+    "19.10": {
+      "title": "Ingress Controller の比較 ― クラスタへの入り口",
+      "level": "practical",
+      "minutes": 25
+    },
+    "19.11": {
+      "title": "Service Mesh ― マイクロサービス間通信の抽象化",
+      "level": "advanced",
+      "minutes": 15
+    },
+    "19.12": {
+      "title": "実装課題 ― コンテナとオーケストレーションの内側",
+      "level": "advanced",
+      "minutes": 220
+    },
+    "20.1": {
+      "title": "クラウドの3層モデル",
+      "level": "required",
+      "minutes": 5
+    },
+    "20.2": {
+      "title": "AWSの主要サービス",
+      "level": "required",
+      "minutes": 5
+    },
+    "20.3": {
+      "title": "GCP / Azure の対応関係",
+      "level": "practical",
+      "minutes": 5
+    },
+    "20.4": {
+      "title": "マルチクラウドとベンダーロックイン",
+      "level": "practical",
+      "minutes": 5
+    },
+    "20.5": {
+      "title": "サーバレスの台頭",
+      "level": "required",
+      "minutes": 5
+    },
+    "20.6": {
+      "title": "エッジコンピューティング",
+      "level": "outlook",
+      "minutes": 5
+    },
+    "20.7": {
+      "title": "IaC (Infrastructure as Code)",
+      "level": "required",
+      "minutes": 5
+    },
+    "20.8": {
+      "title": "Terraform の実例",
+      "level": "practical",
+      "minutes": 10
+    },
+    "20.9": {
+      "title": "Pulumi ― プログラミング言語で書く IaC",
+      "level": "advanced",
+      "minutes": 5
+    },
+    "20.10": {
+      "title": "GitOps ― 宣言的な運用",
+      "level": "practical",
+      "minutes": 5
+    },
+    "20.11": {
+      "title": "CIDR と VPC 設計 ― ネットワークの基礎を固める",
+      "level": "required",
+      "minutes": 10
+    },
+    "20.12": {
+      "title": "API Gateway パターン ― マイクロサービスの入り口",
+      "level": "practical",
+      "minutes": 10
+    },
+    "20.13": {
+      "title": "Twelve-Factor App ― クラウド時代の設計指針",
+      "level": "required",
+      "minutes": 10
+    },
+    "20.14": {
+      "title": "実装課題 ― クラウドと IaC を自分の手で",
+      "level": "practical",
+      "minutes": 220
+    },
+    "21.1": {
+      "title": "CI/CD の意味",
+      "level": "required",
+      "minutes": 5
+    },
+    "21.2": {
+      "title": "GitHub Actions",
+      "level": "required",
+      "minutes": 15
+    },
+    "21.3": {
+      "title": "マトリクスビルド ― 複数環境で同時にテスト",
+      "level": "practical",
+      "minutes": 5
+    },
+    "21.4": {
+      "title": "デプロイ戦略 ― それぞれの実装と使い分け",
+      "level": "required",
+      "minutes": 5
+    },
+    "21.4.1": {
+      "title": "Recreate (停止 → 起動)",
+      "level": "practical",
+      "minutes": 15
+    },
+    "21.4.2": {
+      "title": "Rolling Update",
+      "level": "practical",
+      "minutes": 15
+    },
+    "21.4.3": {
+      "title": "Blue/Green デプロイ",
+      "level": "practical",
+      "minutes": 15
+    },
+    "21.4.4": {
+      "title": "Canary リリース",
+      "level": "practical",
+      "minutes": 15
+    },
+    "21.4.5": {
+      "title": "Feature Flag",
+      "level": "practical",
+      "minutes": 15
+    },
+    "21.5": {
+      "title": "ロールバック戦略",
+      "level": "required",
+      "minutes": 5
+    },
+    "21.6": {
+      "title": "デプロイ頻度と DORA メトリクス",
+      "level": "practical",
+      "minutes": 5
+    },
+    "21.7": {
+      "title": "セマンティックバージョニングと変更ログ",
+      "level": "required",
+      "minutes": 5
+    },
+    "21.8": {
+      "title": "実装課題 ― CI/CD の動作原理を実装する",
+      "level": "practical",
+      "minutes": 280
+    },
+    "22.1": {
+      "title": "Monitoring と Observability の違い",
+      "level": "required",
+      "minutes": 5
+    },
+    "22.2": {
+      "title": "Three Pillars of Observability",
+      "level": "required",
+      "minutes": 5
+    },
+    "22.3": {
+      "title": "構造化ログ (Structured Logging)",
+      "level": "required",
+      "minutes": 5
+    },
+    "22.4": {
+      "title": "ログレベル",
+      "level": "required",
+      "minutes": 5
+    },
+    "22.5": {
+      "title": "集中ログ管理",
+      "level": "practical",
+      "minutes": 5
+    },
+    "22.6": {
+      "title": "メトリクス",
+      "level": "required",
+      "minutes": 10
+    },
+    "22.7": {
+      "title": "SLI / SLO / SLA",
+      "level": "required",
+      "minutes": 5
+    },
+    "22.8": {
+      "title": "分散トレース ― マイクロサービスを追う",
+      "level": "practical",
+      "minutes": 10
+    },
+    "22.9": {
+      "title": "アラート設計",
+      "level": "required",
+      "minutes": 5
+    },
+    "22.10": {
+      "title": "オンコールとポストモーテム",
+      "level": "practical",
+      "minutes": 5
+    },
+    "22.11": {
+      "title": "実装課題 ― 可観測性の3本柱を自作する",
+      "level": "practical",
+      "minutes": 250
+    },
+    "23.1": {
+      "title": "OWASP Top 10 (2021)",
+      "level": "required",
+      "minutes": 5
+    },
+    "23.2": {
+      "title": "SQLインジェクション",
+      "level": "required",
+      "minutes": 5
+    },
+    "23.3": {
+      "title": "XSS (Cross-Site Scripting)",
+      "level": "required",
+      "minutes": 10
+    },
+    "23.4": {
+      "title": "CSRF (再掲)",
+      "level": "required",
+      "minutes": 5
+    },
+    "23.5": {
+      "title": "SSRF (Server-Side Request Forgery)",
+      "level": "required",
+      "minutes": 10
+    },
+    "23.6": {
+      "title": "認証関連の脆弱性",
+      "level": "required",
+      "minutes": 10
+    },
+    "23.7": {
+      "title": "IDOR (Insecure Direct Object References)",
+      "level": "required",
+      "minutes": 5
+    },
+    "23.8": {
+      "title": "オープンリダイレクト",
+      "level": "required",
+      "minutes": 5
+    },
+    "23.9": {
+      "title": "シークレット管理",
+      "level": "required",
+      "minutes": 5
+    },
+    "23.10": {
+      "title": "依存パッケージの脆弱性",
+      "level": "required",
+      "minutes": 5
+    },
+    "23.11": {
+      "title": "セキュアヘッダ",
+      "level": "required",
+      "minutes": 5
+    },
+    "23.12": {
+      "title": "ログとモニタリング",
+      "level": "required",
+      "minutes": 5
+    },
+    "23.13": {
+      "title": "セキュリティの文化",
+      "level": "required",
+      "minutes": 5
+    },
+    "23.14": {
+      "title": "Merkle Tree ― 大量データの完全性証明",
+      "level": "advanced",
+      "minutes": 30
+    },
+    "23.15": {
+      "title": "Evidence Bundle ― ソフトウェアサプライチェーンの完全性",
+      "level": "advanced",
+      "minutes": 35
+    },
+    "23.16": {
+      "title": "ブロックチェーンアンカー ― 改ざん不可性の極限",
+      "level": "outlook",
+      "minutes": 25
+    },
+    "23.17": {
+      "title": "HSTS の詳細 ― HTTPS 強制の正しい使い方",
+      "level": "practical",
+      "minutes": 10
+    },
+    "23.18": {
+      "title": "ChaCha20-Poly1305 ― AES に並ぶモバイル向け暗号",
+      "level": "advanced",
+      "minutes": 5
+    },
+    "23.19": {
+      "title": "TLS 1.3 ハンドシェイクの詳細",
+      "level": "practical",
+      "minutes": 10
+    },
+    "23.20": {
+      "title": "Certificate Transparency (CT)",
+      "level": "practical",
+      "minutes": 10
+    },
+    "23.21": {
+      "title": "Post-Quantum Cryptography ― 量子コンピュータ時代の備え",
+      "level": "outlook",
+      "minutes": 10
+    },
+    "23.22": {
+      "title": "WebAuthn Attestation ― 「本当に正規の認証器か」を検証",
+      "level": "advanced",
+      "minutes": 15
+    },
+    "23.23": {
+      "title": "Subresource Integrity (SRI)",
+      "level": "practical",
+      "minutes": 5
+    },
+    "23.24": {
+      "title": "COOP / COEP / CORP ― クロスオリジンの新世代制限",
+      "level": "advanced",
+      "minutes": 10
+    },
+    "23.25": {
+      "title": "CSP Trusted Types ― XSS 防御の最終形",
+      "level": "advanced",
+      "minutes": 5
+    },
+    "23.26": {
+      "title": "アップロードされたファイルの検証 ― MIME偽装、サイズ制限、スキャン",
+      "level": "practical",
+      "minutes": 25
+    },
+    "23.27": {
+      "title": "自動化された脅威 ― bot、スパム、レート制限の設計",
+      "level": "practical",
+      "minutes": 25
+    },
+    "23.28": {
+      "title": "実装課題 ― セキュリティを攻撃と防御の両面で学ぶ",
+      "level": "practical",
+      "minutes": 600
+    },
+    "24.1": {
+      "title": "Core Web Vitals",
+      "level": "required",
+      "minutes": 5
+    },
+    "24.2": {
+      "title": "フロントエンド最適化",
+      "level": "required",
+      "minutes": 5
+    },
+    "24.3": {
+      "title": "ネットワーク最適化",
+      "level": "required",
+      "minutes": 5
+    },
+    "24.4": {
+      "title": "バックエンド最適化",
+      "level": "required",
+      "minutes": 5
+    },
+    "24.5": {
+      "title": "キャッシュ戦略",
+      "level": "required",
+      "minutes": 10
+    },
+    "24.6": {
+      "title": "アルゴリズムとデータ構造",
+      "level": "required",
+      "minutes": 5
+    },
+    "24.7": {
+      "title": "プロファイリング",
+      "level": "required",
+      "minutes": 5
+    },
+    "24.8": {
+      "title": "負荷テスト",
+      "level": "required",
+      "minutes": 5
+    },
+    "24.9": {
+      "title": "実装課題 ― パフォーマンスを測定・改善する",
+      "level": "practical",
+      "minutes": 295
+    },
+    "25.1": {
+      "title": "テストピラミッド vs テストトロフィー",
+      "level": "required",
+      "minutes": 5
+    },
+    "25.2": {
+      "title": "Unit テスト",
+      "level": "required",
+      "minutes": 5
+    },
+    "25.3": {
+      "title": "Integration テスト",
+      "level": "required",
+      "minutes": 10
+    },
+    "25.4": {
+      "title": "E2E テスト",
+      "level": "required",
+      "minutes": 5
+    },
+    "25.5": {
+      "title": "コンポーネントテスト",
+      "level": "required",
+      "minutes": 5
+    },
+    "25.6": {
+      "title": "Mock と Stub と Fake",
+      "level": "required",
+      "minutes": 5
+    },
+    "25.7": {
+      "title": "Property-Based Testing",
+      "level": "practical",
+      "minutes": 5
+    },
+    "25.8": {
+      "title": "Mutation Testing",
+      "level": "advanced",
+      "minutes": 5
+    },
+    "25.9": {
+      "title": "視覚回帰テスト",
+      "level": "practical",
+      "minutes": 5
+    },
+    "25.10": {
+      "title": "何をテストすべきか",
+      "level": "required",
+      "minutes": 5
+    },
+    "25.11": {
+      "title": "アクセシビリティの検証 ― 自動チェック、キーボード走査、読み上げ確認",
+      "level": "practical",
+      "minutes": 25
+    },
+    "25.12": {
+      "title": "実装課題 ― テスト技法を自分の手で",
+      "level": "practical",
+      "minutes": 250
+    },
+    "26.1": {
+      "title": "スケールアップ vs スケールアウト",
+      "level": "required",
+      "minutes": 10
+    },
+    "26.2": {
+      "title": "データベースのスケール",
+      "level": "practical",
+      "minutes": 10
+    },
+    "26.3": {
+      "title": "マイクロサービス vs モノリス",
+      "level": "required",
+      "minutes": 10
+    },
+    "26.4": {
+      "title": "サービス分割の単位 ― Bounded Context",
+      "level": "practical",
+      "minutes": 5
+    },
+    "26.5": {
+      "title": "イベント駆動とサービス間通信",
+      "level": "required",
+      "minutes": 5
+    },
+    "26.6": {
+      "title": "サーキットブレーカ",
+      "level": "required",
+      "minutes": 5
+    },
+    "26.7": {
+      "title": "リトライとバックオフ",
+      "level": "required",
+      "minutes": 10
+    },
+    "26.8": {
+      "title": "Bulkhead (隔壁) パターン",
+      "level": "required",
+      "minutes": 5
+    },
+    "26.9": {
+      "title": "タイムアウト戦略 ― レイヤごとの設定指針",
+      "level": "required",
+      "minutes": 10
+    },
+    "26.10": {
+      "title": "冪等性とリトライ ― 「もう一度」を安全にする",
+      "level": "required",
+      "minutes": 15
+    },
+    "26.11": {
+      "title": "バックプレッシャー ― 過負荷の連鎖を防ぐ",
+      "level": "required",
+      "minutes": 15
+    },
+    "26.12": {
+      "title": "Chaos Engineering ― 壊れる前に壊す",
+      "level": "advanced",
+      "minutes": 10
+    },
+    "26.13": {
+      "title": "ディザスタリカバリ (DR) ― 「最悪の事態」への備え",
+      "level": "practical",
+      "minutes": 10
+    },
+    "26.14": {
+      "title": "設計時の判断ポイント",
+      "level": "required",
+      "minutes": 5
+    },
+    "26.15": {
+      "title": "実装課題 ― 耐障害性パターンを実装する",
+      "level": "practical",
+      "minutes": 300
+    },
+    "27.1": {
+      "title": "ドメイン駆動設計 (DDD) の基本",
+      "level": "required",
+      "minutes": 5
+    },
+    "27.2": {
+      "title": "Value Object の実例",
+      "level": "required",
+      "minutes": 10
+    },
+    "27.3": {
+      "title": "Aggregate と整合性境界",
+      "level": "required",
+      "minutes": 10
+    },
+    "27.4": {
+      "title": "Repository パターン",
+      "level": "practical",
+      "minutes": 10
+    },
+    "27.5": {
+      "title": "Clean Architecture と Hexagonal",
+      "level": "practical",
+      "minutes": 15
+    },
+    "27.6": {
+      "title": "CRUD vs DDD ― 比較例",
+      "level": "practical",
+      "minutes": 15
+    },
+    "27.7": {
+      "title": "SOLID 原則",
+      "level": "required",
+      "minutes": 5
+    },
+    "27.8": {
+      "title": "アンチパターンを認識する",
+      "level": "required",
+      "minutes": 5
+    },
+    "27.9": {
+      "title": "設計の判断軸",
+      "level": "required",
+      "minutes": 5
+    },
+    "27.10": {
+      "title": "Ubiquitous Language ― ドメインを表現する共通言語",
+      "level": "required",
+      "minutes": 15
+    },
+    "27.11": {
+      "title": "C4 モデル ― アーキテクチャ図の標準",
+      "level": "practical",
+      "minutes": 15
+    },
+    "27.12": {
+      "title": "Conway's Law ― 組織構造とソフトウェア構造の一致",
+      "level": "practical",
+      "minutes": 10
+    },
+    "27.13": {
+      "title": "問題定義とユーザーストーリー",
+      "level": "practical",
+      "minutes": 20
+    },
+    "27.14": {
+      "title": "ユースケース、状態遷移、業務ルール",
+      "level": "practical",
+      "minutes": 25
+    },
+    "27.15": {
+      "title": "受け入れ条件と Example Mapping",
+      "level": "practical",
+      "minutes": 25
+    },
+    "27.16": {
+      "title": "API契約とスキーマ駆動の仕様化",
+      "level": "practical",
+      "minutes": 20
+    },
+    "27.17": {
+      "title": "非機能要件の定量化",
+      "level": "practical",
+      "minutes": 20
+    },
+    "27.18": {
+      "title": "金額と通貨の表現 ― 最小単位、丸め、配分",
+      "level": "practical",
+      "minutes": 25
+    },
+    "27.19": {
+      "title": "実装課題 ― DDD と Clean Architecture を実装する",
+      "level": "practical",
+      "minutes": 330
+    },
+    "28.1": {
+      "title": "レガシーコードの定義",
+      "level": "required",
+      "minutes": 5
+    },
+    "28.2": {
+      "title": "レガシーを継承したらまずやること",
+      "level": "required",
+      "minutes": 5
+    },
+    "28.3": {
+      "title": "Characterization Test",
+      "level": "required",
+      "minutes": 5
+    },
+    "28.4": {
+      "title": "ストラングラーフィグパターン (Strangler Fig)",
+      "level": "required",
+      "minutes": 5
+    },
+    "28.5": {
+      "title": "Branch by Abstraction",
+      "level": "practical",
+      "minutes": 5
+    },
+    "28.6": {
+      "title": "リファクタリングカタログ",
+      "level": "required",
+      "minutes": 5
+    },
+    "28.7": {
+      "title": "デッドコードの掃除",
+      "level": "required",
+      "minutes": 5
+    },
+    "28.8": {
+      "title": "マイグレーション戦略 ― 言語・フレームワーク移行",
+      "level": "practical",
+      "minutes": 5
+    },
+    "28.9": {
+      "title": "ドキュメントとオンボーディング",
+      "level": "required",
+      "minutes": 5
+    },
+    "28.10": {
+      "title": "「コードベースは庭」というメンタリティ",
+      "level": "practical",
+      "minutes": 5
+    },
+    "28.11": {
+      "title": "ADR (Architecture Decision Record) ― 「なぜそう設計したか」を残す",
+      "level": "required",
+      "minutes": 10
+    },
+    "28.12": {
+      "title": "コードレビューのベストプラクティス",
+      "level": "required",
+      "minutes": 10
+    },
+    "28.13": {
+      "title": "Trunk-Based Development ― 短命ブランチ戦略",
+      "level": "practical",
+      "minutes": 10
+    },
+    "28.14": {
+      "title": "Web に関わる主要規制 ― GDPR、CCPA、SOC 2、HIPAA、APPI",
+      "level": "practical",
+      "minutes": 15
+    },
+    "28.15": {
+      "title": "実装課題 ― レガシー対応の技法を実装する",
+      "level": "practical",
+      "minutes": 250
+    },
+    "29.1": {
+      "title": "LLM を組み込んだアプリの基本構造",
+      "level": "required",
+      "minutes": 5
+    },
+    "29.2": {
+      "title": "ストリーミング応答",
+      "level": "required",
+      "minutes": 5
+    },
+    "29.3": {
+      "title": "RAG (Retrieval-Augmented Generation)",
+      "level": "required",
+      "minutes": 10
+    },
+    "29.4": {
+      "title": "Function Calling / Tool Use",
+      "level": "required",
+      "minutes": 10
+    },
+    "29.5": {
+      "title": "エージェント",
+      "level": "outlook",
+      "minutes": 20
+    },
+    "29.6": {
+      "title": "プロンプトインジェクション",
+      "level": "required",
+      "minutes": 5
+    },
+    "29.7": {
+      "title": "コスト管理とキャッシング",
+      "level": "required",
+      "minutes": 5
+    },
+    "29.8": {
+      "title": "AI コーディング支援との付き合い方",
+      "level": "required",
+      "minutes": 5
+    },
+    "29.9": {
+      "title": "ベクトルDBエコシステム",
+      "level": "practical",
+      "minutes": 5
+    },
+    "29.10": {
+      "title": "AI 時代の Web 開発者像",
+      "level": "required",
+      "minutes": 5
+    },
+    "29.11": {
+      "title": "Structured Outputs ― 構造化された LLM 出力",
+      "level": "practical",
+      "minutes": 15
+    },
+    "29.12": {
+      "title": "Streaming + Tool Use の組み合わせ",
+      "level": "advanced",
+      "minutes": 10
+    },
+    "29.13": {
+      "title": "MCP (Model Context Protocol) ― AI ツール統合の標準",
+      "level": "outlook",
+      "minutes": 15
+    },
+    "29.14": {
+      "title": "実装課題 ― AI 機能を自作で組み込む",
+      "level": "practical",
+      "minutes": 295
+    },
+    "30.1": {
+      "title": "要件定義",
+      "level": "required",
+      "minutes": 5
+    },
+    "30.2": {
+      "title": "技術選定",
+      "level": "required",
+      "minutes": 10
+    },
+    "30.3": {
+      "title": "データモデル",
+      "level": "required",
+      "minutes": 15
+    },
+    "30.4": {
+      "title": "認可設計",
+      "level": "required",
+      "minutes": 10
+    },
+    "30.5": {
+      "title": "API 設計",
+      "level": "required",
+      "minutes": 15
+    },
+    "30.6": {
+      "title": "非同期処理",
+      "level": "practical",
+      "minutes": 5
+    },
+    "30.7": {
+      "title": "検索",
+      "level": "practical",
+      "minutes": 5
+    },
+    "30.8": {
+      "title": "課金 (Stripe 連携)",
+      "level": "practical",
+      "minutes": 10
+    },
+    "30.9": {
+      "title": "セキュリティ対策チェック",
+      "level": "required",
+      "minutes": 5
+    },
+    "30.10": {
+      "title": "可観測性",
+      "level": "practical",
+      "minutes": 5
+    },
+    "30.11": {
+      "title": "デプロイとリリース戦略",
+      "level": "practical",
+      "minutes": 5
+    },
+    "30.12": {
+      "title": "「最初の本番稼働日」までの優先順位",
+      "level": "required",
+      "minutes": 5
+    },
+    "30.13": {
+      "title": "業務機能パターン集",
+      "level": "practical",
+      "minutes": 5
+    },
+    "30.13.1": {
+      "title": "決済 ― Stripe で本気で運用する",
+      "level": "practical",
+      "minutes": 20
+    },
+    "30.13.2": {
+      "title": "ファイルアップロード ― セキュアで大規模対応の設計",
+      "level": "practical",
+      "minutes": 25
+    },
+    "30.13.3": {
+      "title": "メール送信 ― 「届く」を担保する",
+      "level": "practical",
+      "minutes": 20
+    },
+    "30.13.4": {
+      "title": "通知システム ― マルチチャネルとレート制限",
+      "level": "practical",
+      "minutes": 20
+    },
+    "30.14": {
+      "title": "マルチテナントと日時の設計チェックリスト",
+      "level": "practical",
+      "minutes": 15
+    },
+    "30.15": {
+      "title": "ファイル・Webhook・メール・外部API連携の本番運用チェックリスト",
+      "level": "practical",
+      "minutes": 15
+    },
+    "30.16": {
+      "title": "アクセシビリティ・個人データ・決済・濫用対策のチェックリストと免責",
+      "level": "practical",
+      "minutes": 15
+    },
+    "30.17": {
+      "title": "実装課題 ― マルチテナント SaaS の最小実装",
+      "level": "practical",
+      "minutes": 85
+    }
+  }
+}

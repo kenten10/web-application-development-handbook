@@ -1,0 +1,29 @@
+=== 課題1.4 自分のWebの「使用履歴」を可視化 ===
+開始: 2026-08-29T16:41:35.667Z
+localhost サーバ起動: http://localhost:8641 (root=.verification/ken66/fixtures/ex1_4)
+※ 実ブラウザ履歴は使用しない。fixtures/ex1_4/history.json のダミーデータのみ。
+  [http:8641] GET /index.html -> 200
+  [http:8641] GET /history.json -> 200
+  [http:8641] GET /favicon.ico -> 204 (harness stub)
+可視化: バー 8 本 / 分類表 8 行 / ダミーデータ限定=true
+  [http:8641] GET /spa.html -> 200
+  [http:8641] GET /favicon.ico -> 204 (harness stub)
+  [http:8641] GET /favicon.ico -> 204 (harness stub)
+  [http:8641] GET /favicon.ico -> 204 (harness stub)
+Document リクエスト: 初期→リンク遷移で +1 / SPA遷移2回で +0
+SPA 状態: url=http://localhost:8641/spa.html?view=settings view=settings navCount=2
+  [http:8641] GET /index.html -> 200
+  [http:8641] GET /favicon.ico -> 204 (harness stub)
+  [http:8641] GET /history.json -> 200
+--- チェック結果 ---
+  PASS: 履歴グラフが8本描画される (bars=8)
+  PASS: 分類表が8行描画される (rows=8)
+  PASS: ダミーデータのみ使用
+  PASS: 通常リンク遷移で Document リクエストが発生
+  PASS: SPA遷移では Document リクエストが発生しない
+  PASS: SPA遷移で URL と表示が更新される
+  PASS: Console 重大エラー0件
+  PASS: Network 失敗0件
+  PASS: CSP 違反0件
+所要時間: 1.64 秒
+判定: PASS

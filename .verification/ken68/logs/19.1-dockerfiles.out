@@ -1,0 +1,14 @@
+naive_mutating_layers=3
+optimized_stages=3
+docker_benchmark=skipped (Docker unavailable or RUN_DOCKER_BENCH!=1)
+== naive build ==
+sha256:8f6873180240530b319a91ccbea0a0cad52f82d84318526b57d9550eddb8d041
+naive_build_seconds=33
+== optimized build ==
+sha256:b5c53fe855dd1f0a6a7909bbcb5270ed2f7f16961ec64854d1bc562caf64897a
+optimized_build_seconds=2
+== イメージサイズ比較 ==
+handbook-bench:optimized 347MB
+handbook-bench:naive 1.67GB
+== 実行確認 ==
+bench-app ok 3600000

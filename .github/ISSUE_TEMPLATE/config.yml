@@ -1,0 +1,11 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 正誤表（既知の誤りの一覧）
+    url: ../../blob/main/ERRATA.md
+    about: 報告の前に、すでに登録済みの誤りかどうかを確認してください。
+  - name: 公開・ライセンス・版管理・更新方針
+    url: ../../blob/main/RELEASE_POLICY.md
+    about: サポート対象の環境、動作を保証しない範囲、見直し周期を確認できます。
+  - name: ライセンス対応表
+    url: ../../blob/main/LICENSING.md
+    about: 本文とサンプルコードのどちらのライセンスが適用されるかを確認できます。

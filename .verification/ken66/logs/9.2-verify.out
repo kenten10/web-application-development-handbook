@@ -1,0 +1,49 @@
+=== 課題9.2 Service Worker でオフライン対応 ===
+開始: 2026-08-29T16:41:43.716Z
+localhost サーバ起動: http://localhost:8645 (root=code/ch09/pwa-service-worker/solution)
+  [http:8645] GET /index.html -> 200
+  [http:8645] GET /app.js -> 200
+  [http:8645] GET /style.css -> 200
+  [http:8645] GET /manifest.webmanifest -> 200
+  [http:8645] GET /favicon.ico -> 204 (harness stub)
+  [http:8645] GET /main.js -> 200
+  [http:8645] GET /index.html -> 200
+  [http:8645] GET /app.js -> 200
+  [http:8645] GET /index.html -> 200
+  [http:8645] GET /style.css -> 200
+  [http:8645] GET /offline.html -> 200
+  [http:8645] GET /manifest.webmanifest -> 200
+serviceWorker.ready: scope=http://localhost:8645/ state=activated script=http://localhost:8645/main.js
+ライフサイクル (ページ側 statechange): installing:installing -> updatefound:installing -> installing:installed -> updatefound:installed -> installing:activating -> updatefound:activating -> installing:activated -> updatefound:activated
+ライフサイクル (CDP ServiceWorker.workerVersionUpdated): activated -> new -> new -> new -> new -> installing -> installing -> installed -> activating -> activating -> activated
+観測できた状態の集合: activated, new, installing, installed, activating
+キャッシュ webbook-v1: ["/","/app.js","/index.html","/manifest.webmanifest","/offline.html","/style.css"]
+オンライン時: Todo 1件 / status="installing"
+  [http:8645] GET /index.html -> 200
+  [http:8645] GET /favicon.ico -> 204 (harness stub)
+  [http:8645] GET /style.css -> 200
+  [http:8645] GET /manifest.webmanifest -> 200
+  [http:8645] GET /app.js -> 200
+SW制御下の再読込: Todo 1件 / status="offline ready" / controller=true
+Network.emulateNetworkConditions(offline=true) を 3 ターゲット (page + service_worker) へ適用
+オフライン再読込 (CDP emulation): title="Offline" h1="オフラインです"
+検証用に HTTP サーバを停止して、真のネットワーク断でも fallback するか確認
+オフライン再読込 (サーバ停止): title="Offline" h1="オフラインです"
+キャッシュから /style.css を取得: true
+offline フェーズの Network 失敗 (想定内): 0 件 -> 
+--- チェック結果 ---
+  PASS: Service Worker が install される (installing -> installed) (activated, new, installing, installed, activating)
+  PASS: Service Worker が activate される (activating -> activated) (activated, new, installing, installed, activating)
+  PASS: scope が / でルート配下を制御する (http://localhost:8645/)
+  PASS: App Shell 6件がキャッシュされる (["/","/app.js","/index.html","/manifest.webmanifest","/offline.html","/style.css"])
+  PASS: オンラインで Todo を追加できる
+  PASS: 再読込後は Service Worker が制御し status が offline ready になる (controller=true status=offline ready)
+  PASS: 再読込後も localStorage の Todo が残る (items=1)
+  PASS: CDP offline エミュレーションで offline.html にフォールバック (オフラインです)
+  PASS: サーバ停止時も offline.html にフォールバック (オフラインです)
+  PASS: オフラインでもキャッシュ資産を取得できる
+  PASS: Console 重大エラー0件
+  PASS: Network 失敗0件
+  PASS: CSP 違反0件
+所要時間: 3.10 秒
+判定: PASS

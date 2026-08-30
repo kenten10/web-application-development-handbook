@@ -1,0 +1,1941 @@
+{
+  "version": 1,
+  "updated": "2026-08-30",
+  "requiredFields": [
+    "problem",
+    "objectives",
+    "prerequisites",
+    "coreSections",
+    "minimalSections",
+    "productionGaps",
+    "failureModes",
+    "diagnostics",
+    "decisions",
+    "exerciseSections",
+    "evaluation",
+    "sources"
+  ],
+  "chapters": {
+    "1": {
+      "title": "Webとは何か ― 歴史と全体像",
+      "problem": "目の前のフレームワークやクラウド製品だけで判断せず、WebアプリをURI・HTTP・HTML・クライアント/サーバという長寿命の原理から説明できるようにする。",
+      "objectives": [
+        "Webを構成する基本要素と、それぞれの責務を説明できる。",
+        "ステートレス性、クライアント/サーバ分離、Web標準が設計判断に与える影響を説明できる。",
+        "本書の範囲と学習ルートを理解し、自分の目的に合う読み方を選べる。"
+      ],
+      "prerequisites": [
+        "前提知識は不要。ブラウザでWebサイトを利用した経験があればよい。"
+      ],
+      "coreSections": [
+        "1.1",
+        "1.3",
+        "1.4"
+      ],
+      "minimalSections": [
+        "1.10"
+      ],
+      "productionGaps": [
+        "歴史上の設計原則は重要だが、実際のシステムでは認証、状態管理、CDN、非同期処理などの追加層が必要になる。"
+      ],
+      "failureModes": [
+        "Webを特定のJavaScriptフレームワークと同一視する。",
+        "ステートレスを「状態が存在しない」と誤解する。"
+      ],
+      "diagnostics": [
+        "ブラウザのNetworkパネルで文書・API・静的資産の境界を観察する。",
+        "URL、HTTPメソッド、レスポンス形式を分けて記録する。"
+      ],
+      "decisions": [
+        "標準仕様で解ける問題か、アプリ固有の仕組みが必要か。",
+        "サーバとクライアントのどちらに責務を置くべきか。"
+      ],
+      "exerciseSections": [
+        "1.10"
+      ],
+      "evaluation": [
+        "観察したリクエストをURI・HTTP・表現形式の3要素に分解できる。",
+        "本書で重点的に学ぶ章を理由付きで選べる。"
+      ],
+      "sources": [
+        "Berners-LeeのWeb提案書",
+        "RFC 3986",
+        "RFC 9110"
+      ]
+    },
+    "2": {
+      "title": "HTTPプロトコル徹底解剖",
+      "problem": "APIの不具合、キャッシュ事故、再送による二重処理、接続遅延を、フレームワークの外側にあるHTTPの意味論から診断する。",
+      "objectives": [
+        "リクエストとレスポンスをメソッド、ヘッダ、ボディ、状態コードに分解できる。",
+        "安全性・冪等性・キャッシュ可能性を踏まえてAPIを設計できる。",
+        "HTTP/1.1、HTTP/2、HTTP/3の差を接続と多重化の観点で説明できる。"
+      ],
+      "prerequisites": [
+        {
+          "section": "1.3",
+          "text": "クライアント/サーバモデルとステートレス性"
+        }
+      ],
+      "coreSections": [
+        "2.1",
+        "2.2",
+        "2.4",
+        "2.6",
+        "2.7"
+      ],
+      "minimalSections": [
+        "2.8",
+        "2.10"
+      ],
+      "productionGaps": [
+        "教材の生HTTPサーバは、入力上限、タイムアウト、TLS終端、プロキシ、脆弱なヘッダ処理を省略している。"
+      ],
+      "failureModes": [
+        "GETに副作用を持たせる。",
+        "再送可能な操作を冪等にしない。",
+        "キャッシュ制御をブラウザ任せにする。"
+      ],
+      "diagnostics": [
+        "curl -v、ブラウザNetwork、サーバアクセスログを同じrequest IDで突き合わせる。",
+        "レスポンス時間をDNS・接続・TTFB・転送に分解する。"
+      ],
+      "decisions": [
+        "操作の意味に合うメソッドと状態コードか。",
+        "再送、キャッシュ、プロキシ通過時にも意味が保たれるか。"
+      ],
+      "exerciseSections": [
+        "2.9",
+        "2.10"
+      ],
+      "evaluation": [
+        "生のHTTPメッセージを組み立て、期待する応答を得られる。",
+        "不正入力と再送時の挙動を説明できる。"
+      ],
+      "sources": [
+        "RFC 9110",
+        "RFC 9112",
+        "RFC 9113",
+        "RFC 9114"
+      ]
+    },
+    "3": {
+      "title": "URL・DNS・TLS",
+      "problem": "「サイトにつながらない」「証明書エラーになる」「一部地域だけ遅い」を、URL解析、名前解決、暗号化通信の各段階に切り分ける。",
+      "objectives": [
+        "URLの構成要素とサーバへ送られない部分を説明できる。",
+        "DNS解決の階層、キャッシュ、TTLの影響を説明できる。",
+        "TLSが提供する機密性・完全性・相手認証と、提供しない保証を説明できる。"
+      ],
+      "prerequisites": [
+        {
+          "section": "2.1",
+          "text": "HTTPメッセージの構造"
+        },
+        {
+          "section": "2.5",
+          "text": "接続再利用"
+        }
+      ],
+      "coreSections": [
+        "3.1",
+        "3.2",
+        "3.3",
+        "3.5"
+      ],
+      "minimalSections": [
+        "3.4",
+        "3.6"
+      ],
+      "productionGaps": [
+        "自己署名証明書は学習用であり、公開環境では信頼された認証局、自動更新、秘密鍵保護、適切なTLS設定が必要になる。"
+      ],
+      "failureModes": [
+        "DNS変更が即時反映されると思い込む。",
+        "証明書のホスト名、期限、中間証明書を確認しない。",
+        "URLへ秘密情報を含める。"
+      ],
+      "diagnostics": [
+        "dig/nslookup、curl -v、openssl s_clientでDNS・TCP・TLSを別々に確認する。",
+        "証明書チェーンとSNI、ALPNを記録する。"
+      ],
+      "decisions": [
+        "DNSの可用性と変更手順をどう設計するか。",
+        "TLS終端をアプリ、リバースプロキシ、クラウドLBのどこに置くか。"
+      ],
+      "exerciseSections": [
+        "3.6"
+      ],
+      "evaluation": [
+        "名前解決とTLS失敗を再現し、どの層で失敗したか説明できる。"
+      ],
+      "sources": [
+        "RFC 3986",
+        "RFC 1034/1035",
+        "RFC 8446",
+        "CA/Browser Forum Baseline Requirements"
+      ]
+    },
+    "4": {
+      "title": "HTML/CSS/JavaScriptの設計思想",
+      "problem": "表示崩れ、入力遅延、メモリリーク、DOM更新競合を、ブラウザのレンダリングとJavaScript実行モデルから分析する。",
+      "objectives": [
+        "DOM・CSSOM・Layout・Paint・Compositeの流れを説明できる。",
+        "イベントループとタスク/マイクロタスクが描画へ与える影響を説明できる。",
+        "フレームワークなしで状態とDOM更新を接続できる。"
+      ],
+      "prerequisites": [
+        {
+          "section": "1.4",
+          "text": "Webアプリケーションの構成"
+        },
+        {
+          "section": "2.1",
+          "text": "HTTPで文書が届くまで"
+        }
+      ],
+      "coreSections": [
+        "4.1",
+        "4.3",
+        "4.5",
+        "4.6"
+      ],
+      "minimalSections": [
+        "4.7",
+        "4.9"
+      ],
+      "productionGaps": [
+        "教材のDOM実装は差分更新、アクセシビリティ、入力保持、エラー境界、複雑な状態同期を省略している。"
+      ],
+      "failureModes": [
+        "レイアウト情報の読み書きを交互に行う。",
+        "長い同期処理でメインスレッドを占有する。",
+        "DOMを唯一の状態置き場にする。"
+      ],
+      "diagnostics": [
+        "PerformanceパネルでLong Task、Layout、Paintを確認する。",
+        "MutationObserverやイベントログで意図しないDOM変更を追う。"
+      ],
+      "decisions": [
+        "DOMを直接操作すべきか、宣言的UIが必要か。",
+        "処理を分割するかWorkerへ移すべきか。"
+      ],
+      "exerciseSections": [
+        "4.9"
+      ],
+      "evaluation": [
+        "Todo実装の状態更新経路を説明し、不要な再描画を特定できる。"
+      ],
+      "sources": [
+        "HTML Living Standard",
+        "CSS specifications",
+        "ECMAScript specification",
+        "WHATWG DOM"
+      ]
+    },
+    "5": {
+      "title": "JavaScriptとTypeScriptの中核機構",
+      "problem": "非同期バグ、型の思い込み、スコープ汚染、例外握りつぶし、メモリリークを、言語仕様と実行モデルから修正する。",
+      "objectives": [
+        "値渡し、クロージャ、this、等価性を正確に説明できる。",
+        "Promise、async/await、イベントループの順序を予測できる。",
+        "TypeScriptの静的保証と実行時検証の境界を説明できる。"
+      ],
+      "prerequisites": [
+        {
+          "section": "4.5",
+          "text": "JavaScriptランタイムとイベントループ"
+        }
+      ],
+      "coreSections": [
+        "5.1",
+        "5.2",
+        "5.3",
+        "5.4",
+        "5.7",
+        "5.9"
+      ],
+      "minimalSections": [
+        "5.5",
+        "5.12"
+      ],
+      "productionGaps": [
+        "自作Promiseは教育用であり、thenable同化、種々の静的メソッド、ホスト統合など標準の全挙動を実装していない。TypeScript型も外部入力の正しさを保証しない。"
+      ],
+      "failureModes": [
+        "参照渡しという不正確な説明で変更共有を誤る。",
+        "非同期処理の拒否を処理しない。",
+        "型アサーションで不整合を隠す。"
+      ],
+      "diagnostics": [
+        "最小再現コードで同期処理、マイクロタスク、タイマを順番に記録する。",
+        "heap snapshotと保持パスでリーク元を調べる。"
+      ],
+      "decisions": [
+        "実行時検証が必要な境界はどこか。",
+        "例外、Result、戻り値のどれで失敗を表現するか。"
+      ],
+      "exerciseSections": [
+        "5.12"
+      ],
+      "evaluation": [
+        "非同期実行順を事前に予測し実測と一致させる。",
+        "教材Promiseの標準との差分を列挙できる。"
+      ],
+      "sources": [
+        "ECMAScript Language Specification",
+        "TypeScript Handbook",
+        "ECMA-402"
+      ]
+    },
+    "6": {
+      "title": "フロントエンドフレームワーク",
+      "problem": "UI状態が増えたときのDOM同期、再利用、テスト、アクセシビリティを、フレームワークの抽象化とコストを理解して設計する。",
+      "objectives": [
+        "宣言的UI、単方向データフロー、リアクティビティの違いを説明できる。",
+        "React、Vue、Svelte、Signalsを要件とチーム条件で比較できる。",
+        "コンポーネント境界とアクセシビリティ要件を設計できる。",
+        "フォーカスを状態遷移として設計し、モーダル・動的更新・ルート遷移で失わないようにできる。"
+      ],
+      "prerequisites": [
+        {
+          "section": "4.3",
+          "text": "DOMの構造"
+        },
+        {
+          "section": "5.3",
+          "text": "関数とクロージャ"
+        }
+      ],
+      "coreSections": [
+        "6.1",
+        "6.2",
+        "6.4",
+        "6.5",
+        "6.6",
+        "6.8",
+        "6.9",
+        "6.11"
+      ],
+      "minimalSections": [
+        "6.3",
+        "6.12"
+      ],
+      "productionGaps": [
+        "ミニReactは再調停、並行レンダリング、エラー処理、イベント委譲、SSRを大幅に省略する。本番では公式実装とエコシステムを使う。"
+      ],
+      "failureModes": [
+        "仮想DOMを常に高速化する魔法と考える。",
+        "状態と派生値を重複保持する。",
+        "見た目だけでアクセシビリティを判断する。",
+        "ARIA属性を付けたことをアクセシビリティ対応の完了と考え、フォーカスの行き先を設計しない。"
+      ],
+      "diagnostics": [
+        "React DevTools等で再レンダリング原因と状態所有者を確認する。",
+        "キーボード操作とスクリーンリーダーで主要フローを検証する。",
+        "Tabで一巡し、フォーカスの可視性、順序、閉じ込め、復帰を記録する。"
+      ],
+      "decisions": [
+        "チームの習熟、保守期間、SSR要件、エコシステムを満たすか。",
+        "状態をどのコンポーネントが所有すべきか。",
+        "モーダルとルート遷移で、フォーカスをどこへ移し、どこへ戻すか。"
+      ],
+      "exerciseSections": [
+        "6.12"
+      ],
+      "evaluation": [
+        "ミニフレームワークの更新経路を説明できる。",
+        "同じ要件を複数方式で比較し、採用理由を書ける。",
+        "フォーカスの喪失とエラー未通知を再現し、対策後に再現しないことを示せる。"
+      ],
+      "sources": [
+        "React documentation",
+        "Vue documentation",
+        "Svelte documentation",
+        "WAI-ARIA Authoring Practices",
+        "W3C WAI-ARIA Authoring Practices Guide"
+      ]
+    },
+    "7": {
+      "title": "状態管理とデータフェッチング",
+      "problem": "UI状態、共有状態、サーバ状態を混在させた結果生じる古い表示、競合、過剰なグローバル状態を解消し、フォームの状態を支援技術へ届く形へ変換する。",
+      "objectives": [
+        "状態をローカル・共有・サーバに分類できる。",
+        "キャッシュの鮮度、再取得、楽観的更新、ロールバックを設計できる。",
+        "フォーム状態とバリデーション境界を設計できる。",
+        "フォームの名前、必須、エラー、送信結果を、視覚以外の経路へも届けられる。"
+      ],
+      "prerequisites": [
+        {
+          "section": "6.1",
+          "text": "単方向データフロー"
+        },
+        {
+          "section": "5.4",
+          "text": "非同期処理"
+        }
+      ],
+      "coreSections": [
+        "7.1",
+        "7.4",
+        "7.5",
+        "7.6",
+        "7.7",
+        "7.9"
+      ],
+      "minimalSections": [
+        "7.2",
+        "7.10"
+      ],
+      "productionGaps": [
+        "教材ストアとキャッシュは購読解除、永続化、競合制御、エラー回復、SSR統合を簡略化している。"
+      ],
+      "failureModes": [
+        "サーバデータを複数ストアへコピーする。",
+        "楽観的更新で失敗時の復元を設計しない。",
+        "入力中と送信済み状態を区別しない。",
+        "エラーを描画するだけで、フォーカスもライブリージョンも使わず通知しない。"
+      ],
+      "diagnostics": [
+        "Networkログとキャッシュキーを照合する。",
+        "状態更新の発生元、購読先、再描画を時系列で記録する。",
+        "空のまま送信し、エラーがフィールド・サマリ・通知の3経路に載るか確認する。"
+      ],
+      "decisions": [
+        "状態の正本はどこか。",
+        "共有範囲は本当にアプリ全体か。",
+        "再取得と無効化の条件は何か。",
+        "検証をいつ走らせるか。入力中、blur時、送信時のどれをデフォルトにするか。"
+      ],
+      "exerciseSections": [
+        "7.10"
+      ],
+      "evaluation": [
+        "状態分類を説明し、適切な保存場所を選べる。",
+        "失敗する楽観的更新を再現し復元できる。",
+        "ラベルとエラー通知の欠落を再現し、修正後に読み上げ経路へ載ることを示せる。"
+      ],
+      "sources": [
+        "Redux documentation",
+        "TanStack Query documentation",
+        "HTML forms specification",
+        "W3C WAI-ARIA Authoring Practices Guide"
+      ]
+    },
+    "8": {
+      "title": "ビルドツールとモジュールバンドラ",
+      "problem": "ビルドが遅い、依存が重い、本番だけ壊れる、不要コードが残る問題を、モジュールグラフと変換工程から診断する。",
+      "objectives": [
+        "依存解析、変換、チャンク分割、最適化の流れを説明できる。",
+        "ESMとCommonJS、開発サーバと本番ビルドの差を説明できる。",
+        "計測に基づいてツールと最適化を選べる。"
+      ],
+      "prerequisites": [
+        {
+          "section": "4.6",
+          "text": "モジュールシステム"
+        },
+        {
+          "section": "5.7",
+          "text": "TypeScript"
+        }
+      ],
+      "coreSections": [
+        "8.1",
+        "8.4",
+        "8.5",
+        "8.6",
+        "8.7"
+      ],
+      "minimalSections": [
+        "8.9"
+      ],
+      "productionGaps": [
+        "自作バンドラは完全な構文解析、source map、CSS/asset処理、循環依存、プラグイン安全性を省略している。"
+      ],
+      "failureModes": [
+        "開発時の速さだけで本番出力を評価する。",
+        "sideEffects設定を誤り必要コードを消す。",
+        "バンドルサイズを転送量だけで評価する。"
+      ],
+      "diagnostics": [
+        "ビルドメタファイルとbundle analyzerで依存元を確認する。",
+        "キャッシュを無効化して再現性を確認する。"
+      ],
+      "decisions": [
+        "アプリかライブラリか。",
+        "ブラウザ対象とNode対象を分ける必要があるか。",
+        "最適化の効果を何で測るか。"
+      ],
+      "exerciseSections": [
+        "8.9"
+      ],
+      "evaluation": [
+        "依存グラフから出力チャンクを説明できる。",
+        "改善前後のサイズと実行時間を同じ条件で比較できる。"
+      ],
+      "sources": [
+        "ECMAScript Modules",
+        "Vite documentation",
+        "Rollup documentation",
+        "WebAssembly specifications"
+      ]
+    },
+    "9": {
+      "title": "レンダリング戦略",
+      "problem": "SEO、初期表示、インタラクション、キャッシュ、サーバ負荷のトレードオフを、CSR/SSR/SSG/RSCなどの実行場所から選ぶ。",
+      "objectives": [
+        "主要レンダリング方式の生成時点とデータ取得位置を説明できる。",
+        "ハイドレーション、ストリーミング、キャッシュの失敗条件を説明できる。",
+        "ページ単位で方式を組み合わせる判断ができる。"
+      ],
+      "prerequisites": [
+        {
+          "section": "6.1",
+          "text": "宣言的UI"
+        },
+        {
+          "section": "8.1",
+          "text": "ビルド工程"
+        }
+      ],
+      "coreSections": [
+        "9.1",
+        "9.2",
+        "9.3",
+        "9.5",
+        "9.6",
+        "9.7"
+      ],
+      "minimalSections": [
+        "9.8",
+        "9.13"
+      ],
+      "productionGaps": [
+        "教材比較は同一機能の最小例であり、認証、CDN、データ更新、エラー回復、運用コストを含まない。"
+      ],
+      "failureModes": [
+        "サイト全体を1方式に固定する。",
+        "サーバとクライアントで異なる値を描画しハイドレーション不一致を起こす。",
+        "キャッシュ無効化を設計しない。"
+      ],
+      "diagnostics": [
+        "HTMLソース、Network waterfall、サーバログを合わせて生成場所を確認する。",
+        "JavaScript無効時と低速回線で初期表示を確認する。"
+      ],
+      "decisions": [
+        "コンテンツの更新頻度と個別化の程度は。",
+        "初期HTMLに必要な情報は何か。",
+        "どこまでCDNで共有可能か。"
+      ],
+      "exerciseSections": [
+        "9.13"
+      ],
+      "evaluation": [
+        "同一ページを複数方式で実装し、TTFB・表示・更新性を比較できる。"
+      ],
+      "sources": [
+        "React Server Components documentation",
+        "HTML specification",
+        "Service Workers specification",
+        "Astro documentation"
+      ]
+    },
+    "10": {
+      "title": "サーバサイド言語とランタイム",
+      "problem": "言語の人気や単純ベンチマークだけでなく、並行性、レイテンシ、運用、採用、既存資産からバックエンドの実行基盤を選ぶ。",
+      "objectives": [
+        "スレッド、イベントループ、コルーチンの違いを説明できる。",
+        "Node.js、Go、Rust、Python、Ruby等の強みと制約を条件付きで比較できる。",
+        "再現可能なベンチマークを設計できる。"
+      ],
+      "prerequisites": [
+        {
+          "section": "5.4",
+          "text": "非同期処理"
+        },
+        {
+          "section": "18.1",
+          "text": "プロセスとスレッドを後で参照"
+        }
+      ],
+      "coreSections": [
+        "10.1",
+        "10.2",
+        "10.4",
+        "10.5",
+        "10.6",
+        "10.9"
+      ],
+      "minimalSections": [
+        "10.8",
+        "10.10"
+      ],
+      "productionGaps": [
+        "echoサーバの測定は業務ロジック、DB、TLS、GC、デプロイ方式を代表しない。本番選定では実ワークロードとチーム条件を測る。"
+      ],
+      "failureModes": [
+        "req/sだけで選ぶ。",
+        "CPU処理とI/O処理を同じ並行性モデルで評価する。",
+        "ランタイム更新と依存互換性を無視する。"
+      ],
+      "diagnostics": [
+        "CPU profile、event-loop delay、GC、メモリ、p95/p99を同時に観測する。",
+        "同一ハードウェアと負荷生成条件を固定する。"
+      ],
+      "decisions": [
+        "ワークロードはCPU中心かI/O中心か。",
+        "採用・保守・ライブラリ・起動時間の制約は何か。"
+      ],
+      "exerciseSections": [
+        "10.10"
+      ],
+      "evaluation": [
+        "ベンチマーク条件を記録し、結果の一般化可能範囲を説明できる。"
+      ],
+      "sources": [
+        "Node.js documentation",
+        "Go specification",
+        "Rust reference",
+        "Python documentation",
+        "Ruby documentation"
+      ]
+    },
+    "11": {
+      "title": "Webフレームワーク設計論",
+      "problem": "フレームワークの魔法に依存せず、ルーティング、ミドルウェア、DI、エラー処理の責務を理解して拡張可能なサーバを作る。",
+      "objectives": [
+        "ミドルウェアチェーンとOnionモデルを説明できる。",
+        "ルーティング、入力検証、エラー処理、DIの境界を設計できる。",
+        "フレームワーク選択を要件と組織条件から説明できる。"
+      ],
+      "prerequisites": [
+        {
+          "section": "2.8",
+          "text": "生のHTTPサーバ"
+        },
+        {
+          "section": "10.1",
+          "text": "並行性モデル"
+        }
+      ],
+      "coreSections": [
+        "11.1",
+        "11.2",
+        "11.6",
+        "11.7",
+        "11.8"
+      ],
+      "minimalSections": [
+        "11.2",
+        "11.9"
+      ],
+      "productionGaps": [
+        "自作フレームワークはHTTP準拠、セキュリティ、ストリーミング、プラグイン互換、運用機能を省略する。"
+      ],
+      "failureModes": [
+        "ミドルウェアの順序を暗黙にする。",
+        "例外をレスポンスへ変換する場所が複数ある。",
+        "DIコンテナで依存関係を隠す。"
+      ],
+      "diagnostics": [
+        "各ミドルウェアの開始・終了・例外をrequest ID付きで記録する。",
+        "ルート表と依存グラフを可視化する。"
+      ],
+      "decisions": [
+        "薄いフレームワークと統合型のどちらがチームに合うか。",
+        "横断関心事をどの層で扱うか。"
+      ],
+      "exerciseSections": [
+        "11.9"
+      ],
+      "evaluation": [
+        "ミニフレームワークで順序、例外、非同期処理を検証できる。"
+      ],
+      "sources": [
+        "Express documentation",
+        "Fastify documentation",
+        "Hono documentation",
+        "NestJS documentation"
+      ]
+    },
+    "12": {
+      "title": "API設計",
+      "problem": "クライアント追加、仕様変更、エラー処理、リアルタイム通信で破綻しない契約を設計する。",
+      "objectives": [
+        "リソース指向APIと操作指向APIの使い分けを説明できる。",
+        "ページネーション、エラー、バージョニング、スキーマを一貫して設計できる。",
+        "REST、GraphQL、gRPC、WebSocket、SSEを要件で比較できる。",
+        "ファイル転送とWebhookを、失敗を前提にした契約として設計できる。"
+      ],
+      "prerequisites": [
+        {
+          "section": "2.2",
+          "text": "HTTPメソッドの意味論"
+        },
+        {
+          "section": "11.1",
+          "text": "ミドルウェア"
+        }
+      ],
+      "coreSections": [
+        "12.1",
+        "12.3",
+        "12.4",
+        "12.5",
+        "12.6",
+        "12.12",
+        "12.13",
+        "12.15"
+      ],
+      "minimalSections": [
+        "12.16"
+      ],
+      "productionGaps": [
+        "最小API例は認証、認可、レート制限、監査、後方互換、部分障害を省略する。",
+        "転送方式の例はウイルススキャン、検疫、配信オリジンの分離を省略する。内容の検証は23.26が扱う。"
+      ],
+      "failureModes": [
+        "URIへ動詞を乱用する。",
+        "オフセットページングを大規模更新データへ無条件適用する。",
+        "エラー形式をエンドポイントごとに変える。",
+        "サイズ上限や種別を仕様書だけに書き、署名条件へ入れない。",
+        "Webhookの再送でイベントIDを振り直し、受信側の重複排除を不可能にする。"
+      ],
+      "diagnostics": [
+        "契約テストとOpenAPI差分で破壊的変更を検出する。",
+        "request ID、入力、状態コード、依存先時間を記録する。",
+        "アップロードは PENDING と実体の有無を突き合わせ、孤児オブジェクトを数える。",
+        "Webhookは配送試行、応答コード、署名検証失敗数を配送先ごとに記録する。"
+      ],
+      "decisions": [
+        "利用者は誰で、更新頻度と互換期間は。",
+        "要求は要求応答、ストリーム、双方向のどれか。",
+        "バイト列をアプリケーションサーバへ通す価値があるか。",
+        "Webhookで保証しないこと (重複・順序・遅延・欠落) を明示したか。"
+      ],
+      "exerciseSections": [
+        "12.16"
+      ],
+      "evaluation": [
+        "同じユースケースを複数API方式で比較し、選定理由を説明できる。",
+        "転送方式の選択理由と、上限を強制している場所を指し示せる。"
+      ],
+      "sources": [
+        "Fielding dissertation",
+        "OpenAPI 3.2 specification",
+        "GraphQL specification",
+        "gRPC documentation",
+        "RFC 7578 multipart/form-data",
+        "tus resumable upload protocol",
+        "Standard Webhooks"
+      ]
+    },
+    "13": {
+      "title": "認証と認可",
+      "problem": "本人確認、セッション維持、第三者認可、権限制御を混同せず、アカウント乗っ取りと権限漏洩を防ぐ。",
+      "objectives": [
+        "認証と認可、OAuthとOIDCを区別できる。",
+        "パスワード、セッション、JWT、WebAuthnの脅威と運用条件を説明できる。",
+        "RBAC/ABAC/ReBACと中央化された認可を設計できる。",
+        "マルチテナントのテナント境界を、認証・所属・権限の3段階として設計できる。",
+        "正しい資格情報を使う攻撃 (Credential Stuffing、パスワードスプレー) を、試行の鍵と段階的な対応で扱える。"
+      ],
+      "prerequisites": [
+        {
+          "section": "2.4",
+          "text": "HTTPヘッダとCookie"
+        },
+        {
+          "section": "3.3",
+          "text": "TLS"
+        }
+      ],
+      "coreSections": [
+        "13.1",
+        "13.2",
+        "13.4",
+        "13.6",
+        "13.7",
+        "13.8",
+        "13.10",
+        "13.11",
+        "13.24",
+        "13.25"
+      ],
+      "minimalSections": [
+        "13.3",
+        "13.13",
+        "13.26"
+      ],
+      "productionGaps": [
+        "教材認証サーバは鍵管理、クライアント登録、同意、失効、監査、攻撃耐性を省略する。公開認証基盤として利用しない。"
+      ],
+      "failureModes": [
+        "JWTを暗号化済みと誤解する。",
+        "IDだけで認可しtenant境界を確認しない。",
+        "redirect URIやissuer/audience検証を省く。",
+        "アカウント単位の固定回数ロックだけを置き、分散した試行と締め出しDoSの両方に外す。"
+      ],
+      "diagnostics": [
+        "認証イベント、token ID、issuer、audience、認可判断を機密情報を除いて記録する。",
+        "失効、時刻ずれ、鍵ローテーションを故障注入する。",
+        "2テナント以上のデータで、一覧以外の経路も含めて越境を検査する。",
+        "ログイン失敗率を、アカウント・送信元・ネットワーク・全体の4層で分けて観測する。"
+      ],
+      "decisions": [
+        "誰が誰に何を委任するか。",
+        "セッション失効要求はどれほど強いか。",
+        "権限変更をどこで即時反映するか。",
+        "テナントの存在を秘匿するか。403と404の使い分けは全経路で揃っているか。",
+        "しきい値を超えたとき、遅延・追加チャレンジ・追加要素・一時制限のどれから入るか。"
+      ],
+      "exerciseSections": [
+        "13.26"
+      ],
+      "evaluation": [
+        "攻撃シナリオを再現し、どの検証が防いだか説明できる。",
+        "正しい資格情報を使う攻撃を再現し、どの層の対策が止めたか説明できる。"
+      ],
+      "sources": [
+        "OAuth 2.0 Security BCP (RFC 9700)",
+        "OpenID Connect Core",
+        "WebAuthn specifications",
+        "JWT BCP (RFC 8725)",
+        "OWASP Credential Stuffing Prevention Cheat Sheet"
+      ]
+    },
+    "14": {
+      "title": "リレーショナルデータベース",
+      "problem": "整合性、性能、並行更新、スキーマ変更を、ORMの外側にあるRDBのモデルと実行機構から扱い、個人データの寿命まで設計に含める。",
+      "objectives": [
+        "正規化、制約、トランザクション境界を設計できる。",
+        "インデックスと実行計画を読み、N+1やスロークエリを改善できる。",
+        "MVCC、分離レベル、ロック、VACUUMの関係を説明できる。",
+        "テナント分離モデルを選び、Row-Level Securityで境界を宣言できる。",
+        "瞬間、ローカル日時、カレンダー日を区別し、DBの日時型と定期実行へ落とせる。",
+        "個人データの所在、保持期間、削除の伝播、エクスポートの範囲を設計できる。"
+      ],
+      "prerequisites": [
+        {
+          "section": "12.3",
+          "text": "APIのリソース設計"
+        }
+      ],
+      "coreSections": [
+        "14.1",
+        "14.2",
+        "14.3",
+        "14.4",
+        "14.6",
+        "14.7",
+        "14.8",
+        "14.9",
+        "14.20",
+        "14.23",
+        "14.25"
+      ],
+      "minimalSections": [
+        "14.13",
+        "14.27"
+      ],
+      "productionGaps": [
+        "教材DB実装はWAL、クラッシュリカバリ、並行制御、統計、永続性を簡略化する。本番では成熟したDBMSを使用する。"
+      ],
+      "failureModes": [
+        "インデックスを増やせば常に速くなると考える。",
+        "トランザクションを外部API待ちまで保持する。",
+        "オンライン移行のロックと互換期間を無視する。",
+        "RLSを有効化しただけで、所有者バイパスと接続の使い回しを確認しない。",
+        "カレンダー日を瞬間として保存し、地域によって1日ずれる。",
+        "削除を主テーブルの行削除だけで済ませ、検索インデックスや分析基盤に残す。",
+        "ログの機密フィールドを拒否リストで管理し、新しい項目が増えるたびに漏らす。"
+      ],
+      "diagnostics": [
+        "EXPLAIN (ANALYZE, BUFFERS) とDB統計を確認する。",
+        "ロック待ち、長時間トランザクション、dead tuple、接続数を監視する。",
+        "テナント別の実行時間と待ち時間を分けて観測し、noisy neighborを特定する。",
+        "DST境界を含む固定日時で、定期実行と日次集計を再現する。",
+        "削除要求の進捗を場所ごとに記録し、期限切れの残件数を監視する。"
+      ],
+      "decisions": [
+        "守るべき不変条件はDB制約で表現できるか。",
+        "読み取り整合性と書き込み競合の要件は。",
+        "テナント分離はプール、ブリッジ、サイロのどれか。復旧と移行の単位はどこか。",
+        "各日時項目は瞬間か、ローカル日時か、カレンダー日か。",
+        "「削除しました」と説明する範囲にバックアップを含めるか。含めない場合の説明はどうするか。"
+      ],
+      "exerciseSections": [
+        "14.27"
+      ],
+      "evaluation": [
+        "同じクエリを計測し、実行計画に基づく改善を説明できる。",
+        "テナント越境と日時バグを再現し、対策後に再現しないことを示せる。",
+        "削除の伝播漏れとエクスポートの範囲誤りを再現し、対策後に再現しないことを示せる。"
+      ],
+      "sources": [
+        "PostgreSQL documentation",
+        "SQL standard",
+        "Database System Concepts",
+        "PostgreSQL Row Security Policies",
+        "IANA Time Zone Database",
+        "RFC 9557",
+        "各法域の個人データ保護に関する当局公表資料 (適用の判断は法務へ確認する)"
+      ]
+    },
+    "15": {
+      "title": "NoSQLとデータモデリング",
+      "problem": "RDB以外を流行やスケールの印象で選ばず、アクセスパターン、整合性、障害時挙動からデータストアを選ぶ。",
+      "objectives": [
+        "KVS、ドキュメント、列指向、グラフのモデル差を説明できる。",
+        "CAP/PACELCと結果整合性を具体的な操作へ結び付けられる。",
+        "PostgreSQLを含む候補をアクセスパターンで比較できる。"
+      ],
+      "prerequisites": [
+        {
+          "section": "14.1",
+          "text": "リレーショナルモデル"
+        },
+        {
+          "section": "14.6",
+          "text": "トランザクション"
+        }
+      ],
+      "coreSections": [
+        "15.1",
+        "15.2",
+        "15.4",
+        "15.5",
+        "15.6",
+        "15.8"
+      ],
+      "minimalSections": [
+        "15.12"
+      ],
+      "productionGaps": [
+        "教材KVSやCRDTは分散合意、永続化、リバランス、監視、アクセス制御を省略する。"
+      ],
+      "failureModes": [
+        "NoSQLをスキーマレスと考え契約を管理しない。",
+        "結果整合性で許されない業務不変条件を扱う。",
+        "単一クエリだけで将来の運用を決める。"
+      ],
+      "diagnostics": [
+        "読み取り整合性、レプリカ遅延、パーティション、hot keyを計測する。",
+        "失敗時のリトライと重複を書き込み履歴で確認する。"
+      ],
+      "decisions": [
+        "主要アクセスパターンと更新競合は何か。",
+        "強整合性が必要な不変条件はどこか。"
+      ],
+      "exerciseSections": [
+        "15.12"
+      ],
+      "evaluation": [
+        "同一モデルをRDBとNoSQLで表現し、失う保証を説明できる。"
+      ],
+      "sources": [
+        "DynamoDB documentation",
+        "Redis documentation",
+        "MongoDB documentation",
+        "CAP/PACELC primary literature"
+      ]
+    },
+    "16": {
+      "title": "検索エンジンと全文検索",
+      "problem": "LIKE検索の限界、検索品質の低下、インデックス更新遅延、ベクトル検索の誤用を、検索パイプライン全体から解決する。",
+      "objectives": [
+        "転置インデックス、解析、BM25の基本を説明できる。",
+        "全文検索、ファセット、ベクトル検索を要件で組み合わせられる。",
+        "品質・レイテンシ・更新・コストを評価する検索実験を設計できる。"
+      ],
+      "prerequisites": [
+        {
+          "section": "14.3",
+          "text": "インデックス内部構造"
+        },
+        {
+          "section": "15.6",
+          "text": "結果整合性"
+        }
+      ],
+      "coreSections": [
+        "16.1",
+        "16.2",
+        "16.3",
+        "16.7",
+        "16.8",
+        "16.9"
+      ],
+      "minimalSections": [
+        "16.12"
+      ],
+      "productionGaps": [
+        "自作検索は言語解析、分散インデックス、ランキング学習、障害復旧、アクセス制御を省略する。"
+      ],
+      "failureModes": [
+        "件数だけで検索製品を選ぶ。",
+        "更新反映遅延を利用者へ説明しない。",
+        "ベクトル類似度を正しさと同一視する。"
+      ],
+      "diagnostics": [
+        "query、解析後token、候補集合、score、フィルタ、応答時間を段階別に記録する。",
+        "代表クエリと期待結果の評価セットを維持する。"
+      ],
+      "decisions": [
+        "完全一致、全文、意味検索のどれが必要か。",
+        "freshnessとranking品質のどちらを優先するか。"
+      ],
+      "exerciseSections": [
+        "16.12"
+      ],
+      "evaluation": [
+        "検索評価セットで変更前後の品質と性能を比較できる。"
+      ],
+      "sources": [
+        "Elasticsearch documentation",
+        "PostgreSQL Full Text Search",
+        "HNSW primary paper",
+        "BM25 literature"
+      ]
+    },
+    "17": {
+      "title": "イベント駆動とメッセージング",
+      "problem": "時間のかかる処理やサービス連携を非同期化しつつ、重複、順序逆転、取りこぼし、再処理を安全に扱う。",
+      "objectives": [
+        "同期と非同期の境界を要件から決められる。",
+        "at-most-once、at-least-once、Kafkaの保証境界を説明できる。",
+        "Outbox、Saga、CDC、冪等コンシューマを設計できる。",
+        "Webhook受信、メール配送、外部API呼び出しを、相手を制御できない前提で設計できる。",
+        "決済のようにリトライが金銭を動かす連携を、冪等キー・状態機械・突合で設計できる。"
+      ],
+      "prerequisites": [
+        {
+          "section": "2.2",
+          "text": "冪等性"
+        },
+        {
+          "section": "14.6",
+          "text": "トランザクション"
+        }
+      ],
+      "coreSections": [
+        "17.1",
+        "17.2",
+        "17.4",
+        "17.6",
+        "17.10",
+        "17.11",
+        "17.12",
+        "17.13",
+        "17.14",
+        "17.15",
+        "17.16"
+      ],
+      "minimalSections": [
+        "17.17"
+      ],
+      "productionGaps": [
+        "自作ブローカーは永続ログ、レプリケーション、rebalance、backpressure、認証を省略する。",
+        "外部連携の例は実際のHTTPクライアント、TLS、レピュテーション管理を省略する。"
+      ],
+      "failureModes": [
+        "配信成功を業務処理成功と同一視する。",
+        "リトライで外部副作用を重複させる。",
+        "イベント順序を全体で保証できると思い込む。",
+        "パース後の本文で署名を検証し、開発環境だけで通る状態にする。",
+        "バウンスを無視し、送信ドメインの評価を自ら下げる。",
+        "冪等キーなしで POST をリトライし、二重の副作用を起こす。",
+        "タイムアウトを失敗として扱い、新しい取引として作り直して二重課金する。",
+        "返金を決済行の更新として実装し、並行要求で累計の上限を越える。"
+      ],
+      "diagnostics": [
+        "message ID、attempt、partition/key、処理結果を追跡する。",
+        "DLQ、lag、リトライ回数、重複率を監視する。",
+        "受信の遅延、重複率、署名検証失敗数、突合の差分件数を見る。",
+        "連携先ごとに成功率、分位点、リトライ回数、ブレーカ状態を分けて記録する。",
+        "事業者側の記録と自分たちの記録を日次で3方向に照合し、差分件数と金額差を出す。"
+      ],
+      "decisions": [
+        "ユーザーは即時結果を必要とするか。",
+        "順序保証の単位と再処理方法は。",
+        "正本データとイベントの整合をどう保つか。",
+        "順序逆転を版番号・再取得・キー単位の順次処理のどれで解くか。",
+        "障害時の縮退は古い値・隠す・後で・断るのどれか。",
+        "結果が不明な決済をどの状態として持ち、どう回復するか。"
+      ],
+      "exerciseSections": [
+        "17.17"
+      ],
+      "evaluation": [
+        "重複配送と順序逆転を注入し、結果が正しいことを示せる。",
+        "重複配送と順序逆転と欠落を注入し、突合まで含めて結果が正しいことを示せる。",
+        "二重課金、返金の超過、突合の欠如を再現し、対策後に再現しないことを示せる。"
+      ],
+      "sources": [
+        "Kafka documentation",
+        "RabbitMQ documentation",
+        "AWS SQS documentation",
+        "Debezium documentation",
+        "RFC 6376 DKIM",
+        "RFC 7208 SPF",
+        "RFC 7489 DMARC",
+        "Nygard, Release It! 2nd ed.",
+        "PCI Security Standards Council, PCI DSS"
+      ]
+    },
+    "18": {
+      "title": "Linuxとネットワーク",
+      "problem": "高負荷、接続枯渇、プロセス停止、ネットワーク遅延を、OSのプロセス・FD・TCP・シグナルから切り分ける。",
+      "objectives": [
+        "プロセス、スレッド、FD、シグナルの関係を説明できる。",
+        "TCP接続とフロー/輻輳制御を運用指標へ結び付けられる。",
+        "L4/L7負荷分散、nginx、WebRTC/WebTransport/eBPFの位置付けを説明できる。"
+      ],
+      "prerequisites": [
+        {
+          "section": "3.5",
+          "text": "URLからHTMLまで"
+        },
+        {
+          "section": "10.1",
+          "text": "並行性モデル"
+        }
+      ],
+      "coreSections": [
+        "18.1",
+        "18.2",
+        "18.3",
+        "18.5",
+        "18.6",
+        "18.7",
+        "18.9"
+      ],
+      "minimalSections": [
+        "18.12"
+      ],
+      "productionGaps": [
+        "低レベル演習は隔離環境で行い、カーネル設定、raw socket、eBPF権限を本番へ無検証で適用しない。"
+      ],
+      "failureModes": [
+        "FD上限と接続数を混同する。",
+        "SIGTERMを処理せず停止時に処理を失う。",
+        "pingだけでアプリ経路を正常と判断する。"
+      ],
+      "diagnostics": [
+        "ss、lsof、ps、strace、tcpdumpを症状に応じて使い分ける。",
+        "接続状態、再送、queue、CPU待ちを時系列で確認する。"
+      ],
+      "decisions": [
+        "問題はアプリ、OS、ネットワーク、依存先のどの境界か。",
+        "L4とL7のどちらで判断が必要か。"
+      ],
+      "exerciseSections": [
+        "18.12"
+      ],
+      "evaluation": [
+        "FDまたはTCPの障害を再現し、コマンド出力から原因を説明できる。"
+      ],
+      "sources": [
+        "Linux man-pages",
+        "RFC 9293",
+        "nginx documentation",
+        "eBPF documentation"
+      ]
+    },
+    "19": {
+      "title": "コンテナとオーケストレーション",
+      "problem": "「自分の環境では動く」を減らし、イメージ供給、設定、ヘルスチェック、ロールアウトを再現可能にする。",
+      "objectives": [
+        "namespace/cgroupsとコンテナイメージの役割を説明できる。",
+        "安全で小さいDockerfileとローカルCompose環境を作れる。",
+        "KubernetesのDeployment、Service、Probe、Config/Secret、Ingress/Gatewayを説明できる。"
+      ],
+      "prerequisites": [
+        {
+          "section": "18.4",
+          "text": "cgroupsとnamespace"
+        },
+        {
+          "section": "18.7",
+          "text": "ロードバランサ"
+        }
+      ],
+      "coreSections": [
+        "19.1",
+        "19.2",
+        "19.4",
+        "19.5",
+        "19.6",
+        "19.7",
+        "19.8"
+      ],
+      "minimalSections": [
+        "19.12"
+      ],
+      "productionGaps": [
+        "教材マニフェストはRBAC、NetworkPolicy、Pod Security、バックアップ、容量計画、マルチAZを省略する。"
+      ],
+      "failureModes": [
+        "latestタグで再現性を失う。",
+        "livenessを依存先チェックにして再起動ループを起こす。",
+        "Secretを暗号化済みと誤解する。"
+      ],
+      "diagnostics": [
+        "image digest、イベント、Probe結果、Podログ、resource usageを確認する。",
+        "ローカルとクラスタの環境変数・volume差を比較する。"
+      ],
+      "decisions": [
+        "本当にKubernetesが必要な規模か。",
+        "イメージ、設定、秘密、永続データの責務を分けたか。"
+      ],
+      "exerciseSections": [
+        "19.12"
+      ],
+      "evaluation": [
+        "同じイメージをローカルとクラスタで起動し、失敗したProbeを診断できる。"
+      ],
+      "sources": [
+        "OCI Image Specification",
+        "Docker documentation",
+        "Kubernetes documentation",
+        "Gateway API specification"
+      ]
+    },
+    "20": {
+      "title": "クラウドとIaC",
+      "problem": "クラウド構成を画面操作と担当者の記憶に依存させず、ネットワーク、権限、変更、復旧をコードとレビューで管理する。",
+      "objectives": [
+        "IaaS/PaaS/SaaSと主要クラウドサービスの対応を説明できる。",
+        "VPC/CIDR、サーバレス、エッジ、API Gatewayの選択を説明できる。",
+        "Terraform/Pulumi/GitOpsの状態と変更フローを設計できる。"
+      ],
+      "prerequisites": [
+        {
+          "section": "18.5",
+          "text": "ネットワークスタック"
+        },
+        {
+          "section": "19.1",
+          "text": "コンテナ"
+        }
+      ],
+      "coreSections": [
+        "20.1",
+        "20.2",
+        "20.5",
+        "20.7",
+        "20.8",
+        "20.10",
+        "20.11"
+      ],
+      "minimalSections": [
+        "20.14"
+      ],
+      "productionGaps": [
+        "教材IaCは組織ポリシー、state backend、秘密管理、import、drift、費用上限、災害復旧を簡略化する。"
+      ],
+      "failureModes": [
+        "コンソール変更とIaCを併用しdriftを放置する。",
+        "広すぎるIAM権限を与える。",
+        "削除計画を確認せずapplyする。"
+      ],
+      "diagnostics": [
+        "plan差分、クラウド監査ログ、state、実リソースを照合する。",
+        "タグとコスト配賦で予期しない増加を追う。"
+      ],
+      "decisions": [
+        "管理責任を減らすサービスはどれか。",
+        "可搬性の価値が複雑性を上回るか。",
+        "stateと秘密をどこで守るか。"
+      ],
+      "exerciseSections": [
+        "20.14"
+      ],
+      "evaluation": [
+        "IaCのplanをレビューし、変更・破壊・費用影響を説明できる。"
+      ],
+      "sources": [
+        "Terraform documentation",
+        "Pulumi documentation",
+        "AWS/GCP/Azure architecture frameworks",
+        "Twelve-Factor App"
+      ]
+    },
+    "21": {
+      "title": "CI/CDとDevOps",
+      "problem": "人手のビルド・テスト・デプロイによる差異と事故を減らし、小さな変更を検証可能な形で本番へ届ける。",
+      "objectives": [
+        "CI、Continuous Delivery、Continuous Deploymentを区別できる。",
+        "安全なGitHub Actionsとマトリクス検証を設計できる。",
+        "ロールアウト、ロールバック、DORA指標、バージョニングを運用へ結び付けられる。"
+      ],
+      "prerequisites": [
+        {
+          "section": "8.1",
+          "text": "ビルド工程"
+        },
+        {
+          "section": "19.2",
+          "text": "イメージ構築"
+        }
+      ],
+      "coreSections": [
+        "21.1",
+        "21.2",
+        "21.4",
+        "21.5",
+        "21.6",
+        "21.7"
+      ],
+      "minimalSections": [
+        "21.8"
+      ],
+      "productionGaps": [
+        "教材CIは組織の承認、環境保護、署名、SBOM、秘密、fork境界、長時間ジョブを省略する。"
+      ],
+      "failureModes": [
+        "Actionsへ過大な権限を与える。",
+        "mutable tagや未固定Actionを使う。",
+        "ロールバック不能なDB変更を同時投入する。"
+      ],
+      "diagnostics": [
+        "workflow run、artifact、commit SHA、deployment eventを追跡する。",
+        "失敗をbuild/test/deploy/health checkへ分解する。"
+      ],
+      "decisions": [
+        "失敗をどこまで自動で止めるか。",
+        "ロールバックとroll-forwardのどちらが現実的か。",
+        "本番権限を短命化できるか。"
+      ],
+      "exerciseSections": [
+        "21.8"
+      ],
+      "evaluation": [
+        "意図的な失敗を入れ、パイプラインが適切な段階で停止することを示せる。"
+      ],
+      "sources": [
+        "GitHub Actions documentation",
+        "DORA research",
+        "Semantic Versioning",
+        "SLSA"
+      ]
+    },
+    "22": {
+      "title": "可観測性 (Observability)",
+      "problem": "本番障害で「何が起きたか分からない」状態を避け、利用者影響から原因候補へ短時間で到達できる情報を設計する。",
+      "objectives": [
+        "ログ、メトリクス、トレース、プロファイルの役割を説明できる。",
+        "SLI/SLOとアラートを利用者影響へ結び付けられる。",
+        "request IDとtrace contextでサービス横断調査ができる。"
+      ],
+      "prerequisites": [
+        {
+          "section": "18.9",
+          "text": "OS/ネットワークの診断"
+        },
+        {
+          "section": "21.1",
+          "text": "変更の流れ"
+        }
+      ],
+      "coreSections": [
+        "22.1",
+        "22.2",
+        "22.3",
+        "22.6",
+        "22.7",
+        "22.8"
+      ],
+      "minimalSections": [
+        "22.11"
+      ],
+      "productionGaps": [
+        "自作観測基盤は保存、sampling、cardinality制御、個人情報保護、可用性、費用管理を省略する。"
+      ],
+      "failureModes": [
+        "ログへ秘密情報を出す。",
+        "高cardinalityラベルで費用と性能を悪化させる。",
+        "原因指標だけをアラートし利用者影響を見ない。"
+      ],
+      "diagnostics": [
+        "変更時刻、SLO、RED/USE指標、trace、ログを同じ時間軸で調べる。",
+        "仮説ごとに追加観測を決める。"
+      ],
+      "decisions": [
+        "利用者の成功を何で測るか。",
+        "どの情報を事後に問える必要があるか。",
+        "保持期間と費用をどう制御するか。"
+      ],
+      "exerciseSections": [
+        "22.11"
+      ],
+      "evaluation": [
+        "故障を注入し、メトリクスからtraceとログへ辿って原因を特定できる。"
+      ],
+      "sources": [
+        "OpenTelemetry specifications",
+        "Google SRE books",
+        "Prometheus documentation"
+      ]
+    },
+    "23": {
+      "title": "セキュリティ",
+      "problem": "入力、認証、依存、設定、サプライチェーンの弱点を、攻撃者の経路と資産の価値から優先順位付けして防ぐ。",
+      "objectives": [
+        "主要なWeb脆弱性の原因と防御境界を説明できる。",
+        "認証・認可・秘密・依存・ヘッダ・ログを多層で設計できる。",
+        "発展的な暗号・完全性技術を必要条件と成熟度で評価できる。",
+        "アップロードされたバイト列を、受理・処理・配信の3段階で検証できる。",
+        "自動化された要求を意図で分け、識別・振る舞い・チャレンジの段階とレート制限で扱える。"
+      ],
+      "prerequisites": [
+        {
+          "section": "13.12",
+          "text": "認証・認可の基本原則"
+        },
+        {
+          "section": "21.2",
+          "text": "CIの供給網"
+        }
+      ],
+      "coreSections": [
+        "23.1",
+        "23.2",
+        "23.3",
+        "23.5",
+        "23.6",
+        "23.7",
+        "23.9",
+        "23.10",
+        "23.11",
+        "23.26",
+        "23.27"
+      ],
+      "minimalSections": [
+        "23.28"
+      ],
+      "productionGaps": [
+        "脆弱コードはlocalhostまたは隔離環境だけで実行する。教材の防御例も完全な認証・監査・秘密管理を代替しない。"
+      ],
+      "failureModes": [
+        "入力検証だけで認可を代替する。",
+        "暗号アルゴリズムを自作する。",
+        "スキャン結果をリスク評価なしで放置または全受容する。",
+        "申告された種別や拡張子を根拠に受理する。",
+        "利用者コンテンツを本体と同じオリジンから配信する。",
+        "IPアドレスだけを鍵にし、共有IPの正規利用者を巻き込みつつ分散した攻撃を通す。",
+        "CAPTCHAを全員に常時課し、代替手段を用意しないまま一部の利用者を締め出す。"
+      ],
+      "diagnostics": [
+        "攻撃面、資産、信頼境界、ログを整理して再現する。",
+        "SAST/DAST/SCA結果を手動検証し、修正後に再試験する。",
+        "受理の拒否理由を種別ごとに集計し、正当な利用の巻き添えを見分ける。",
+        "拒否件数と巻き添えの両方を測り、検知モードでしきい値を確認してから拒否へ切り替える。"
+      ],
+      "decisions": [
+        "脅威モデルで最も価値の高い資産は何か。",
+        "防御はどの信頼境界で実施するか。",
+        "仕様成熟度と移行コストは。",
+        "受理する形式ごとに、再エンコード・隔離解析・拒否のどれをデフォルトにするか。",
+        "止めたい自動化と歓迎する自動化をどう識別するか。チャレンジの代替手段は何か。"
+      ],
+      "exerciseSections": [
+        "23.28"
+      ],
+      "evaluation": [
+        "攻撃と防御を対にして実行し、検出・防止・影響低減を区別できる。",
+        "偽装した検体を受理させたうえで、判定の差し替えだけで通らなくなることを示せる。",
+        "鍵の設計を誤ったレート制限を再現し、層を重ねると通らなくなることを示せる。"
+      ],
+      "sources": [
+        "OWASP Top 10:2025",
+        "OWASP ASVS",
+        "NIST cryptographic standards",
+        "SLSA v1.2",
+        "OWASP File Upload Cheat Sheet",
+        "OWASP Automated Threats to Web Applications",
+        "RFC 6585 Additional HTTP Status Codes"
+      ]
+    },
+    "24": {
+      "title": "パフォーマンス",
+      "problem": "体感の「遅い」を、利用者指標、フロントエンド、ネットワーク、バックエンド、DBへ分解し、測定可能な改善へ変える。",
+      "objectives": [
+        "Core Web Vitalsとフィールド/ラボ計測を区別できる。",
+        "ボトルネックを計測し、最適化対象を選べる。",
+        "負荷試験結果を容量とSLOへ接続できる。"
+      ],
+      "prerequisites": [
+        {
+          "section": "8.6",
+          "text": "コード分割"
+        },
+        {
+          "section": "14.4",
+          "text": "実行計画"
+        },
+        {
+          "section": "22.7",
+          "text": "SLO"
+        }
+      ],
+      "coreSections": [
+        "24.1",
+        "24.2",
+        "24.3",
+        "24.4",
+        "24.7",
+        "24.8"
+      ],
+      "minimalSections": [
+        "24.9"
+      ],
+      "productionGaps": [
+        "教材負荷試験の数値は特定環境の結果であり、実トラフィック、キャッシュ、外部依存、データ量を含めて再測定する。"
+      ],
+      "failureModes": [
+        "平均値だけを見る。",
+        "測定前に最適化する。",
+        "負荷生成側が先に飽和する。"
+      ],
+      "diagnostics": [
+        "waterfall、CPU/heap profile、APM trace、DB計画を同一リクエストでつなぐ。",
+        "p50/p95/p99とエラー率を負荷段階別に記録する。"
+      ],
+      "decisions": [
+        "利用者が待つ区間はどこか。",
+        "改善目標と回帰予算は。",
+        "キャッシュで許容できる鮮度は。"
+      ],
+      "exerciseSections": [
+        "24.9"
+      ],
+      "evaluation": [
+        "改善前後を同一条件で測り、ボトルネックが移動したことも説明できる。"
+      ],
+      "sources": [
+        "Web Vitals documentation",
+        "Chrome DevTools documentation",
+        "k6 documentation",
+        "PostgreSQL EXPLAIN"
+      ]
+    },
+    "25": {
+      "title": "テスト戦略",
+      "problem": "変更への恐怖を減らしつつ、遅く脆いテストや実装詳細への過剰依存を避け、重要な振る舞いを適切な層で検証する。",
+      "objectives": [
+        "Unit/Integration/E2E/Componentの検出範囲とコストを説明できる。",
+        "test doubleを目的に応じて使い分けられる。",
+        "property、mutation、visual regressionを必要な箇所へ適用できる。",
+        "アクセシビリティを自動検査・キーボード走査・支援技術での確認の3層に分けて検証できる。"
+      ],
+      "prerequisites": [
+        {
+          "section": "5.9",
+          "text": "エラー処理"
+        },
+        {
+          "section": "12.6",
+          "text": "API契約"
+        }
+      ],
+      "coreSections": [
+        "25.1",
+        "25.2",
+        "25.3",
+        "25.4",
+        "25.6",
+        "25.10",
+        "25.11"
+      ],
+      "minimalSections": [
+        "25.12"
+      ],
+      "productionGaps": [
+        "教材テストは並行実行、flaky管理、データ分離、ブラウザ差、外部サービス契約を簡略化する。"
+      ],
+      "failureModes": [
+        "実装詳細をモックしリファクタリングで壊れる。",
+        "E2Eだけで全分岐を覆う。",
+        "失敗が再現しないテストを放置する。",
+        "自動検査が0件であることをアクセシビリティの合格と読む。"
+      ],
+      "diagnostics": [
+        "失敗を再実行条件、seed、環境、artifact付きで保存する。",
+        "テスト時間とflaky率を層別に追う。",
+        "判定できない規則を明示的に無効化し、検査範囲を実際より広く見積もらない。"
+      ],
+      "decisions": [
+        "壊れたとき最も価値のある警報は何か。",
+        "実サービスとfakeの契約差をどう検出するか。",
+        "既知の違反を、規則単位ではなく箇所単位・期限付きで抑制できているか。"
+      ],
+      "exerciseSections": [
+        "25.12"
+      ],
+      "evaluation": [
+        "同じ機能へ複数層のテストを置き、重複と役割を説明できる。",
+        "自動検査で拾える違反と拾えない違反を、同じ画面で区別して示せる。"
+      ],
+      "sources": [
+        "Testing Library guiding principles",
+        "Playwright documentation",
+        "property-based testing literature",
+        "mutation testing literature",
+        "W3C WAI-ARIA Authoring Practices Guide",
+        "Deque Systems, axe-core rule descriptions"
+      ]
+    },
+    "26": {
+      "title": "スケーラビリティとアーキテクチャ",
+      "problem": "成長や部分障害に備えながら、早すぎる分散化を避け、容量・整合性・組織境界に合うアーキテクチャを選ぶ。",
+      "objectives": [
+        "スケールアップ/アウト、DB拡張、モノリス/マイクロサービスを条件付きで比較できる。",
+        "timeout、retry、circuit breaker、bulkhead、backpressureを組み合わせられる。",
+        "RTO/RPOとChaos Engineeringを運用計画へ反映できる。"
+      ],
+      "prerequisites": [
+        {
+          "section": "14.6",
+          "text": "トランザクション"
+        },
+        {
+          "section": "17.1",
+          "text": "同期と非同期"
+        },
+        {
+          "section": "22.7",
+          "text": "SLO"
+        }
+      ],
+      "coreSections": [
+        "26.1",
+        "26.2",
+        "26.3",
+        "26.5",
+        "26.6",
+        "26.7",
+        "26.9",
+        "26.10",
+        "26.11"
+      ],
+      "minimalSections": [
+        "26.15"
+      ],
+      "productionGaps": [
+        "耐障害パターンの最小実装は分散状態、監視、設定配布、容量制御を省略する。単体導入ではなく全体のtimeout budgetで設計する。"
+      ],
+      "failureModes": [
+        "無制限retryで障害を増幅する。",
+        "マイクロサービス化を組織問題の万能解とする。",
+        "RTO/RPOを決めずバックアップだけ取る。"
+      ],
+      "diagnostics": [
+        "依存グラフ、timeout budget、queue長、retry数、saturationを追う。",
+        "ゲームデイで復旧手順と観測を検証する。"
+      ],
+      "decisions": [
+        "現在の制約は容量、組織、可用性、変更頻度のどれか。",
+        "分割で得る独立性が分散コストを上回るか。"
+      ],
+      "exerciseSections": [
+        "26.15"
+      ],
+      "evaluation": [
+        "故障注入下で過負荷が連鎖せず、復旧条件を説明できる。"
+      ],
+      "sources": [
+        "Release It! patterns",
+        "Google SRE books",
+        "AWS Builders Library",
+        "Reactive Streams specification"
+      ]
+    },
+    "27": {
+      "title": "設計とドメインモデリング",
+      "problem": "業務ルールがUI、API、DBへ散らばる状態を避け、変更理由と一貫性境界がコード構造に表れるようにする。",
+      "objectives": [
+        "ユビキタス言語、境界づけられたコンテキスト、Aggregateを説明できる。",
+        "Value Object、Repository、Domain Eventを必要性に応じて使える。",
+        "Clean/HexagonalとSOLIDを変更容易性で評価できる。",
+        "曖昧な要望を、ユースケース、受け入れ条件、API契約、定量化された非機能要件へ変換できる。",
+        "金額を最小単位・通貨・丸め規則・端数の配分として表現できる。"
+      ],
+      "prerequisites": [
+        {
+          "section": "14.1",
+          "text": "データモデル"
+        },
+        {
+          "section": "26.4",
+          "text": "Bounded Context"
+        }
+      ],
+      "coreSections": [
+        "27.1",
+        "27.2",
+        "27.3",
+        "27.5",
+        "27.6",
+        "27.7",
+        "27.9",
+        "27.10",
+        "27.14",
+        "27.15",
+        "27.18"
+      ],
+      "minimalSections": [
+        "27.19"
+      ],
+      "productionGaps": [
+        "教材モデルは業務担当者との反復、既存システム制約、監査、移行、並行更新を簡略化する。パターン数を増やすことが目的ではない。"
+      ],
+      "failureModes": [
+        "全CRUDへDDDを適用する。",
+        "Aggregateを画面やテーブル単位で決める。",
+        "抽象化で依存方向を隠す。",
+        "曖昧語を残した受け入れ条件のまま実装へ入る。",
+        "金額を浮動小数点数で保持し、合計が元と一致しなくなる。",
+        "分割や按分で端数を落とし、配分の合計が元の金額と食い違う。"
+      ],
+      "diagnostics": [
+        "変更要求が何層へ波及したかを追う。",
+        "業務用語とコード名の不一致、循環依存、巨大Aggregateを確認する。",
+        "手戻りの原因を、要件の欠落と解釈の相違に分けて数える。",
+        "丸めの時点と方式を1か所へ寄せ、明細の合計と総額の一致を検査する。"
+      ],
+      "decisions": [
+        "守るべき不変条件と変更頻度は。",
+        "どの境界を独立して理解・テスト・デプロイしたいか。",
+        "受け入れ条件が境界値と失敗系を含み、非機能要件が測定条件を持つか。",
+        "丸めは明細ごとか合計か。方式は四捨五入か、偏りを抑える方式か。"
+      ],
+      "exerciseSections": [
+        "27.19"
+      ],
+      "evaluation": [
+        "同じ要件をCRUDとドメインモデルで実装し、変更差分を比較できる。",
+        "曖昧な1行の要望を、仕様データから自動で走る受け入れテストまで追跡できる。",
+        "金額表現の誤りを再現し、最小単位の整数と配分規則で解消できることを示せる。"
+      ],
+      "sources": [
+        "Domain-Driven Design",
+        "Implementing Domain-Driven Design",
+        "Clean Architecture",
+        "C4 model documentation",
+        "Writing Effective Use Cases",
+        "Specification by Example",
+        "ISO/IEC 25010:2023",
+        "ISO 4217 Currency codes"
+      ]
+    },
+    "28": {
+      "title": "大規模リファクタリングとレガシー対応",
+      "problem": "振る舞いが不明な既存システムを止めずに理解・保護・分割し、段階的に変更可能な状態へ戻す。",
+      "objectives": [
+        "characterization testで現状挙動を固定できる。",
+        "Strangler FigとBranch by Abstractionを移行条件で使い分けられる。",
+        "ADR、レビュー、短命ブランチで判断と変更を追跡できる。"
+      ],
+      "prerequisites": [
+        {
+          "section": "25.3",
+          "text": "Integrationテスト"
+        },
+        {
+          "section": "27.9",
+          "text": "設計判断"
+        }
+      ],
+      "coreSections": [
+        "28.1",
+        "28.2",
+        "28.3",
+        "28.4",
+        "28.5",
+        "28.8",
+        "28.11",
+        "28.12"
+      ],
+      "minimalSections": [
+        "28.15"
+      ],
+      "productionGaps": [
+        "教材リファクタリングは本番データ、並行リリース、組織調整、法令・監査、長期移行を簡略化する。"
+      ],
+      "failureModes": [
+        "仕様を理解せず全面リライトする。",
+        "リファクタリングと機能変更を同一差分にする。",
+        "移行完了条件と撤去計画を持たない。"
+      ],
+      "diagnostics": [
+        "本番ログ、characterization test、依存グラフ、変更履歴で暗黙仕様を集める。",
+        "移行率、二重書き込み差分、rollback可否を監視する。"
+      ],
+      "decisions": [
+        "置換対象の境界は安定しているか。",
+        "段階移行と全面置換のリスクは。",
+        "意思決定を将来の担当者へどう残すか。"
+      ],
+      "exerciseSections": [
+        "28.15"
+      ],
+      "evaluation": [
+        "安全網を追加して小さく変更し、既存挙動を維持した証拠を示せる。"
+      ],
+      "sources": [
+        "Working Effectively with Legacy Code",
+        "Refactoring",
+        "Accelerate",
+        "Architecture Decision Records"
+      ]
+    },
+    "29": {
+      "title": "LLMを組み込むWeb開発",
+      "problem": "LLMを単なるAPI呼び出しとして扱わず、不確実な出力、データ境界、ツール権限、コスト、評価を含むWeb機能として設計する。",
+      "objectives": [
+        "生成、streaming、RAG、tool use、agentの構成と失敗境界を説明できる。",
+        "structured outputと実行時検証を組み合わせられる。",
+        "prompt injection、権限、個人情報、コスト、評価を設計できる。"
+      ],
+      "prerequisites": [
+        {
+          "section": "12.5",
+          "text": "APIエラー設計"
+        },
+        {
+          "section": "16.8",
+          "text": "ベクトル検索"
+        },
+        {
+          "section": "23.1",
+          "text": "脅威の基本"
+        }
+      ],
+      "coreSections": [
+        "29.1",
+        "29.2",
+        "29.3",
+        "29.4",
+        "29.6",
+        "29.7",
+        "29.11"
+      ],
+      "minimalSections": [
+        "29.14"
+      ],
+      "productionGaps": [
+        "教材例はモデル変更、レート制限、評価データ、権限分離、コンテンツ安全性、監査、障害時fallbackを簡略化する。"
+      ],
+      "failureModes": [
+        "モデル出力を信頼して副作用を実行する。",
+        "RAGで取得した文書を命令として扱う。",
+        "モデル名だけで品質を比較する。"
+      ],
+      "diagnostics": [
+        "入力、retrieval結果、tool call、検証結果、token/費用、latencyを追跡する。",
+        "固定評価セットと人手レビューで回帰を測る。"
+      ],
+      "decisions": [
+        "決定的処理で代替できない理由は。",
+        "モデルへ渡してよいデータと実行権限は。",
+        "失敗時のユーザー体験は。",
+        "どのモデルを、どの版で固定し、廃止告知が出たらどの手順で移すか。",
+        "モデルやプロンプトを変えたとき、品質が落ちていないことを何で判定するか。",
+        "トークンの上限に達したとき、利用者と組織と全体でそれぞれ何が起きるか。"
+      ],
+      "exerciseSections": [
+        "29.14"
+      ],
+      "evaluation": [
+        "不正な構造出力とprompt injectionを注入し、安全に失敗できる。"
+      ],
+      "sources": [
+        "OpenAI API documentation",
+        "MCP specification 2026-07-28",
+        "NIST AI RMF",
+        "OWASP LLM Top 10"
+      ]
+    },
+    "30": {
+      "title": "総合演習 ― 本番品質のSaaSをゼロから構築",
+      "problem": "個別技術の知識を、要件、データ、認可、非同期、検索、課金、運用を通した一貫したSaaS設計へ統合する。",
+      "objectives": [
+        "要件と非機能要求から技術選定を説明できる。",
+        "tenant境界、認可、データ、イベント、課金の不変条件を設計できる。",
+        "本番稼働までの優先順位、検証、運用証跡を作れる。",
+        "外部との境界 (ファイル、Webhook、メール、外部API) の運用条件を洗い出せる。",
+        "システムの外にいる人と制度に対する責任 (アクセシビリティ、個人データ、決済、濫用対策) の確認項目と、確認先を整理できる。"
+      ],
+      "prerequisites": [
+        {
+          "section": "27.9",
+          "text": "設計の判断軸"
+        },
+        {
+          "section": "26.14",
+          "text": "アーキテクチャ判断"
+        },
+        {
+          "section": "23.13",
+          "text": "セキュリティ文化"
+        }
+      ],
+      "coreSections": [
+        "30.1",
+        "30.2",
+        "30.3",
+        "30.4",
+        "30.5",
+        "30.6",
+        "30.9",
+        "30.10",
+        "30.12",
+        "30.14",
+        "30.15",
+        "30.16"
+      ],
+      "minimalSections": [
+        "30.17"
+      ],
+      "productionGaps": [
+        "提示設計は参照案であり、法務、契約、実トラフィック、組織、予算、既存資産に合わせて再設計する。Stripe等の外部連携は公式仕様とテスト環境で確認する。"
+      ],
+      "failureModes": [
+        "機能一覧から直接実装を始める。",
+        "tenant IDの入力値だけを信頼する。",
+        "Webhook、課金、非同期処理の冪等性を省く。",
+        "法務確認が必要な判断を、技術判断だけで結論づける。"
+      ],
+      "diagnostics": [
+        "主要業務フローへrequest/trace IDと監査イベントを通す。",
+        "障害シナリオ、受け入れ条件、SLO、復旧手順で検証する。",
+        "確認が要る項目について、いつ誰に確認したかを記録として残す。"
+      ],
+      "decisions": [
+        "最初の顧客価値に必要な最小範囲は。",
+        "守るべきデータ境界と業務不変条件は。",
+        "後から安全に変更できる境界はどこか。",
+        "マルチテナントと日時の設計チェックリストで未決の項目はどれか。",
+        "外部連携が完全に停止したとき、利用者に何をどう見せるか。",
+        "技術だけでは決まらない項目の確認先を誰にするか。確認の記録をどこに残すか。"
+      ],
+      "exerciseSections": [
+        "30.17"
+      ],
+      "evaluation": [
+        "設計判断、実装、テスト、運用証跡を一つのシナリオとして提示できる。",
+        "失敗注入後もtenant境界と課金整合性が保たれる。",
+        "30.14・30.15・30.16 のチェックリストで未定の項目を残さず説明できる。"
+      ],
+      "sources": [
+        "本書各章の一次資料",
+        "Stripe documentation",
+        "OWASP ASVS",
+        "Google SRE books",
+        "各法域の規制当局および業界標準団体の公表資料"
+      ]
+    }
+  }
+}

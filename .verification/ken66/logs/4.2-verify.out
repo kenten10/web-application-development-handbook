@@ -1,0 +1,36 @@
+=== 課題4.2 純粋なDOM APIでTodoアプリ ===
+開始: 2026-08-29T16:41:39.824Z
+tsc 出力を配置: build/ch04/todo-vanilla/solution/{app.js,index.html}
+localhost サーバ起動: http://localhost:8643 (root=.verification/ken66/build/ch04)
+  [http:8643] GET /todo-vanilla/solution/index.html -> 200
+  [http:8643] GET /todo-vanilla/solution/app.js -> 200
+  [http:8643] GET /favicon.ico -> 204 (harness stub)
+  [http:8643] GET /todo-vanilla/solution/index.html -> 200
+  [http:8643] GET /todo-vanilla/solution/app.js -> 200
+  [http:8643] GET /favicon.ico -> 204 (harness stub)
+追加後: 3件 / status="3件が未完了"
+完了切替後: completed=1 status="2件が未完了"
+フィルター active: 表示 2 件 / aria-pressed=true
+フィルター completed: 表示 1 件 / aria-pressed=true
+フィルター all: 表示 3 件 / aria-pressed=true
+  [http:8643] GET /todo-vanilla/solution/index.html -> 200
+  [http:8643] GET /todo-vanilla/solution/app.js -> 200
+  [http:8643] GET /favicon.ico -> 204 (harness stub)
+localStorage: 3件保存 / 再読込後の表示 3件
+Ctrl+Enter 後: completed=3 status="0件が未完了"
+削除後: 2件
+--- チェック結果 ---
+  PASS: Todo を3件追加できる (count=3)
+  PASS: aria-live の残件表示が更新される (3件が未完了)
+  PASS: 完了切替が反映される (2件が未完了)
+  PASS: Active フィルターが未完了2件を表示
+  PASS: Completed フィルターが完了1件を表示
+  PASS: All フィルターが3件を表示
+  PASS: localStorage に永続化され再読込後も残る (stored=3 reload=3)
+  PASS: Ctrl+Enter で全件完了になる (0件が未完了)
+  PASS: 削除で1件減る (count=2)
+  PASS: Console 重大エラー0件
+  PASS: Network 失敗0件
+  PASS: CSP 違反0件
+所要時間: 2.98 秒
+判定: PASS

@@ -1,0 +1,54 @@
+name: Handbook Extended CI
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '17 19 * * 0'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: handbook-extended-${{ github.ref }}
+  cancel-in-progress: false
+
+env:
+  CI: 'true'
+  PNPM_VERSION: 11.15.1
+
+jobs:
+  inventory:
+    name: Manual and external-service inventory
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - name: Setup Node.js
+        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version-file: .node-version
+      - name: Validate explicit manual inventory
+        run: node scripts/ci-extended-checks.mjs inventory
+
+  linux-and-shell:
+    name: Linux, Docker and shell syntax
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - name: Setup Node.js
+        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version-file: .node-version
+      - name: Record Linux and Docker environment
+        run: |
+          uname -a
+          docker version
+      - name: Validate all shell exercise syntax
+        run: node scripts/ci-extended-checks.mjs shell-syntax

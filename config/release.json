@@ -1,0 +1,379 @@
+{
+  "schemaVersion": 1,
+  "updated": "2026-08-30",
+  "title": "WEBアプリケーション開発者になれる解説書",
+  "subtitle": "― 基礎から一流までの30章 ―",
+  "author": "吉田賢典",
+  "authorAccount": "kenten10",
+  "version": "1.0.0",
+  "releaseDate": "2026-08-30",
+  "state": "pending",
+  "stateValues": {
+    "pending": "リリースゲート判定前。KEN-63の完了と同時にreleasedへ切り替える",
+    "released": "固定成果物とタグが公開済み"
+  },
+  "distribution": {
+    "formats": [
+      {
+        "id": "git-repository",
+        "name": "GitHubリポジトリ",
+        "role": "正本",
+        "artifact": "Markdown本文と`code/chXX/`のサンプルコード",
+        "entryPoint": "README.md",
+        "fixedBy": "gitタグ `v1.0.0`",
+        "inScope": true
+      },
+      {
+        "id": "static-site",
+        "name": "静的Webサイト（GitHub Pages）",
+        "role": "生成物",
+        "artifact": "`dist/site/` 配下のHTML",
+        "entryPoint": "dist/site/index.html",
+        "fixedBy": "`pnpm run build:site` の出力とrelease manifestのsha256",
+        "inScope": true
+      }
+    ],
+    "outOfScope": [
+      {
+        "id": "pdf",
+        "name": "PDF",
+        "reason": "組版品質・図版・索引ページ番号の作り込みがv1.0の作業量に見合わないため、v1.0では提供しない。",
+        "futurePolicy": "要望が集まった場合、MINOR版でHTMLからの派生成果物として検討する。生成する場合もMarkdownが正本である点は変えない。"
+      },
+      {
+        "id": "epub",
+        "name": "EPUB",
+        "reason": "リフロー環境でのコード折り返しと横スクロールの検証コストが高く、v1.0では品質を保証できないため提供しない。",
+        "futurePolicy": "PDFと同じ判断基準で、MINOR版以降に静的サイトのHTMLから派生させる形で検討する。"
+      }
+    ],
+    "sitePagesWorkflow": ".github/workflows/pages.yml",
+    "siteOutputDir": "dist/site",
+    "siteManifest": "dist/site/release-manifest.json"
+  },
+  "site": {
+    "baseTitle": "WEBアプリケーション開発者になれる解説書",
+    "repoLinkBase": "",
+    "repoLinkBaseNote": "公開先リポジトリのblob URL（例: https://github.com/<owner>/<repo>/blob/main）。KEN-70でリポジトリを確定したら設定する。空の場合、サイトに含めないMarkdownへのリンクは相対パスのまま残す。",
+    "pages": [
+      { "source": "00-front-matter.md", "output": "00-front-matter.html", "label": "前付け", "group": "本文" },
+      { "source": "01-toc.md", "output": "01-toc.html", "label": "目次", "group": "本文" },
+      { "source": "02-part1-foundations.md", "output": "02-part1-foundations.html", "label": "第I部 基礎編", "group": "本文" },
+      { "source": "03-part2-frontend.md", "output": "03-part2-frontend.html", "label": "第II部 フロントエンド編", "group": "本文" },
+      { "source": "04-part3-backend.md", "output": "04-part3-backend.html", "label": "第III部 バックエンド編", "group": "本文" },
+      { "source": "05-part4-data.md", "output": "05-part4-data.html", "label": "第IV部 データ編", "group": "本文" },
+      { "source": "06-part5-infrastructure.md", "output": "06-part5-infrastructure.html", "label": "第V部 インフラストラクチャ編", "group": "本文" },
+      { "source": "07-part6-quality.md", "output": "07-part6-quality.html", "label": "第VI部 品質編", "group": "本文" },
+      { "source": "08-part7-practice.md", "output": "08-part7-practice.html", "label": "第VII部 実践編", "group": "本文" },
+      { "source": "09-references.md", "output": "09-references.html", "label": "参考文献", "group": "本文" },
+      { "source": "10-index.md", "output": "10-index.html", "label": "索引", "group": "本文" },
+      { "source": "LEARNING_LEVELS.md", "output": "LEARNING_LEVELS.html", "label": "学習レベル", "group": "学習ガイド" },
+      { "source": "LEARNING_PATHS.md", "output": "LEARNING_PATHS.html", "label": "学習ルート", "group": "学習ガイド" },
+      { "source": "CHAPTER_TEMPLATE.md", "output": "CHAPTER_TEMPLATE.html", "label": "章共通テンプレート", "group": "学習ガイド" },
+      { "source": "CODE_EXERCISES.md", "output": "CODE_EXERCISES.html", "label": "コード演習ガイド", "group": "学習ガイド" },
+      { "source": "NARRATIVE_ARCHITECTURE.md", "output": "NARRATIVE_ARCHITECTURE.html", "label": "知識の流れ", "group": "学習ガイド" },
+      { "source": "README.md", "output": "README.html", "label": "リポジトリ概要", "group": "運用" },
+      { "source": "RELEASE_POLICY.md", "output": "RELEASE_POLICY.html", "label": "公開・版管理方針", "group": "運用" },
+      { "source": "LICENSING.md", "output": "LICENSING.html", "label": "ライセンス対応表", "group": "運用" },
+      { "source": "CHANGELOG.md", "output": "CHANGELOG.html", "label": "変更履歴", "group": "運用" },
+      { "source": "ERRATA.md", "output": "ERRATA.html", "label": "正誤表", "group": "運用" },
+      { "source": "CONTRIBUTING.md", "output": "CONTRIBUTING.html", "label": "編集規約", "group": "運用" },
+      { "source": "CODE_TOOLCHAIN.md", "output": "CODE_TOOLCHAIN.html", "label": "ツールチェーン", "group": "運用" },
+      { "source": "CLEAN_ENVIRONMENT.md", "output": "CLEAN_ENVIRONMENT.html", "label": "クリーン環境", "group": "運用" },
+      { "source": "CI.md", "output": "CI.html", "label": "CI運用", "group": "運用" },
+      { "source": "BETA_REVIEW_PLAN.md", "output": "BETA_REVIEW_PLAN.html", "label": "ベータレビュー計画", "group": "運用" },
+      { "source": "NARRATIVE_EDITING_GUIDE.md", "output": "NARRATIVE_EDITING_GUIDE.html", "label": "本文編集基準", "group": "運用" }
+    ],
+    "copies": [
+      { "source": "LICENSE", "output": "LICENSE.txt", "label": "MIT License" },
+      { "source": "LICENSE-TEXT", "output": "LICENSE-TEXT.txt", "label": "CC BY-NC-SA 4.0の適用条件" }
+    ]
+  },
+  "licensing": {
+    "categories": {
+      "text": {
+        "spdx": "CC-BY-NC-SA-4.0",
+        "name": "Creative Commons 表示 - 非営利 - 継承 4.0 国際",
+        "file": "LICENSE-TEXT",
+        "url": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+        "applies": "本文Markdown、図表、文章、生成されたHTML"
+      },
+      "code": {
+        "spdx": "MIT",
+        "name": "MIT License",
+        "file": "LICENSE",
+        "url": "https://opensource.org/license/mit",
+        "applies": "サンプルコード、スクリプト、設定ファイル、CI定義"
+      },
+      "notice": {
+        "spdx": "LicenseRef-NoticeFile",
+        "name": "ライセンス告知ファイル",
+        "file": "LICENSING.md",
+        "url": "",
+        "applies": "ライセンス本文そのもの。被許諾物ではない"
+      }
+    },
+    "precedence": "rules配列の先頭から順に評価し、最初に一致したルールを適用する。",
+    "rules": [
+      { "pattern": "LICENSE", "category": "notice", "note": "MITライセンス本文" },
+      { "pattern": "LICENSE-TEXT", "category": "notice", "note": "CC BY-NC-SA 4.0の適用条件" },
+      { "pattern": "code/**", "category": "code", "note": "章別サンプルコード。章内のREADMEと設定も含む" },
+      { "pattern": "scripts/**", "category": "code", "note": "生成・検証スクリプト" },
+      { "pattern": "config/**", "category": "code", "note": "機械可読な正本データ" },
+      { "pattern": ".github/**", "category": "code", "note": "GitHub Actionsとissueテンプレート" },
+      { "pattern": ".devcontainer/**", "category": "code", "note": "固定環境定義" },
+      { "pattern": ".verification/**", "category": "code", "note": "検証用の実行成果物とログ" },
+      { "pattern": "*.json", "category": "code", "note": "ルート直下の設定・データ" },
+      { "pattern": "*.yaml", "category": "code", "note": "pnpm workspaceとlockfile" },
+      { "pattern": "*.yml", "category": "code", "note": "ルート直下のYAML設定" },
+      { "pattern": "*.csv", "category": "code", "note": "検証結果データ" },
+      { "pattern": "*.txt", "category": "code", "note": "検証ログ" },
+      { "pattern": ".gitignore", "category": "code", "note": "リポジトリ設定" },
+      { "pattern": ".npmrc", "category": "code", "note": "パッケージマネージャ設定" },
+      { "pattern": ".node-version", "category": "code", "note": "Node.jsバージョン固定" },
+      { "pattern": ".nvmrc", "category": "code", "note": "Node.jsバージョン固定" },
+      { "pattern": "*.md", "category": "text", "note": "本文と運用文書" }
+    ],
+    "ignore": [
+      "node_modules/**",
+      ".git/**",
+      "dist/**",
+      "build/**",
+      "coverage/**",
+      "tmp/**",
+      "**/.DS_Store"
+    ]
+  },
+  "versioning": {
+    "scheme": "semver",
+    "reference": "https://semver.org/lang/ja/",
+    "unitOfVersioning": "本文とサンプルコードを1つの版番号で管理する。両者は同じリポジトリで同時に検証されるため、別々の版番号を持たせない。",
+    "rules": [
+      {
+        "level": "MAJOR",
+        "text": [
+          "部・章の追加、削除、統合、分割",
+          "章番号または節番号の付け替え",
+          "対象読者・前提知識の変更",
+          "標準ルート（初回通読の必修範囲）の再定義"
+        ],
+        "code": [
+          "Node.jsメジャーバージョンの引き上げ（例: 24.x から 26.x）",
+          "pnpmメジャーバージョンの引き上げ",
+          "既存演習の課題定義・完成条件の非互換な変更",
+          "章ディレクトリ構成またはworkspace package名の変更"
+        ],
+        "readerImpact": "既存の読了記録・演習成果物がそのままでは対応付かなくなる。移行の手引きをCHANGELOGへ必ず記載する。"
+      },
+      {
+        "level": "MINOR",
+        "text": [
+          "既存章への節の追加",
+          "既存節への説明・図表・一次資料の追加",
+          "学習レベル分類や推定時間の見直し",
+          "新しい学習ルートの追加"
+        ],
+        "code": [
+          "新しい演習・模範解答の追加",
+          "既存演習を壊さない依存ライブラリのMINOR更新",
+          "検証スクリプト・CIジョブの追加",
+          "TypeScriptのMINOR更新"
+        ],
+        "readerImpact": "既存の章・節番号は保たれる。読み直しなしで差分だけ追える。"
+      },
+      {
+        "level": "PATCH",
+        "text": [
+          "誤字脱字、用語表記、リンク切れの修正",
+          "技術的な事実誤りの訂正（記述の骨子を変えない範囲）",
+          "ERRATA.mdに登録済みの正誤の本文反映"
+        ],
+        "code": [
+          "サンプルコードのバグ修正",
+          "依存ライブラリのPATCH更新とセキュリティ修正",
+          "テスト・lint設定の微修正"
+        ],
+        "readerImpact": "節の意味は変わらない。ERRATA.mdの該当行に修正版を記録する。"
+      }
+    ],
+    "tagFormat": "v<MAJOR>.<MINOR>.<PATCH>",
+    "prereleaseFormat": "v<MAJOR>.<MINOR>.<PATCH>-rc.<N>",
+    "sources": ["config/release.json", "package.json", "CHANGELOG.md"]
+  },
+  "changelog": {
+    "file": "CHANGELOG.md",
+    "format": "keep-a-changelog",
+    "reference": "https://keepachangelog.com/ja/1.1.0/",
+    "sections": ["Added", "Changed", "Deprecated", "Removed", "Fixed", "Security"],
+    "unreleasedHeading": "## [Unreleased]",
+    "entryPattern": "^## \\[(\\d+\\.\\d+\\.\\d+)\\] - (\\d{4}-\\d{2}-\\d{2})$"
+  },
+  "errata": {
+    "file": "ERRATA.md",
+    "idFormat": "E-<報告年>-<3桁連番>",
+    "columns": ["ID", "報告日", "対象版", "対象箇所", "誤", "正", "重大度", "状態", "修正版"],
+    "severities": ["Blocker", "Major", "Minor", "Trivial"],
+    "states": ["受付", "再現確認中", "確認済", "修正済", "却下"],
+    "intakeTemplates": [
+      ".github/ISSUE_TEMPLATE/errata-report.yml",
+      ".github/ISSUE_TEMPLATE/revision-proposal.yml"
+    ],
+    "intakeConfig": ".github/ISSUE_TEMPLATE/config.yml",
+    "slaDays": { "acknowledge": 7, "triage": 14, "blockerFix": 30 }
+  },
+  "reviewCycle": {
+    "tiers": {
+      "volatile": { "months": 3, "label": "四半期", "criteria": "製品・モデル・API仕様が四半期単位で入れ替わり、記述の陳腐化がもっとも速い領域" },
+      "fast": { "months": 6, "label": "半期", "criteria": "主要ツールやマネージドサービスのメジャー更新が年1回以上あり、推奨構成が入れ替わる領域" },
+      "medium": { "months": 12, "label": "年次", "criteria": "年次リリースサイクルの仕様・ランタイムに追随すればよい領域" },
+      "stable": { "months": 24, "label": "隔年", "criteria": "プロトコル、OS、設計原則など、数年単位でしか前提が変わらない領域" }
+    },
+    "triggers": [
+      "Node.jsのLTS系統が切り替わったとき",
+      "pnpmまたはTypeScriptのメジャー更新が出たとき",
+      "本書が扱う技術に重大な脆弱性（CVSS 7.0以上）が公表されたとき",
+      "参照している一次資料が非推奨化または移動したとき",
+      "ERRATA.mdへBlockerまたはMajorの正誤が登録されたとき"
+    ],
+    "chapters": {
+      "1": { "tier": "stable", "drivers": ["Web標準の歴史", "アーキテクチャ原則"], "reason": "URI・HTTP・クライアント/サーバという長寿命の原理を扱い、記述の前提がほとんど動かない。" },
+      "2": { "tier": "stable", "drivers": ["HTTPセマンティクス", "HTTP/2・HTTP/3"], "reason": "HTTPセマンティクスはRFC 9110系で安定している。HTTP/3の普及動向だけを隔年で確認する。" },
+      "3": { "tier": "medium", "drivers": ["TLS", "証明書運用", "DNS"], "reason": "証明書の有効期間短縮やポスト量子暗号への移行など、運用側の推奨値が年単位で更新される。" },
+      "4": { "tier": "medium", "drivers": ["CSS新機能", "ブラウザAPI"], "reason": "HTMLの土台は安定しているが、CSSのレイアウト・カラー機能とBaseline判定が年次で更新される。" },
+      "5": { "tier": "medium", "drivers": ["ECMAScript年次仕様", "TypeScript"], "reason": "ECMAScriptは年1回の仕様確定であり、その周期に合わせて構文と型の記述を見直す。" },
+      "6": { "tier": "fast", "drivers": ["React", "Vue", "Svelte", "Angular"], "reason": "主要フレームワークが半期ごとに推奨APIとレンダリングモデルを更新するため、比較記述が最も陳腐化しやすい。" },
+      "7": { "tier": "fast", "drivers": ["状態管理ライブラリ", "データフェッチ層"], "reason": "推奨される状態管理・キャッシュ戦略がフレームワークの更新に連動して入れ替わる。" },
+      "8": { "tier": "fast", "drivers": ["Vite", "Rust製バンドラ", "モジュール仕様"], "reason": "バンドラの実装置き換えが継続しており、ベンチマークと推奨構成の寿命が短い。" },
+      "9": { "tier": "fast", "drivers": ["SSR/SSG/ISR", "ストリーミング"], "reason": "レンダリング戦略の名称と適用条件がフレームワーク側の更新で頻繁に変わる。" },
+      "10": { "tier": "medium", "drivers": ["Node.js LTS", "代替ランタイム"], "reason": "Node.jsのLTSが年次で切り替わり、標準API・実行モデルの記述を追随させる必要がある。" },
+      "11": { "tier": "stable", "drivers": ["ミドルウェア設計", "ルーティング設計"], "reason": "自作フレームワークを通じた設計論が主題であり、特定製品の更新に依存しない。" },
+      "12": { "tier": "medium", "drivers": ["OpenAPI", "GraphQL", "gRPC"], "reason": "スキーマ記述形式とバージョニング慣行が年次で更新される。" },
+      "13": { "tier": "medium", "drivers": ["OAuth 2.1", "OIDC", "パスキー"], "reason": "認証仕様の推奨プロファイルとパスキーの実装状況が年単位で更新される。" },
+      "14": { "tier": "stable", "drivers": ["リレーショナルモデル", "トランザクション"], "reason": "関係モデル、正規化、分離レベルは数年単位でしか前提が変わらない。" },
+      "15": { "tier": "medium", "drivers": ["ドキュメントDB", "KVS", "分散DB"], "reason": "製品ごとの一貫性保証と課金モデルが年次で更新される。" },
+      "16": { "tier": "fast", "drivers": ["全文検索エンジン", "ベクトル検索"], "reason": "ベクトル検索とハイブリッド検索の実装・推奨構成が半期単位で入れ替わっている。" },
+      "17": { "tier": "medium", "drivers": ["Kafka", "キュー製品", "配信保証"], "reason": "配信保証の理屈は安定しているが、製品の運用モードと推奨設定が年次で更新される。" },
+      "18": { "tier": "stable", "drivers": ["Linuxカーネル", "TCP/IP"], "reason": "プロセス、ファイルディスクリプタ、ネットワークスタックの基礎は長期に安定している。" },
+      "19": { "tier": "medium", "drivers": ["OCIランタイム", "Kubernetes"], "reason": "Kubernetesは年3回リリースされるが、本章が扱うAPIと概念の寿命は年単位である。" },
+      "20": { "tier": "fast", "drivers": ["マネージドサービス", "Terraform", "IaC"], "reason": "クラウド事業者のサービス名・料金・推奨構成が半期で変わり、手順の再現性が落ちやすい。" },
+      "21": { "tier": "fast", "drivers": ["GitHub Actions", "サプライチェーン対策"], "reason": "ホスト型CIの機能とactionの固定SHAを半期ごとに更新する必要がある。" },
+      "22": { "tier": "medium", "drivers": ["OpenTelemetry", "メトリクス・トレース"], "reason": "OpenTelemetryのシグナル安定化が進行中で、SDKと属性規約を年次で追随させる。" },
+      "23": { "tier": "fast", "drivers": ["OWASP", "脆弱性動向", "暗号方式"], "reason": "攻撃手法と推奨対策、暗号アルゴリズムの推奨が半期単位で更新される。" },
+      "24": { "tier": "medium", "drivers": ["Core Web Vitals", "計測手法"], "reason": "指標の定義としきい値が年次で見直され、計測ツールの出力も変わる。" },
+      "25": { "tier": "medium", "drivers": ["テストランナー", "E2Eツール"], "reason": "node:testと外部ランナーの位置づけが年次で更新される。" },
+      "26": { "tier": "stable", "drivers": ["分散システム理論", "アーキテクチャパターン"], "reason": "スケーリングの原理とトレードオフは長期に安定している。" },
+      "27": { "tier": "stable", "drivers": ["ドメインモデリング", "設計手法"], "reason": "モデリング手法と設計判断の枠組みは特定製品の更新に依存しない。" },
+      "28": { "tier": "stable", "drivers": ["リファクタリング手法", "移行戦略"], "reason": "段階的移行の手順と安全網の作り方は長期に有効である。" },
+      "29": { "tier": "volatile", "drivers": ["LLM", "エージェント", "推論API"], "reason": "モデル、API仕様、コスト、推奨アーキテクチャが四半期単位で入れ替わる本書で最も変化が速い章。" },
+      "30": { "tier": "fast", "drivers": ["フルスタック構成", "全章の依存関係"], "reason": "全部の技術スタックを束ねる総合演習であり、いずれかの章の更新が直接波及する。" }
+    }
+  },
+  "support": {
+    "toolchain": {
+      "node": { "pinned": "24.18.0", "range": ">=24.18.0 <25" },
+      "pnpm": { "pinned": "11.15.1", "range": ">=11.15.1 <12" },
+      "typescript": { "pinned": "6.0.3", "range": "6.0.x" }
+    },
+    "environments": [
+      { "id": "devcontainer", "level": "guaranteed", "description": ".devcontainer/ で定義したDebian bookworm + Node.js 24.18.0。CIとクリーン環境検証の基準環境" },
+      { "id": "linux", "level": "guaranteed", "description": "x86_64 Linux。GitHub Actionsのubuntu-24.04で継続的に検証する" },
+      { "id": "macos", "level": "best-effort", "description": "macOS（Apple Silicon / Intel）。手元検証はするが、CIでは常時実行しない" },
+      { "id": "windows-wsl2", "level": "best-effort", "description": "Windows + WSL2。Linux手順を前提として動作報告を受け付ける" },
+      { "id": "windows-native", "level": "unsupported", "description": "WSL2を使わないWindowsネイティブ環境。パス・改行・シェルの差分は正誤報告の対象外" }
+    ],
+    "guarantees": [
+      "固定ツールチェーンで `pnpm run check:workspace` と `pnpm run check:handbook` が成功する。",
+      "`code/chXX/` の各章で `lint`、`typecheck`、`test`、`build` が成功する。",
+      "各演習のstarterからsolutionへの導線が `pnpm run validate:exercises` で検証される。"
+    ],
+    "notGuaranteed": [
+      "ブラウザ手動確認と外部サービスを伴う演習の自動再現。証跡は `config/clean-environment-plan.json` のrequiredEvidenceに従う（BETA_REVIEW_PLAN.mdのRB-06と同じ扱い）。",
+      "クラウド事業者・SaaSの無料枠、料金体系、コンソールUIの変化。",
+      "本書が固定していないOS・ブラウザ・ミドルウェアのバージョン組み合わせ。",
+      "長時間ベンチマークの絶対値。相対的な傾向のみを教材として扱う。"
+    ],
+    "educationalOnly": {
+      "policy": "教育目的で意図的に簡略化した実装は、そのまま本番環境で使用してはならない。該当章では省略した保証と本番実装との差分を `config/chapter-guides.json` のproductionGapsに明記する。",
+      "chapters": [6, 11, 13, 23, 25, 30],
+      "examples": [
+        "第6章の自作レンダリング実装は、差分検出・スケジューリング・並行制御を省略している。",
+        "第11章の自作Webフレームワークは、HTTPの境界条件処理とセキュリティヘッダの網羅性を省略している。",
+        "第13章の認証・署名実装は、鍵管理、失効、リプレイ防御、監査ログを省略している。",
+        "第23章の脆弱コード例は攻撃再現のための教材であり、隔離環境以外で実行しない。",
+        "第25章のテスト用スタブとフィクスチャは、実データを模した固定値であり本番データではない。",
+        "第30章の総合演習は本番品質を目指すが、事業者固有の可用性要件と法令要件は対象外である。"
+      ]
+    },
+    "supportWindow": {
+      "policy": "最新のMINOR系列だけをサポート対象とする。旧MINOR系列にはPATCHを提供しない。",
+      "securityPolicy": "サンプルコードの依存関係に重大な脆弱性が見つかった場合、最新MINOR系列に対してPATCHを発行する。",
+      "reportChannel": ".github/ISSUE_TEMPLATE/errata-report.yml"
+    }
+  },
+  "fixedArtifacts": {
+    "reproduceCommands": [
+      "corepack prepare pnpm@11.15.1 --activate",
+      "pnpm install --frozen-lockfile",
+      "pnpm run check:handbook",
+      "pnpm run build:site",
+      "pnpm run build:site:check"
+    ],
+    "manuscript": [
+      "00-front-matter.md",
+      "01-toc.md",
+      "02-part1-foundations.md",
+      "03-part2-frontend.md",
+      "04-part3-backend.md",
+      "05-part4-data.md",
+      "06-part5-infrastructure.md",
+      "07-part6-quality.md",
+      "08-part7-practice.md",
+      "09-references.md",
+      "10-index.md"
+    ],
+    "policyDocuments": [
+      "README.md",
+      "RELEASE_POLICY.md",
+      "LICENSING.md",
+      "LICENSE",
+      "LICENSE-TEXT",
+      "CHANGELOG.md",
+      "ERRATA.md"
+    ],
+    "generated": [
+      "dist/site/index.html",
+      "dist/site/style.css",
+      "dist/site/release-manifest.json"
+    ],
+    "verificationLogs": [
+      { "id": "check-handbook", "command": "pnpm run check:handbook", "evidence": "GitHub Actions run URL（Handbook CI / Manuscript and configuration）" },
+      { "id": "check-workspace", "command": "pnpm run check:workspace", "evidence": "GitHub Actions run URL（Handbook CI / chapter matrix）" },
+      { "id": "clean-environment", "command": "bash scripts/bootstrap-clean-environment.sh", "evidence": "クリーン環境の実行ログ（CLEAN_ENVIRONMENT.md）" },
+      { "id": "build-site", "command": "pnpm run build:site:check", "evidence": "dist/site/release-manifest.json のsha256一致" }
+    ]
+  },
+  "disclosure": {
+    "requiredTokens": [
+      "CC BY-NC-SA 4.0",
+      "MIT",
+      "1.0.0",
+      "LICENSING.md",
+      "RELEASE_POLICY.md",
+      "CHANGELOG.md",
+      "ERRATA.md"
+    ],
+    "targets": [
+      { "file": "README.md", "heading": "## 公開・利用条件" },
+      { "file": "00-front-matter.md", "heading": "### 公開・利用条件" }
+    ]
+  },
+  "releaseGateMapping": {
+    "source": "BETA_REVIEW_PLAN.md",
+    "ken63Gate": "ライセンス、版番号、CHANGELOG、正誤報告先が公開済み",
+    "blockers": [
+      { "id": "RB-10", "coveredBy": ["LICENSE", "LICENSE-TEXT", "LICENSING.md", "CHANGELOG.md", "ERRATA.md", "config/release.json", "README.md", "00-front-matter.md"], "check": "pnpm run validate:release-policy" },
+      { "id": "RB-04", "coveredBy": ["scripts/validate-release-policy.mjs"], "check": "pnpm run check:handbook" },
+      { "id": "RB-08", "coveredBy": ["CHANGELOG.md"], "check": "例外承認時の乖離章と実測値をCHANGELOGへ記載する" }
+    ]
+  }
+}

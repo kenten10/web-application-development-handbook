@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="ja">
+<head><meta charset="utf-8"><title>My Counter solution</title></head>
+<body>
+  <my-counter initial="10" step="2"></my-counter>
+  <output id="log">10</output>
+  <script type="module">
+    class MyCounter extends HTMLElement {
+      static observedAttributes = ['initial', 'step'];
+      #value = 0;
+      #step = 1;
+      #valueNode;
+
+      constructor() {
+        super();
+        const root = this.attachShadow({ mode: 'open' });
+        root.innerHTML = `<style>:host{display:inline-flex;gap:.5rem;align-items:center}button{min-width:2rem}</style>
+          <button part="decrement" aria-label="decrement">−</button>
+          <span part="value"></span>
+          <button part="increment" aria-label="increment">＋</button>`;
+        this.#valueNode = root.querySelector('[part=value]');
+        root.querySelector('[part=decrement]').addEventListener('click', () => this.value -= this.#step);
+        root.querySelector('[part=increment]').addEventListener('click', () => this.value += this.#step);
+      }
+
+      connectedCallback() {
+        this.#step = this.#numberAttribute('step', 1);
+        this.#value = this.#numberAttribute('initial', 0);
+        this.#render();
+      }
+
+      attributeChangedCallback(name, _oldValue, _newValue) {
+        if (!this.isConnected) return;
+        if (name === 'step') this.#step = this.#numberAttribute('step', 1);
+        if (name === 'initial') this.value = this.#numberAttribute('initial', 0);
+      }
+
+      get value() { return this.#value; }
+      set value(next) {
+        const parsed = Number(next);
+        if (!Number.isFinite(parsed) || Object.is(parsed, this.#value)) return;
+        this.#value = parsed;
+        this.#render();
+        this.dispatchEvent(new CustomEvent('change', { detail: { value: parsed }, bubbles: true }));
+      }
+
+      #numberAttribute(name, fallback) {
+        // getAttribute は未設定なら null を返し、Number(null) は 0 になる。
+        // 有無を先に見ないと、属性を書かなかったときに fallback ではなく 0 が入り、
+        // step 既定値 1 のつもりが 0 になってボタンが効かなくなる
+        const raw = this.getAttribute(name);
+        if (raw === null || raw.trim() === '') return fallback;
+        const parsed = Number(raw);
+        return Number.isFinite(parsed) ? parsed : fallback;
+      }
+      #render() { this.#valueNode.textContent = String(this.#value); }
+    }
+
+    customElements.define('my-counter', MyCounter);
+    const counter = document.querySelector('my-counter');
+    counter.addEventListener('change', (event) => document.querySelector('#log').value = String(event.detail.value));
+  </script>
+</body>
+</html>

@@ -1,0 +1,4 @@
+import {createHmac,randomBytes,timingSafeEqual} from 'node:crypto';export const exerciseId='23.3';
+export function createCsrfToken(secret:string,sessionId:string,nonce=randomBytes(16).toString('base64url')){const mac=createHmac('sha256',secret).update(`${sessionId}.${nonce}`).digest('base64url');return `${nonce}.${mac}`}
+export function verifyCsrfToken(input:{secret:string;sessionId:string;cookieToken?:string;formToken?:string}){if(!input.cookieToken||!input.formToken||input.cookieToken!==input.formToken)return false;const [nonce,mac]=input.formToken.split('.');if(!nonce||!mac)return false;const expected=createCsrfToken(input.secret,input.sessionId,nonce).split('.')[1]!;const a=Buffer.from(mac),b=Buffer.from(expected);return a.length===b.length&&timingSafeEqual(a,b)}
+export function csrfCookie(token:string){return `csrf=${token}; Path=/; Secure; SameSite=Strict`}

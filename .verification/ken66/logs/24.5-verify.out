@@ -1,0 +1,28 @@
+=== 課題24.5 Web Vitals 計測スクリプト(LCP/FID/CLS) ===
+開始: 2026-08-29T16:41:46.820Z
+localhost サーバ起動: http://localhost:8646 (root=code/ch24)
+  [http:8646] GET /web-vitals.solution.html -> 200
+  [http:8646] GET /favicon.ico -> 204 (harness stub)
+初期 (LCP のみ確定): {"LCP":72,"CLS":0,"INP":null}
+プログラム起因シフト後: CLS=0.0115
+操作後: {"LCP":72,"CLS":0.0115,"INP":40}
+入力直後のシフト後: CLS=0.0115 (hadRecentInput により除外され据え置きなら期待どおり)
+検証側 Observer: {"LCP":72,"CLS":0.0115,"INP":40,"FID":0}
+画面表示:
+{
+  "LCP": 72,
+  "CLS": 0.0115,
+  "INP": 40
+}
+--- チェック結果 ---
+  PASS: LCP を実測できた (72ms)
+  PASS: CLS を実測できた (>0) (0.0115)
+  PASS: INP(event duration) を実測できた (40ms)
+  PASS: FID(first-input delay) を実測できた (0ms)
+  PASS: 入力直後のシフトは hadRecentInput で CLS から除外される (0.0115 -> 0.0115)
+  PASS: 計測値が画面に JSON で表示される
+  PASS: Console 重大エラー0件
+  PASS: Network 失敗0件
+  PASS: CSP 違反0件
+所要時間: 3.62 秒
+判定: PASS

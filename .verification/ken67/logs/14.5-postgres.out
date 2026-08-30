@@ -1,0 +1,25 @@
+DROP TABLE
+DROP TABLE
+CREATE TABLE
+== up 001 ==
+BEGIN
+CREATE TABLE
+INSERT 0 1
+COMMIT
+== up 002 ==
+BEGIN
+CREATE INDEX
+INSERT 0 1
+COMMIT
+== up 001 再実行 (versionガードにより弾かれる) ==
+== status ==
+ERROR:  duplicate key value violates unique constraint "schema_migrations_pkey"
+DETAIL:  Key (version)=(1) already exists.
+1|001_create_users.sql
+2|002_add_index.sql
+== down 002 ==
+BEGIN
+DROP INDEX
+DELETE 1
+COMMIT
+1|001_create_users.sql

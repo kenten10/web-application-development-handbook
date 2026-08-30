@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Rendering pipeline benchmark</title>
+<style>
+body{font-family:system-ui;margin:2rem}.controls{display:flex;gap:.5rem;position:sticky;top:0;background:white;padding:.5rem}
+#stage{position:relative;height:420px;overflow:auto;border:1px solid #aaa}.item{position:relative;width:8px;height:8px;background:#2563eb;margin:1px}
+/* will-change は 1000 要素へ常時付けない。要素ごとに合成レイヤが確保され、
+   メモリを食って逆に遅くなる。必要ならアニメーション直前に JS で付け、終わったら外す。
+   ここで付けたままにすると Bad/Better/Best の比較条件そのものが歪む */
+output{display:block;white-space:pre-wrap;margin:1rem 0}
+</style>
+</head>
+<body>
+<h1>レンダリングパイプライン計測</h1>
+<div class="controls"><button data-mode="bad">Bad</button><button data-mode="better">Better</button><button data-mode="best">Best</button><button id="reset">Reset</button></div>
+<output id="result">Chrome DevToolsのPerformance記録を開始してからボタンを押してください。</output>
+<div id="stage"></div>
+<script>
+const stage=document.querySelector('#stage'); const result=document.querySelector('#result');
+function reset(){stage.textContent='';for(let i=0;i<1000;i++){const el=document.createElement('div');el.className='item';stage.append(el)}}
+function measure(mode){reset();const items=[...stage.children];performance.mark(`${mode}-start`);
+ if(mode==='bad'){for(const [i,el] of items.entries()){el.style.left=`${i%200}px`;void el.offsetLeft}}
+ if(mode==='better'){stage.style.display='none';for(const [i,el] of items.entries())el.style.left=`${i%200}px`;stage.style.display='block';void stage.offsetHeight}
+ if(mode==='best'){requestAnimationFrame(()=>{for(const [i,el] of items.entries())el.style.transform=`translateX(${i%200}px)`;finish(mode)})}else finish(mode)}
+function finish(mode){performance.mark(`${mode}-end`);const entry=performance.measure(mode,`${mode}-start`,`${mode}-end`);result.textContent=`${mode}: ${entry.duration.toFixed(2)} ms\nPerformanceパネルでLayout/Paint/Compositeを比較してください。`}
+document.querySelectorAll('[data-mode]').forEach(b=>b.addEventListener('click',()=>measure(b.dataset.mode)));document.querySelector('#reset').addEventListener('click',reset);reset();
+</script>
+</body></html>

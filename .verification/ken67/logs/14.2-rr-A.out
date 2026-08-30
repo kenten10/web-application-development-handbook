@@ -1,0 +1,4 @@
+BEGIN
+A-first-read|100
+A-second-read|100
+COMMIT

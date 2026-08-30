@@ -1,0 +1,15 @@
+BLOCKED: loopback IPv4 → private or special address is blocked
+BLOCKED: private 10/8 → private or special address is blocked
+BLOCKED: private 172.16/12 → private or special address is blocked
+BLOCKED: private 192.168/16 → private or special address is blocked
+BLOCKED: link-local = クラウドメタデータ(IMDS)境界 → private or special address is blocked
+BLOCKED: IPv6 loopback → private or special address is blocked
+BLOCKED: IPv6 link-local → private or special address is blocked
+BLOCKED: IPv6 ULA → private or special address is blocked
+BLOCKED: IPv4-mapped IPv6 loopback → private or special address is blocked
+BLOCKED: localhost名 → localhost is blocked
+BLOCKED: DNS rebinding候補 (公開IP+私設IPの混在解決) → private or special address is blocked
+BLOCKED: 私設IPへ解決されるホスト名 → private or special address is blocked
+BLOCKED: 非HTTPプロトコル → unsupported protocol
+BLOCKED: credentials入りURL → credentials are not allowed
+ALLOWED: 公開IPのみに解決されるURLは通過 → 93.184.216.34

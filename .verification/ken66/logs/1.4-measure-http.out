@@ -1,0 +1,6 @@
+# 課題1.4 HTTP計測 (localhost のみ。外部URLは使用しない)
+# port=8647 root=.verification/ken66/fixtures/ex1_4
+url,http_code,http_version,dns_s,tcp_s,tls_s,ttfb_s,total_s,size_bytes
+http://localhost:8647/index.html,200,1,0.000013,0.000311,0.000000,0.003380,0.003621,3005
+http://localhost:8647/static.html,200,1,0.000010,0.001282,0.000000,0.002657,0.003456,370
+http://localhost:8647/spa.html,200,1,0.000011,0.000260,0.000000,0.003475,0.003849,855

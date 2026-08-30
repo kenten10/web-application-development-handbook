@@ -1,0 +1,20 @@
+DROP TABLE
+DROP ROLE
+CREATE TABLE
+ALTER TABLE
+ALTER TABLE
+CREATE POLICY
+CREATE ROLE
+GRANT
+GRANT
+== tenant t1 として書き込み ==
+SET
+SET
+INSERT 0 1
+t1-visible|1
+== tenant t2 からは見えない ==
+SET
+t2-visible|0
+== t2セッションからt1のデータは書けない (WITH CHECK違反) ==
+ERROR:  new row violates row-level security policy for table "saas_tasks"
+RESET

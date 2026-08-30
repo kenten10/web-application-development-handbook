@@ -1,0 +1,26 @@
+== 初期デプロイ (nginx:1.27-alpine, replicas=2, maxUnavailable=0) ==
+deployment.apps/good-app created
+Waiting for deployment "good-app" rollout to finish: 0 of 2 updated replicas are available...
+Waiting for deployment "good-app" rollout to finish: 1 of 2 updated replicas are available...
+deployment "good-app" successfully rolled out
+initial readyReplicas=2
+== イメージ更新 → ローリングアップデート ==
+deployment.apps/good-app image updated
+t+2s replicas=3 ready=2 updated=1 unavailable=1
+t+4s replicas=3 ready=2 updated=1 unavailable=1
+t+6s replicas=3 ready=2 updated=1 unavailable=1
+t+8s replicas=2 ready=2 updated=2 unavailable=
+t+10s replicas=2 ready=2 updated=2 unavailable=
+t+12s replicas=2 ready=2 updated=2 unavailable=
+deployment "good-app" successfully rolled out
+== 最終状態 ==
+final ready=2/2 image=nginx:1.28-alpine
+NAME                        READY   STATUS    RESTARTS   AGE   IP           NODE                                NOMINATED NODE   READINESS GATES
+good-app-6f466c8d8d-2xskg   1/1     Running   0          6s    10.244.0.8   handbook-validation-control-plane   <none>           <none>
+good-app-6f466c8d8d-zx85p   1/1     Running   0          13s   10.244.0.7   handbook-validation-control-plane   <none>           <none>
+== rollout履歴 ==
+deployment.apps/good-app 
+REVISION  CHANGE-CAUSE
+1         <none>
+2         <none>
+

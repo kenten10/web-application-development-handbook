@@ -1,0 +1,12 @@
+== Task SaaSをクラスタへ配置 ==
+deployment.apps/task-saas created
+Waiting for deployment "task-saas" rollout to finish: 0 of 1 updated replicas are available...
+deployment "task-saas" successfully rolled out
+pod=task-saas-79b7cc595f-24lgf
+== readinessProbe(=health check)によりReady ==
+ready=true
+== クラスタ内からhealth check・テナント分離をkubectl execで確認 ==
+health: 200 {"ok":true}
+create: 201
+t1 sees: 1
+t2 sees: 0

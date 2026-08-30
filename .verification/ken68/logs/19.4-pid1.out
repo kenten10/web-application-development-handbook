@@ -1,0 +1,11 @@
+== コンテナ内プロセスツリー (mini-initがPID 1) ==
+PID                 PPID                COMMAND
+93730               93707               node /work/mini-init.solution.js node -e process.on('SIGTERM',()=>{console.log('child got SIGTERM, exiting cleanly');process.exit(0)});console.log('child running as pid',process.pid);setInterval(()=>{},1000)
+93751               93730               node -e process.on('SIGTERM',()=>{console.log('child got SIGTERM, exiting cleanly');process.exit(0)});console.log('child running as pid',process.pid);setInterval(()=>{},1000)
+== docker stop (SIGTERM送出) ==
+stop duration: 0s (10s未満=SIGKILLフォールバックでなくTERM転送で終了)
+== コンテナexit code ==
+ExitCode=0
+== コンテナログ (シグナル転送と子の終了) ==
+child running as pid 14
+child got SIGTERM, exiting cleanly

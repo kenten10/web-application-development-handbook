@@ -1,0 +1,19 @@
+$ node ../../scripts/validate-exercises.mjs --chapter ch17 && tsx --test solutions.test.ts
+Exercise chapters: 1
+Exercise units: 4
+Starter artifacts: 4
+Solution artifacts: 4
+Manuscript references: 4
+Exercise validation passed
+✔ consumer groups track offsets independently (0.474458ms)
+✔ outbox relay preserves unsent events and marks successful events (0.331792ms)
+✔ retry queue uses exponential delays and DLQ (0.140042ms)
+✔ saga compensates completed steps in reverse order (0.582083ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 4
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 101.380583

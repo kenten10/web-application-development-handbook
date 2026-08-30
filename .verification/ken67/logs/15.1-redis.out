@@ -1,0 +1,14 @@
+== SET/GET ==
+OK
+value1
+== TTL ==
+1
+-2
+expired GET → 
+== 永続化境界: SAVE後の再起動で残る ==
+OK
+OK
+durable GET → persists
+== 永続化境界: SAVE後の書き込みはSIGKILLで失われる ==
+OK
+volatile GET → 

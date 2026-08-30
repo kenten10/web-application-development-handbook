@@ -1,0 +1,285 @@
+{
+  "schemaVersion": 1,
+  "updated": "2026-08-30",
+  "description": "STYLE_GUIDE.md の各ルールを機械検査するための正本。scripts/validate-style.mjs が読む。",
+  "document": "STYLE_GUIDE.md",
+  "scope": {
+    "manuscript": [
+      "00-front-matter.md",
+      "02-part1-foundations.md",
+      "03-part2-frontend.md",
+      "04-part3-backend.md",
+      "05-part4-data.md",
+      "06-part5-infrastructure.md",
+      "07-part6-quality.md",
+      "08-part7-practice.md"
+    ],
+    "index": "10-index.md",
+    "excluded": [
+      "01-toc.md",
+      "09-references.md",
+      "10-index.md",
+      "LEARNING_LEVELS.md",
+      "LEARNING_PATHS.md",
+      "CHAPTER_TEMPLATE.md",
+      "CODE_EXERCISES.md"
+    ],
+    "note": "09-references.md は KEN-57 が定めた引用形式に従うため、書名・原題の記号をそのまま保つ目的で対象外とする。生成物は正本側で担保する。"
+  },
+  "fenceLanguages": [
+    "text",
+    "bash",
+    "sh",
+    "console",
+    "diff",
+    "http",
+    "json",
+    "yaml",
+    "toml",
+    "ini",
+    "xml",
+    "html",
+    "css",
+    "javascript",
+    "js",
+    "typescript",
+    "ts",
+    "tsx",
+    "jsx",
+    "sql",
+    "graphql",
+    "protobuf",
+    "python",
+    "go",
+    "rust",
+    "ruby",
+    "java",
+    "csharp",
+    "php",
+    "c",
+    "cpp",
+    "swift",
+    "kotlin",
+    "solidity",
+    "hcl",
+    "dockerfile",
+    "nginx",
+    "dns",
+    "markdown",
+    "mermaid",
+    "gherkin",
+    "cypher",
+    "prisma",
+    "astro",
+    "svelte",
+    "vue",
+    "make",
+    "powershell",
+    "regex"
+  ],
+  "politeEndings": [
+    "です",
+    "ます",
+    "ません",
+    "ましょう",
+    "でしょう",
+    "ください",
+    "下さい",
+    "でした",
+    "ました",
+    "ですが",
+    "ますが"
+  ],
+  "vagueExpressions": [
+    "AI時代",
+    "モダン",
+    "主流",
+    "最新",
+    "最近",
+    "近年",
+    "一般的に",
+    "一般には",
+    "事実上の標準",
+    "デファクト",
+    "業界標準",
+    "ベストプラクティス",
+    "人気",
+    "時代遅れ",
+    "革命",
+    "最強",
+    "圧倒的",
+    "劇的",
+    "爆発的",
+    "驚くほど",
+    "急速に"
+  ],
+  "evidencePatterns": [
+    "(19|20)\\d{2}",
+    "\\[[^\\]]+\\]",
+    "\\d+(\\.\\d+)?\\s*(%|倍|ms|秒|分|時間|件|回|バイト|KB|MB|GB|TB)",
+    "v?\\d+(\\.\\d+)+",
+    "年時点",
+    "現在"
+  ],
+  "noticeLabels": [
+    "注意",
+    "注意点",
+    "注意事項",
+    "警告",
+    "重要",
+    "補足",
+    "メモ",
+    "ポイント",
+    "参考"
+  ],
+  "rules": [
+    {
+      "id": "S-JA-001",
+      "title": "句読点は「、」「。」に統一する",
+      "enforcement": "error"
+    },
+    {
+      "id": "S-JA-002",
+      "title": "英数字は半角で書く",
+      "enforcement": "error"
+    },
+    {
+      "id": "S-JA-003",
+      "title": "感嘆符・疑問符は半角で書く",
+      "enforcement": "error"
+    },
+    {
+      "id": "S-JA-004",
+      "title": "括弧は半角 () に統一する",
+      "enforcement": "error"
+    },
+    {
+      "id": "S-JA-005",
+      "title": "全角スペースを使わない",
+      "enforcement": "error"
+    },
+    {
+      "id": "S-JA-006",
+      "title": "半角括弧の外側に半角スペースを1つ置く",
+      "enforcement": "error"
+    },
+    {
+      "id": "S-JA-007",
+      "title": "本文の文体は常体に統一する",
+      "enforcement": "error"
+    },
+    {
+      "id": "S-SYM-001",
+      "title": "全角ダッシュは ― (U+2015) を使う",
+      "enforcement": "error"
+    },
+    {
+      "id": "S-SYM-002",
+      "title": "波ダッシュは 〜 (U+301C) を使う",
+      "enforcement": "error"
+    },
+    {
+      "id": "S-CODE-001",
+      "title": "コードブロックには必ず言語を指定する",
+      "enforcement": "error"
+    },
+    {
+      "id": "S-CODE-002",
+      "title": "コードブロックの言語識別子は許可一覧から選ぶ",
+      "enforcement": "error"
+    },
+    {
+      "id": "S-CODE-003",
+      "title": "表はGFMのパイプ表とし区切り行を置く",
+      "enforcement": "error"
+    },
+    {
+      "id": "S-CODE-004",
+      "title": "図はテキスト図としてコードブロックに置く",
+      "enforcement": "error"
+    },
+    {
+      "id": "S-CODE-005",
+      "title": "注意・補足はブロック引用の見出し付きで書く",
+      "enforcement": "error"
+    },
+    {
+      "id": "S-TERM-001",
+      "title": "用語集の非正規表記を使わない",
+      "enforcement": "error"
+    },
+    {
+      "id": "S-TERM-002",
+      "title": "用語集の非推奨表記を新規に増やさない",
+      "enforcement": "baseline"
+    },
+    {
+      "id": "S-EN-001",
+      "title": "略語は初出で英語正式名称を併記する",
+      "enforcement": "baseline"
+    },
+    {
+      "id": "S-VAGUE-001",
+      "title": "曖昧表現は時点・出典・判定基準を添えて使う",
+      "enforcement": "baseline"
+    },
+    {
+      "id": "S-IDX-001",
+      "title": "索引語に非正規表記を含めない",
+      "enforcement": "error"
+    },
+    {
+      "id": "S-IDX-002",
+      "title": "索引必須の用語は索引に存在させる",
+      "enforcement": "error"
+    },
+    {
+      "id": "S-META-001",
+      "title": "ルールIDはSTYLE_GUIDE.mdと一致させる",
+      "enforcement": "error"
+    }
+  ],
+  "baselines": {
+    "S-TERM-002": {
+      "00-front-matter.md": 0,
+      "02-part1-foundations.md": 0,
+      "03-part2-frontend.md": 0,
+      "04-part3-backend.md": 0,
+      "05-part4-data.md": 0,
+      "06-part5-infrastructure.md": 0,
+      "07-part6-quality.md": 0,
+      "08-part7-practice.md": 0
+    },
+    "S-EN-001": {
+      "00-front-matter.md": 0,
+      "02-part1-foundations.md": 0,
+      "03-part2-frontend.md": 0,
+      "04-part3-backend.md": 0,
+      "05-part4-data.md": 0,
+      "06-part5-infrastructure.md": 0,
+      "07-part6-quality.md": 0,
+      "08-part7-practice.md": 0
+    },
+    "S-VAGUE-001": {
+      "00-front-matter.md": 0,
+      "02-part1-foundations.md": 0,
+      "03-part2-frontend.md": 0,
+      "04-part3-backend.md": 0,
+      "05-part4-data.md": 0,
+      "06-part5-infrastructure.md": 0,
+      "07-part6-quality.md": 0,
+      "08-part7-practice.md": 0
+    }
+  },
+  "canonicalNoticeLabels": [
+    "注意",
+    "警告",
+    "補足",
+    "重要"
+  ],
+  "vagueExceptions": [
+    "最近傍",
+    "近似最近傍"
+  ],
+  "baselineNote": "KEN-59 で S-TERM-002 / S-EN-001 / S-VAGUE-001 の 338 件をすべて解消したため上限を 0 にした。新規の違反は即座に警告として現れる。引き上げてはならない。"
+}

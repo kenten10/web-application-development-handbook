@@ -1,0 +1,6 @@
+BEGIN
+A-sum|200
+ERROR:  could not serialize access due to read/write dependencies among transactions
+DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+HINT:  The transaction might succeed if retried.
+ROLLBACK

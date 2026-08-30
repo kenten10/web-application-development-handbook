@@ -1,0 +1,26 @@
+=== 課題4.1 レンダリングパイプラインを計測する ===
+開始: 2026-08-29T16:41:37.378Z
+localhost サーバ起動: http://localhost:8642 (root=code/ch04/render-bench)
+  [http:8642] GET /index.solution.html -> 200
+  [http:8642] GET /favicon.ico -> 204 (harness stub)
+初期描画: .item = 1000 個
+bad: performance.measure = 240 ms
+better: performance.measure = 1.5 ms
+best: performance.measure = 9.9 ms
+LayoutCount=1006 RecalcStyleCount=1014 LayoutDuration=0.2535s RecalcStyleDuration=0.0070s
+Web Vitals: LCP=56ms CLS=0 INP=248ms FID=1ms
+--- チェック結果 ---
+  PASS: ステージに1000要素が生成される (items=1000)
+  PASS: Bad の計測値が取得できる (240ms)
+  PASS: Better の計測値が取得できる (1.5ms)
+  PASS: Best の計測値が取得できる (9.9ms)
+  PASS: Bad が最も遅い (強制同期レイアウトを再現) (bad=240 better=1.5 best=9.9)
+  PASS: Layout が複数回発生している (LayoutCount=1006)
+  PASS: LCP を実測できた (56ms)
+  PASS: CLS を実測できた (0)
+  PASS: INP(event duration) を実測できた (248ms)
+  PASS: Console 重大エラー0件
+  PASS: Network 失敗0件
+  PASS: CSP 違反0件
+所要時間: 2.44 秒
+判定: PASS

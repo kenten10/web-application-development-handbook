@@ -1,0 +1,10 @@
+cleanup at 2026-08-29T16:41:51Z
+残存 chrome (ken66 プロファイル): 0
+残存 python http.server (port 8647): 0
+port 8641 listener: 0
+port 8642 listener: 0
+port 8643 listener: 0
+port 8644 listener: 0
+port 8645 listener: 0
+port 8646 listener: 0
+port 8647 listener: 0

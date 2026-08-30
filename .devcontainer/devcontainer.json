@@ -1,0 +1,17 @@
+{
+  "name": "Web Application Development Handbook",
+  "dockerComposeFile": "docker-compose.yml",
+  "service": "app",
+  "workspaceFolder": "/workspace",
+  "shutdownAction": "stopCompose",
+  "forwardPorts": [3000, 3001, 3443, 3444, 4001, 4002, 5432, 6379, 8080],
+  "portsAttributes": {
+    "3000": { "label": "Chapter HTTP server" },
+    "3443": { "label": "Chapter HTTPS server" },
+    "5432": { "label": "PostgreSQL" },
+    "6379": { "label": "Redis" },
+    "8080": { "label": "Application server" }
+  },
+  "postCreateCommand": "bash scripts/bootstrap-clean-environment.sh --install-only",
+  "remoteUser": "root"
+}

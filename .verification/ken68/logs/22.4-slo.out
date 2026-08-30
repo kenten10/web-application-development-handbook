@@ -1,0 +1,2 @@
+hot burnRate= 50.0 alerts= [ 'fast-burn' ]
+calm burnRate= 0.50 alerts= []

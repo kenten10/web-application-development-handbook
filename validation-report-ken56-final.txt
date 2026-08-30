@@ -1,0 +1,36 @@
+Handbook validation
+- chapters: 30
+- numbered sections/subsections: 385
+- learning metadata: 385
+- chapter guides: 30
+- errors: 0
+- warnings: 27
+
+Warnings
+- [ANCHOR_DUPLICATE] 同じ自動アンカー候補 #コード集の使い方 が複数あります (02-part1-foundations.md:1834)
+- [ANCHOR_DUPLICATE] 同じ自動アンカー候補 #コード集の使い方 が複数あります (03-part2-frontend.md:1979)
+- [ANCHOR_DUPLICATE] 同じ自動アンカー候補 #コード集の使い方 が複数あります (03-part2-frontend.md:2659)
+- [ANCHOR_DUPLICATE] 同じ自動アンカー候補 #コード集の使い方 が複数あります (03-part2-frontend.md:3173)
+- [ANCHOR_DUPLICATE] 同じ自動アンカー候補 #コード集の使い方 が複数あります (03-part2-frontend.md:4235)
+- [ANCHOR_DUPLICATE] 同じ自動アンカー候補 #コード集の使い方 が複数あります (04-part3-backend.md:1128)
+- [ANCHOR_DUPLICATE] 同じ自動アンカー候補 #コード集の使い方 が複数あります (04-part3-backend.md:1888)
+- [ANCHOR_DUPLICATE] 同じ自動アンカー候補 #コード集の使い方 が複数あります (04-part3-backend.md:5264)
+- [ANCHOR_DUPLICATE] 同じ自動アンカー候補 #採用判断 が複数あります (05-part4-data.md:2238)
+- [ANCHOR_DUPLICATE] 同じ自動アンカー候補 #コード集の使い方 が複数あります (05-part4-data.md:2401)
+- [ANCHOR_DUPLICATE] 同じ自動アンカー候補 #採用判断 が複数あります (05-part4-data.md:2939)
+- [ANCHOR_DUPLICATE] 同じ自動アンカー候補 #コード集の使い方 が複数あります (05-part4-data.md:3109)
+- [ANCHOR_DUPLICATE] 同じ自動アンカー候補 #コード集の使い方 が複数あります (05-part4-data.md:3967)
+- [ANCHOR_DUPLICATE] 同じ自動アンカー候補 #コード集の使い方 が複数あります (06-part5-infrastructure.md:1481)
+- [ANCHOR_DUPLICATE] 同じ自動アンカー候補 #コード集の使い方 が複数あります (06-part5-infrastructure.md:2232)
+- [ANCHOR_DUPLICATE] 同じ自動アンカー候補 #コード集の使い方 が複数あります (06-part5-infrastructure.md:2810)
+- [ANCHOR_DUPLICATE] 同じ自動アンカー候補 #コード集の使い方 が複数あります (06-part5-infrastructure.md:3320)
+- [ANCHOR_DUPLICATE] 同じ自動アンカー候補 #仕組み が複数あります (07-part6-quality.md:1263)
+- [ANCHOR_DUPLICATE] 同じ自動アンカー候補 #コード集の使い方 が複数あります (07-part6-quality.md:2210)
+- [ANCHOR_DUPLICATE] 同じ自動アンカー候補 #コード集の使い方 が複数あります (07-part6-quality.md:2724)
+- [ANCHOR_DUPLICATE] 同じ自動アンカー候補 #コード集の使い方 が複数あります (07-part6-quality.md:3699)
+- [ANCHOR_DUPLICATE] 同じ自動アンカー候補 #context が複数あります (08-part7-practice.md:1596)
+- [ANCHOR_DUPLICATE] 同じ自動アンカー候補 #decision が複数あります (08-part7-practice.md:1597)
+- [ANCHOR_DUPLICATE] 同じ自動アンカー候補 #consequences が複数あります (08-part7-practice.md:1598)
+- [ANCHOR_DUPLICATE] 同じ自動アンカー候補 #alternatives-considered が複数あります (08-part7-practice.md:1599)
+- [ANCHOR_DUPLICATE] 同じ自動アンカー候補 #コード集の使い方 が複数あります (08-part7-practice.md:1633)
+- [ANCHOR_DUPLICATE] 同じ自動アンカー候補 #コード集の使い方 が複数あります (08-part7-practice.md:2507)

@@ -1,0 +1,10 @@
+DROP TABLE
+CREATE TABLE
+INSERT 0 1
+INSERT 0 1
+== 重複番号は拒否される ==
+ERROR:  duplicate key value violates unique constraint "adr_records_pkey"
+DETAIL:  Key (number)=(1) already exists.
+== 一覧 ==
+1|PostgreSQLを主データストアに採用する|accepted
+2|イベント駆動をKafkaで実装する|proposed

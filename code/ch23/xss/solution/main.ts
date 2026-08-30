@@ -1,0 +1,3 @@
+export const exerciseId='23.2';const voidTags=new Set(['br','hr','img']);
+export function escapeHtml(value:string){return value.replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]!))}
+export function sanitize(html:string,options:{allowedTags:string[]}):string{const allowed=new Set(options.allowedTags.map(x=>x.toLowerCase()));let out=html.replace(/<!--[\s\S]*?-->/g,'').replace(/<script\b[^>]*>[\s\S]*?<\/script\s*>/gi,'');out=out.replace(/<\/?([a-z0-9-]+)(?:\s[^>]*)?>/gi,(full,tag:string)=>{tag=tag.toLowerCase();if(!allowed.has(tag))return '';if(full.startsWith('</'))return `</${tag}>`;return `<${tag}${voidTags.has(tag)?' /':''}>`});return out.replace(/\s+on\w+\s*=\s*("[^"]*"|'[^']*'|[^\s>]+)/gi,'').replace(/javascript:/gi,'')}

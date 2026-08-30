@@ -1,0 +1,23 @@
+DROP TABLE
+DROP TABLE
+CREATE TABLE
+CREATE TABLE
+INSERT 0 1
+== saga実行: reserve成功 → charge失敗 → 補償(release) ==
+BEGIN
+UPDATE 1
+INSERT 0 1
+COMMIT
+BEGIN
+INSERT 0 1
+COMMIT
+BEGIN
+UPDATE 1
+INSERT 0 1
+COMMIT
+== saga_log (実行順) ==
+1|reserve_inventory|execute
+2|charge_payment|execute_failed
+3|reserve_inventory|compensate
+== 最終在庫 (補償で0に戻る) ==
+book|0

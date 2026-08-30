@@ -1,0 +1,91 @@
+name: 改訂・利用の提案
+description: 記述の追加・変更提案、技術動向の反映提案、営利利用の照会
+title: "[改訂] "
+labels:
+  - revision
+body:
+  - type: markdown
+    attributes:
+      value: |
+        誤りの報告ではなく、記述の追加・変更、技術動向の反映、ライセンスの照会を行うためのテンプレートです。
+
+        誤りの報告には「正誤報告」テンプレートを使ってください。
+        版番号の進み方は [RELEASE_POLICY.md](../../blob/main/RELEASE_POLICY.md) 第3節、章ごとの見直し周期は第5節にあります。
+        氏名、メールアドレス、所属は収集しません。回答へ含めないでください。
+  - type: dropdown
+    id: kind
+    attributes:
+      label: 提案の種類
+      options:
+        - 記述の追加・拡充（既存章に節や説明を足したい）
+        - 記述の変更（現在の説明が古い、または誤解を招く）
+        - 技術動向の反映（新しい仕様・製品・非推奨化を取り込みたい）
+        - 演習の追加・変更
+        - 営利利用の照会（CC BY-NC-SA 4.0で許諾されない利用）
+        - その他
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: 対象版
+      placeholder: "1.0.0"
+    validations:
+      required: true
+  - type: input
+    id: location
+    attributes:
+      label: 対象箇所
+      description: 章番号・節番号・演習IDを書きます。新設の提案なら、どの章の後に置くべきかを書きます。
+      placeholder: "第29章 / 29.4 節の後"
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: 解決したい問題
+      description: 現在の記述で読者が何に困るかを書きます。提案の内容ではなく、問題から書きます。
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: 提案内容
+      description: どう変えるかを書きます。
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: 一次資料
+      description: 仕様書、公式ドキュメント、リリースノート等のURLを書きます。技術動向の反映提案では必須です。
+    validations:
+      required: false
+  - type: dropdown
+    id: impact
+    attributes:
+      label: 想定する版への影響
+      description: 判断の目安です。最終的な分類はメンテナが決めます。
+      options:
+        - PATCH（節の意味は変わらない）
+        - MINOR（既存の節番号は保たれるが、読み直しが必要）
+        - MAJOR（章・節番号の変更、または前提の変更を伴う）
+        - 判断できない
+    validations:
+      required: true
+  - type: textarea
+    id: commercial
+    attributes:
+      label: 営利利用の照会内容
+      description: 「営利利用の照会」を選んだ場合のみ記入します。利用の形態、範囲、配布先の規模を書きます。判断基準は LICENSE-TEXT の第4節にあります。
+    validations:
+      required: false
+  - type: checkboxes
+    id: confirmations
+    attributes:
+      label: 確認事項
+      options:
+        - label: 同じ提案の既存Issueがないことを確認した
+          required: true
+        - label: 氏名・メールアドレス・所属・外部サービスIDを本文へ含めていない
+          required: true

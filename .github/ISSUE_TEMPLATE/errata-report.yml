@@ -1,0 +1,115 @@
+name: 正誤報告
+description: 本文・図表・サンプルコードの誤りを報告する
+title: "[正誤] "
+labels:
+  - errata
+body:
+  - type: markdown
+    attributes:
+      value: |
+        本書の誤りを報告するためのテンプレートです。
+
+        受付から `ERRATA.md` への反映までの手順は [ERRATA.md](../../blob/main/ERRATA.md) の第5節にあります。
+        氏名、メールアドレス、所属は収集しません。回答へ含めないでください。
+
+        動作しないコードの報告は、まず [RELEASE_POLICY.md](../../blob/main/RELEASE_POLICY.md) 第6節のサポート範囲を確認してください。
+        Windowsネイティブ環境（WSL2を使わない環境）は対象外です。
+  - type: input
+    id: version
+    attributes:
+      label: 対象版
+      description: 手元の版番号を書きます。`config/release.json` の `version`、またはgitタグで確認できます。
+      placeholder: "1.0.0"
+    validations:
+      required: true
+  - type: dropdown
+    id: kind
+    attributes:
+      label: 種類
+      options:
+        - 技術的な誤り（記述の内容が正しくない）
+        - サンプルコードが動作しない
+        - 手順どおりに進められない
+        - 図表・演習カードの誤り
+        - 誤字脱字・表記ゆれ
+        - リンク切れ・参照先の誤り
+    validations:
+      required: true
+  - type: input
+    id: location
+    attributes:
+      label: 対象箇所
+      description: 節番号または演習IDと、その中の位置を書きます。ファイル名と行番号だけでは版が変わると追えないため、節番号を必ず含めます。
+      placeholder: "3.4 節 本文3段落目 / 演習 ex-14-02 の完成条件2"
+    validations:
+      required: true
+  - type: textarea
+    id: incorrect
+    attributes:
+      label: 誤（現在の記述）
+      description: 該当箇所を原文のまま引用します。
+      render: text
+    validations:
+      required: true
+  - type: textarea
+    id: correct
+    attributes:
+      label: 正（あるべき記述）
+      description: 訂正案を書きます。判断がつかない場合は「何がおかしいと感じたか」だけでも構いません。
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: 根拠
+      description: 仕様書、公式ドキュメント、リリースノート等の一次資料のURLがあれば書きます。
+    validations:
+      required: false
+  - type: dropdown
+    id: severity
+    attributes:
+      label: 重大度（報告者の見立て）
+      description: 最終的な重大度はメンテナが確定します。見立てで構いません。
+      options:
+        - Blocker（記述どおりに実行するとデータ喪失・情報漏洩・課金事故が起きる）
+        - Major（技術的に誤っており、実務で通用しない結論に至る）
+        - Minor（誤りだが前後の文脈から正しい意味を推測できる）
+        - Trivial（誤字脱字、表記ゆれ、リンク切れ）
+    validations:
+      required: true
+  - type: dropdown
+    id: environment
+    attributes:
+      label: 実施環境
+      description: コードの不具合を報告する場合に選びます。本文の誤りだけなら「該当しない」を選びます。
+      options:
+        - 該当しない（本文の誤りのみ）
+        - devcontainer
+        - Linux (x86_64)
+        - macOS
+        - Windows + WSL2
+        - その他
+    validations:
+      required: true
+  - type: textarea
+    id: versions
+    attributes:
+      label: バージョン情報
+      description: コードの不具合を報告する場合、次のコマンドの出力を貼り付けます。
+      render: text
+      placeholder: |
+        $ node --version
+        v24.18.0
+        $ pnpm --version
+        11.15.1
+    validations:
+      required: false
+  - type: checkboxes
+    id: confirmations
+    attributes:
+      label: 確認事項
+      options:
+        - label: 既存のIssueとERRATA.mdに同じ報告がないことを確認した
+          required: true
+        - label: 氏名・メールアドレス・所属・外部サービスIDを本文へ含めていない
+          required: true

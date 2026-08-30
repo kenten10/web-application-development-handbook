@@ -1,0 +1,215 @@
+{
+  "version": 1,
+  "chapters": [
+    {
+      "chapter": 1,
+      "title": "Webとは何か ― 歴史と全体像",
+      "file": "02-part1-foundations.md",
+      "status": "completed",
+      "minimumBridgeCount": 10
+    },
+    {
+      "chapter": 2,
+      "title": "HTTPプロトコル徹底解剖",
+      "file": "02-part1-foundations.md",
+      "status": "completed",
+      "minimumBridgeCount": 10
+    },
+    {
+      "chapter": 3,
+      "title": "URL・DNS・TLS",
+      "file": "02-part1-foundations.md",
+      "status": "completed",
+      "minimumBridgeCount": 6
+    },
+    {
+      "chapter": 4,
+      "title": "HTML/CSS/JavaScriptの設計思想",
+      "file": "02-part1-foundations.md",
+      "status": "completed",
+      "minimumBridgeCount": 9
+    },
+    {
+      "chapter": 5,
+      "title": "JavaScriptとTypeScriptの中核機構",
+      "file": "03-part2-frontend.md",
+      "status": "completed",
+      "minimumBridgeCount": 12
+    },
+    {
+      "chapter": 6,
+      "title": "フロントエンドフレームワーク",
+      "file": "03-part2-frontend.md",
+      "status": "completed",
+      "minimumBridgeCount": 12
+    },
+    {
+      "chapter": 7,
+      "title": "状態管理とデータフェッチング",
+      "file": "03-part2-frontend.md",
+      "status": "completed",
+      "minimumBridgeCount": 10
+    },
+    {
+      "chapter": 8,
+      "title": "ビルドツールとモジュールバンドラ",
+      "file": "03-part2-frontend.md",
+      "status": "completed",
+      "minimumBridgeCount": 9
+    },
+    {
+      "chapter": 9,
+      "title": "レンダリング戦略",
+      "file": "03-part2-frontend.md",
+      "status": "completed",
+      "minimumBridgeCount": 13
+    },
+    {
+      "chapter": 10,
+      "title": "サーバサイド言語とランタイム",
+      "file": "04-part3-backend.md",
+      "status": "completed",
+      "minimumBridgeCount": 10
+    },
+    {
+      "chapter": 11,
+      "title": "Webフレームワーク設計論",
+      "file": "04-part3-backend.md",
+      "status": "completed",
+      "minimumBridgeCount": 9
+    },
+    {
+      "chapter": 12,
+      "title": "API設計",
+      "file": "04-part3-backend.md",
+      "status": "completed",
+      "minimumBridgeCount": 13
+    },
+    {
+      "chapter": 13,
+      "title": "認証と認可",
+      "file": "04-part3-backend.md",
+      "status": "completed",
+      "minimumBridgeCount": 26
+    },
+    {
+      "chapter": 14,
+      "title": "リレーショナルデータベース",
+      "file": "05-part4-data.md",
+      "status": "completed",
+      "minimumBridgeCount": 27
+    },
+    {
+      "chapter": 15,
+      "title": "NoSQLとデータモデリング",
+      "file": "05-part4-data.md",
+      "status": "completed",
+      "minimumBridgeCount": 12
+    },
+    {
+      "chapter": 16,
+      "title": "検索エンジンと全文検索",
+      "file": "05-part4-data.md",
+      "status": "completed",
+      "minimumBridgeCount": 12
+    },
+    {
+      "chapter": 17,
+      "title": "イベント駆動とメッセージング",
+      "file": "05-part4-data.md",
+      "status": "completed",
+      "minimumBridgeCount": 17
+    },
+    {
+      "chapter": 18,
+      "title": "Linuxとネットワーク",
+      "file": "06-part5-infrastructure.md",
+      "status": "completed",
+      "minimumBridgeCount": 12
+    },
+    {
+      "chapter": 19,
+      "title": "コンテナとオーケストレーション",
+      "file": "06-part5-infrastructure.md",
+      "status": "completed",
+      "minimumBridgeCount": 12
+    },
+    {
+      "chapter": 20,
+      "title": "クラウドとIaC",
+      "file": "06-part5-infrastructure.md",
+      "status": "completed",
+      "minimumBridgeCount": 14
+    },
+    {
+      "chapter": 21,
+      "title": "CI/CDとDevOps",
+      "file": "06-part5-infrastructure.md",
+      "status": "completed",
+      "minimumBridgeCount": 8
+    },
+    {
+      "chapter": 22,
+      "title": "可観測性 (Observability)",
+      "file": "06-part5-infrastructure.md",
+      "status": "completed",
+      "minimumBridgeCount": 11
+    },
+    {
+      "chapter": 23,
+      "title": "セキュリティ",
+      "file": "07-part6-quality.md",
+      "status": "completed",
+      "minimumBridgeCount": 28
+    },
+    {
+      "chapter": 24,
+      "title": "パフォーマンス",
+      "file": "07-part6-quality.md",
+      "status": "completed",
+      "minimumBridgeCount": 9
+    },
+    {
+      "chapter": 25,
+      "title": "テスト戦略",
+      "file": "07-part6-quality.md",
+      "status": "completed",
+      "minimumBridgeCount": 12
+    },
+    {
+      "chapter": 26,
+      "title": "スケーラビリティとアーキテクチャ",
+      "file": "07-part6-quality.md",
+      "status": "completed",
+      "minimumBridgeCount": 15
+    },
+    {
+      "chapter": 27,
+      "title": "設計とドメインモデリング",
+      "file": "08-part7-practice.md",
+      "status": "completed",
+      "minimumBridgeCount": 13
+    },
+    {
+      "chapter": 28,
+      "title": "大規模リファクタリングとレガシー対応",
+      "file": "08-part7-practice.md",
+      "status": "completed",
+      "minimumBridgeCount": 15
+    },
+    {
+      "chapter": 29,
+      "title": "LLMを組み込むWeb開発",
+      "file": "08-part7-practice.md",
+      "status": "completed",
+      "minimumBridgeCount": 14
+    },
+    {
+      "chapter": 30,
+      "title": "総合演習 ― 本番品質のSaaSをゼロから構築",
+      "file": "08-part7-practice.md",
+      "status": "completed",
+      "minimumBridgeCount": 17
+    }
+  ]
+}

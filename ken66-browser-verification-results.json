@@ -1,0 +1,640 @@
+{
+  "issue": "KEN-66",
+  "title": "ブラウザ演習6件を手動確認する (ヘッドレス Chrome + CDP による自動代替検証)",
+  "executedAt": "2026-08-29T16:41:50.983Z",
+  "environment": {
+    "node": "v26.7.0",
+    "platform": "darwin 25.6.0 arm64",
+    "chrome": "Chrome/152.0.7977.65",
+    "protocolVersion": "1.3",
+    "headless": true,
+    "automation": "Chrome DevTools Protocol over Node built-in WebSocket (no npm dependency added)",
+    "network": "localhost only (--proxy-server=http://127.0.0.1:1 により非 loopback 宛の通信を遮断。Chrome は loopback を既定でプロキシ迂回する)",
+    "cspHeader": "Content-Security-Policy-Report-Only: default-src 'self'; ... (検証サーバが付与)"
+  },
+  "totals": {
+    "exercises": 6,
+    "pass": 6,
+    "fail": 0,
+    "totalElapsedSec": 14.65
+  },
+  "exercises": [
+    {
+      "id": "1.4",
+      "title": "自分のWebの「使用履歴」を可視化",
+      "status": "passed",
+      "verdict": "PASS",
+      "port": 8641,
+      "elapsedSec": 1.64,
+      "consoleErrors": 0,
+      "consoleWarnings": 0,
+      "networkFailures": 0,
+      "cspViolations": 0,
+      "metrics": {
+        "chartBars": 8,
+        "tableRows": 8,
+        "dummyDataOnly": true,
+        "documentRequestsOnLinkNavigation": 1,
+        "documentRequestsOnSpaNavigation": 0,
+        "spaFinalView": "settings",
+        "consoleWarnings": 0
+      },
+      "checks": [
+        {
+          "name": "履歴グラフが8本描画される",
+          "ok": true,
+          "detail": "bars=8"
+        },
+        {
+          "name": "分類表が8行描画される",
+          "ok": true,
+          "detail": "rows=8"
+        },
+        {
+          "name": "ダミーデータのみ使用",
+          "ok": true,
+          "detail": null
+        },
+        {
+          "name": "通常リンク遷移で Document リクエストが発生",
+          "ok": true,
+          "detail": null
+        },
+        {
+          "name": "SPA遷移では Document リクエストが発生しない",
+          "ok": true,
+          "detail": null
+        },
+        {
+          "name": "SPA遷移で URL と表示が更新される",
+          "ok": true,
+          "detail": null
+        },
+        {
+          "name": "Console 重大エラー0件",
+          "ok": true,
+          "detail": ""
+        },
+        {
+          "name": "Network 失敗0件",
+          "ok": true,
+          "detail": ""
+        },
+        {
+          "name": "CSP 違反0件",
+          "ok": true,
+          "detail": ""
+        }
+      ],
+      "screenshot": ".verification/ken66/screenshots/1.4.png",
+      "screenshots": [
+        ".verification/ken66/screenshots/1.4.png"
+      ],
+      "log": ".verification/ken66/logs/1.4-verify.out",
+      "additionalLogs": [
+        ".verification/ken66/logs/1.4-measure-http.out"
+      ]
+    },
+    {
+      "id": "4.1",
+      "title": "レンダリングパイプラインを計測する",
+      "status": "passed",
+      "verdict": "PASS",
+      "port": 8642,
+      "elapsedSec": 2.44,
+      "consoleErrors": 0,
+      "consoleWarnings": 0,
+      "networkFailures": 0,
+      "cspViolations": 0,
+      "metrics": {
+        "items": 1000,
+        "measureMs": {
+          "bad": 240,
+          "better": 1.5,
+          "best": 9.9
+        },
+        "layoutCount": 1006,
+        "recalcStyleCount": 1014,
+        "layoutDurationSec": 0.253543,
+        "recalcStyleDurationSec": 0.007038,
+        "webVitals": {
+          "LCP": 56,
+          "CLS": 0,
+          "INP": 248,
+          "FID": 1
+        }
+      },
+      "checks": [
+        {
+          "name": "ステージに1000要素が生成される",
+          "ok": true,
+          "detail": "items=1000"
+        },
+        {
+          "name": "Bad の計測値が取得できる",
+          "ok": true,
+          "detail": "240ms"
+        },
+        {
+          "name": "Better の計測値が取得できる",
+          "ok": true,
+          "detail": "1.5ms"
+        },
+        {
+          "name": "Best の計測値が取得できる",
+          "ok": true,
+          "detail": "9.9ms"
+        },
+        {
+          "name": "Bad が最も遅い (強制同期レイアウトを再現)",
+          "ok": true,
+          "detail": "bad=240 better=1.5 best=9.9"
+        },
+        {
+          "name": "Layout が複数回発生している",
+          "ok": true,
+          "detail": "LayoutCount=1006"
+        },
+        {
+          "name": "LCP を実測できた",
+          "ok": true,
+          "detail": "56ms"
+        },
+        {
+          "name": "CLS を実測できた",
+          "ok": true,
+          "detail": "0"
+        },
+        {
+          "name": "INP(event duration) を実測できた",
+          "ok": true,
+          "detail": "248ms"
+        },
+        {
+          "name": "Console 重大エラー0件",
+          "ok": true,
+          "detail": ""
+        },
+        {
+          "name": "Network 失敗0件",
+          "ok": true,
+          "detail": ""
+        },
+        {
+          "name": "CSP 違反0件",
+          "ok": true,
+          "detail": ""
+        }
+      ],
+      "screenshot": ".verification/ken66/screenshots/4.1.png",
+      "screenshots": [
+        ".verification/ken66/screenshots/4.1.png"
+      ],
+      "log": ".verification/ken66/logs/4.1-verify.out",
+      "additionalLogs": []
+    },
+    {
+      "id": "4.2",
+      "title": "純粋なDOM APIでTodoアプリ",
+      "status": "passed",
+      "verdict": "PASS",
+      "port": 8643,
+      "elapsedSec": 2.98,
+      "consoleErrors": 0,
+      "consoleWarnings": 0,
+      "networkFailures": 0,
+      "cspViolations": 0,
+      "metrics": {
+        "afterAdd": {
+          "count": 3,
+          "status": "3件が未完了"
+        },
+        "afterToggle": {
+          "count": 3,
+          "completed": 1,
+          "status": "2件が未完了"
+        },
+        "filters": {
+          "active": {
+            "visible": 2,
+            "pressed": "true"
+          },
+          "completed": {
+            "visible": 1,
+            "pressed": "true"
+          },
+          "all": {
+            "visible": 3,
+            "pressed": "true"
+          }
+        },
+        "storedCount": 3,
+        "afterReload": 3,
+        "afterShortcut": {
+          "completed": 3,
+          "status": "0件が未完了"
+        },
+        "afterDelete": 2
+      },
+      "checks": [
+        {
+          "name": "Todo を3件追加できる",
+          "ok": true,
+          "detail": "count=3"
+        },
+        {
+          "name": "aria-live の残件表示が更新される",
+          "ok": true,
+          "detail": "3件が未完了"
+        },
+        {
+          "name": "完了切替が反映される",
+          "ok": true,
+          "detail": "2件が未完了"
+        },
+        {
+          "name": "Active フィルターが未完了2件を表示",
+          "ok": true,
+          "detail": null
+        },
+        {
+          "name": "Completed フィルターが完了1件を表示",
+          "ok": true,
+          "detail": null
+        },
+        {
+          "name": "All フィルターが3件を表示",
+          "ok": true,
+          "detail": null
+        },
+        {
+          "name": "localStorage に永続化され再読込後も残る",
+          "ok": true,
+          "detail": "stored=3 reload=3"
+        },
+        {
+          "name": "Ctrl+Enter で全件完了になる",
+          "ok": true,
+          "detail": "0件が未完了"
+        },
+        {
+          "name": "削除で1件減る",
+          "ok": true,
+          "detail": "count=2"
+        },
+        {
+          "name": "Console 重大エラー0件",
+          "ok": true,
+          "detail": ""
+        },
+        {
+          "name": "Network 失敗0件",
+          "ok": true,
+          "detail": ""
+        },
+        {
+          "name": "CSP 違反0件",
+          "ok": true,
+          "detail": ""
+        }
+      ],
+      "screenshot": ".verification/ken66/screenshots/4.2.png",
+      "screenshots": [
+        ".verification/ken66/screenshots/4.2.png"
+      ],
+      "log": ".verification/ken66/logs/4.2-verify.out",
+      "additionalLogs": []
+    },
+    {
+      "id": "6.4",
+      "title": "Web Components で型安全な Counter",
+      "status": "passed",
+      "verdict": "PASS",
+      "port": 8644,
+      "elapsedSec": 0.88,
+      "consoleErrors": 0,
+      "consoleWarnings": 0,
+      "networkFailures": 0,
+      "cspViolations": 0,
+      "metrics": {
+        "upgraded": {
+          "defined": true,
+          "hasShadow": true,
+          "mode": "open",
+          "initial": "10",
+          "value": 10,
+          "log": "10"
+        },
+        "afterClicks": {
+          "shown": "12",
+          "value": 12,
+          "log": "12",
+          "changes": [
+            12,
+            14,
+            12
+          ]
+        },
+        "afterAttr": {
+          "shown": "100",
+          "value": 100
+        },
+        "afterProp": {
+          "shown": "7",
+          "log": "7"
+        },
+        "isolation": {
+          "innerMinWidth": "32px",
+          "outerButtonExists": 0,
+          "hostDisplay": "inline-flex"
+        }
+      },
+      "checks": [
+        {
+          "name": "custom element が定義される",
+          "ok": true,
+          "detail": null
+        },
+        {
+          "name": "Shadow DOM (open) が生成される",
+          "ok": true,
+          "detail": null
+        },
+        {
+          "name": "initial=10 が初期値に反映される",
+          "ok": true,
+          "detail": "shown=10 value=10"
+        },
+        {
+          "name": "step=2 で +2/+2/-2 が 12→14→12 になる",
+          "ok": true,
+          "detail": "[12,14,12]"
+        },
+        {
+          "name": "change イベントが light DOM の <output> へ反映される",
+          "ok": true,
+          "detail": "12"
+        },
+        {
+          "name": "attributeChangedCallback で initial 変更が反映される",
+          "ok": true,
+          "detail": null
+        },
+        {
+          "name": "value プロパティ書き込みが反映される",
+          "ok": true,
+          "detail": null
+        },
+        {
+          "name": ":host のスタイルが Shadow DOM 内に隔離される",
+          "ok": true,
+          "detail": "32px/inline-flex"
+        },
+        {
+          "name": "Console 重大エラー0件",
+          "ok": true,
+          "detail": ""
+        },
+        {
+          "name": "Network 失敗0件",
+          "ok": true,
+          "detail": ""
+        },
+        {
+          "name": "CSP 違反0件",
+          "ok": true,
+          "detail": ""
+        }
+      ],
+      "screenshot": ".verification/ken66/screenshots/6.4.png",
+      "screenshots": [
+        ".verification/ken66/screenshots/6.4.png"
+      ],
+      "log": ".verification/ken66/logs/6.4-verify.out",
+      "additionalLogs": []
+    },
+    {
+      "id": "9.2",
+      "title": "Service Worker でオフライン対応",
+      "status": "passed",
+      "verdict": "PASS",
+      "port": 8645,
+      "elapsedSec": 3.1,
+      "consoleErrors": 0,
+      "consoleWarnings": 0,
+      "networkFailures": 0,
+      "cspViolations": 0,
+      "metrics": {
+        "scope": "http://localhost:8645/",
+        "lifecycle": [
+          "installing:installing",
+          "updatefound:installing",
+          "installing:installed",
+          "updatefound:installed",
+          "installing:activating",
+          "updatefound:activating",
+          "installing:activated",
+          "updatefound:activated"
+        ],
+        "lifecycleStatusesObserved": [
+          "activated",
+          "new",
+          "installing",
+          "installed",
+          "activating"
+        ],
+        "cdpWorkerStatuses": [
+          "activated",
+          "new",
+          "new",
+          "new",
+          "new",
+          "installing",
+          "installing",
+          "installed",
+          "activating",
+          "activating",
+          "activated"
+        ],
+        "cachedEntries": [
+          "/",
+          "/app.js",
+          "/index.html",
+          "/manifest.webmanifest",
+          "/offline.html",
+          "/style.css"
+        ],
+        "onlineState": {
+          "items": 1,
+          "status": "installing"
+        },
+        "secondLoad": {
+          "items": 1,
+          "status": "offline ready",
+          "controlled": true
+        },
+        "offlineFallbackByEmulation": true,
+        "offlineFallbackByServerDown": true,
+        "cachedAssetOk": true,
+        "expectedOfflineNetworkFailures": 0
+      },
+      "checks": [
+        {
+          "name": "Service Worker が install される (installing -> installed)",
+          "ok": true,
+          "detail": "activated, new, installing, installed, activating"
+        },
+        {
+          "name": "Service Worker が activate される (activating -> activated)",
+          "ok": true,
+          "detail": "activated, new, installing, installed, activating"
+        },
+        {
+          "name": "scope が / でルート配下を制御する",
+          "ok": true,
+          "detail": "http://localhost:8645/"
+        },
+        {
+          "name": "App Shell 6件がキャッシュされる",
+          "ok": true,
+          "detail": "[\"/\",\"/app.js\",\"/index.html\",\"/manifest.webmanifest\",\"/offline.html\",\"/style.css\"]"
+        },
+        {
+          "name": "オンラインで Todo を追加できる",
+          "ok": true,
+          "detail": null
+        },
+        {
+          "name": "再読込後は Service Worker が制御し status が offline ready になる",
+          "ok": true,
+          "detail": "controller=true status=offline ready"
+        },
+        {
+          "name": "再読込後も localStorage の Todo が残る",
+          "ok": true,
+          "detail": "items=1"
+        },
+        {
+          "name": "CDP offline エミュレーションで offline.html にフォールバック",
+          "ok": true,
+          "detail": "オフラインです"
+        },
+        {
+          "name": "サーバ停止時も offline.html にフォールバック",
+          "ok": true,
+          "detail": "オフラインです"
+        },
+        {
+          "name": "オフラインでもキャッシュ資産を取得できる",
+          "ok": true,
+          "detail": null
+        },
+        {
+          "name": "Console 重大エラー0件",
+          "ok": true,
+          "detail": ""
+        },
+        {
+          "name": "Network 失敗0件",
+          "ok": true,
+          "detail": ""
+        },
+        {
+          "name": "CSP 違反0件",
+          "ok": true,
+          "detail": ""
+        }
+      ],
+      "screenshot": ".verification/ken66/screenshots/9.2.png",
+      "screenshots": [
+        ".verification/ken66/screenshots/9.2-online.png",
+        ".verification/ken66/screenshots/9.2.png"
+      ],
+      "log": ".verification/ken66/logs/9.2-verify.out",
+      "additionalLogs": []
+    },
+    {
+      "id": "24.5",
+      "title": "Web Vitals 計測スクリプト(LCP/FID/CLS)",
+      "status": "passed",
+      "verdict": "PASS",
+      "port": 8646,
+      "elapsedSec": 3.62,
+      "consoleErrors": 0,
+      "consoleWarnings": 0,
+      "networkFailures": 0,
+      "cspViolations": 0,
+      "metrics": {
+        "pageObserver": {
+          "LCP": 72,
+          "CLS": 0.0115,
+          "INP": 40
+        },
+        "verifierObserver": {
+          "LCP": 72,
+          "CLS": 0.0115,
+          "INP": 40,
+          "FID": 0
+        },
+        "lcpMs": 72,
+        "inpMs": 40,
+        "fidMs": 0,
+        "cls": 0.0115,
+        "clsExcludedAfterInput": true
+      },
+      "checks": [
+        {
+          "name": "LCP を実測できた",
+          "ok": true,
+          "detail": "72ms"
+        },
+        {
+          "name": "CLS を実測できた (>0)",
+          "ok": true,
+          "detail": "0.0115"
+        },
+        {
+          "name": "INP(event duration) を実測できた",
+          "ok": true,
+          "detail": "40ms"
+        },
+        {
+          "name": "FID(first-input delay) を実測できた",
+          "ok": true,
+          "detail": "0ms"
+        },
+        {
+          "name": "入力直後のシフトは hadRecentInput で CLS から除外される",
+          "ok": true,
+          "detail": "0.0115 -> 0.0115"
+        },
+        {
+          "name": "計測値が画面に JSON で表示される",
+          "ok": true,
+          "detail": null
+        },
+        {
+          "name": "Console 重大エラー0件",
+          "ok": true,
+          "detail": ""
+        },
+        {
+          "name": "Network 失敗0件",
+          "ok": true,
+          "detail": ""
+        },
+        {
+          "name": "CSP 違反0件",
+          "ok": true,
+          "detail": ""
+        }
+      ],
+      "screenshot": ".verification/ken66/screenshots/24.5.png",
+      "screenshots": [
+        ".verification/ken66/screenshots/24.5.png"
+      ],
+      "log": ".verification/ken66/logs/24.5-verify.out",
+      "additionalLogs": []
+    }
+  ]
+}
