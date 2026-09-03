@@ -100,7 +100,9 @@ Linear の **KEN-733**「[v1.1/ユーザー実行] GitHub Actions実行枠とbra
 
 KEN-733の前提にある「PR #1 がOPEN」はKEN-63で解消した。PR #1 のコミットは `main` へ取り込み済みであり、KEN-733の手順4は不要になった。
 
-上表の完了条件は、第3.2節のとおりすべて満たしている。`main` 上での `Required CI gate` の成功、extended CIの実行結果、rulesetの適用、Pagesの配信のいずれも確認済みである。残るのは、Pull Request上で必須ジョブが成功することの確認（手順2）だけである。
+上表の完了条件は、第3.2節のとおりすべて満たしている。`main` 上での `Required CI gate` の成功、extended CIの実行結果、rulesetの適用、Pagesの配信のいずれも確認済みである。最後まで残っていた「Pull Request上で必須ジョブが成功」（手順2）も、2026年9月3日のPull Request #3で確認した。`Required CI gate` を含む33ジョブがPull Request上ですべてsuccessとなり、rulesetの必須チェックが満たされた状態でマージされている。run: <https://github.com/kenten10/web-application-development-handbook/actions/runs/33700554542>、PR: <https://github.com/kenten10/web-application-development-handbook/pull/3>
+
+これによりB-11〜B-14はすべて解消し、KEN-733の完了条件に残項目はない。
 
 B-01〜B-10とB-15はLinearへ未登録である。v1.1の計画時に、第2.2節の優先順位に従ってissueへ分割する。
 
