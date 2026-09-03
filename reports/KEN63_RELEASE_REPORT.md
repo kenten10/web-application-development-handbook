@@ -3,7 +3,7 @@
 対象 issue: KEN-63「v1.0リリースチェックリストを完了し正式版を公開する」（親 KEN-35 [WS7]）
 実施日: 2026-08-30
 
-リリースゲートとrelease blockerの**判定そのもの**は [`RELEASE_v1.0.0_EVIDENCE.md`](./RELEASE_v1.0.0_EVIDENCE.md) にある。本レポートは、その判定に至るまでに何をしたか、何を作ったか、何を残したかを記す。
+リリースゲートとrelease blockerの**判定そのもの**は [`RELEASE_v1.0.0_EVIDENCE.md`](../RELEASE_v1.0.0_EVIDENCE.md) にある。本レポートは、その判定に至るまでに何をしたか、何を作ったか、何を残したかを記す。
 
 ## 1. 結論
 
@@ -27,7 +27,7 @@
 
 RB-01〜RB-11 はすべて「成立しない」である。例外承認（RB-08 のみ可能）は使っていない。停止条件そのものが成立しないためである。
 
-各項目の実行コマンドと出力、参照した issue とレポートは [`RELEASE_v1.0.0_EVIDENCE.md`](./RELEASE_v1.0.0_EVIDENCE.md) の第1節・第2節にある。
+各項目の実行コマンドと出力、参照した issue とレポートは [`RELEASE_v1.0.0_EVIDENCE.md`](../RELEASE_v1.0.0_EVIDENCE.md) の第1節・第2節にある。
 
 ## 3. 実施した作業
 
@@ -35,7 +35,7 @@ issue の作業4項目に対応させて記す。
 
 ### 3.1 v1.0タグの作成
 
-[`RELEASE_POLICY.md`](./RELEASE_POLICY.md) 第7.4節のタグ付け手順7段階に従った。
+[`RELEASE_POLICY.md`](../RELEASE_POLICY.md) 第7.4節のタグ付け手順7段階に従った。
 
 | 手順 | 内容 | 実施結果 |
 |---|---|---|
@@ -72,7 +72,7 @@ force push は行っていない。リポジトリを public にもしていな�
 
 ### 3.3 配布成果物の生成
 
-`config/release.json` の `fixedArtifacts` に定義した固定成果物を生成した。sha256 の一覧は [`RELEASE_v1.0.0_EVIDENCE.md`](./RELEASE_v1.0.0_EVIDENCE.md) 第6節にある。
+`config/release.json` の `fixedArtifacts` に定義した固定成果物を生成した。sha256 の一覧は [`RELEASE_v1.0.0_EVIDENCE.md`](../RELEASE_v1.0.0_EVIDENCE.md) 第6節にある。
 
 GitHub Release へ添付したのは次の6件である。生成は**タグ `v1.0.0` を GitHub から新規クローンした作業ディレクトリ**で行った。手元の作業ディレクトリの状態が混入しないようにするためである。
 
@@ -104,7 +104,7 @@ GitHub Release へ添付したのは次の6件である。生成は**タグ `v1.
 
 ### 3.5 v1.1以降のバックログの分離
 
-各 issue のレポートに記録された積み残しを棚卸しし、[`BACKLOG_V1_1.md`](./BACKLOG_V1_1.md) へ整理した。
+各 issue のレポートに記録された積み残しを棚卸しし、[`BACKLOG_V1_1.md`](../BACKLOG_V1_1.md) へ整理した。
 
 主要な入力は KEN-61 の次版候補321件（`beta-review-findings.json` の `ken61Bucket` が `next-version` かつ `duplicateOf` が空のもの）である。87個の `cluster` を8テーマ（B-01〜B-08）へ束ね、テーマごとに件数、主な `cluster`、想定版種別（MAJOR/MINOR/PATCH）、v1.0への影響を記した。
 
@@ -134,7 +134,7 @@ B-01〜B-10 と B-15 は Linear へ未登録である。v1.1 の計画時にテ�
 
 ### 4.1 1回目 — リリース commit `3ce6132`
 
-ログ: [`.verification/ken63/logs/01-clean-clone-node24.out`](.verification/ken63/logs/01-clean-clone-node24.out)（489行）
+ログ: [`.verification/ken63/logs/01-clean-clone-node24.out`](../.verification/ken63/logs/01-clean-clone-node24.out)（489行）
 
 | 手順 | 結果 |
 |---|---|
@@ -148,7 +148,7 @@ B-01〜B-10 と B-15 は Linear へ未登録である。v1.1 の計画時にテ�
 
 ### 4.2 2回目 — タグ `v1.0.0` を GitHub から新規クローン
 
-ログ: [`.verification/ken63/logs/02-clean-clone-tag-v1.0.0.out`](.verification/ken63/logs/02-clean-clone-tag-v1.0.0.out)
+ログ: [`.verification/ken63/logs/02-clean-clone-tag-v1.0.0.out`](../.verification/ken63/logs/02-clean-clone-tag-v1.0.0.out)
 
 `git clone --branch v1.0.0 https://github.com/kenten10/web-application-development-handbook.git` で取得した。**リモートから取り直した状態**での確認である。
 
@@ -197,7 +197,7 @@ KEN-70 完了時点の水準（`validate:handbook` / `validate:style` / `validat
 |---|---|
 | `RELEASE_v1.0.0_EVIDENCE.md` | リリースゲート7項目とrelease blocker RB-01〜RB-11 の判定証跡（33,254バイト） |
 | `BACKLOG_V1_1.md` | v1.1以降へ分離した積み残し。次版候補321件の8テーマ分類と KEN-733 との対応表 |
-| `KEN63_RELEASE_REPORT.md` | 本レポート |
+| `reports/KEN63_RELEASE_REPORT.md` | 本レポート |
 | `.verification/ken63/logs/01-clean-clone-node24.out` | リリース commit のクリーンクローン再現ログ |
 | `.verification/ken63/logs/02-clean-clone-tag-v1.0.0.out` | タグ `v1.0.0` のクリーンクローン再現ログ |
 | `.verification/ken63/logs/03-release-artifacts.out` | 配布成果物の生成コマンド、sha256、決定性確認 |
@@ -232,7 +232,7 @@ KEN-70 完了時点の水準（`validate:handbook` / `validate:style` / `validat
 
 ### 完了条件2: リリースゲートの証跡が残る
 
-**達成。** [`RELEASE_v1.0.0_EVIDENCE.md`](./RELEASE_v1.0.0_EVIDENCE.md) に、リリースゲート7項目と release blocker RB-01〜RB-11 のそれぞれについて、判定・根拠・実行したコマンドと出力・参照した issue とレポートを表と本文で残した。未達のものは未達と明記し（第1節 G4-b、第5節）、それが公開を妨げないと判断した根拠を第5節に分けて書いた。
+**達成。** [`RELEASE_v1.0.0_EVIDENCE.md`](../RELEASE_v1.0.0_EVIDENCE.md) に、リリースゲート7項目と release blocker RB-01〜RB-11 のそれぞれについて、判定・根拠・実行したコマンドと出力・参照した issue とレポートを表と本文で残した。未達のものは未達と明記し（第1節 G4-b、第5節）、それが公開を妨げないと判断した根拠を第5節に分けて書いた。
 
 証跡は次の3経路で参照できる。
 
@@ -256,7 +256,7 @@ Linear の status 更新とプロジェクトの Completed への移動は管理
 
 **ブロッカーはない。**
 
-積み残しは [`BACKLOG_V1_1.md`](./BACKLOG_V1_1.md) に B-01〜B-15 として整理した。うち v1.0 のゲートに直接関わるものは次の3点である。
+積み残しは [`BACKLOG_V1_1.md`](../BACKLOG_V1_1.md) に B-01〜B-15 として整理した。うち v1.0 のゲートに直接関わるものは次の3点である。
 
 | # | 内容 | 分離先 |
 |---|---|---|

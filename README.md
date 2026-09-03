@@ -42,6 +42,7 @@ Webアプリケーション開発を、基礎から設計・運用・品質・�
 - `config/clean-environment-plan.json` — 全143演習の環境区分、必要証跡、安全境界の正本
 - `config/release.json` — 公開形式、ライセンス判定規則、版管理、章別の見直し周期、サポート範囲の正本
 - `code/ch01/`〜`code/ch30/` — 章別サンプルコード
+- `reports/` — 制作過程のissue単位の作業レポートと、その根拠となる検証結果データ。一覧と各レポートの内容は [`reports/README.md`](./reports/README.md) を参照してください
 
 ## 正本
 
@@ -52,6 +53,7 @@ Webアプリケーション開発を、基礎から設計・運用・品質・�
 - 各章の学習ガイドの正本は `config/chapter-guides.json` です。
 - 公開形式、ライセンス、版番号、見直し周期、サポート範囲の正本は `config/release.json` です。
 - サンプルコードの正本はGitリポジトリです。
+- `reports/` 配下は制作過程の記録であり、正本ではありません。本文・方針・機械可読データと食い違う場合は、リポジトリ直下の正本が優先します。
 - Google Drive上のコードは閲覧・共有用の複製です。
 
 編集規約とファイル配置の詳細は [`CONTRIBUTING.md`](./CONTRIBUTING.md)、表記・用語・図表の規約は [`STYLE_GUIDE.md`](./STYLE_GUIDE.md) と [`GLOSSARY.md`](./GLOSSARY.md) を参照してください。
@@ -64,11 +66,11 @@ Webアプリケーション開発を、基礎から設計・運用・品質・�
 
 | 形式 | 位置づけ | 現時点で参照できる入口 |
 |---|---|---|
-| Gitリポジトリのタグ `v1.0.0` | 正本（Markdown本文とサンプルコード） | `git clone` 後に `git checkout v1.0.0`。リポジトリ `kenten10/web-application-development-handbook` は**非公開**であり、閲覧には招待が必要です |
-| GitHub Release `v1.0.0` | 固定成果物の配布 | 上記リポジトリのReleasesページ。`release-manifest.json` と静的サイト一式を添付しています（非公開リポジトリのため、閲覧には同じく招待が必要です） |
-| 静的Webサイト | 生成物 | ローカルで `pnpm run build:site` を実行し、`dist/site/index.html` を開きます |
+| Gitリポジトリのタグ `v1.0.0` | 正本（Markdown本文とサンプルコード） | <https://github.com/kenten10/web-application-development-handbook> を `git clone` 後、`git checkout v1.0.0`。リポジトリは公開されており、閲覧に招待は不要です |
+| GitHub Release `v1.0.0` | 固定成果物の配布 | 上記リポジトリのReleasesページ。`release-manifest.json` と静的サイト一式を添付しています |
+| 静的Webサイト | 生成物 | <https://kenten10.github.io/web-application-development-handbook/>。ローカルで確認する場合は `pnpm run build:site` を実行し、`dist/site/index.html` を開きます |
 
-**公開URLはありません。** リポジトリが非公開であるため、GitHub Pagesの配信も行っていません。理由と再開手順は [`CI.md`](./CI.md) 第5節にあります。生成と決定性検証自体は、Pull Requestと`main`の双方で常に実行する定義になっています。
+公開URLは **<https://kenten10.github.io/web-application-development-handbook/>** です。`.github/workflows/pages.yml` が `main` への反映ごとに生成物を配信します。配信の制御方法は [`CI.md`](./CI.md) 第5節にあります。生成と決定性検証自体は、配信の有無にかかわらずPull Requestと`main`の双方で常に実行する定義になっています。
 
 PDFとEPUBはv1.0では提供しません。理由と将来の方針は [`RELEASE_POLICY.md`](./RELEASE_POLICY.md) 第1.5節にあります。
 
@@ -165,4 +167,4 @@ Pull Requestでは原稿検査、全30章の`lint`・`typecheck`・`test`・`bui
 
 依存関係のインストールは`pnpm install --frozen-lockfile`で行います。`main`を保護するrulesetの定義は[`.github/rulesets/main-required-ci.json`](.github/rulesets/main-required-ci.json)を正本とし、`Required CI gate`の成功を必須チェックに指定しています。
 
-ただしv1.0.0の時点では、この**rulesetは未適用**です。無料プランの非公開リポジトリではrulesetもclassic branch protectionもGitHubが403を返すためです。あわせて、アカウントの課金設定によりGitHub Actionsのジョブが起動せず、**GitHub Actions上での成功証跡も取得できていません**。CIが実行するコマンドはすべてローカルで終了コード0を確認しています。制約の切り分けは[`CI.md`](./CI.md)第8.1節と[`KEN70_GITHUB_CI_REPORT.md`](./KEN70_GITHUB_CI_REPORT.md)、解消後の手順はLinearのKEN-733にあります。
+v1.0.0の公開時点では、無料プランの非公開リポジトリであるためrulesetを適用できず、GitHub Actionsのジョブも課金設定で起動しませんでした。その後リポジトリを公開したことで両方の制約が解消しています。現在は、`main`にrulesetが`active`で適用され（`deletion`・`non_fast_forward`・`pull_request`・`required_status_checks`の4ルール）、`Required CI gate`を含む33ジョブがGitHub Actions上で成功しています。当時の制約の切り分けは[`reports/KEN70_GITHUB_CI_REPORT.md`](./reports/KEN70_GITHUB_CI_REPORT.md)、現在の設定内容は[`CI.md`](./CI.md)第8.1節にあります。

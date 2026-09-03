@@ -85,4 +85,17 @@ KEN-61 のベータレビューで、17件の演習の `services` が `config/ex
 - 原稿・目次・索引・コード参照: エラー0件
 - localhost TLS 1.2 / 1.3: 接続成功
 
-固定版Node.js 24・pnpm 11、ブラウザ操作、Dockerおよび外部サービスの最終証跡は未取得です。詳細は `KEN56_CLEAN_ENVIRONMENT_FINAL_AUDIT_REPORT.md` を参照してください。
+2026年7月30日の時点では、固定版Node.js 24・pnpm 11、ブラウザ操作、Dockerおよび外部サービスの最終証跡は未取得でした。詳細は `reports/KEN56_CLEAN_ENVIRONMENT_FINAL_AUDIT_REPORT.md` を参照してください。
+
+## 2026年8月30日時点の証跡状況
+
+上記の未取得項目のうち、その後に証跡を取得したものと、なお未取得のものを次に示します。
+
+| 項目 | 状態 | 証跡 |
+|---|---|---|
+| 固定版Node.js 24.18.0・pnpm 11.15.1 | 取得済み | GitHub Actions の `Handbook CI` が `.node-version` と `packageManager` の固定版で全33ジョブsuccess。run: <https://github.com/kenten10/web-application-development-handbook/actions/runs/33315058697> |
+| ブラウザ操作 | 取得済み | Google Chrome 152をDevTools Protocolで自動操作し、ブラウザ演習6件すべてPASS。`reports/KEN66_BROWSER_VERIFICATION_REPORT.md`、`reports/data/ken66-browser-verification-results.json` |
+| PostgreSQL・Redis（コンテナ実体） | 取得済み | 上記runの `PostgreSQL and Redis service containers` ジョブ |
+| Docker演習の実ビルド・Kafka・Kubernetes・AWS | 未取得 | 実クラスタまたは実アカウントを要するため保留しています。次版の候補として `BACKLOG_V1_1.md` で扱います |
+
+本節はv1.0.0のタグ以降に判明した事実の記録です。`RELEASE_v1.0.0_EVIDENCE.md` はタグ時点の判定記録であるため書き換えていません。

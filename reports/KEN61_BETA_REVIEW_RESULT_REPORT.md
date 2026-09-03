@@ -3,8 +3,8 @@
 - 対象: Linear issue KEN-61「ベータ読者による通読・演習検証を実施する」(親 KEN-35、入力 KEN-60、後続 KEN-63)
 - 実施日: 2026年8月30日
 - 対象成果物: 全7部・30章 (本文415節、演習137件)、コード教材 `code/ch01`〜`code/ch30`
-- 計画の正本: [`BETA_REVIEW_PLAN.md`](BETA_REVIEW_PLAN.md) / [`BETA_REVIEW_SCENARIOS.md`](BETA_REVIEW_SCENARIOS.md) / [`BETA_REVIEW_TEMPLATES.md`](BETA_REVIEW_TEMPLATES.md) / `beta-review-scope.json`
-- 指摘の台帳: [`BETA_REVIEW_FINDINGS.md`](BETA_REVIEW_FINDINGS.md) / `beta-review-findings.json`
+- 計画の正本: [`BETA_REVIEW_PLAN.md`](../BETA_REVIEW_PLAN.md) / [`BETA_REVIEW_SCENARIOS.md`](../BETA_REVIEW_SCENARIOS.md) / [`BETA_REVIEW_TEMPLATES.md`](../BETA_REVIEW_TEMPLATES.md) / `beta-review-scope.json`
+- 指摘の台帳: [`BETA_REVIEW_FINDINGS.md`](../BETA_REVIEW_FINDINGS.md) / `beta-review-findings.json`
 
 ## 1. 代行実施であることの明記と、その限界
 
@@ -27,15 +27,15 @@
 - **長期的な定着**: 数週間後に内容を思い出せるか、業務で使えるか
 - **所要時間の実測**: 人間が実際に費やす時間。本レビューの所要時間はすべて、実測した分量 (文字数、コード行数、実装した行数、試行回数) からの**換算値**である。個人差、既知技術の有無、集中の途切れは反映されていない
 
-これらは人間のベータ読者でなければ得られない。正式版の公開後も、[`ERRATA.md`](ERRATA.md) と GitHub の正誤報告経路で実読者からの指摘を受け付ける必要がある。
+これらは人間のベータ読者でなければ得られない。正式版の公開後も、[`ERRATA.md`](../ERRATA.md) と GitHub の正誤報告経路で実読者からの指摘を受け付ける必要がある。
 
 ### 個人情報方針の扱い
 
-[`BETA_REVIEW_PLAN.md`](BETA_REVIEW_PLAN.md) 第10節の個人情報方針は、人間のレビュアーを対象とした規定である。代行実施では収集対象となる個人情報が存在せず、匿名IDと実名の対応表も発生しない。したがって同節および release blocker RB-11 は**該当しない**。同意文面の提示も行っていない。レビュアーの匿名ID (`BR-READ-01` など) は、記録シートの書式を計画どおりに保つための識別子として用いた。
+[`BETA_REVIEW_PLAN.md`](../BETA_REVIEW_PLAN.md) 第10節の個人情報方針は、人間のレビュアーを対象とした規定である。代行実施では収集対象となる個人情報が存在せず、匿名IDと実名の対応表も発生しない。したがって同節および release blocker RB-11 は**該当しない**。同意文面の提示も行っていない。レビュアーの匿名ID (`BR-READ-01` など) は、記録シートの書式を計画どおりに保つための識別子として用いた。
 
 ## 2. 起動したサブエージェントの構成
 
-計画の目標人数 (13名) と同数の13体を、役割ごとに独立したエージェントとして起動した。各エージェントには本文の事前知識がなく、[`BETA_REVIEW_TEMPLATES.md`](BETA_REVIEW_TEMPLATES.md) の該当設問と記録シート書式を渡して、その書式で回答させた。本文ファイルの編集は禁止し、読み取りと演習コードの実行だけを許可した。修正はすべてレビュー管理者側 (本作業) で一元的に行った。
+計画の目標人数 (13名) と同数の13体を、役割ごとに独立したエージェントとして起動した。各エージェントには本文の事前知識がなく、[`BETA_REVIEW_TEMPLATES.md`](../BETA_REVIEW_TEMPLATES.md) の該当設問と記録シート書式を渡して、その書式で回答させた。本文ファイルの編集は禁止し、読み取りと演習コードの実行だけを許可した。修正はすべてレビュー管理者側 (本作業) で一元的に行った。
 
 | 役割 | 体数 | 匿名ID | ペルソナ | 担当範囲 |
 |---|---:|---|---|---|
@@ -120,7 +120,7 @@ RFC 6749、RFC 7636、RFC 9110、RFC 9700、NIST SP 800-63B、OWASP Top 10:2025�
 | **High** | Major | **144** | 全件 closed |
 | **次版候補** | Minor / Suggestion | **321** | deferred |
 
-分類は [`BETA_REVIEW_PLAN.md`](BETA_REVIEW_PLAN.md) 第7節のマッピング (Blocker→Urgent、Major→High、Minor/Suggestion→次版候補) に従った。High 144件のうち14件は、当初 Minor と判定したものを第6節の release blocker 突き合わせで引き上げたものである (内訳は第5.2節)。
+分類は [`BETA_REVIEW_PLAN.md`](../BETA_REVIEW_PLAN.md) 第7節のマッピング (Blocker→Urgent、Major→High、Minor/Suggestion→次版候補) に従った。High 144件のうち14件は、当初 Minor と判定したものを第6節の release blocker 突き合わせで引き上げたものである (内訳は第5.2節)。
 
 ## 5. Urgent / High の解消結果
 
@@ -182,7 +182,7 @@ FB-165 (生IPの30日保持)、FB-196 (本番URLへの負荷試験)、FB-291 (�
 
 ## 6. 次版候補が正式版の公開を妨げないことの確認
 
-次版候補321件を、RB-01 から RB-11 の停止条件と1件ずつ突き合わせた。**いずれの停止条件も成立しない。**判定の根拠は [`BETA_REVIEW_FINDINGS.md`](BETA_REVIEW_FINDINGS.md) 第4.1節に表として記録した。要点は次のとおり。
+次版候補321件を、RB-01 から RB-11 の停止条件と1件ずつ突き合わせた。**いずれの停止条件も成立しない。**判定の根拠は [`BETA_REVIEW_FINDINGS.md`](../BETA_REVIEW_FINDINGS.md) 第4.1節に表として記録した。要点は次のとおり。
 
 | ID | 判定 | 根拠 |
 |---|---|---|
@@ -198,7 +198,7 @@ FB-165 (生IPの30日保持)、FB-196 (本番URLへの負荷試験)、FB-291 (�
 | RB-10 | 成立しない | ライセンス・版番号・CHANGELOG・正誤報告先は公開済みで `validate:release-policy` が成功。該当指摘0件 |
 | RB-11 | 成立しない | 代行実施のため個人情報を一切収集していない。停止条件が成立する余地がない |
 
-次版候補は正誤表 ([`ERRATA.md`](ERRATA.md)) と v1.1 以降のバックログで追跡する。見送りの理由は [`BETA_REVIEW_FINDINGS.md`](BETA_REVIEW_FINDINGS.md) 第6節に記録した。
+次版候補は正誤表 ([`ERRATA.md`](../ERRATA.md)) と v1.1 以降のバックログで追跡する。見送りの理由は [`BETA_REVIEW_FINDINGS.md`](../BETA_REVIEW_FINDINGS.md) 第6節に記録した。
 
 ## 7. 演習の推定時間と実測の乖離
 
@@ -236,7 +236,7 @@ FB-165 (生IPの30日保持)、FB-196 (本番URLへの負荷試験)、FB-291 (�
 |---|---|
 | `BETA_REVIEW_FINDINGS.md` | フィードバック台帳 (集計、Urgent全件、High の内訳、RB突き合わせ、見送り理由) |
 | `beta-review-findings.json` | 台帳の機械可読な正本 (653件、22列相当のフィールド) |
-| `KEN61_BETA_REVIEW_RESULT_REPORT.md` | 本レポート |
+| `reports/KEN61_BETA_REVIEW_RESULT_REPORT.md` | 本レポート |
 | `scripts/clean-build-artifacts.mjs` | ビルド成果物 (`code/chXX/dist`) の削除。冪等 |
 | `scripts/clean-build-artifacts.test.mjs` | 同テスト (3件) |
 | `scripts/apply-starter-contracts.mjs` | 模範解答から公開APIを抽出し starter へ契約として付記。冪等 |
@@ -286,7 +286,7 @@ KEN-59 が達成した水準 (`check:handbook` 終了コード0、`validate:hand
 2. **下限を実数へ引き上げると原稿が壊れやすくなる。** 以後、編集で接続文を1つ減らしただけで検証が失敗する。減らしてよい場面まで検証が止めることになり、下限としての意味を失う。
 3. **選定基準が相対値のため連鎖する。** 基準C4は「節間接続数が全章の第75パーセンタイル以上」であり、2章の値を上げるとしきい値が14から15へ動く。その結果、C4に該当する章が `[13,14,17,20,23,26,28,29,30]` から `[12,13,14,17,23,26,27,28,30]` へ変わり、第12章と第27章が必須検証章へ入る (15章→17章)。基準E2により課題12.2 と課題27.3 (各150分) が必須検証演習へ加わり、37件から39件になる。**この2件は本レビューで実施していないため、変更した時点で release blocker RB-03 (必須検証演習が未実施のまま残っている) が新たに成立してしまう。**
 
-据え置きは検査基準を緩める変更ではない。下限は13のままで、原稿はそれを上回っている。この判断と、将来値を動かす場合の連鎖の内容を [`NARRATIVE_EDITING_GUIDE.md`](NARRATIVE_EDITING_GUIDE.md) 第6節へ記録した。
+据え置きは検査基準を緩める変更ではない。下限は13のままで、原稿はそれを上回っている。この判断と、将来値を動かす場合の連鎖の内容を [`NARRATIVE_EDITING_GUIDE.md`](../NARRATIVE_EDITING_GUIDE.md) 第6節へ記録した。
 
 ## 11. 完了条件を満たしたと言える根拠
 
@@ -313,7 +313,7 @@ Urgent 23件、High 144件の合計167件をすべて解消した。内訳と1�
 
 ### 完了条件3: 次版候補が正式版の公開を妨げないことを確認
 
-次版候補321件を RB-01 から RB-11 と1件ずつ突き合わせ、いずれの停止条件も成立しないことを確認した (第6節、および [`BETA_REVIEW_FINDINGS.md`](BETA_REVIEW_FINDINGS.md) 第4.1節)。判断に幅のある14件は次版候補に残さず、High へ引き上げて解消した。
+次版候補321件を RB-01 から RB-11 と1件ずつ突き合わせ、いずれの停止条件も成立しないことを確認した (第6節、および [`BETA_REVIEW_FINDINGS.md`](../BETA_REVIEW_FINDINGS.md) 第4.1節)。判断に幅のある14件は次版候補に残さず、High へ引き上げて解消した。
 
 ## 12. 積み残しとブロッカー
 

@@ -130,7 +130,7 @@ Exercise validation passed
 | issue | 内容 | 証跡の所在 |
 |---|---|---|
 | KEN-65 | Node.js 24.18.0 / pnpm 11.15.1 / TypeScript 6.0.3 で `check:handbook` と `check:workspace`（lint・typecheck・test・build を30章）が終了コード0 | `pnpm-lock.yaml`、KEN-65 のレポート |
-| KEN-66 | ブラウザ演習6件（1.4 / 4.1 / 4.2 / 6.4 / 9.2 / 24.5）を実 Google Chrome 152.0.7977.65 + CDP で確認。チェック66件すべて PASS | `.verification/ken66/`（スクリーンショット7枚、ログ14件）、`ken66-browser-verification-results.json` |
+| KEN-66 | ブラウザ演習6件（1.4 / 4.1 / 4.2 / 6.4 / 9.2 / 24.5）を実 Google Chrome 152.0.7977.65 + CDP で確認。チェック66件すべて PASS | `.verification/ken66/`（スクリーンショット7枚、ログ14件）、`reports/data/ken66-browser-verification-results.json` |
 | KEN-67 | PostgreSQL 18.6 / Redis 8.10.0 の実コンテナで7演習、アサーション23件すべて PASS | `.verification/ken67/logs/`（16ファイル） |
 | KEN-68 | Docker / Redpanda / kind による9演習すべて PASS | `.verification/ken68/logs/`（12ファイル） |
 | KEN-69 | LocalStack 4.14.0 で AWS 系4演習すべて PASS。SSRF 防御14ケースすべて拒否 | `.verification/ken69/logs/`（8ファイル） |
@@ -189,7 +189,7 @@ severities=4, releaseBlockers=11, requiredSections=199
 
 Urgent と High の合計167件は残件0である。次版候補321件の内訳と扱いは [`BACKLOG_V1_1.md`](./BACKLOG_V1_1.md) にある。
 
-**併記すべき限界**: このベータレビューは実在の人間の読者ではなく、本文を事前に読んでいない独立エージェント13体による代行実施である。実利用の文脈、学習動機と離脱、支援技術の実使用、長期的な定着、所要時間の実測は代行できていない。この事実は [`BETA_REVIEW_FINDINGS.md`](./BETA_REVIEW_FINDINGS.md) の冒頭と `KEN61_BETA_REVIEW_RESULT_REPORT.md` に明記してある。人間の読者による検証は `BACKLOG_V1_1.md` の B-09 として次版へ送った。
+**併記すべき限界**: このベータレビューは実在の人間の読者ではなく、本文を事前に読んでいない独立エージェント13体による代行実施である。実利用の文脈、学習動機と離脱、支援技術の実使用、長期的な定着、所要時間の実測は代行できていない。この事実は [`BETA_REVIEW_FINDINGS.md`](./BETA_REVIEW_FINDINGS.md) の冒頭と `reports/KEN61_BETA_REVIEW_RESULT_REPORT.md` に明記してある。人間の読者による検証は `BACKLOG_V1_1.md` の B-09 として次版へ送った。
 
 **判定: 達成。** ゲートの文言「Urgent/High 指摘が0件」は満たしている。代行実施であることは公開を止める条件（RB-01〜RB-11）のいずれにも当たらない。
 
@@ -279,7 +279,7 @@ pnpm run check:handbook
 
 **クローンした commit について。** 再現に使ったのは `3ce6132`（`KEN-63: v1.0.0のリリースゲート判定証跡とv1.1バックログを追加する`）である。タグ `v1.0.0` を打つ commit は、これに本節の結果表と第6節のsha256表、および上記ログファイルを追加したものである。追加分はいずれも検査の入力ではないため、`check:handbook` の結果は変わらない。
 
-同じ手順をタグ `v1.0.0` に対して再実行し、結果が変わらないことを確認する。その記録は `KEN63_RELEASE_REPORT.md` と `.verification/ken63/logs/02-clean-clone-tag-v1.0.0.out` に残す（タグ付けの後に生成するため、タグの内容には含まれない）。
+同じ手順をタグ `v1.0.0` に対して再実行し、結果が変わらないことを確認する。その記録は `reports/KEN63_RELEASE_REPORT.md` と `.verification/ken63/logs/02-clean-clone-tag-v1.0.0.out` に残す（タグ付けの後に生成するため、タグの内容には含まれない）。
 
 ## 4. 秘密情報の混入確認
 
@@ -291,7 +291,7 @@ KEN-70 で `.verification/certs/`（自己署名証明書の秘密鍵）を `.gi
 | 2 | `.env` 系ファイル | `git ls-files \| grep -E "(^\|/)\.env"`（`.env.example` を除く） | **0件** |
 | 3 | `.verification/certs/` の追跡状態 | `git ls-files .verification/certs` | **追跡なし**（`.gitignore` で除外済み） |
 | 4 | トークン・鍵の文字列 | `git grep -nIE "gh[pousr]_[A-Za-z0-9]{16,}\|AKIA[0-9A-Z]{16}\|-----BEGIN [A-Z ]*PRIVATE KEY-----\|xox[baprs]-\|sk-[A-Za-z0-9]{32,}"` | **0件** |
-| 5 | 作業者のホームディレクトリ絶対パス | `git grep -nI "/Users/<user>"` | **1件**。`KEN70_GITHUB_CI_REPORT.md` の検査手順を説明する行そのものであり、パスの漏洩ではない |
+| 5 | 作業者のホームディレクトリ絶対パス | `git grep -nI "/Users/<user>"` | **1件**。`reports/KEN70_GITHUB_CI_REPORT.md` の検査手順を説明する行そのものであり、パスの漏洩ではない |
 | 6 | 個人のメールアドレス | `git grep -nIE "…@(gmail\|yahoo\|outlook\|icloud)\.[a-z]{2,}"` | **0件** |
 
 `dist/`、`node_modules/`、`.verification/certs/` はいずれも `.gitignore` の対象であり、コミットにも GitHub Release の添付にも含めていない（添付する静的サイトの成果物は、証明書を含まない `dist/site/` 配下のみである）。
@@ -396,13 +396,13 @@ ruleset は「今後の変更が検査を経ずに `main` へ入ることを防�
 | KEN-29 / KEN-38 / KEN-39 | `scripts/validate-handbook.mjs`、`scripts/generate-handbook.mjs` |
 | KEN-30 / KEN-40〜44 / KEN-57 | `09-references.md` |
 | KEN-31 / KEN-45 | `config/learning-levels.json`、`LEARNING_LEVELS.md` |
-| KEN-33 / KEN-55 / KEN-56 | `KEN56_CLEAN_ENVIRONMENT_FINAL_AUDIT_REPORT.md`、`CLEAN_ENVIRONMENT.md`、`CI.md` |
+| KEN-33 / KEN-55 / KEN-56 | `reports/KEN56_CLEAN_ENVIRONMENT_FINAL_AUDIT_REPORT.md`、`CLEAN_ENVIRONMENT.md`、`CI.md` |
 | KEN-65 | `pnpm-lock.yaml`、`CODE_TOOLCHAIN.md` |
-| KEN-66 | `KEN66_BROWSER_VERIFICATION_REPORT.md`、`ken66-browser-verification-results.json`、`.verification/ken66/` |
+| KEN-66 | `reports/KEN66_BROWSER_VERIFICATION_REPORT.md`、`reports/data/ken66-browser-verification-results.json`、`.verification/ken66/` |
 | KEN-67 / KEN-68 / KEN-69 | `.verification/ken67/`、`.verification/ken68/`、`.verification/ken69/` |
-| KEN-70 | `KEN70_GITHUB_CI_REPORT.md`、`.verification/ken70/logs/` |
-| KEN-34 / KEN-58 / KEN-59 | `KEN58_STYLE_GUIDE_REPORT.md`、`KEN59_EDITORIAL_REPORT.md`、`KEN59_FULL_READ_LOG.md`、`STYLE_BACKLOG.md` |
-| KEN-60 | `KEN60_BETA_REVIEW_PLAN_REPORT.md`、`BETA_REVIEW_PLAN.md`、`beta-review-scope.json` |
-| KEN-61 | `KEN61_BETA_REVIEW_RESULT_REPORT.md`、`BETA_REVIEW_FINDINGS.md`、`beta-review-findings.json` |
-| KEN-62 | `KEN62_RELEASE_POLICY_REPORT.md`、`RELEASE_POLICY.md`、`LICENSING.md`、`config/release.json` |
-| KEN-63 | `KEN63_RELEASE_REPORT.md`、本ファイル、`BACKLOG_V1_1.md` |
+| KEN-70 | `reports/KEN70_GITHUB_CI_REPORT.md`、`.verification/ken70/logs/` |
+| KEN-34 / KEN-58 / KEN-59 | `reports/KEN58_STYLE_GUIDE_REPORT.md`、`reports/KEN59_EDITORIAL_REPORT.md`、`reports/KEN59_FULL_READ_LOG.md`、`STYLE_BACKLOG.md` |
+| KEN-60 | `reports/KEN60_BETA_REVIEW_PLAN_REPORT.md`、`BETA_REVIEW_PLAN.md`、`beta-review-scope.json` |
+| KEN-61 | `reports/KEN61_BETA_REVIEW_RESULT_REPORT.md`、`BETA_REVIEW_FINDINGS.md`、`beta-review-findings.json` |
+| KEN-62 | `reports/KEN62_RELEASE_POLICY_REPORT.md`、`RELEASE_POLICY.md`、`LICENSING.md`、`config/release.json` |
+| KEN-63 | `reports/KEN63_RELEASE_REPORT.md`、本ファイル、`BACKLOG_V1_1.md` |

@@ -507,7 +507,7 @@ GitHubがworkflowを解析できた場合にだけworkflowは一覧へ現れる�
 | ファイル | 内容 |
 |---|---|
 | `.github/rulesets/main-required-ci.json` | `main` のruleset定義の正本 |
-| `KEN70_GITHUB_CI_REPORT.md` | 本レポート |
+| `reports/KEN70_GITHUB_CI_REPORT.md` | 本レポート |
 | `.verification/ken70/logs/00-action-sha-verification.out` | action固定SHAの実在確認 |
 | `.verification/ken70/logs/00-baseline-check-handbook.out` | 着手前の `check:handbook`（退行判定の基準） |
 | `.verification/ken70/logs/01-repo-create.out` | リポジトリ作成 |

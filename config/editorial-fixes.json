@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "updated": "2026-08-30",
-  "description": "KEN-59 の全文校正で確定した個別修正の正本。scripts/apply-editorial-fixes.mjs が適用する。所見の出所は KEN59_FULL_READ_LOG.md、先行issueの引き継ぎ欠陥は KEN59_EDITORIAL_REPORT.md に対応表がある。",
+  "description": "KEN-59 の全文校正で確定した個別修正の正本。scripts/apply-editorial-fixes.mjs が適用する。所見の出所は reports/KEN59_FULL_READ_LOG.md、先行issueの引き継ぎ欠陥は reports/KEN59_EDITORIAL_REPORT.md に対応表がある。",
   "fixes": [
     {
       "id": "E-PRIV-001",

@@ -2,7 +2,7 @@
 
 KEN-61 のベータレビューで収集した指摘の台帳である。機械可読の正本は [`beta-review-findings.json`](beta-review-findings.json)、書式の定義は [`BETA_REVIEW_TEMPLATES.md`](BETA_REVIEW_TEMPLATES.md) の第8節、重大度の定義は [`BETA_REVIEW_PLAN.md`](BETA_REVIEW_PLAN.md) の第7節にある。
 
-> **この台帳の性質**: 本レビューは実在の人間のベータ読者ではなく、本文を事前に読んでいない独立エージェント13体による代行実施の結果である。詳細と限界は [`KEN61_BETA_REVIEW_RESULT_REPORT.md`](KEN61_BETA_REVIEW_RESULT_REPORT.md) に記す。個人情報方針 (BETA_REVIEW_PLAN.md 第10節) は人間のレビュアーを対象とした規定であり、代行実施では収集対象となる個人情報が存在しないため該当しない。
+> **この台帳の性質**: 本レビューは実在の人間のベータ読者ではなく、本文を事前に読んでいない独立エージェント13体による代行実施の結果である。詳細と限界は [`reports/KEN61_BETA_REVIEW_RESULT_REPORT.md`](reports/KEN61_BETA_REVIEW_RESULT_REPORT.md) に記す。個人情報方針 (BETA_REVIEW_PLAN.md 第10節) は人間のレビュアーを対象とした規定であり、代行実施では収集対象となる個人情報が存在しないため該当しない。
 
 ## 1. 集計
 
@@ -183,7 +183,7 @@ Urgent と High の合計 167 件はすべて解消した。うち 14 件は、�
 
 | 記録 | 所在 |
 |---|---|
-| 各レビュアーの記録シート (通読・演習・技術校閲) | 実施レポート `KEN61_BETA_REVIEW_RESULT_REPORT.md` の第3節に要旨、原本は作業環境のスクラッチ領域 |
+| 各レビュアーの記録シート (通読・演習・技術校閲) | 実施レポート `reports/KEN61_BETA_REVIEW_RESULT_REPORT.md` の第3節に要旨、原本は作業環境のスクラッチ領域 |
 | 指摘の機械可読な台帳 | `beta-review-findings.json` |
 | 修正の正本 | `config/editorial-fixes.json` (KEN-61 の項目は `issue` が `KEN-61`) |
 

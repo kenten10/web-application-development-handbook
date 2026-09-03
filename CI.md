@@ -54,11 +54,11 @@ lockfileを更新した場合は、`pnpm install --frozen-lockfile`がローカ�
 
 このworkflowは必須ゲートへ含めない。公開の失敗が原稿の検証結果を巻き込まないようにするためである。
 
-### 5.1 配信を止めている理由
+### 5.1 配信の制御
 
-正本のリポジトリ `kenten10/web-application-development-handbook` は非公開である。GitHub Pagesは、無料プランの非公開リポジトリでは利用できない。有効化しないまま配信ジョブを実行すると、`actions/deploy-pages` がPages APIで失敗し、`main`のworkflowが赤で残り続ける。原稿の検証結果とは関係のない失敗で履歴を汚さないため、配信を既定で止めている。
+正本のリポジトリ `kenten10/web-application-development-handbook` はpublicであり、GitHub Pagesを利用できる。配信は有効になっており、公開URLは <https://kenten10.github.io/web-application-development-handbook/> である。
 
-制御はrepository variable `PAGES_ENABLED` で行う。
+配信ジョブは、Pagesを有効化していないリポジトリで実行すると `actions/deploy-pages` がPages APIで失敗し、原稿の検証とは無関係な赤い実行履歴が `main` に残る。フォークや複製先でそうならないよう、配信はrepository variable `PAGES_ENABLED` を明示的に `true` にしたときだけ動く定義にしてある。正本のリポジトリでは、この変数を `true` に設定済みである。
 
 | ジョブ・step | 実行条件 |
 |---|---|
@@ -66,11 +66,13 @@ lockfileを更新した場合は、`pnpm install --frozen-lockfile`がローカ�
 | Upload Pages artifact | `github.event_name != 'pull_request'` かつ `vars.PAGES_ENABLED == 'true'` |
 | Deploy to GitHub Pages | 同上 |
 
-生成と決定性検証は常に動く。したがって、配信を止めていてもサイト生成の退行はPull Requestの時点で検出できる。「必要な検査を外した」のではなく「配信だけを止めた」状態である。
+生成と決定性検証は常に動く。したがって、仮に配信を止めてもサイト生成の退行はPull Requestの時点で検出できる。`PAGES_ENABLED` は「必要な検査を外す」スイッチではなく「配信だけを切り替える」スイッチである。
 
-### 5.2 リポジトリを公開したときの手順
+### 5.2 配信を有効にする手順
 
-1. リポジトリをpublicへ変更する。
+正本のリポジトリでは次の手順を実施済みである。フォークや移管先で配信を立ち上げるときも同じ順序で行う。
+
+1. リポジトリをpublicにする。
 2. Settings > Pages で Source を **GitHub Actions** にする。
 3. repository variableを追加する。
 
@@ -78,15 +80,15 @@ lockfileを更新した場合は、`pnpm install --frozen-lockfile`がローカ�
 gh variable set PAGES_ENABLED --body true --repo kenten10/web-application-development-handbook
 ```
 
-4. `main`で `Handbook Pages` を手動実行し、`Deploy to GitHub Pages` の成功と公開URLを確認する。
+4. `main`で `Handbook Pages` を実行し、`Deploy to GitHub Pages` の成功と公開URLを確認する。
 5. 公開URLを `README.md` と `RELEASE_POLICY.md` 第1.4節へ記載する。
 6. `config/release.json` の `site.repoLinkBase` が公開後のURLと一致していることを確認する。
 
-配信を再び止めるときは `gh variable delete PAGES_ENABLED` でよい。workflowの定義を変更する必要はない。
+配信を止めるときは `gh variable delete PAGES_ENABLED` でよい。workflowの定義を変更する必要はない。
 
-### 5.3 配信できない期間の構文検査
+### 5.3 workflow定義の構文検査
 
-Actionsを実行できない期間も、workflowの定義が壊れていないことは確認する。
+Actionsを実行しないまま定義だけを変更したときも、workflowが壊れていないことは確認する。
 
 ```bash
 gh workflow view "Handbook Pages" --repo kenten10/web-application-development-handbook
@@ -159,43 +161,33 @@ ruleset定義の正本は [`.github/rulesets/main-required-ci.json`](.github/rul
 
 `config/ci-plan.json` の `policy.requiredStatusCheck` が正本であり、`scripts/validate-ci.mjs` は同名のジョブが `ci.yml` に存在することを検査する。ジョブ名を変えるとrulesetの必須チェックが永久に保留になるため、両者を必ず一致させる。
 
-### 8.1 無料プランの非公開リポジトリでは設定できない
+### 8.1 適用済みのruleset
 
-現在、rulesetもclassic branch protectionも適用できない。GitHubは両方のAPIに403を返す。
+rulesetは適用済みである。id は `21860256`、`enforcement` は `active`、対象は `~DEFAULT_BRANCH`（`main`）で、上の表の4ルールがそのまま入っている。`bypass_actors` はRepository admin（`actor_id: 5`）の `always` だけである。必須ステータスチェックは `Required CI gate` の1つで、`strict_required_status_checks_policy` は有効である。
 
-```
-$ gh api --method POST repos/kenten10/web-application-development-handbook/rulesets \
-    --input .github/rulesets/main-required-ci.json
-{"message":"Upgrade to GitHub Pro or make this repository public to enable this feature.","status":"403"}
-
-$ gh api --method PUT repos/kenten10/web-application-development-handbook/branches/main/protection --input <payload>
-{"message":"Upgrade to GitHub Pro or make this repository public to enable this feature.","status":"403"}
-```
-
-無料プランでbranch protectionを使えるのは公開リポジトリだけである。適用できる条件は次のいずれかである。
-
-1. リポジトリを公開する。
-2. GitHub Proへ切り替える。
-
-どちらかを満たした時点で、上の `gh api --method POST` を1回実行すれば設定は完了する。定義は `.github/rulesets/main-required-ci.json` に固定してあるため、設定内容が人の手作業に依存することはない。設定後は次で読み出して確認する。
+適用は `.github/rulesets/main-required-ci.json` を入力にした `gh api --method POST` の1回だけで、GitHubのUIでの手作業は挟んでいない。現在の設定はいつでも読み出して定義と突き合わせられる。
 
 ```bash
 gh api repos/kenten10/web-application-development-handbook/rulesets --jq '.[] | {id, name, enforcement}'
-gh api repos/kenten10/web-application-development-handbook/rulesets/<id>
+gh api repos/kenten10/web-application-development-handbook/rulesets/21860256
 ```
 
-## 9. Actionsの実行が課金設定で止まる場合
+無料プランでrulesetとbranch protectionを使えるのは公開リポジトリだけである。非公開のまま適用しようとすると、rulesets APIもbranch protection APIも `403 Upgrade to GitHub Pro or make this repository public to enable this feature.` を返す。v1.0.0の公開時点はこの状態であり、その経緯は [`reports/KEN70_GITHUB_CI_REPORT.md`](./reports/KEN70_GITHUB_CI_REPORT.md) に記録がある。リポジトリを非公開へ戻す場合は、rulesetによる保護を失うことを織り込む必要がある。
 
-非公開リポジトリでのGitHub Actionsの実行時間には課金枠が必要である。枠を使い切っているか支払い設定に問題があると、ジョブは開始されずに次のannotationを残して失敗する。
+## 9. Actionsの実行枠
+
+リポジトリはpublicであり、GitHub-hosted runnerの標準ランナーは無料枠で動く。実行時間の課金枠を気にする必要はない。`main` の必須ゲートは33ジョブ（`Manuscript and configuration`、`PostgreSQL and Redis service containers`、ch01〜ch30の30ジョブ、`Required CI gate`）が約3分で完走する。
+
+非公開リポジトリではActionsの実行時間に課金枠が必要になる。枠を使い切っているか支払い設定に問題があると、ジョブは開始されずに次のannotationを残して失敗する。
 
 ```
 The job was not started because recent account payments have failed
 or your spending limit needs to be increased.
 ```
 
-これはworkflowの定義の誤りではない。Settings > Billing & plans で支払い方法とspending limitを確認する。リポジトリを公開すれば、GitHub-hosted runnerの実行時間は無料になる。
+これはworkflowの定義の誤りではない。この症状が出たときは Settings > Billing & plans で支払い方法とspending limitを確認する。v1.0.0の公開時点はこの状態であり、経緯は [`reports/KEN70_GITHUB_CI_REPORT.md`](./reports/KEN70_GITHUB_CI_REPORT.md) にある。
 
-この状態でもローカル検証は同じ内容を実行できる。
+Actionsを実行できない場合でも、ローカル検証は同じ内容を実行できる。
 
 ```bash
 pnpm install --frozen-lockfile
